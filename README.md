@@ -1,1 +1,1 @@
-# AutomatedSmartBlinds
+# Automated Smart Blinds
