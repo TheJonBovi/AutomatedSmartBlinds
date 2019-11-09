@@ -14,7 +14,7 @@
             <p>
                 Get the current Smart Blinds status and make adjustments</p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Get Current Status, Adjust Blinds&nbsp;&nbsp; &raquo;</a>
+                <a class="btn btn-default" href="CurentStatus.aspx">Get Current Status, Adjust Blinds&nbsp;&nbsp; &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
@@ -22,7 +22,7 @@
             <p>
                 Configure Smart Blinds Automation and add/Edit Users</p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Configure Device and Users&nbsp;&nbsp; &raquo;</a>
+                <a class="btn btn-default" href="Settings.aspx">Configure Device and Users&nbsp;&nbsp; &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
@@ -30,7 +30,7 @@
             <p>
                 Edit and View Log files and settings</p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">View and Edit Log file settings and Reports&nbsp;&nbsp; &raquo;</a>
+                <a class="btn btn-default" href="Logs.aspx">View and Edit Log file settings and Reports&nbsp;&nbsp; &raquo;</a>
             </p>
         </div>
         
