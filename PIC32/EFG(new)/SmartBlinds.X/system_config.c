@@ -4,7 +4,6 @@
  * Automated Smart Blinds
  * 
  *  Andrew, Chad and Michael
- * 
  *
  * system_config.c
  * 
@@ -258,7 +257,6 @@ void T3_config(void)
     
     // Set Shadow register set 2 for TMR3 interrupts (Priority 5)
     PRISSSET = (2 << _PRISS_PRI5SS_POSITION) & _PRISS_PRI5SS_MASK;
-    
     // Clear T3 priority an sub priority
     IPC3CLR = _IPC3_T3IP_MASK | _IPC3_T3IS_MASK;
     // Set T2 to priority 5, sub-priority 0
@@ -293,32 +291,32 @@ void T3_config(void)
  */
 void ADC_config(void)
 {
-    /*
-     1. Configure the analog port pins, as described in 22.4.1 ?Configuring the Analog Port
-    Pins?.
-    2. Initialize the ADC calibration values by copying them from the factory-programmed
-    DEVADCx Flash registers into the corresponding ADCxCFG registers.
-    3. Select the analog inputs to the ADC multiplexers, as described in 22.4.2 ?Selecting the
-    ADC Multiplexer Analog Inputs?.
-    4. Select the format of the ADC result, as described in 22.4.3 ?Selecting the Format of the
-    ADC Result?.
-    5. Select the conversion trigger source, as described in 22.4.4 ?Selecting the Conversion
-    Trigger Source?.
-    6. Select the voltage reference source, as described in 22.4.5 ?Selecting the Voltage
-    Reference Source?.
-    7. Select the scanned inputs, as described in 22.4.6 ?Selecting the Scanned Inputs?.
-    8. Select the analog-to-digital conversion clock source and prescaler, as described in
-    22.4.7 ?Selecting the Analog-to-Digital Conversion Clock Source and Prescaler?.
-    9. Specify any additional acquisition time, if required, as described in 22.10 ?ADC Sampling
-    Requirements?.
-    10. Turn on the ADC module, as described in 22.4.9 ?Turning ON the ADC?.
-    11. Poll (or wait for the interrupt) for the voltage reference to be ready, as described in
-    22.4.5 ?Selecting the Voltage Reference Source?.
-    12. Enable the analog and bias circuit for required ADC modules and after the ADC module
-    wakes-up, enable the digital circuit, as described in 22.7.3 ?ADC Low-power Mode?
-    13. Configure the ADC interrupts (if required), as described in 22.6 ?Interrupts?.
+//     1. Configure the analog port pins, as described in 22.4.1 ?Configuring the Analog Port
+//    Pins?.
+    // Set AN0 pin for first ADC module
+    TRIS
+//    2. Initialize the ADC calibration values by copying them from the factory-programmed
+//    DEVADCx Flash registers into the corresponding ADCxCFG registers.
+//    3. Select the analog inputs to the ADC multiplexers, as described in 22.4.2 ?Selecting the
+//    ADC Multiplexer Analog Inputs?.
+//    4. Select the format of the ADC result, as described in 22.4.3 ?Selecting the Format of the
+//    ADC Result?.
+//    5. Select the conversion trigger source, as described in 22.4.4 ?Selecting the Conversion
+//    Trigger Source?.
+//    6. Select the voltage reference source, as described in 22.4.5 ?Selecting the Voltage
+//    Reference Source?.
+//    7. Select the scanned inputs, as described in 22.4.6 ?Selecting the Scanned Inputs?.
+//    8. Select the analog-to-digital conversion clock source and prescaler, as described in
+//    22.4.7 ?Selecting the Analog-to-Digital Conversion Clock Source and Prescaler?.
+//    9. Specify any additional acquisition time, if required, as described in 22.10 ?ADC Sampling
+//    Requirements?.
+//    10. Turn on the ADC module, as described in 22.4.9 ?Turning ON the ADC?.
+//    11. Poll (or wait for the interrupt) for the voltage reference to be ready, as described in
+//    22.4.5 ?Selecting the Voltage Reference Source?.
+//    12. Enable the analog and bias circuit for required ADC modules and after the ADC module
+//    wakes-up, enable the digital circuit, as described in 22.7.3 ?ADC Low-power Mode?
+//    13. Configure the ADC interrupts (if required), as described in 22.6 ?Interrupts?.
 
-     */
 }
 
 
