@@ -126,6 +126,37 @@ int main()
         TMR3 = 5; // Needed to get TMR2 and 3 in sync
     }
     
+    // Enable the ADC Module
+    /* Enable the ADC module */
+    ADCCON3bits.DIGEN0 = 1; // Enable ADC0
+    ADCCON3bits.DIGEN1 = 1; // Enable ADC1
+    ADCCON3bits.DIGEN2 = 1; // Enable ADC2
+    
+    int result[3];
+    while (1) 
+    {
+        /* Trigger a conversion */
+        ADCCON3bits.GSWTRG = 1;
+        /* Wait the conversions to complete */
+        while (ADCDSTAT1bits.ARDY0 == 0);
+        /* fetch the result */
+        result[0] = ADCDATA0;
+        while (ADCDSTAT1bits.ARDY1 == 0);
+        /* fetch the result */
+        result[1] = ADCDATA1;
+        while (ADCDSTAT1bits.ARDY2 == 0);
+        /* fetch the result */
+        result[2] = ADCDATA2;
+        /*
+        * Process results here
+        *
+        * Note: Loop time determines the sampling time since all inputs are Class 1.
+        * If the loop time is small and the next trigger happens before the completion
+        * of set sample time, the conversion will happen only after the sample time
+        * has elapsed.
+        *
+        */
+    }
     // Endless loop
     while(true);
 }
