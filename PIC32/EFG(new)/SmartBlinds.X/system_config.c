@@ -326,13 +326,23 @@ void ADC_config(void)
     //ADC6CFG = DEVADC6;
     ADC7CFG = DEVADC7;
     
+    /* Configure ADCCON1 */
+    ADCCON1 = 0; // No ADCCON1 features are enabled including: Stop-in-Idle, turbo,
+    // CVD mode, Fractional mode and scan trigger source.
+    /* Configure ADCCON2 */
+    ADCCON2 = 0; // Since, we are using only the Class 1 inputs, no setting is
+    // required for ADCDIV
+    
+    /* Initialize warm up time register */
+    ADCANCON = 0;
+    ADCANCONbits.WKUPCLKCNT = 5; // Wakeup exponent = 32 * TADx
+    
 //    3. Select the analog inputs to the ADC multiplexers, as described in 22.4.2 ?Selecting the
 //    ADC Multiplexer Analog Inputs?.
     
     /* Select all analog inputs for no presync trigger, not sync sampling */
     // This also sets AN0 to ADC0, AN1 to ADC1 and AN2 to ADC2
     ADCTRGMODE = 0;
-    
     
 //    4. Select the format of the ADC result, as described in 22.4.3 ?Selecting the Format of the
 //    ADC Result?.
