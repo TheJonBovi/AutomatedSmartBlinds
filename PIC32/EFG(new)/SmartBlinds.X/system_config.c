@@ -412,9 +412,6 @@ void ADC_config(void)
     /* Configure ADCGIRQENx */
     ADCGIRQEN1 = 0; // No interrupts are used
     ADCGIRQEN2 = 0;
-    /* Configure ADCCSSx */
-    ADCCSS1 = 0; // No scanning is used
-    ADCCSS2 = 0;
     
     /* Configure ADCCMPCONx */
     ADCCMPCON1 = 0; // No digital comparators are used. Setting the ADCCMPCONx
@@ -432,11 +429,14 @@ void ADC_config(void)
     ADCFLTR5 = 0;
     ADCFLTR6 = 0;
     
-//    10. Turn on the ADC module, as described in 22.4.9 ?Turning ON the ADC?.
-    
     /* Early interrupt */
     ADCEIEN1 = 0; // No early interrupt
     ADCEIEN2 = 0;
+    
+    
+//    10. Turn on the ADC module, as described in 22.4.9 ?Turning ON the ADC?.
+    
+   
     /* Turn the ADC on */
     ADCCON1bits.ON = 1;
     
