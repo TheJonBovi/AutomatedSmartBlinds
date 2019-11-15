@@ -382,9 +382,9 @@ void ADC_config(void)
     /* Configure ADCCSSx */
     ADCCSS1 = 0; // Clear all bits
     ADCCSS2 = 0;
-    ADCCSS1bits.CSS0 = 1; // AN0 (Class 1) set for scan
-    ADCCSS1bits.CSS1 = 1; // AN1 (Class 1) set for scan
-    ADCCSS1bits.CSS2 = 1; // AN2 (Class 1) set for scan
+//    ADCCSS1bits.CSS0 = 1; // AN0 (Class 1) set for scan
+//    ADCCSS1bits.CSS1 = 1; // AN1 (Class 1) set for scan
+//    ADCCSS1bits.CSS2 = 1; // AN2 (Class 1) set for scan
     
 //    8. Select the analog-to-digital conversion clock source and prescaler, as described in
 //    22.4.7 ?Selecting the Analog-to-Digital Conversion Clock Source and Prescaler?.
@@ -392,9 +392,6 @@ void ADC_config(void)
     /* Clock setting */
     ADCCON3bits.ADCSEL = 0; // Select input clock source (PBCLK3)
     ADCCON3bits.CONCLKDIV = 1; // Control clock frequency is half of input clock
-    ADCCON3bits.VREFSEL = 0; // Select AVDD and AVSS as reference source
-    
-    // for ADC0
     ADCCON3bits.VREFSEL = 0; // Select AVDD and AVSS as reference source
     
     ADC0TIMEbits.ADCDIV = 1; // ADC0 clock frequency is half of control clock = TAD0
