@@ -335,7 +335,7 @@ void ADC_config(void)
     
     /* Initialize warm up time register */
     ADCANCON = 0;
-    ADCANCONbits.WKUPCLKCNT = 5; // Wakeup exponent = 32 * TADx
+    ADCANCONbits.WKUPCLKCNT = 6; // Wakeup exponent = 32 * TADx
     
 //    3. Select the analog inputs to the ADC multiplexers, as described in 22.4.2 ?Selecting the
 //    ADC Multiplexer Analog Inputs?.
@@ -373,7 +373,8 @@ void ADC_config(void)
     /* Clock setting */
     ADCCON3 = 0;
     ADCCON3bits.ADCSEL = 0; // Select input clock source
-    ADCCON3bits.CONCLKDIV = 1; // Control clock frequency is half of input clock
+    // NOTE: ADC clock must be between 1 and 23 MHz to operate successfully.
+    ADCCON3bits.CONCLKDIV = 3; // Control clock frequency is 84 (PBCLK3) / 4 = 21MHz)
     ADCCON3bits.VREFSEL = 0; // Select AVDD and AVSS as reference source
     
     
@@ -388,11 +389,6 @@ void ADC_config(void)
     
 //    8. Select the analog-to-digital conversion clock source and prescaler, as described in
 //    22.4.7 ?Selecting the Analog-to-Digital Conversion Clock Source and Prescaler?.
-    
-    /* Clock setting */
-    ADCCON3bits.ADCSEL = 0; // Select input clock source (PBCLK3)
-    ADCCON3bits.CONCLKDIV = 1; // Control clock frequency is half of input clock
-    ADCCON3bits.VREFSEL = 0; // Select AVDD and AVSS as reference source
     
     ADC0TIMEbits.ADCDIV = 1; // ADC0 clock frequency is half of control clock = TAD0
     ADC0TIMEbits.SAMC = 5; // ADC0 sampling time = 5 * TAD0
