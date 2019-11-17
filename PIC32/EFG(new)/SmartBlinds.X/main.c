@@ -110,6 +110,7 @@ int main()
     SYSCLK_config();
     ISR_config();    
     PBCLK3_config();
+    ADC_config();
     T2_config();
     T3_config();
     
