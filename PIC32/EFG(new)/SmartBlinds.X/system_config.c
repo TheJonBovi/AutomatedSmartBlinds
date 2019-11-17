@@ -335,7 +335,7 @@ void ADC_config(void)
     
     /* Initialize warm up time register */
     ADCANCON = 0;
-    ADCANCONbits.WKUPCLKCNT = 5; // Wakeup exponent = 32 * TADx
+    ADCANCONbits.WKUPCLKCNT = 6; // Wakeup exponent = 32 * TADx
     
 //    3. Select the analog inputs to the ADC multiplexers, as described in 22.4.2 ?Selecting the
 //    ADC Multiplexer Analog Inputs?.
@@ -373,7 +373,8 @@ void ADC_config(void)
     /* Clock setting */
     ADCCON3 = 0;
     ADCCON3bits.ADCSEL = 0; // Select input clock source
-    ADCCON3bits.CONCLKDIV = 1; // Control clock frequency is half of input clock
+    // NOTE: ADC clock must be between 1 and 23 MHz to operate successfully.
+    ADCCON3bits.CONCLKDIV = 3; // Control clock frequency is 84 (PBCLK3) / 4 = 21MHz)
     ADCCON3bits.VREFSEL = 0; // Select AVDD and AVSS as reference source
     
     
@@ -382,20 +383,12 @@ void ADC_config(void)
     /* Configure ADCCSSx */
     ADCCSS1 = 0; // Clear all bits
     ADCCSS2 = 0;
-    ADCCSS1bits.CSS0 = 1; // AN0 (Class 1) set for scan
-    ADCCSS1bits.CSS1 = 1; // AN1 (Class 1) set for scan
-    ADCCSS1bits.CSS2 = 1; // AN2 (Class 1) set for scan
+//    ADCCSS1bits.CSS0 = 1; // AN0 (Class 1) set for scan
+//    ADCCSS1bits.CSS1 = 1; // AN1 (Class 1) set for scan
+//    ADCCSS1bits.CSS2 = 1; // AN2 (Class 1) set for scan
     
 //    8. Select the analog-to-digital conversion clock source and prescaler, as described in
 //    22.4.7 ?Selecting the Analog-to-Digital Conversion Clock Source and Prescaler?.
-    
-    /* Clock setting */
-    ADCCON3bits.ADCSEL = 0; // Select input clock source (PBCLK3)
-    ADCCON3bits.CONCLKDIV = 1; // Control clock frequency is half of input clock
-    ADCCON3bits.VREFSEL = 0; // Select AVDD and AVSS as reference source
-    
-    // for ADC0
-    ADCCON3bits.VREFSEL = 0; // Select AVDD and AVSS as reference source
     
     ADC0TIMEbits.ADCDIV = 1; // ADC0 clock frequency is half of control clock = TAD0
     ADC0TIMEbits.SAMC = 5; // ADC0 sampling time = 5 * TAD0
@@ -415,9 +408,6 @@ void ADC_config(void)
     /* Configure ADCGIRQENx */
     ADCGIRQEN1 = 0; // No interrupts are used
     ADCGIRQEN2 = 0;
-    /* Configure ADCCSSx */
-    ADCCSS1 = 0; // No scanning is used
-    ADCCSS2 = 0;
     
     /* Configure ADCCMPCONx */
     ADCCMPCON1 = 0; // No digital comparators are used. Setting the ADCCMPCONx
@@ -435,11 +425,14 @@ void ADC_config(void)
     ADCFLTR5 = 0;
     ADCFLTR6 = 0;
     
-//    10. Turn on the ADC module, as described in 22.4.9 ?Turning ON the ADC?.
-    
     /* Early interrupt */
     ADCEIEN1 = 0; // No early interrupt
     ADCEIEN2 = 0;
+    
+    
+//    10. Turn on the ADC module, as described in 22.4.9 ?Turning ON the ADC?.
+    
+   
     /* Turn the ADC on */
     ADCCON1bits.ON = 1;
     
@@ -464,6 +457,7 @@ void ADC_config(void)
     
 //    13. Configure the ADC interrupts (if required), as described in 22.6 ?Interrupts?.
 
+    
     
 }
 
