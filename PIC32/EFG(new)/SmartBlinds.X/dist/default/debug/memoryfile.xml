@@ -9,8 +9,8 @@
     </memory>                              
     <memory name="data">              
       <units>bytes</units>                 
-      <length>525184</length>                 
-      <used>1840</used>                     
+      <length>524288</length>                 
+      <used>944</used>                     
       <free>523344</free>                     
     </memory>                              
   </executable>                            
