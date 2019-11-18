@@ -256,26 +256,26 @@ ULN and UDN Series&lt;p&gt;
 </packages>
 <symbols>
 <symbol name="MOTOR">
-<wire x1="-2.54" y1="0" x2="-0.032" y2="0" width="0.254" layer="94"/>
-<wire x1="-0.032" y1="0" x2="2.476" y2="0" width="0.254" layer="94"/>
-<wire x1="2.476" y1="0" x2="5.238" y2="0" width="0.254" layer="94"/>
-<wire x1="5.238" y1="0" x2="7.746" y2="0" width="0.254" layer="94"/>
-<wire x1="7.746" y1="0" x2="10.286" y2="0" width="0.254" layer="94"/>
-<wire x1="10.286" y1="0" x2="12.54" y2="0" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="7.62" y2="0" width="0.254" layer="94"/>
+<wire x1="7.62" y1="0" x2="10.16" y2="0" width="0.254" layer="94"/>
+<wire x1="10.16" y1="0" x2="12.54" y2="0" width="0.254" layer="94"/>
 <wire x1="12.54" y1="0" x2="12.54" y2="10" width="0.254" layer="94"/>
 <wire x1="12.54" y1="10" x2="-2.54" y2="10" width="0.254" layer="94"/>
 <wire x1="-2.54" y1="10" x2="-2.54" y2="0" width="0.254" layer="94"/>
-<wire x1="-0.032" y1="-2" x2="-0.032" y2="0" width="0.127" layer="94"/>
-<wire x1="2.476" y1="0" x2="2.476" y2="-2" width="0.127" layer="94"/>
-<wire x1="5.238" y1="0" x2="5.238" y2="-2" width="0.127" layer="94"/>
-<wire x1="7.746" y1="0" x2="7.746" y2="-2" width="0.127" layer="94"/>
 <text x="0.668" y="0.5" size="1.27" layer="95" rot="R90">Blue</text>
 <text x="3.176" y="0.5" size="1.27" layer="95" rot="R90">Pink</text>
 <text x="5.938" y="0.5" size="1.27" layer="95" rot="R90">Yellow</text>
 <text x="8.446" y="0.5" size="1.27" layer="95" rot="R90">Orange</text>
 <text x="2.646" y="10.5" size="1.27" layer="95">Motor</text>
-<wire x1="10.286" y1="0" x2="10.286" y2="-2" width="0.127" layer="94"/>
 <text x="10.986" y="0.5" size="1.27" layer="95" rot="R90">Red</text>
+<wire x1="0" y1="0" x2="0" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="2.54" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="7.62" y1="0" x2="7.62" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="10.16" y1="0" x2="10.16" y2="-2.54" width="0.254" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -366,41 +366,13 @@ ULN and UDN Series&lt;p&gt;
 </plain>
 <instances>
 <instance part="IC1" gate="A" x="66.04" y="63.5"/>
-<instance part="U$1" gate="G$1" x="106.172" y="71.12" rot="R270"/>
+<instance part="U$1" gate="G$1" x="106.68" y="71.12" rot="R270"/>
 <instance part="GND1" gate="1" x="48.26" y="35.56"/>
 <instance part="P+1" gate="1" x="109.22" y="48.26" rot="R270"/>
 </instances>
 <busses>
 </busses>
 <nets>
-<net name="N$1" class="0">
-<segment>
-<pinref part="IC1" gate="A" pin="I1"/>
-<wire x1="53.34" y1="71.12" x2="35.56" y2="71.12" width="0.1524" layer="91"/>
-<label x="35.56" y="71.12" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="N$2" class="0">
-<segment>
-<pinref part="IC1" gate="A" pin="I2"/>
-<wire x1="53.34" y1="68.58" x2="27.94" y2="68.58" width="0.1524" layer="91"/>
-<label x="27.94" y="68.58" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="N$3" class="0">
-<segment>
-<pinref part="IC1" gate="A" pin="I3"/>
-<wire x1="53.34" y1="66.04" x2="35.56" y2="66.04" width="0.1524" layer="91"/>
-<label x="35.56" y="66.04" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="N$4" class="0">
-<segment>
-<pinref part="IC1" gate="A" pin="I4"/>
-<wire x1="53.34" y1="63.5" x2="27.94" y2="63.5" width="0.1524" layer="91"/>
-<label x="27.94" y="63.5" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
 <net name="GND" class="0">
 <segment>
 <pinref part="IC1" gate="A" pin="GND"/>
@@ -418,6 +390,7 @@ ULN and UDN Series&lt;p&gt;
 <pinref part="P+1" gate="1" pin="+5V"/>
 <wire x1="91.44" y1="53.34" x2="91.44" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="91.44" y1="48.26" x2="106.68" y2="48.26" width="0.1524" layer="91"/>
+<junction x="91.44" y="53.34"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -442,6 +415,40 @@ ULN and UDN Series&lt;p&gt;
 <segment>
 <pinref part="IC1" gate="A" pin="O4"/>
 <wire x1="104.14" y1="63.5" x2="78.74" y2="63.5" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="RC1(PIN6)" class="0">
+<segment>
+<pinref part="IC1" gate="A" pin="I1"/>
+<wire x1="53.34" y1="71.12" x2="33.02" y2="71.12" width="0.1524" layer="91"/>
+<label x="33.02" y="71.12" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="RC2(PIN11)" class="0">
+<segment>
+<pinref part="IC1" gate="A" pin="I2"/>
+<wire x1="53.34" y1="68.58" x2="35.56" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="68.58" x2="35.56" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="66.04" x2="33.02" y2="66.04" width="0.1524" layer="91"/>
+<label x="33.02" y="66.04" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="RC3(PIN12)" class="0">
+<segment>
+<pinref part="IC1" gate="A" pin="I3"/>
+<wire x1="53.34" y1="66.04" x2="38.1" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="66.04" x2="38.1" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="60.96" x2="33.02" y2="60.96" width="0.1524" layer="91"/>
+<label x="33.02" y="60.96" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="RC4(PIN13)" class="0">
+<segment>
+<pinref part="IC1" gate="A" pin="I4"/>
+<wire x1="53.34" y1="63.5" x2="40.64" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="63.5" x2="40.64" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="55.88" x2="33.02" y2="55.88" width="0.1524" layer="91"/>
+<label x="33.02" y="55.88" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 </nets>

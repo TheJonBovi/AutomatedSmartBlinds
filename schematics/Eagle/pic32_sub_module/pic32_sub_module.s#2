@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -4019,76 +4019,6 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="-66.04" y1="63.5" x2="-66.04" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="-66.04" y1="60.96" x2="-73.66" y2="60.96" width="0.1524" layer="91"/>
 <label x="-73.66" y="60.96" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="OCMOTOR1" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="AN4/C1INB/RB4"/>
-<wire x1="-48.26" y1="60.96" x2="-63.5" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="-63.5" y1="60.96" x2="-63.5" y2="53.34" width="0.1524" layer="91"/>
-<wire x1="-63.5" y1="53.34" x2="-73.66" y2="53.34" width="0.1524" layer="91"/>
-<label x="-73.66" y="53.34" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="OCMOTOR2" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="EBIA10/AN48/RPB8/PMA10/RB8"/>
-<wire x1="-48.26" y1="50.8" x2="-66.04" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="-66.04" y1="50.8" x2="-66.04" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="-66.04" y1="48.26" x2="-73.66" y2="48.26" width="0.1524" layer="91"/>
-<label x="-73.66" y="48.26" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="OCMOTOR3" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="EBIA7/AN49/RPB9/PMA7/RB9"/>
-<wire x1="-48.26" y1="48.26" x2="-60.96" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="-60.96" y1="48.26" x2="-60.96" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="-60.96" y1="43.18" x2="-73.66" y2="43.18" width="0.1524" layer="91"/>
-<label x="-73.66" y="43.18" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="OCMOTOR4" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="CVREFOUT/AN5/RPB10/RB10"/>
-<wire x1="-48.26" y1="45.72" x2="-58.42" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="-58.42" y1="45.72" x2="-58.42" y2="38.1" width="0.1524" layer="91"/>
-<wire x1="-58.42" y1="38.1" x2="-73.66" y2="38.1" width="0.1524" layer="91"/>
-<label x="-73.66" y="38.1" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="UDMOTOR1" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="EBIA6/AN22/RPC1/PMA6/RC1"/>
-<wire x1="-48.26" y1="27.94" x2="-73.66" y2="27.94" width="0.1524" layer="91"/>
-<label x="-73.66" y="27.94" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="UDMOTOR2" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="EBIA12/AN21/RPC2/PMA12/RC2"/>
-<wire x1="-48.26" y1="25.4" x2="-68.58" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="-68.58" y1="25.4" x2="-68.58" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="-68.58" y1="22.86" x2="-73.66" y2="22.86" width="0.1524" layer="91"/>
-<label x="-73.66" y="22.86" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="UDMOTOR3" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="!EBIWE!/AN20/RPC3/PMWR/RC3"/>
-<wire x1="-48.26" y1="22.86" x2="-66.04" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="-66.04" y1="22.86" x2="-66.04" y2="17.78" width="0.1524" layer="91"/>
-<wire x1="-66.04" y1="17.78" x2="-73.66" y2="17.78" width="0.1524" layer="91"/>
-<label x="-73.66" y="17.78" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="UDMOTOR4" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="!EBIOE!/AN19/RPC4/PMRD/RC4"/>
-<wire x1="-48.26" y1="20.32" x2="-63.5" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="-63.5" y1="20.32" x2="-63.5" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="-63.5" y1="12.7" x2="-73.66" y2="12.7" width="0.1524" layer="91"/>
-<label x="-73.66" y="12.7" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 </nets>
