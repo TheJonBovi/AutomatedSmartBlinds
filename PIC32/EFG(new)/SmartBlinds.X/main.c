@@ -108,6 +108,7 @@ int main()
 {
     // Run initialization code
     SYSCLK_config();
+    LED_config();
     ISR_config();    
     PBCLK3_config();
     ADC_config();
@@ -157,6 +158,11 @@ int main()
         * has elapsed.
         *
         */
+        
+        if (result[0] < 1024) PORTKCLR = PORTK = 0b0;
+        else if (1024 < result[0] < 2047) PORTK = 0b1;
+        else if (2048 < result[0] < 3071) PORTK = 0b11;
+        else PORTK = 0b111;
     }
     // Endless loop
     while(true);
