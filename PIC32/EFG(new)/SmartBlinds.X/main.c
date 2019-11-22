@@ -68,9 +68,13 @@
 #include <sys/attribs.h>
 
 // These will be the ADC values used to determine distance / proximity zones.
-#define ADC_25 1024
-#define ADC_50 2048
-#define ADC_75 3072
+//#define ADC_25 1024
+//#define ADC_50 2048
+//#define ADC_75 3072
+
+#define ADC_25 2400
+#define ADC_50 2500
+#define ADC_75 3125
 
 /* ************************************************************************** */
 /* ************************************************************************** */
