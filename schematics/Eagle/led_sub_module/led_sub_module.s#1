@@ -4092,21 +4092,21 @@ Source: http://www.seoulsemicon.co.kr .. F50360.pdf</description>
 <wire x1="149.86" y1="50.8" x2="149.86" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$16" class="0">
+<net name="RK0(PIN19)" class="0">
 <segment>
 <pinref part="R1" gate="G$1" pin="2"/>
 <wire x1="12.7" y1="71.12" x2="0" y2="71.12" width="0.1524" layer="91"/>
 <label x="0" y="71.12" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="N$17" class="0">
+<net name="RK1(PIN51)" class="0">
 <segment>
 <pinref part="R2" gate="G$1" pin="2"/>
 <wire x1="12.7" y1="45.72" x2="0" y2="45.72" width="0.1524" layer="91"/>
 <label x="0" y="45.72" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="N$18" class="0">
+<net name="RK2(PIN52)" class="0">
 <segment>
 <pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="12.7" y1="20.32" x2="0" y2="20.32" width="0.1524" layer="91"/>

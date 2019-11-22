@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -3885,7 +3885,7 @@ Source: http://www.seoulsemicon.co.kr .. F50360.pdf</description>
 <part name="LED1" library="led" deviceset="F50360" device=""/>
 <part name="R7" library="resistor" deviceset="R-US_" device="0204/2V" value="180"/>
 <part name="R8" library="resistor" deviceset="R-US_" device="0204/2V" value="150"/>
-<part name="R9" library="resistor" deviceset="R-US_" device="0204/2V" value="180"/>
+<part name="R9" library="resistor" deviceset="R-US_" device="0204/2V" value="270"/>
 </parts>
 <sheets>
 <sheet>
@@ -3899,18 +3899,9 @@ Source: http://www.seoulsemicon.co.kr .. F50360.pdf</description>
 <instance part="Q1" gate="1" x="78.74" y="81.28"/>
 <instance part="Q2" gate="1" x="78.74" y="55.88"/>
 <instance part="Q3" gate="1" x="78.74" y="30.48"/>
-<instance part="Q4" gate="G$1" x="40.64" y="71.12" smashed="yes">
-<attribute name="NAME" x="38.1" y="76.2" size="1.778" layer="95"/>
-<attribute name="VALUE" x="45.72" y="71.12" size="1.778" layer="96"/>
-</instance>
-<instance part="Q5" gate="G$1" x="40.64" y="45.72" smashed="yes">
-<attribute name="NAME" x="38.1" y="50.8" size="1.778" layer="95"/>
-<attribute name="VALUE" x="45.72" y="45.72" size="1.778" layer="96"/>
-</instance>
-<instance part="Q6" gate="G$1" x="40.64" y="20.32" smashed="yes">
-<attribute name="NAME" x="38.1" y="25.4" size="1.778" layer="95"/>
-<attribute name="VALUE" x="45.72" y="20.32" size="1.778" layer="96"/>
-</instance>
+<instance part="Q4" gate="G$1" x="40.64" y="71.12"/>
+<instance part="Q5" gate="G$1" x="40.64" y="45.72"/>
+<instance part="Q6" gate="G$1" x="40.64" y="20.32"/>
 <instance part="R3" gate="G$1" x="17.78" y="20.32" rot="R180"/>
 <instance part="R4" gate="G$1" x="60.96" y="81.28" rot="R180"/>
 <instance part="R5" gate="G$1" x="60.96" y="55.88" rot="R180"/>
@@ -4092,21 +4083,21 @@ Source: http://www.seoulsemicon.co.kr .. F50360.pdf</description>
 <wire x1="149.86" y1="50.8" x2="149.86" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="RK0(PIN19)" class="0">
+<net name="N$16" class="0">
 <segment>
 <pinref part="R1" gate="G$1" pin="2"/>
 <wire x1="12.7" y1="71.12" x2="0" y2="71.12" width="0.1524" layer="91"/>
 <label x="0" y="71.12" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="RK1(PIN51)" class="0">
+<net name="N$17" class="0">
 <segment>
 <pinref part="R2" gate="G$1" pin="2"/>
 <wire x1="12.7" y1="45.72" x2="0" y2="45.72" width="0.1524" layer="91"/>
 <label x="0" y="45.72" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="RK2(PIN52)" class="0">
+<net name="N$18" class="0">
 <segment>
 <pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="12.7" y1="20.32" x2="0" y2="20.32" width="0.1524" layer="91"/>
