@@ -67,6 +67,15 @@
 #include <math.h>
 #include <sys/attribs.h>
 
+// These will be the ADC values used to determine distance / proximity zones.
+//#define ADC_25 1024
+//#define ADC_50 2048
+//#define ADC_75 3072
+
+#define ADC_25 2400
+#define ADC_50 2500
+#define ADC_75 3125
+
 /* ************************************************************************** */
 /* ************************************************************************** */
 /* Section: File Scope or Global Data                                         */
@@ -98,6 +107,7 @@ int T2_count = 0;
 int T3_count = 0;
 
 
+
 /* ************************************************************************** */
 /* ************************************************************************** */
 // Section: Main Function                                                     */
@@ -108,6 +118,7 @@ int main()
 {
     // Run initialization code
     SYSCLK_config();
+    LED_config();
     ISR_config();    
     PBCLK3_config();
     ADC_config();
@@ -157,6 +168,11 @@ int main()
         * has elapsed.
         *
         */
+        
+        if (result[0] <= ADC_25) PORTK = 0b0;
+        else if (ADC_25 < result[0] && result[0] <= ADC_50) PORTK = 0b1;
+        else if (ADC_50 < result[0] && result[0] <= ADC_75) PORTK = 0b11;
+        else PORTK = 0b111;
     }
     // Endless loop
     while(true);

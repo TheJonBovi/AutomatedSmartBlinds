@@ -177,6 +177,30 @@ void ISR_config(void)
 /** 
   @Function
 
+ * LED_config
+
+  @Summary
+    
+ * This function configures the RK0, 1 and 2 pins to output to the red,
+ * blue and green LED's, respectivly
+
+  @Remarks
+    Refer to the system_config.h interface header for function usage details.
+ */
+void LED_config(void)
+{ 
+    // PORTK only digital, so no ANSELx set required
+    
+    // Set RK0,1 and 2 of PORTK as an output (PIN19, 51 and 52)
+    TRISKCLR = _TRISK_TRISK0_MASK | _TRISK_TRISK1_MASK | _TRISK_TRISK2_MASK;
+    
+    // Set RK0-2 to output 0
+    PORTKCLR = _PORTK_RK0_MASK | _PORTK_RK1_MASK | _PORTK_RK2_MASK;
+}
+
+/** 
+  @Function
+
  * PBCLK3_config
 
   @Summary
