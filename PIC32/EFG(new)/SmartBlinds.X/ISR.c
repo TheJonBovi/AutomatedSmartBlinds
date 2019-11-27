@@ -55,8 +55,6 @@
   @Remarks
     Any additional remarks
  */
-extern int T2_count;
-extern int T3_count;
 
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -142,9 +140,9 @@ static int ExampleLocalFunction(int param1, int param2) {
   @Remarks
     Refer to the ISR.h interface header for function usage details.
 */
-void __ISR_AT_VECTOR(_TIMER_2_VECTOR, IPL4SRS) T2_ISR(void)
+void __ISR_AT_VECTOR(_TIMER_2_VECTOR, IPL5SRS) T2_ISR(void)
 {
-    T2_count++;
+//    T2_count++;
     // Clear T2IF atomically
     IFS0CLR = _IFS0_T2IF_MASK;
 }
@@ -161,11 +159,10 @@ void __ISR_AT_VECTOR(_TIMER_2_VECTOR, IPL4SRS) T2_ISR(void)
   @Remarks
     Refer to the ISR.h interface header for function usage details.
 */
-void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL5SRS) T3_ISR(void)
+void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) T3_ISR(void)
 {
-    T3_count++;
-    
-    //while (TMR3 < 40);
+    // Invert LED0 on 0.5 second interval to test timer functionality
+    PORTFINV = _PORTF_RF0_MASK;
     
     // Clear T2IF atomically
     IFS0CLR = _IFS0_T3IF_MASK;

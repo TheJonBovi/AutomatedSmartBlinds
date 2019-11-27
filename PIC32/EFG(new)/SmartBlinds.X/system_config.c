@@ -219,8 +219,65 @@ void PBCLK3_config(void)
     SYSKEY = 0; // Ensure lock
     SYSKEY = 0xAA996655; // Write Key 1
     SYSKEY = 0x556699AA; // Write Key 2
-    PB3DIV = _PB3DIV_ON_MASK | 0 & _PB3DIV_PBDIV_MASK; // 0 = div by 1, 1 = div by 2 etc up to 128
+    PB3DIV = _PB3DIV_ON_MASK | ((0 << _PB3DIV_PBDIV_POSITION) & _PB3DIV_PBDIV_MASK); // 0 = div by 1, 1 = div by 2 etc up to 128
     SYSKEY = 0; // Re lock
+    
+    asm volatile( "ei" ); // Re-Enable Interrupts
+}
+
+/** 
+  @Function
+
+ * T2_32bit_config
+
+  @Summary
+    
+ * This function configures Timer 2 for 32-bit operation
+
+  @Remarks
+ * This function sets up T2 to interrupt every half second with T3 ISR set 
+ * to Priority 1 sub-priority 0 using SRS 1
+ */
+void T2_32bit_config(void)
+{
+    asm volatile( "di" ); // Disable Interrupts
+    
+    
+    // Clear configure registers to disable, Set TMR2 for 16-bit mode, 1:1 prescalar (i.e. clock speed) 
+    T2CON = 0;
+    
+    // Set T2 to operate in 32-bit mode
+    T2CONSET = _T2CON_T32_MASK;
+    
+    // Set T2 clock prescalar to 2:1 
+    T2CONbits.TCKPS = 0b001;
+    
+    
+    // Clear TMR2 and TMR3 registers to zero counts
+    TMR2 = 0;
+    TMR3 = 0;
+    
+    // Set PR2 and PR3 according to timing. 
+    // 0.5 seconds = 21,000,000 counts at 42Mhz 
+    // 21,000,000 = 0x0140.6F40 so PR3 = 0x0140 and PR2 = 0x6F40
+    PR2 = 0x6F40;
+    PR3 = 0x0140;
+    
+    // Disable TMR2 interrupts and set up TMR3 interrupts.
+    // Set Shadow register set 7 for TMR3 interrupts (Priority 1)
+    PRISSSET = (1 << _PRISS_PRI1SS_POSITION) & _PRISS_PRI1SS_MASK;
+    // Clear T3 priority sub priority
+    IPC3CLR = _IPC3_T3IP_MASK | _IPC3_T3IS_MASK;
+    // Set T3 to priority 5, sub-priority 0
+    IPC3SET = (1 << _IPC3_T3IP_POSITION) & _IPC3_T3IP_MASK;
+    // Clear T3IF
+    IFS0CLR = _IFS0_T3IF_MASK;
+    // Enable T2 interrupts
+    IEC0SET = _IEC0_T3IE_MASK;
+    
+    // Verify TMR2 interrupts are disabled.
+    IEC0CLR = _IEC0_T2IE_MASK;
+    
     
     asm volatile( "ei" ); // Re-Enable Interrupts
 }
@@ -241,28 +298,26 @@ void T2_config(void)
 {
     asm volatile( "di" ); // Disable Interrupts
     
-    // Set Shadow register set 1 for TMR2 interrupts (Priority 4)
-    PRISSSET = (1 << _PRISS_PRI4SS_POSITION) & _PRISS_PRI4SS_MASK;
-    
-     // Clear T2 priority an sub priority
+    // Set Shadow register set 2 for TMR3 interrupts (Priority 5)
+    PRISSSET = (2 << _PRISS_PRI5SS_POSITION) & _PRISS_PRI5SS_MASK;
+    // Clear T2 priority an sub priority
     IPC2CLR = _IPC2_T2IP_MASK | _IPC2_T2IS_MASK;
-    // Set T2 to priority 4, sub-priority 0
-    IPC2SET = (4 << _IPC2_T2IP_POSITION) & _IPC2_T2IP_MASK;
+    // Set T2 to priority 5, sub-priority 0
+    IPC2SET = (5 << _IPC2_T2IP_POSITION) & _IPC2_T2IP_MASK;
     // Clear T2IF
     IFS0CLR = _IFS0_T2IF_MASK;
     // Enable T2 interrupts
     IEC0SET = _IEC0_T2IE_MASK;
     
-    // Clear configure registers to disable, Set TMR2 for 16-bit mode, 1:1 prescalar (i.e. clock speed) 
-    T2CON = 0;   
-    // Clear TMR2 register just for kicks
+    // Clear configure registers to disable, Set TMR3 for 16-bit mode, 1:1 prescalar (i.e. clock speed) 
+    T2CON = 0;
+    // Clear TMR3 register (the count)
     TMR2 = 0;
-    // Set PR2 = 511 per instructions
-    PR2 = 511;
+    // Set PR3 to 999 per instruction
+    PR2 = 999;
     
     asm volatile( "ei" ); // Re-Enable Interrupts
 }
-
 /** 
   @Function
 

@@ -68,13 +68,13 @@
 #include <sys/attribs.h>
 
 // These will be the ADC values used to determine distance / proximity zones.
-//#define ADC_25 1024
-//#define ADC_50 2048
-//#define ADC_75 3072
+#define ADC_LOW_WNG 2400
+#define ADC_MID_WNG 2500
+#define ADC_HIGH_WNG 3125
 
-#define ADC_25 2400
-#define ADC_50 2500
-#define ADC_75 3125
+#define LED_RED _TRISF_RF0_MASK
+#define LED_BLU _TRISF_RF1_MASK
+#define LED_GRN _TRISF_RF2_MASK
 
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -103,10 +103,6 @@
   @Remarks
     Any additional remarks
  */
-int T2_count = 0;
-int T3_count = 0;
-
-
 
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -122,21 +118,14 @@ int main()
     ISR_config();    
     PBCLK3_config();
     ADC_config();
-    T2_config();
-    T3_config();
+    T2_32bit_config();
+//    T2_config();
+//    T3_config();
     
     //Sync up TMR2 and TMR3 per lab instruction
     T2CONSET = _T2CON_ON_MASK; // Turn Timer 2 and Timer 3 on.
     T3CONSET = _T2CON_ON_MASK; // Do not rearrange these lines so timers will sync
     IFS0SET = _IFS0_T3IF_MASK; //artificially trigger a T3 int
-    
-    // This cute lil loop syncs the timers. 
-    int i;
-    for(i = 0; i < 2; i++) 
-    { // run the following twice so it runs from cache the second time
-        TMR2 = 0;
-        TMR3 = 5; // Needed to get TMR2 and 3 in sync
-    }
     
     // Enable the ADC Module
     /* Enable the ADC module */
@@ -144,7 +133,7 @@ int main()
     ADCCON3bits.DIGEN1 = 1; // Enable ADC1
     ADCCON3bits.DIGEN2 = 1; // Enable ADC2
     
-    int result[3];
+    int current_read[3];
     while (1) 
     {
         /* Trigger a conversion */
@@ -152,13 +141,13 @@ int main()
         /* Wait the conversions to complete */
         while (ADCDSTAT1bits.ARDY0 == 0);
         /* fetch the result */
-        result[0] = ADCDATA0;
+        current_read[0] = ADCDATA0;
         while (ADCDSTAT1bits.ARDY1 == 0);
         /* fetch the result */
-        result[1] = ADCDATA1;
+        current_read[1] = ADCDATA1;
         while (ADCDSTAT1bits.ARDY2 == 0);
         /* fetch the result */
-        result[2] = ADCDATA2;
+        current_read[2] = ADCDATA2;
         /*
         * Process results here
         *
@@ -169,9 +158,10 @@ int main()
         *
         */
         
-        if (result[0] <= ADC_25) PORTK = 0b0;
-        else if (ADC_25 < result[0] && result[0] <= ADC_50) PORTK = 0b1;
-        else if (ADC_50 < result[0] && result[0] <= ADC_75) PORTK = 0b11;
+        // Set the LED levels according to IR proximity reading
+        if (current_read[0] <= ADC_LOW_WNG) PORTK = 0b0;
+        else if (ADC_LOW_WNG < current_read[0] && current_read[0] <= ADC_MID_WNG) PORTK = 0b1;
+        else if (ADC_MID_WNG < current_read[0] && current_read[0] <= ADC_HIGH_WNG) PORTK = 0b11;
         else PORTK = 0b111;
     }
     // Endless loop
