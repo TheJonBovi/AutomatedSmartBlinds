@@ -11,6 +11,12 @@
  * 
  * This file has the routines for all Interrupt Service Routines.
  * 
+ * 
+ * Current Interrupts and Priorities / SS's
+ * 
+ * TMR2 set to 32-bit mode, TMR3 ISR priority 1, SRS 1
+ * TMR4 set to 16-bit mode, TMR4 ISR priority 2, SRS 2
+ * 
  */
 /* ************************************************************************** */
 
