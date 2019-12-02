@@ -9,12 +9,11 @@
 #include <stdio.h>
 #include <math.h>
 
-
+#define 
 extern int motor_on = 0;
 extern int motor_direction = 0;
 extern int test_stepper_state = 0;
-extern int key_pressed = 0;
-extern int key_pressed_2 = 0;
+
 
 void stepper_motor(void)
 {
@@ -24,7 +23,7 @@ void stepper_motor(void)
         case 0:
             //the first key is pressed (CW) and the second key (CCW)
             //is not pressed, then turn on motor and turn CW
-            if (key_pressed == 1 && key_pressed_2 == 0)
+            if ()
             {
                motor_on = 1;
                motor_direction = 1;
@@ -32,7 +31,7 @@ void stepper_motor(void)
             }
             //the first key is not pressed (CW) and the second key (CCW)
             //is pressed, then turn on motor and turn CCW
-            else if (key_pressed == 0 && key_pressed_2 == 1)
+            else if ()
             {
                 motor_on = 1;
                 motor_direction = 0;
@@ -53,6 +52,15 @@ void stepper_motor(void)
             
             
     }
+}
+
+void T5_16bit_config(void)
+{
+    //Need to have timer 5 be 16 bit config
+    //for 21008 for a 11.9ns which is 5210 for hex
+    T5CON = 0x0;
+    
+    
 }
 
 /*

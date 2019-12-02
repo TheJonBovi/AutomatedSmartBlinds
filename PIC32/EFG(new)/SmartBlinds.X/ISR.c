@@ -183,6 +183,8 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) T3_ISR(void)
     while (ADCDSTAT1bits.ARDY3 == 0);
     /* fetch the result */
     current_read[2] = ADCDATA3;
+    
+
     /*
     * Process results here
     *
@@ -199,6 +201,8 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) T3_ISR(void)
     else if (ADC_MID_WNG < current_read[0] && current_read[0] <= ADC_HIGH_WNG) PORTK = 0b11;
     else PORTK = 0b111;
   
+    //toggle RK3
+    PORTKINV = _PORTK_RK3_MASK;
     
     // Clear T3IF atomically
     IFS0CLR = _IFS0_T3IF_MASK;
