@@ -27,6 +27,7 @@
 #include <stdbool.h>
 #include <math.h>
 #include <sys/attribs.h>
+#include "defines.h"
 
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -161,10 +162,39 @@ void __ISR_AT_VECTOR(_TIMER_2_VECTOR, IPL5SRS) T2_ISR(void)
 */
 void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) T3_ISR(void)
 {
-    // Invert LED0 on 0.5 second interval to test timer functionality
-    PORTFINV = _PORTF_RF0_MASK;
+    // ADC loop and test output on LED's for proximity sensor
+    int current_read[3];
+   
+    /* Trigger a conversion */
+    ADCCON3bits.GSWTRG = 1;
+    /* Wait the conversions to complete */
+    while (ADCDSTAT1bits.ARDY0 == 0);
+    /* fetch the result */
+    current_read[0] = ADCDATA0;
+    while (ADCDSTAT1bits.ARDY1 == 0);
+    /* fetch the result */
+    current_read[1] = ADCDATA1;
+    while (ADCDSTAT1bits.ARDY3 == 0);
+    /* fetch the result */
+    current_read[2] = ADCDATA3;
+    /*
+    * Process results here
+    *
+    * Note: Loop time determines the sampling time since all inputs are Class 1.
+    * If the loop time is small and the next trigger happens before the completion
+    * of set sample time, the conversion will happen only after the sample time
+    * has elapsed.
+    *
+    */
+
+    // Set the LED levels according to IR proximity reading
+    if (current_read[0] <= ADC_LOW_WNG) PORTK = 0b0;
+    else if (ADC_LOW_WNG < current_read[0] && current_read[0] <= ADC_MID_WNG) PORTK = 0b1;
+    else if (ADC_MID_WNG < current_read[0] && current_read[0] <= ADC_HIGH_WNG) PORTK = 0b11;
+    else PORTK = 0b111;
+  
     
-    // Clear T2IF atomically
+    // Clear T3IF atomically
     IFS0CLR = _IFS0_T3IF_MASK;
 }
 

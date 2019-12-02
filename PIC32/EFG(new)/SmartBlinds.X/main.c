@@ -67,14 +67,7 @@
 #include <math.h>
 #include <sys/attribs.h>
 
-// These will be the ADC values used to determine distance / proximity zones.
-#define ADC_LOW_WNG 2400
-#define ADC_MID_WNG 2500
-#define ADC_HIGH_WNG 3125
 
-#define LED_RED _TRISF_RF0_MASK
-#define LED_BLU _TRISF_RF1_MASK
-#define LED_GRN _TRISF_RF2_MASK
 
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -119,51 +112,7 @@ int main()
     PBCLK3_config();
     ADC_config();
     T2_32bit_config();
-//    T2_config();
-//    T3_config();
-    
-    //Sync up TMR2 and TMR3 per lab instruction
-    
-    
-    IFS0SET = _IFS0_T3IF_MASK; //artificially trigger a T3 int
-    
-    // Enable the ADC Module
-    /* Enable the ADC module */
-    ADCCON3bits.DIGEN0 = 1; // Enable ADC0
-    ADCCON3bits.DIGEN1 = 1; // Enable ADC1
-    ADCCON3bits.DIGEN2 = 1; // Enable ADC2
-    
-//    int current_read[3];
-//    while (1) 
-//    {
-//        /* Trigger a conversion */
-//        ADCCON3bits.GSWTRG = 1;
-//        /* Wait the conversions to complete */
-//        while (ADCDSTAT1bits.ARDY0 == 0);
-//        /* fetch the result */
-//        current_read[0] = ADCDATA0;
-//        while (ADCDSTAT1bits.ARDY1 == 0);
-//        /* fetch the result */
-//        current_read[1] = ADCDATA1;
-//        while (ADCDSTAT1bits.ARDY2 == 0);
-//        /* fetch the result */
-//        current_read[2] = ADCDATA2;
-//        /*
-//        * Process results here
-//        *
-//        * Note: Loop time determines the sampling time since all inputs are Class 1.
-//        * If the loop time is small and the next trigger happens before the completion
-//        * of set sample time, the conversion will happen only after the sample time
-//        * has elapsed.
-//        *
-//        */
-//        
-//        // Set the LED levels according to IR proximity reading
-//        if (current_read[0] <= ADC_LOW_WNG) PORTK = 0b0;
-//        else if (ADC_LOW_WNG < current_read[0] && current_read[0] <= ADC_MID_WNG) PORTK = 0b1;
-//        else if (ADC_MID_WNG < current_read[0] && current_read[0] <= ADC_HIGH_WNG) PORTK = 0b11;
-//        else PORTK = 0b111;
-//    }
+
     // Endless loop
     while(true);
 }

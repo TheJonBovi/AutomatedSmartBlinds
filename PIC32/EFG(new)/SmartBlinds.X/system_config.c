@@ -386,11 +386,11 @@ void ADC_config(void)
     // Set AN1 pin for first ADC module
     ANSELBSET = (1 << _ANSELB_ANSB1_POSITION) & _ANSELB_ANSB1_MASK;
     
-    // Input RB2 using ADC2
-    // Set RB2 of PORTB as an input (PIN34)
-    TRISBSET = (1 << _TRISB_TRISB2_POSITION) & _TRISB_TRISB2_MASK;
-    // Set AN2 pin for first ADC module
-    ANSELBSET = (1 << _ANSELB_ANSB2_POSITION) & _ANSELB_ANSB2_MASK;
+    // Input RB3 using ADC3
+    // Set RB3 of PORTB as an input (PIN31)
+    TRISBSET = (1 << _TRISB_TRISB3_POSITION) & _TRISB_TRISB3_MASK;
+    // Set AN3 pin for first ADC module
+    ANSELBSET = (1 << _ANSELB_ANSB3_POSITION) & _ANSELB_ANSB3_MASK;
     
 //    2. Initialize the ADC calibration values by copying them from the factory-programmed
 //    DEVADCx Flash registers into the corresponding ADCxCFG registers.
@@ -432,8 +432,8 @@ void ADC_config(void)
     ADCIMCON1bits.DIFF0 = 0; // Single ended mode
     ADCIMCON1bits.SIGN1 = 0; // unsigned data format
     ADCIMCON1bits.DIFF1 = 0; // Single ended mode
-    ADCIMCON1bits.SIGN2 = 0; // unsigned data format
-    ADCIMCON1bits.DIFF2 = 0; // Single ended mode
+    ADCIMCON1bits.SIGN3 = 0; // unsigned data format
+    ADCIMCON1bits.DIFF3 = 0; // Single ended mode
     
 //    5. Select the conversion trigger source, as described in 22.4.4 ?Selecting the Conversion
 //    Trigger Source?.
@@ -442,10 +442,10 @@ void ADC_config(void)
     // The main RTS loop will manually trigger interrupts in ADCCON3
     ADCTRGSNSbits.LVL0 = 0; // Edge trigger
     ADCTRGSNSbits.LVL1 = 0; // Edge trigger
-    ADCTRGSNSbits.LVL2 = 0; // Edge trigger
+    ADCTRGSNSbits.LVL3 = 0; // Edge trigger
     ADCTRG1bits.TRGSRC0 = 0b00001;
     ADCTRG1bits.TRGSRC1 = 0b00001;
-    ADCTRG1bits.TRGSRC2 = 0b00001;
+    ADCTRG1bits.TRGSRC3 = 0b00001;
     
 //    6. Select the voltage reference source, as described in 22.4.5 ?Selecting the Voltage
 //    Reference Source?.
@@ -478,9 +478,9 @@ void ADC_config(void)
     ADC1TIMEbits.SAMC = 5; // ADC1 sampling time = 5 * TAD0
     ADC1TIMEbits.SELRES = 3; // ADC1 resolution is 12 bits
     
-    ADC2TIMEbits.ADCDIV = 1; // ADC2 clock frequency is half of control clock = TAD0
-    ADC2TIMEbits.SAMC = 5; // ADC2 sampling time = 5 * TAD0
-    ADC2TIMEbits.SELRES = 3; // ADC2 resolution is 12 bits
+    ADC3TIMEbits.ADCDIV = 1; // ADC3 clock frequency is half of control clock = TAD0
+    ADC3TIMEbits.SAMC = 5; // ADC3 sampling time = 5 * TAD0
+    ADC3TIMEbits.SELRES = 3; // ADC3 resolution is 12 bits
     
 //    9. Specify any additional acquisition time, if required, as described in 22.10 ?ADC Sampling
 //    Requirements?.
@@ -507,8 +507,7 @@ void ADC_config(void)
     
     /* Early interrupt */
     ADCEIEN1 = 0; // No early interrupt
-    ADCEIEN2 = 0;
-    
+    ADCEIEN2 = 0;    
     
 //    10. Turn on the ADC module, as described in 22.4.9 ?Turning ON the ADC?.
     
@@ -529,14 +528,19 @@ void ADC_config(void)
     /* Enable clock to analog circuit */
     ADCANCONbits.ANEN0 = 1; // Enable the clock to analog bias
     ADCANCONbits.ANEN1 = 1; // Enable the clock to analog bias
-    ADCANCONbits.ANEN2 = 1; // Enable the clock to analog bias
+    ADCANCONbits.ANEN3 = 1; // Enable the clock to analog bias
     /* Wait for ADC to be ready */
     while(!ADCANCONbits.WKRDY0); // Wait until ADC0 is ready
     while(!ADCANCONbits.WKRDY1); // Wait until ADC1 is ready
-    while(!ADCANCONbits.WKRDY2); // Wait until ADC2 is ready
+    while(!ADCANCONbits.WKRDY3); // Wait until ADC3 is ready
     
 //    13. Configure the ADC interrupts (if required), as described in 22.6 ?Interrupts?.
 
+    // Turn on ACD units
+        /* Enable the ADC module */
+    ADCCON3bits.DIGEN0 = 1; // Enable ADC0
+    ADCCON3bits.DIGEN1 = 1; // Enable ADC1
+    ADCCON3bits.DIGEN3 = 1; // Enable ADC3
     
     
 }

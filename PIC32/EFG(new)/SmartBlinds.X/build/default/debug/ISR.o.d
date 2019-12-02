@@ -1,2 +1,3 @@
 build/default/debug/ISR.o:  \
-ISR.c 
+ISR.c  \
+defines.h 
