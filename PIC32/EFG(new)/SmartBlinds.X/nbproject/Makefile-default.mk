@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c system_config.c ISR.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c system_config.c ISR.c stepper_motor.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/system_config.o ${OBJECTDIR}/ISR.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/system_config.o.d ${OBJECTDIR}/ISR.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/system_config.o ${OBJECTDIR}/ISR.o ${OBJECTDIR}/stepper_motor.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/system_config.o.d ${OBJECTDIR}/ISR.o.d ${OBJECTDIR}/stepper_motor.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/system_config.o ${OBJECTDIR}/ISR.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/system_config.o ${OBJECTDIR}/ISR.o ${OBJECTDIR}/stepper_motor.o
 
 # Source Files
-SOURCEFILES=main.c system_config.c ISR.c
+SOURCEFILES=main.c system_config.c ISR.c stepper_motor.c
 
 
 CFLAGS=
@@ -124,6 +124,12 @@ ${OBJECTDIR}/ISR.o: ISR.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/ISR.o 
 	@${FIXDEPS} "${OBJECTDIR}/ISR.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/ISR.o.d" -o ${OBJECTDIR}/ISR.o ISR.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
+${OBJECTDIR}/stepper_motor.o: stepper_motor.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/stepper_motor.o.d 
+	@${RM} ${OBJECTDIR}/stepper_motor.o 
+	@${FIXDEPS} "${OBJECTDIR}/stepper_motor.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/stepper_motor.o.d" -o ${OBJECTDIR}/stepper_motor.o stepper_motor.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
 else
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -142,6 +148,12 @@ ${OBJECTDIR}/ISR.o: ISR.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/ISR.o.d 
 	@${RM} ${OBJECTDIR}/ISR.o 
 	@${FIXDEPS} "${OBJECTDIR}/ISR.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/ISR.o.d" -o ${OBJECTDIR}/ISR.o ISR.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/stepper_motor.o: stepper_motor.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/stepper_motor.o.d 
+	@${RM} ${OBJECTDIR}/stepper_motor.o 
+	@${FIXDEPS} "${OBJECTDIR}/stepper_motor.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/stepper_motor.o.d" -o ${OBJECTDIR}/stepper_motor.o stepper_motor.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
 endif
 

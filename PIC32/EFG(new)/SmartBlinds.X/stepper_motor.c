@@ -9,7 +9,21 @@
 #include <stdio.h>
 #include <math.h>
 
-#define 
+//defines for the 4 specific wires by color for the Up/Down motor
+//M1 = the up/down motor
+#define M1_BLU1 _TRISC_RC1_MASK
+#define M1_PIK2 _TRISC_RC2_MASK
+#define M1_YEL3 _TRISC_RC3_MASK
+#define M1_ORG4 _TRISC_RC1_MASK
+
+//defines for the 4 specific wires by color for the Open/Close motor
+//M2 = the open/close motor
+#define M2_BLU1 _TRICB_RB4_MASK
+#define M2_PIK2 _TRICB_RB8_MASK
+#define M2_YEL3 _TRICB_RB9_MASK
+#define M2_ORG4 _TRICB_RB11_MASK
+
+//variables used for the motor to turn on, direction, and state
 extern int motor_on = 0;
 extern int motor_direction = 0;
 extern int test_stepper_state = 0;
@@ -58,103 +72,20 @@ void T5_16bit_config(void)
 {
     //Need to have timer 5 be 16 bit config
     //for 21008 for a 11.9ns which is 5210 for hex
+    
+    //Clear configure registers to disable, Set TMR5 for 16-bit mode, 1:1 pre-scalar
     T5CON = 0x0;
     
+    //Clear the timer 5 register
+    TMR5 = 0x0;
+    
+    //load the period 5 register for the specific amount of 5210
+    PR5 = 0x5210;
+    
+    //start the timer in 16 bit mode
+    T5CONSET = _T5CON_ON_MASK;
+    
     
 }
 
-/*
-//For the testing of the stepper motor with the arduino chip
-int Pin0 = 10;
-int Pin1 = 11;
-int Pin2 = 12;
-int Pin3 = 13;
-int _step = 0;
-bool dir = true;// green
 
-void setup()
-{
-    pinMode(Pin0, OUTPUT);
-    pinMode(Pin1, OUTPUT);
-    pinMode(Pin2, OUTPUT);
-    pinMode(Pin3, OUTPUT);
-}
-
-void loop()
-{
-    switch(_step)
-    {
-        case 0:
-            digitalWrite(Pin0, LOW);
-            digitalWrite(Pin1, LOW);
-            digitalWrite(Pin2, LOW);
-            digitalWrite(Pin3, HIGH);
-            break;
-        case 1:
-            digitalWrite(Pin0, LOW);
-            digitalWrite(Pin1, LOW);
-            digitalWrite(Pin2, HIGH);
-            digitalWrite(Pin3, HIGH);
-            break;
-        case 2:
-            digitalWrite(Pin0, LOW);
-            digitalWrite(Pin1, LOW);
-            digitalWrite(Pin2, HIGH);
-            digitalWrite(Pin3, LOW);
-            break;
-        case 3:
-            digitalWrite(Pin0, LOW);
-            digitalWrite(Pin1, HIGH);
-            digitalWrite(Pin2, HIGH);
-            digitalWrite(Pin3, LOW);
-            break;
-        case 4:
-            digitalWrite(Pin0, LOW);
-            digitalWrite(Pin1, HIGH);
-            digitalWrite(Pin2, LOW);
-            digitalWrite(Pin3, LOW);
-            break;
-        case 5:
-            digitalWrite(Pin0, HIGH);
-            digitalWrite(Pin1, HIGH);
-            digitalWrite(Pin2, LOW);
-            digitalWrite(Pin3, LOW);
-            break;
-        case 6:
-            digitalWrite(Pin0, HIGH);
-            digitalWrite(Pin1, LOW);
-            digitalWrite(Pin2, LOW);
-            digitalWrite(Pin3, LOW);
-            break;
-        case 7:
-            digitalWrite(Pin0, HIGH);
-            digitalWrite(Pin1, LOW);
-            digitalWrite(Pin2, LOW);
-            digitalWrite(Pin3, HIGH);
-            break;
-        default:
-            digitalWrite(Pin0, LOW);
-            digitalWrite(Pin1, LOW);
-            digitalWrite(Pin2, LOW);
-            digitalWrite(Pin3, LOW);
-            break;
-    }
-    if(dir)
-    {
-        _step++;
-    }
-    else
-    {
-        _step--;
-    }
-    if(_step>7)
-    {
-        _step=0;
-    }
-    if(_step<0)
-    {
-        _step=7;
-    }
-    delay(1);
-}
-*/
