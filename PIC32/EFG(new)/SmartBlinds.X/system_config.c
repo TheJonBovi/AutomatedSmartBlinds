@@ -196,6 +196,9 @@ void LED_config(void)
     
     // Set RK0-2 to output 0
     PORTKCLR = _PORTK_RK0_MASK | _PORTK_RK1_MASK | _PORTK_RK2_MASK;
+    
+    //A dummy LED set to flash every .5 seconds.
+    TRISKCLR = _TRISK_TRISK3_MASK;
 }
 
 /** 
