@@ -123,8 +123,8 @@ int main()
 //    T3_config();
     
     //Sync up TMR2 and TMR3 per lab instruction
-    T2CONSET = _T2CON_ON_MASK; // Turn Timer 2 and Timer 3 on.
-    T3CONSET = _T2CON_ON_MASK; // Do not rearrange these lines so timers will sync
+    
+    
     IFS0SET = _IFS0_T3IF_MASK; //artificially trigger a T3 int
     
     // Enable the ADC Module
@@ -133,37 +133,37 @@ int main()
     ADCCON3bits.DIGEN1 = 1; // Enable ADC1
     ADCCON3bits.DIGEN2 = 1; // Enable ADC2
     
-    int current_read[3];
-    while (1) 
-    {
-        /* Trigger a conversion */
-        ADCCON3bits.GSWTRG = 1;
-        /* Wait the conversions to complete */
-        while (ADCDSTAT1bits.ARDY0 == 0);
-        /* fetch the result */
-        current_read[0] = ADCDATA0;
-        while (ADCDSTAT1bits.ARDY1 == 0);
-        /* fetch the result */
-        current_read[1] = ADCDATA1;
-        while (ADCDSTAT1bits.ARDY2 == 0);
-        /* fetch the result */
-        current_read[2] = ADCDATA2;
-        /*
-        * Process results here
-        *
-        * Note: Loop time determines the sampling time since all inputs are Class 1.
-        * If the loop time is small and the next trigger happens before the completion
-        * of set sample time, the conversion will happen only after the sample time
-        * has elapsed.
-        *
-        */
-        
-        // Set the LED levels according to IR proximity reading
-        if (current_read[0] <= ADC_LOW_WNG) PORTK = 0b0;
-        else if (ADC_LOW_WNG < current_read[0] && current_read[0] <= ADC_MID_WNG) PORTK = 0b1;
-        else if (ADC_MID_WNG < current_read[0] && current_read[0] <= ADC_HIGH_WNG) PORTK = 0b11;
-        else PORTK = 0b111;
-    }
+//    int current_read[3];
+//    while (1) 
+//    {
+//        /* Trigger a conversion */
+//        ADCCON3bits.GSWTRG = 1;
+//        /* Wait the conversions to complete */
+//        while (ADCDSTAT1bits.ARDY0 == 0);
+//        /* fetch the result */
+//        current_read[0] = ADCDATA0;
+//        while (ADCDSTAT1bits.ARDY1 == 0);
+//        /* fetch the result */
+//        current_read[1] = ADCDATA1;
+//        while (ADCDSTAT1bits.ARDY2 == 0);
+//        /* fetch the result */
+//        current_read[2] = ADCDATA2;
+//        /*
+//        * Process results here
+//        *
+//        * Note: Loop time determines the sampling time since all inputs are Class 1.
+//        * If the loop time is small and the next trigger happens before the completion
+//        * of set sample time, the conversion will happen only after the sample time
+//        * has elapsed.
+//        *
+//        */
+//        
+//        // Set the LED levels according to IR proximity reading
+//        if (current_read[0] <= ADC_LOW_WNG) PORTK = 0b0;
+//        else if (ADC_LOW_WNG < current_read[0] && current_read[0] <= ADC_MID_WNG) PORTK = 0b1;
+//        else if (ADC_MID_WNG < current_read[0] && current_read[0] <= ADC_HIGH_WNG) PORTK = 0b11;
+//        else PORTK = 0b111;
+//    }
     // Endless loop
     while(true);
 }

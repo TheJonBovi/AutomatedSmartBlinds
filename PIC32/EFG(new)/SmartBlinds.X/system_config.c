@@ -264,20 +264,21 @@ void T2_32bit_config(void)
     PR3 = 0x0140;
     
     // Disable TMR2 interrupts and set up TMR3 interrupts.
-    // Set Shadow register set 7 for TMR3 interrupts (Priority 1)
+    // Set Shadow register set 1 for TMR3 interrupts (Priority 1)
     PRISSSET = (1 << _PRISS_PRI1SS_POSITION) & _PRISS_PRI1SS_MASK;
     // Clear T3 priority sub priority
     IPC3CLR = _IPC3_T3IP_MASK | _IPC3_T3IS_MASK;
-    // Set T3 to priority 5, sub-priority 0
+    // Set T3 to priority 1, sub-priority 0
     IPC3SET = (1 << _IPC3_T3IP_POSITION) & _IPC3_T3IP_MASK;
     // Clear T3IF
     IFS0CLR = _IFS0_T3IF_MASK;
-    // Enable T2 interrupts
+    // Enable T3 interrupts
     IEC0SET = _IEC0_T3IE_MASK;
     
     // Verify TMR2 interrupts are disabled.
     IEC0CLR = _IEC0_T2IE_MASK;
     
+    T2CONSET = _T2CON_ON_MASK; // Turn Timer 2 on
     
     asm volatile( "ei" ); // Re-Enable Interrupts
 }
