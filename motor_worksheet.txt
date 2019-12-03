@@ -1,0 +1,93 @@
+Psuedocode
+
+TMR5 ISR
+
+if (motorid)
+{
+	switch (UD_state)
+	{
+
+		state 0: 
+			if (dir) UD_state = 1;
+			else UD_state = 7;
+			OUT = _UDMOTOR_S0;
+			break;
+
+		state 1:
+			if (dir == 0) UD_state = 0;
+			else UD_state = 2;
+			OUT = _UDMOTOR_S1;
+			break;
+	
+		.... for all states
+	}
+}
+else
+{
+	switch (OC_state)
+	{
+		state 0:
+			if (dir) OC_state = 1;
+			else OC_state = 7;
+			
+			// RMW for PORTB since there are other stuff on this port
+			int sPORTB = PORTB;
+			sPORTB = SPORTB & _OCMOTOR_MASK & _OCMOTOR_S0;
+			PORTB = sPORTB; 
+
+			break;
+
+		state 1:
+
+			etc.....
+
+	}
+
+}
+
+
+
+
+---------------------
+
+#define _UDMOTOR_POSITION	0x00000001
+#define _UDMOTOR_MASK		0x0000001E
+#define _UDMOTOR_LENGTH		0x00000004
+
+#define _OCMOTOR_MASK		0xFFFFF4EF
+
+#define _UDMOTOR_S0		0x010
+#define _UDMOTOR_S1		0x018
+#define _UDMOTOR_S2		0x008
+#define _UDMOTOR_S3		0x00C
+#define _UDMOTOR_S4		0x004
+#define _UDMOTOR_S5		0x006
+#define _UDMOTOR_S6		0x002
+#define _UDMOTOR_S7		0x013
+
+#define _OCMOTOR_S0		0x800
+#define _OCMOTOR_S1		0xA00
+#define _OCMOTOR_S2		0x200
+#define _OCMOTOR_S3		0x300
+#define _OCMOTOR_S4		0x100
+#define _OCMOTOR_S5		0x110
+#define _OCMOTOR_S6		0x010
+#define _OCMOTOR_S7		0x810
+
+OC MOTOR R/M/W Psuedo
+
+
+int sPORTB = PORTB;
+sPORTB = SPORTB & _OCMOTOR_MASK & _OCMOTOR_SX;
+PORTB = sPORTB; 
+
+
+MATH
+
+if we want 1 rpm, we need to do 512 steps in 1 second
+so each step should take 1s / 512 = 0.001953125 seconds
+
+The slowest our TMR2CLK can be is 84 / 256 = 0.328125 Mhz, 
+which is a period of 3.0476 us
+
+so 0.001953125 / 0.00000304761905 = 641 (PR5 value)
