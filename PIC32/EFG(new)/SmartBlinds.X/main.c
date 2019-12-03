@@ -12,7 +12,6 @@
  * This is the main file for the PIC32, running the RTS loop and all
  * configuration information
  * 
- * 
  */
 /* ************************************************************************** */
 
