@@ -14,9 +14,9 @@
  * 
  * Current Interrupts and Priorities / SS's
  * 
- * TMR2 set to 32-bit mode, TMR3 ISR priority 1, SRS 1
- * TMR4 set to 16-bit mode, TMR4 ISR priority 2, SRS 2
- * 
+ * TMR2 for ADC loop set to 32-bit mode, TMR3 ISR priority 1, SRS 1
+ * TMR4 for buzzer freq set to 16-bit mode, TMR4 ISR priority 2, SRS 2
+ * TMR5 for motors speed set to 16-bit mode, TMR5 ISR priority 2, SRS 2
  */
 /* ************************************************************************** */
 
@@ -183,6 +183,8 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) T3_ISR(void)
     while (ADCDSTAT1bits.ARDY3 == 0);
     /* fetch the result */
     current_read[2] = ADCDATA3;
+    
+
     /*
     * Process results here
     *
@@ -199,11 +201,19 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) T3_ISR(void)
     else if (ADC_MID_WNG < current_read[0] && current_read[0] <= ADC_HIGH_WNG) PORTK = 0b11;
     else PORTK = 0b111;
   
+    //toggle RK3
+    PORTKINV = _PORTK_RK3_MASK;
     
     // Clear T3IF atomically
     IFS0CLR = _IFS0_T3IF_MASK;
 }
 
+
+void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) T5_ISR(void)
+{
+    //clear the T5IF
+    IFS0CLR = _IFS0_T5IF_MASK;
+}
 /* *****************************************************************************
  End of File
  */
