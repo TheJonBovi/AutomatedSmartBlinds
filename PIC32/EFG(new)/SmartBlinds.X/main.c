@@ -68,7 +68,6 @@
 #include <sys/attribs.h>
 
 
-
 /* ************************************************************************** */
 /* ************************************************************************** */
 /* Section: File Scope or Global Data                                         */
@@ -110,9 +109,10 @@ int main()
     LED_config();
     ISR_config();    
     PBCLK3_config();
-    ADC_config();
-    T2_32bit_config();
-
+ //   ADC_config();
+ //   T2_32bit_config();
+    T5_16bit_config();
+    
     // Endless loop
     while(true);
 }

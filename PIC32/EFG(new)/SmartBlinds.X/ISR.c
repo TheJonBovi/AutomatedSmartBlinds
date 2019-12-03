@@ -208,6 +208,12 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) T3_ISR(void)
     IFS0CLR = _IFS0_T3IF_MASK;
 }
 
+
+void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) T5_ISR(void)
+{
+    //clear the T5IF
+    IFS0CLR = _IFS0_T5IF_MASK;
+}
 /* *****************************************************************************
  End of File
  */
