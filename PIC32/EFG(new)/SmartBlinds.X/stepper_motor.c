@@ -8,75 +8,226 @@
 #include <xc.h>
 #include <stdio.h>
 #include <math.h>
-
-//define own motor position, mask, and length
-//up down motor
-#define _UDMOTOR_POSITION   0x00000001
-#define _UDMOTOR_MASK       0x0000001E
-#define _UDMOTOR_LENGTH     0x00000004
-
-//open close motor
-#define _OCMOTOR_MASK       0xFFFFF4EF
-
-
-//define all of the states that will be needed
-//up down motor
-#define _UDMOTOR_S0 0x0010
-#define _UDMOTOR_S1 0x0018
-#define _UDMOTOR_S2 0x0008
-#define _UDMOTOR_S3 0x000C
-#define _UDMOTOR_S4 0x0004
-#define _UDMOTOR_S5 0x0006
-#define _UDMOTOR_S6 0x0002
-#define _UDMOTOR_S7 0x0013
-
-//open close motor
-#define _OCMOTOR_S0 0x800
-#define _OCMOTOR_S1 0xA00
-#define _OCMOTOR_S2 0x200
-#define _OCMOTOR_S3 0x300
-#define _OCMOTOR_S4 0x100
-#define _OCMOTOR_S5 0x110
-#define _OCMOTOR_S6 0x010
-#define _OCMOTOR_S7 0x810
+#include "defines.h"
 
 //variables used for the motor to turn on, direction, and state
-extern int motor_on = 0;
-extern int motor_direction = 0;
-extern int test_stepper_state = 0;
-
+int motor_on = 0;
+int motor_direction = 0;
+int UD_stepper_state = 0;
+int OC_stepper_state = 0;
+int OUT;
+int motorUD = 0;
+int motorOC = 0;
+int counter = 0;
 
 void stepper_motor(void)
 {
-   /*
-    int sPORTB = PORTB;
-    (sPORTB & SPORTB & _OCMOTOR_MASK & _OCMOTOR_SX);
-    PORTB = sPORTB;
-    if (motorID)
+
+    //this is for the up down motor
+    if (motorUD == 1)
     {
-        switch (test_stepper_state)
+        switch (UD_stepper_state)
         {
             //This is to check if the keys are being pressed or not
             case 0:
                 //the first key is pressed (CW) and the second key (CCW)
                 //is not pressed, then turn on motor and turn CW
-                if (motor_direction)
-                {
-                    test_stepper_state = 1;
-
-                }
+                if (motor_direction == 1) UD_stepper_state = 1;
+                    
                 else    
-                    test_stepper_state = 7;
+                    UD_stepper_state = 7;
+            
+                OUT = _UDMOTOR_S0;
+                
+                break;
+            //This is for each part of the 8 step rotation
+            case 1:
+                if (motor_direction == 1) UD_stepper_state = 2;
+                
+                else 
+                    UD_stepper_state = 0;
+                
+                OUT = _UDMOTOR_S1;
+                break;
+            
+            case 2:
+                if (motor_direction == 1) UD_stepper_state = 3;
+                
+                else
+                    UD_stepper_state = 1;
+                OUT = _UDMOTOR_S2;
+                break;
+
+            case 3:
+                if (motor_direction == 1) UD_stepper_state = 4;
+                
+                else
+                    UD_stepper_state = 2;
+                OUT = _UDMOTOR_S3;
+                break;
+            
+            case 4:
+                if (motor_direction == 1) UD_stepper_state = 5;
+                
+                else
+                    UD_stepper_state = 3;
+                OUT = _UDMOTOR_S4;
+                break;
+            
+            case 5:
+                if (motor_direction == 1) UD_stepper_state = 6;
+                
+                else
+                    UD_stepper_state = 4;
+                OUT = _UDMOTOR_S5;
+                break;
+           
+            case 6:
+                if (motor_direction == 1) UD_stepper_state = 7;
+                
+                else
+                    UD_stepper_state = 5;
+                OUT = _UDMOTOR_S6;
+                break;
+            
+            case 7:
+                if (motor_direction == 1)
+                {
+                    UD_stepper_state = 0;
+                    counter++;
+                }
+                
+                else
+                {
+                    UD_stepper_state = 6;
+                    counter--;
+                }
+                OUT = _UDMOTOR_S7;
+                break;
+                
+            default:
+                break;
+        }
+    
+    }
+    
+    //This is for the open close motor
+    if (motorOC == 1)
+    {
+        switch (OC_stepper_state)
+        {
+            //This is to check if the keys are being pressed or not
+            case 0:
+                //the first key is pressed (CW) and the second key (CCW)
+                //is not pressed, then turn on motor and turn CW
+                if (motor_direction == 1) OC_stepper_state = 1;
+
+                else    
+                    OC_stepper_state = 7;
+                
+                int sPORTB = PORTB;
+                (sPORTB & sPORTB & _OCMOTOR_MASK & _OCMOTOR_S0);
+                PORTB = sPORTB;
             
                 //OUT = _UDMOTOR_S0;
                 break;
             //This is for each part of the 8 step rotation
             case 1:
-        
+                if (motor_direction == 1) OC_stepper_state = 2;
+                
+                else 
+                    OC_stepper_state = 0;
+                //int sPORTB = PORTB;
+                (sPORTB & sPORTB & _OCMOTOR_MASK & _OCMOTOR_S1);
+                PORTB = sPORTB;
+            
+                //OUT = _UDMOTOR_S1;
+                break;
+            
+            case 2:
+                if (motor_direction == 1) OC_stepper_state = 3;
+                
+                else
+                    OC_stepper_state = 1;
+                
+                //int sPORTB = PORTB;
+                (sPORTB & sPORTB & _OCMOTOR_MASK & _OCMOTOR_S2);
+                PORTB = sPORTB;
+            
+                //OUT = _UDMOTOR_S2;
+                break;
 
+            case 3:
+                if (motor_direction == 1) OC_stepper_state = 4;
+                
+                else
+                    OC_stepper_state = 2;
+                
+                //int sPORTB = PORTB;
+                (sPORTB & sPORTB & _OCMOTOR_MASK & _OCMOTOR_S3);
+                PORTB = sPORTB;
             
+                //OUT = _UDMOTOR_S3;
+                break;
             
-    }*/
+            case 4:
+                if (motor_direction == 1) OC_stepper_state = 5;
+                
+                else
+                    OC_stepper_state = 3;
+                
+                //int sPORTB = PORTB;
+                (sPORTB & sPORTB & _OCMOTOR_MASK & _OCMOTOR_S4);
+                PORTB = sPORTB;
+            
+                //OUT = _UDMOTOR_S4;
+                break;
+            
+            case 5:
+                if (motor_direction == 1) OC_stepper_state = 6;
+                
+                else
+                    OC_stepper_state = 4;
+                
+                //int sPORTB = PORTB;
+                (sPORTB & sPORTB & _OCMOTOR_MASK & _OCMOTOR_S5);
+                PORTB = sPORTB;
+            
+                //OUT = _UDMOTOR_S5;
+                break;
+           
+            case 6:
+                if (motor_direction == 1) OC_stepper_state = 7;
+                
+                else
+                    OC_stepper_state = 5;
+                
+                //int sPORTB = PORTB;
+                (sPORTB & sPORTB & _OCMOTOR_MASK & _OCMOTOR_S6);
+                PORTB = sPORTB;
+            
+                //OUT = _UDMOTOR_S6;
+                break;
+            
+            case 7:
+                if (motor_direction == 1) OC_stepper_state = 0;
+                
+                else
+                    OC_stepper_state = 6;
+                
+                //int sPORTB = PORTB;
+                (sPORTB & sPORTB & _OCMOTOR_MASK & _OCMOTOR_S7);
+                PORTB = sPORTB;
+            
+                //OUT = _UDMOTOR_S7;
+                break;
+                
+            default:
+                break;
+        }
+    
+    }
+    
 }
 
 void T5_16bit_config(void)

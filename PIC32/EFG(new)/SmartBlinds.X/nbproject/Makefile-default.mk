@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=ISR.c main.c stepper_motor.c system_config.c
+SOURCEFILES_QUOTED_IF_SPACED=ISR.c main.c stepper_motor.c system_config.c buzzer.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ISR.o ${OBJECTDIR}/main.o ${OBJECTDIR}/stepper_motor.o ${OBJECTDIR}/system_config.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/ISR.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/stepper_motor.o.d ${OBJECTDIR}/system_config.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ISR.o ${OBJECTDIR}/main.o ${OBJECTDIR}/stepper_motor.o ${OBJECTDIR}/system_config.o ${OBJECTDIR}/buzzer.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/ISR.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/stepper_motor.o.d ${OBJECTDIR}/system_config.o.d ${OBJECTDIR}/buzzer.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/ISR.o ${OBJECTDIR}/main.o ${OBJECTDIR}/stepper_motor.o ${OBJECTDIR}/system_config.o
+OBJECTFILES=${OBJECTDIR}/ISR.o ${OBJECTDIR}/main.o ${OBJECTDIR}/stepper_motor.o ${OBJECTDIR}/system_config.o ${OBJECTDIR}/buzzer.o
 
 # Source Files
-SOURCEFILES=ISR.c main.c stepper_motor.c system_config.c
+SOURCEFILES=ISR.c main.c stepper_motor.c system_config.c buzzer.c
 
 
 
@@ -131,6 +131,12 @@ ${OBJECTDIR}/system_config.o: system_config.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/system_config.o 
 	@${FIXDEPS} "${OBJECTDIR}/system_config.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/system_config.o.d" -o ${OBJECTDIR}/system_config.o system_config.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -mdfp=${DFP_DIR}
 	
+${OBJECTDIR}/buzzer.o: buzzer.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/buzzer.o.d 
+	@${RM} ${OBJECTDIR}/buzzer.o 
+	@${FIXDEPS} "${OBJECTDIR}/buzzer.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/buzzer.o.d" -o ${OBJECTDIR}/buzzer.o buzzer.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -mdfp=${DFP_DIR}
+	
 else
 ${OBJECTDIR}/ISR.o: ISR.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -155,6 +161,12 @@ ${OBJECTDIR}/system_config.o: system_config.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/system_config.o.d 
 	@${RM} ${OBJECTDIR}/system_config.o 
 	@${FIXDEPS} "${OBJECTDIR}/system_config.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/system_config.o.d" -o ${OBJECTDIR}/system_config.o system_config.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -mdfp=${DFP_DIR}
+	
+${OBJECTDIR}/buzzer.o: buzzer.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/buzzer.o.d 
+	@${RM} ${OBJECTDIR}/buzzer.o 
+	@${FIXDEPS} "${OBJECTDIR}/buzzer.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/buzzer.o.d" -o ${OBJECTDIR}/buzzer.o buzzer.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -mdfp=${DFP_DIR}
 	
 endif
 
