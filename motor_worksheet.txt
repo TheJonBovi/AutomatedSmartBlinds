@@ -91,3 +91,9 @@ The slowest our TMR2CLK can be is 84 / 256 = 0.328125 Mhz,
 which is a period of 3.0476 us
 
 so 0.001953125 / 0.00000304761905 = 641 (PR5 value)
+
+MATH FOR BUZZER
+
+1/ 4Khz is 250,000 ns. Our PBCLK is at 84Mhz then  the period is 11.9ns
+
+so PR will have to be 21,008
