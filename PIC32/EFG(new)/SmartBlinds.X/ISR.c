@@ -214,6 +214,16 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) T5_ISR(void)
     //clear the T5IF
     IFS0CLR = _IFS0_T5IF_MASK;
 }
+
+void __ISR_AT_VECTOR(_TIMER_4_VECTOR, IPL2SRS) T4_ISR(void)
+{
+    //toggle RF8
+    PORTFINV = _PORTF_RF8_MASK;
+    
+    //clear the T4IF
+    IFS0CLR = _IFS0_T4IF_MASK; 
+}
 /* *****************************************************************************
  End of File
  */
+
