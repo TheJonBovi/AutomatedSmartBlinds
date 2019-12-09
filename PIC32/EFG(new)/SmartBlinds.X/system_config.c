@@ -147,7 +147,7 @@ static int ExampleLocalFunction(int param1, int param2) {
 void SYSCLK_config(void)
 { 
     asm volatile( "di" ); // Disable Interrupts
-    PRECON = (1 & _PRECON_PFMWS_MASK) | ((2 << _PRECON_PREFEN_POSITION) & _PRECON_PREFEN_MASK); // enable prefetch cache and 1 waitstates
+    PRECON = (1 & _PRECON_PFMWS_MASK) | ((3 << _PRECON_PREFEN_POSITION) & _PRECON_PREFEN_MASK); // enable prefetch cache and 1 waitstates
     asm volatile( "ei" ); // Re-Enable Interrupts
 }
 
