@@ -359,7 +359,7 @@ void T3_config(void)
     asm volatile( "ei" ); // Re-Enable Interrupts
 }
 
-//this is for the buzzer
+//Timer 4 is for the buzzer
 void T4_16bit_config(void)
 {
     //Need to have timer 4 be 16 bit config
@@ -397,6 +397,61 @@ void T4_16bit_config(void)
     //start the timer in 16 bit mode
     //T4CONSET = _T4CON_ON_MASK;
     asm volatile( "ei" ); // Re-Enable Interrupts
+    
+}
+//Timer 5 will be used for the stepper motor
+void motor_config(void)
+{
+    //Need to have timer 5 be 16 bit config
+    //for 21008 for a 11.9ns which is 5210 for hex
+    
+    //Clear configure registers to disable, Set TMR5 for 16-bit mode, 1:1 pre-scalar
+    T5CON = 0x0;
+    
+    //set the timer 5 input clock to 256 divider from the pb clock
+    T5CONSET = _T5CON_TCKPS_MASK;
+    
+    //Clear the timer 5 register
+    TMR5 = 0x0;
+    
+    //load the period 5 register for the specific amount of 5210
+    PR5 = 0x0281;
+
+    // Disable TMR5 interrupts and set up TMR5 interrupts.
+    // Set Shadow register set 2 for TMR5 interrupts (Priority 2)
+    PRISSSET = (2 << _PRISS_PRI2SS_POSITION) & _PRISS_PRI2SS_MASK;
+    // Clear T5 priority sub priority
+    IPC6CLR = _IPC6_T5IP_MASK | _IPC6_T5IS_MASK;
+    // Set T5 to priority 2, sub-priority 0
+    IPC6SET = (2 << _IPC6_T5IP_POSITION) & _IPC6_T5IP_MASK;
+    // Clear T5IF
+    IFS0CLR = _IFS0_T5IF_MASK;
+    // Enable T5 interrupts
+    IEC0SET = _IEC0_T5IE_MASK;
+    
+    //TEST PURPOSE ONLY
+    //set up 2 buttons for cw and ccw
+    
+    //clear port g for the registers
+    PORTGCLR = _PORTG_RG0_MASK;
+    PORTGCLR = _PORTG_RG1_MASK;
+    
+    //set to input for both registers
+    TRISGSET = _TRISG_TRISG0_MASK;
+    TRISGSET = _TRISG_TRISG1_MASK;
+
+    //clear the PORTC registers
+    PORTCCLR = _PORTC_RC1_MASK | _PORTC_RC2_MASK | _PORTC_RC3_MASK | _PORTC_RC4_MASK;
+    //set the pins to outputs
+    TRISCCLR = _TRISC_TRISC1_MASK | _TRISC_TRISC2_MASK | _TRISC_TRISC3_MASK | _TRISC_TRISC4_MASK; 
+    //clear the analog pins for the stepper motor
+    ANSELCCLR = _ANSELC_ANSC1_MASK | _ANSELC_ANSC2_MASK | _ANSELC_ANSC3_MASK | _ANSELC_ANSC4_MASK;
+            
+    
+    
+    //start the timer in 16 bit mode
+    //T5CONSET = _T5CON_ON_MASK;
+    
     
 }
 /** 
