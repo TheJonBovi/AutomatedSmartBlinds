@@ -373,14 +373,14 @@ void T4_16bit_config(void)
     //Clear configure registers to disable, Set TMR5 for 16-bit mode, 1:1 pre-scalar
     T4CON = 0x0;
     
-    //set the timer 5 input clock to 256 divider from the pb clock
-    T4CONSET = _T4CON_TCKPS_MASK;
+    //set the timer 4 input clock to 256 divider from the pb clock
+    //T4CONSET = _T4CON_TCKPS_MASK;
     
     //Clear the timer 4 register
     TMR4 = 0x0;
     
     //load the period 4 register for the specific amount of 21008 = 250000ns / 11.9ns
-    PR4 = 21008;
+    PR4 = 10500;
 
     // Disable TMR4 interrupts and set up TMR4 interrupts.
     // Set Shadow register set 2 for TMR4 interrupts (Priority 2)
@@ -394,6 +394,9 @@ void T4_16bit_config(void)
     // Enable T4 interrupts
     IEC0SET = _IEC0_T4IE_MASK;
    
+    //RF8 config
+    PORTFCLR = _PORTF_RF8_MASK;
+    TRISFCLR = _TRISF_TRISF8_MASK;
     //start the timer in 16 bit mode
     //T4CONSET = _T4CON_ON_MASK;
     asm volatile( "ei" ); // Re-Enable Interrupts

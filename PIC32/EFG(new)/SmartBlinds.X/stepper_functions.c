@@ -9,6 +9,7 @@ extern int motorOC;
 extern int motor_direction;
 void rotate_function(void)
 {
+    //need to start getting the counter to control on how far the motor will rotate. Both for the OC and UD.
     while (true)
     {
         //for the UD motor
