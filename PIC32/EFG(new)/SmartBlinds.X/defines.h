@@ -56,7 +56,7 @@
 #define _UDMOTOR_S4 0x0004
 #define _UDMOTOR_S5 0x0006
 #define _UDMOTOR_S6 0x0002
-#define _UDMOTOR_S7 0x0013
+#define _UDMOTOR_S7 0x0012
 //open close motor
 #define _OCMOTOR_S0 0x800
 #define _OCMOTOR_S1 0xA00
