@@ -354,7 +354,7 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) T5_ISR(void)
                 else    
                     OC_stepper_state = 7;
                 //set the OCMOTOR state to out
-                PORTC = _OCMOTOR_S0;
+                PORTB = _OCMOTOR_S0;
                 
                 break;
             case 1:
@@ -365,7 +365,7 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) T5_ISR(void)
                 else 
                     OC_stepper_state = 0;
                 //set the OCMOTOR state to out
-                PORTC = _OCMOTOR_S1;
+                PORTB = _OCMOTOR_S1;
                 break;
             case 2:
                 //if the direction is cw, then go to stepper state 3
@@ -375,7 +375,7 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) T5_ISR(void)
                 else
                     OC_stepper_state = 1;
                 //set the OCMOTOR state to out
-                PORTC = _OCMOTOR_S2;
+                PORTB = _OCMOTOR_S2;
                 break;
 
             case 3:
@@ -386,7 +386,7 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) T5_ISR(void)
                 else
                     OC_stepper_state = 2;
                 //set the OCMOTOR state to out
-                PORTC = _OCMOTOR_S3;
+                PORTB = _OCMOTOR_S3;
                 break;
             
             case 4:
@@ -397,7 +397,7 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) T5_ISR(void)
                 else
                     OC_stepper_state = 3;
                 //set the OCMOTOR state to out
-                PORTC = _OCMOTOR_S4;
+                PORTB = _OCMOTOR_S4;
                 break;
             
             case 5:
@@ -408,7 +408,7 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) T5_ISR(void)
                 else
                     OC_stepper_state = 4;
                 //set the OCMOTOR state to out
-                PORTC = _OCMOTOR_S5;
+                PORTB = _OCMOTOR_S5;
                 break;
            
             case 6:
@@ -419,7 +419,7 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) T5_ISR(void)
                 else
                     OC_stepper_state = 5;
                 //set the OCMOTOR state to out
-                PORTC = _OCMOTOR_S6;
+                PORTB = _OCMOTOR_S6;
                 break;
             
             case 7:
@@ -438,7 +438,7 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) T5_ISR(void)
                     counterOC--;
                 }
                 //set the OCMOTOR state to out
-                PORTC = _OCMOTOR_S7;
+                PORTB = _OCMOTOR_S7;
                 break;
             //nothing is happening, so jump out    
             default:

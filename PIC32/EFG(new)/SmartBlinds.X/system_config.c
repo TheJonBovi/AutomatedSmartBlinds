@@ -442,11 +442,19 @@ void motor_config(void)
 
     //clear the PORTC registers
     PORTCCLR = _PORTC_RC1_MASK | _PORTC_RC2_MASK | _PORTC_RC3_MASK | _PORTC_RC4_MASK;
-    //set the pins to outputs
+    //set the UD motor pins to outputs
     TRISCCLR = _TRISC_TRISC1_MASK | _TRISC_TRISC2_MASK | _TRISC_TRISC3_MASK | _TRISC_TRISC4_MASK; 
-    //clear the analog pins for the stepper motor
+    //clear the UD motor analog pins for the stepper motor
     ANSELCCLR = _ANSELC_ANSC1_MASK | _ANSELC_ANSC2_MASK | _ANSELC_ANSC3_MASK | _ANSELC_ANSC4_MASK;
-            
+    
+    
+     //clear the PORTB registers
+    PORTBCLR = _PORTB_RB4_MASK | _PORTB_RB8_MASK | _PORTB_RB9_MASK | _PORTB_RB11_MASK;
+    //set the OC motor pins to outputs
+    TRISBCLR = _TRISB_TRISB4_MASK | _TRISB_TRISB8_MASK | _TRISB_TRISB9_MASK | _TRISB_TRISB11_MASK; 
+    //clear the OC motor analog pins for the stepper motor
+    ANSELBCLR = _ANSELB_ANSB4_MASK | _ANSELB_ANSB8_MASK | _ANSELB_ANSB9_MASK | _ANSELB_ANSB11_MASK;
+    
     
     
     //start the timer in 16 bit mode
