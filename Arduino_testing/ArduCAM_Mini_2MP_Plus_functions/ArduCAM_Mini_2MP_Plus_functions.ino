@@ -514,6 +514,8 @@ else if (mode == 3)
   }
 }
 }
+
+
 uint8_t read_fifo_burst(ArduCAM myCAM)
 {
   uint8_t temp = 0, temp_last = 0;
