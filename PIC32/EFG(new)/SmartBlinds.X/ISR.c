@@ -335,7 +335,11 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) T5_ISR(void)
             default:
                 break;
         }
-    
+        //check the counter to its preset stage
+//        if (counterUD = 1000 || counterUD = -1000)
+//        {
+//            motorUD = 0;
+//        }
     }
     
     //This is for the open close motor
