@@ -3,8 +3,8 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>SmartBlinds</name>
-            <creation-uuid>1da85a82-d26b-4576-bbaa-f5eda25caf8c</creation-uuid>
+            <name>SmartBlindsCamera</name>
+            <creation-uuid>11cd6bce-c775-4632-b0b0-18bfd052aa35</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>
             <cpp-extensions/>

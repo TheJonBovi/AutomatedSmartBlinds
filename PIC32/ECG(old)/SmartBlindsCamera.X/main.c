@@ -109,12 +109,6 @@ int main()
     LED_config();
     ISR_config();    
     PBCLK3_config();
- //   ADC_config();
-    T2_32bit_config();
-    motor_config();
-    //rotate_function();
-    T4_16bit_config();
-    buzzer_toggle();
 
     
     // Endless loop

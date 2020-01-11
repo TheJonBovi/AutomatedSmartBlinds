@@ -359,7 +359,7 @@ void T3_config(void)
     asm volatile( "ei" ); // Re-Enable Interrupts
 }
 
-//Timer 4 is for the buzzer
+//this is for the buzzer
 void T4_16bit_config(void)
 {
     //Need to have timer 4 be 16 bit config
@@ -373,14 +373,14 @@ void T4_16bit_config(void)
     //Clear configure registers to disable, Set TMR5 for 16-bit mode, 1:1 pre-scalar
     T4CON = 0x0;
     
-    //set the timer 4 input clock to 256 divider from the pb clock
-    //T4CONSET = _T4CON_TCKPS_MASK;
+    //set the timer 5 input clock to 256 divider from the pb clock
+    T4CONSET = _T4CON_TCKPS_MASK;
     
     //Clear the timer 4 register
     TMR4 = 0x0;
     
     //load the period 4 register for the specific amount of 21008 = 250000ns / 11.9ns
-    PR4 = 10500;
+    PR4 = 21008;
 
     // Disable TMR4 interrupts and set up TMR4 interrupts.
     // Set Shadow register set 2 for TMR4 interrupts (Priority 2)
@@ -394,75 +394,9 @@ void T4_16bit_config(void)
     // Enable T4 interrupts
     IEC0SET = _IEC0_T4IE_MASK;
    
-    //RF8 config
-    PORTFCLR = _PORTF_RF8_MASK;
-    TRISFCLR = _TRISF_TRISF8_MASK;
     //start the timer in 16 bit mode
     //T4CONSET = _T4CON_ON_MASK;
     asm volatile( "ei" ); // Re-Enable Interrupts
-    
-}
-//Timer 5 will be used for the stepper motor
-void motor_config(void)
-{
-    //Need to have timer 5 be 16 bit config
-    //for 21008 for a 11.9ns which is 5210 for hex
-    
-    //Clear configure registers to disable, Set TMR5 for 16-bit mode, 1:1 pre-scalar
-    T5CON = 0x0;
-    
-    //set the timer 5 input clock to 256 divider from the pb clock
-    T5CONSET = _T5CON_TCKPS_MASK;
-    
-    //Clear the timer 5 register
-    TMR5 = 0x0;
-    
-    //load the period 5 register for the specific amount of 5210
-    PR5 = 0x0281;
-
-    // Disable TMR5 interrupts and set up TMR5 interrupts.
-    // Set Shadow register set 2 for TMR5 interrupts (Priority 2)
-    PRISSSET = (2 << _PRISS_PRI2SS_POSITION) & _PRISS_PRI2SS_MASK;
-    // Clear T5 priority sub priority
-    IPC6CLR = _IPC6_T5IP_MASK | _IPC6_T5IS_MASK;
-    // Set T5 to priority 2, sub-priority 0
-    IPC6SET = (2 << _IPC6_T5IP_POSITION) & _IPC6_T5IP_MASK;
-    // Clear T5IF
-    IFS0CLR = _IFS0_T5IF_MASK;
-    // Enable T5 interrupts
-    IEC0SET = _IEC0_T5IE_MASK;
-    
-    //TEST PURPOSE ONLY
-    //set up 2 buttons for cw and ccw
-    
-    //clear port g for the registers
-    PORTGCLR = _PORTG_RG0_MASK;
-    PORTGCLR = _PORTG_RG1_MASK;
-    
-    //set to input for both registers
-    TRISGSET = _TRISG_TRISG0_MASK;
-    TRISGSET = _TRISG_TRISG1_MASK;
-
-    //clear the PORTC registers
-    PORTCCLR = _PORTC_RC1_MASK | _PORTC_RC2_MASK | _PORTC_RC3_MASK | _PORTC_RC4_MASK;
-    //set the UD motor pins to outputs
-    TRISCCLR = _TRISC_TRISC1_MASK | _TRISC_TRISC2_MASK | _TRISC_TRISC3_MASK | _TRISC_TRISC4_MASK; 
-    //clear the UD motor analog pins for the stepper motor
-    ANSELCCLR = _ANSELC_ANSC1_MASK | _ANSELC_ANSC2_MASK | _ANSELC_ANSC3_MASK | _ANSELC_ANSC4_MASK;
-    
-    
-     //clear the PORTB registers
-    PORTBCLR = _PORTB_RB4_MASK | _PORTB_RB8_MASK | _PORTB_RB9_MASK | _PORTB_RB11_MASK;
-    //set the OC motor pins to outputs
-    TRISBCLR = _TRISB_TRISB4_MASK | _TRISB_TRISB8_MASK | _TRISB_TRISB9_MASK | _TRISB_TRISB11_MASK; 
-    //clear the OC motor analog pins for the stepper motor
-    ANSELBCLR = _ANSELB_ANSB4_MASK | _ANSELB_ANSB8_MASK | _ANSELB_ANSB9_MASK | _ANSELB_ANSB11_MASK;
-    
-    
-    
-    //start the timer in 16 bit mode
-    //T5CONSET = _T5CON_ON_MASK;
-    
     
 }
 /** 
@@ -478,183 +412,86 @@ void motor_config(void)
   @Remarks
     Refer to the system_config.h interface header for function usage details.
  */
-void ADC_config(void)
+
+// Configure SPI4 to Master mode with an 8Mhz SCLK
+// Set the SPI4RX interrupt up at priority 5, subpriority 0 with SRS 3
+void Camera_Config(void)
 {
-//     1. Configure the analog port pins, as described in 22.4.1 ?Configuring the Analog Port
-//    Pins?.
+    // Set RPB3 to digital
+    ANSELBCLR = _ANSELB_ANSB3_MASK;
     
-    // Input RB0 using ADC0
-    // Set RB0 of PORTB as an input (PIN36)
-    TRISBSET = (1 << _TRISB_TRISB0_POSITION) & _TRISB_TRISB0_MASK;
-    // Set AN0 pin for first ADC module
-    ANSELBSET = (1 << _ANSELB_ANSB0_POSITION) & _ANSELB_ANSB0_MASK;
+    // Assign SDI4 to RPB3
+    SDI4R = 0b1000;
     
-    // Input RB1 using ADC1
-    // Set RB1 of PORTB as an input (PIN35)
-    TRISBSET = (1 << _TRISB_TRISB1_POSITION) & _TRISB_TRISB1_MASK;
-    // Set AN1 pin for first ADC module
-    ANSELBSET = (1 << _ANSELB_ANSB1_POSITION) & _ANSELB_ANSB1_MASK;
+    // Assign SDO4 to RPF2
+    RPF2R = 0b1000;
+     
+    // Disable and reset SPI4 
+    SPI4CONCLR = _SPI4CON_ON_MASK;
     
-    // Input RB3 using ADC3
-    // Set RB3 of PORTB as an input (PIN31)
-    TRISBSET = (1 << _TRISB_TRISB3_POSITION) & _TRISB_TRISB3_MASK;
-    // Set AN3 pin for first ADC module
-    ANSELBSET = (1 << _ANSELB_ANSB3_POSITION) & _ANSELB_ANSB3_MASK;
+    // Clear MSSEN bit in SPI4CON to disable slave select (will do manually)
+    SPI4CONCLR = _SPI4CON_MSSEN_MASK;
     
-//    2. Initialize the ADC calibration values by copying them from the factory-programmed
-//    DEVADCx Flash registers into the corresponding ADCxCFG registers.
+    // RF8 will operate as CS, assert it high before assigning to output.
+    LATFSET = _LATF_LATF8_MASK;
+    TRISFCLR = _TRISF_TRISF8_MASK;
     
-    /* initialize ADC calibration setting */
-    ADC0CFG = DEVADC0;
-    ADC1CFG = DEVADC1;
-    ADC2CFG = DEVADC2;
-    ADC3CFG = DEVADC3;
-    ADC4CFG = DEVADC4;
-    // Below not present on device
-    //ADC5CFG = DEVADC5;
-    //ADC6CFG = DEVADC6;
-    ADC7CFG = DEVADC7;
-    
-    /* Configure ADCCON1 */
-    ADCCON1 = 0; // No ADCCON1 features are enabled including: Stop-in-Idle, turbo,
-    // CVD mode, Fractional mode and scan trigger source.
-    /* Configure ADCCON2 */
-    ADCCON2 = 0; // Since, we are using only the Class 1 inputs, no setting is
-    // required for ADCDIV
-    
-    /* Initialize warm up time register */
-    ADCANCON = 0;
-    ADCANCONbits.WKUPCLKCNT = 6; // Wakeup exponent = 32 * TADx
-    
-//    3. Select the analog inputs to the ADC multiplexers, as described in 22.4.2 ?Selecting the
-//    ADC Multiplexer Analog Inputs?.
-    
-    /* Select all analog inputs for no presync trigger, not sync sampling */
-    // This also sets AN0 to ADC0, AN1 to ADC1 and AN2 to ADC2
-    ADCTRGMODE = 0;
-    
-//    4. Select the format of the ADC result, as described in 22.4.3 ?Selecting the Format of the
-//    ADC Result?.
-        
-    // Set all to unsigned integers in single ended mode
-    ADCIMCON1bits.SIGN0 = 0; // unsigned data format
-    ADCIMCON1bits.DIFF0 = 0; // Single ended mode
-    ADCIMCON1bits.SIGN1 = 0; // unsigned data format
-    ADCIMCON1bits.DIFF1 = 0; // Single ended mode
-    ADCIMCON1bits.SIGN3 = 0; // unsigned data format
-    ADCIMCON1bits.DIFF3 = 0; // Single ended mode
-    
-//    5. Select the conversion trigger source, as described in 22.4.4 ?Selecting the Conversion
-//    Trigger Source?.
-    
-    // Set for Global software edge triggering (GSWTRG)
-    // The main RTS loop will manually trigger interrupts in ADCCON3
-    ADCTRGSNSbits.LVL0 = 0; // Edge trigger
-    ADCTRGSNSbits.LVL1 = 0; // Edge trigger
-    ADCTRGSNSbits.LVL3 = 0; // Edge trigger
-    ADCTRG1bits.TRGSRC0 = 0b00001;
-    ADCTRG1bits.TRGSRC1 = 0b00001;
-    ADCTRG1bits.TRGSRC3 = 0b00001;
-    
-//    6. Select the voltage reference source, as described in 22.4.5 ?Selecting the Voltage
-//    Reference Source?.
-    
-    /* Clock setting */
-    ADCCON3 = 0;
-    ADCCON3bits.ADCSEL = 0; // Select input clock source
-    // NOTE: ADC clock must be between 1 and 23 MHz to operate successfully.
-    ADCCON3bits.CONCLKDIV = 3; // Control clock frequency is 84 (PBCLK3) / 4 = 21MHz)
-    ADCCON3bits.VREFSEL = 0; // Select AVDD and AVSS as reference source
+    // Set CKE = 0, CKP = 0, SMP = 1
+    SPI4CONCLR = _SPI4CON_CKE_MASK | _SPI4CON_CKP_MASK;
+    SPI4CONSET = _SPI4CON_SMP_MASK;
     
     
-//    7. Select the scanned inputs, as described in 22.4.6 ?Selecting the Scanned Inputs?.
-
-    /* Configure ADCCSSx */
-    ADCCSS1 = 0; // Clear all bits
-    ADCCSS2 = 0;
-//    ADCCSS1bits.CSS0 = 1; // AN0 (Class 1) set for scan
-//    ADCCSS1bits.CSS1 = 1; // AN1 (Class 1) set for scan
-//    ADCCSS1bits.CSS2 = 1; // AN2 (Class 1) set for scan
+    // Set Shadow register set 3 for SPI4 RX and ER interrupts (Priority 5)
+    PRISSSET = ((3 << _PRISS_PRI5SS_POSITION) & _PRISS_PRI5SS_MASK);
     
-//    8. Select the analog-to-digital conversion clock source and prescaler, as described in
-//    22.4.7 ?Selecting the Analog-to-Digital Conversion Clock Source and Prescaler?.
+    // Clear SPI4RX priority sub priority
+    IPC41CLR = _IPC41_SPI4RXIP_MASK | _IPC41_SPI4RXIS_MASK;
+    // Set SPI4RX to priority 5, sub-priority 0
+    IPC41SET = (5 << _IPC41_SPI4RXIP_POSITION) & _IPC41_SPI4RXIP_MASK;
     
-    ADC0TIMEbits.ADCDIV = 1; // ADC0 clock frequency is half of control clock = TAD0
-    ADC0TIMEbits.SAMC = 5; // ADC0 sampling time = 5 * TAD0
-    ADC0TIMEbits.SELRES = 3; // ADC0 resolution is 12 bits
+    // Clear SPI4EX priority sub priority
+    IPC40CLR = _IPC40_SPI4EIP_MASK | _IPC40_SPI4EIS_MASK;
+    // Set SPI4RX to priority 5, sub-priority 1
+    IPC40SET = (5 << _IPC40_SPI4EIP_POSITION) & _IPC40_SPI4EIP_MASK | ((1 << _IPC40_SPI4EIS_POSITION) & _IPC40_SPI4EIS_MASK); ;
     
-    ADC1TIMEbits.ADCDIV = 1; // ADC1 clock frequency is half of control clock = TAD0
-    ADC1TIMEbits.SAMC = 5; // ADC1 sampling time = 5 * TAD0
-    ADC1TIMEbits.SELRES = 3; // ADC1 resolution is 12 bits
+    //Enable RX and Error interrupts
+    //IEC5SET = _IEC5_SPI4EIE_MASK | _IEC5_SPI4RXIE_MASK;
     
-    ADC3TIMEbits.ADCDIV = 1; // ADC3 clock frequency is half of control clock = TAD0
-    ADC3TIMEbits.SAMC = 5; // ADC3 sampling time = 5 * TAD0
-    ADC3TIMEbits.SELRES = 3; // ADC3 resolution is 12 bits
+    // ENABLE SPI4 ERROR ISR 
+    //IEC5SET = _IEC5_SPI4EIE_MASK;
     
-//    9. Specify any additional acquisition time, if required, as described in 22.10 ?ADC Sampling
-//    Requirements?.
+    // Do NOT have a TX interrupt vector for now
+    IEC5CLR = _IEC5_SPI4TXIE_MASK;
     
-    /* Configure ADCGIRQENx */
-    ADCGIRQEN1 = 0; // No interrupts are used
-    ADCGIRQEN2 = 0;
+    // Clear all flags (fault, RX and TX)
+    IFS5CLR = _IFS5_SPI4EIF_MASK | _IFS5_SPI4RXIF_MASK | _IFS5_SPI4TXIF_MASK;
+  
+    // Read buffer to clear receive buffer
+    SPI4BUF;
     
-    /* Configure ADCCMPCONx */
-    ADCCMPCON1 = 0; // No digital comparators are used. Setting the ADCCMPCONx
-    ADCCMPCON2 = 0; // register to '0' ensures that the comparator is disabled.
-    ADCCMPCON3 = 0; // Other registers are ?don't care?.
-    ADCCMPCON4 = 0;
-    ADCCMPCON5 = 0;
-    ADCCMPCON6 = 0;
-
-    /* Configure ADCFLTRx */
-    ADCFLTR1 = 0; // No oversampling filters are used.
-    ADCFLTR2 = 0;
-    ADCFLTR3 = 0;
-    ADCFLTR4 = 0;
-    ADCFLTR5 = 0;
-    ADCFLTR6 = 0;
+    // Clear ENHBUF to set standard buffer mode
+    SPI4CONCLR = _SPI4CON_ENHBUF_MASK;
     
-    /* Early interrupt */
-    ADCEIEN1 = 0; // No early interrupt
-    ADCEIEN2 = 0;    
+    // Set the baud rate in SPI4BRG
+    // PB2CLK = 84Mhz and we want a 2Mhz SCLK. So 
+    // 2 = 84 / (2 * (BRG + 1) )
+    // BRG = 20 for 2Mhz Sclk
+    //SPI4BRG = 20;
     
-//    10. Turn on the ADC module, as described in 22.4.9 ?Turning ON the ADC?.
+    // PB2CLK = 84Mhz and we want an 8Mhz SCLK. So 
+    // 8 = 84 / (2 * (BRG + 1) )
+    // BRG = 8 for 4.666667Mhz clock
+    SPI4BRG = 8;
     
-   
-    /* Turn the ADC on */
-    ADCCON1bits.ON = 1;
+    // Clear the Overflow flag
+    SPI4STATCLR = _SPI4STAT_SPIROV_MASK;
     
-//    11. Poll (or wait for the interrupt) for the voltage reference to be ready, as described in
-//    22.4.5 ?Selecting the Voltage Reference Source?.
+    // Set SPI4 to master mode
+    SPI4CONSET = _SPI4CON_MSTEN_MASK;
     
-    /* Wait for voltage reference to be stable */
-    while(!ADCCON2bits.BGVRRDY); // Wait until the reference voltage is ready
-    while(ADCCON2bits.REFFLT); // Wait if there is a fault with the reference voltage
-
-//    12. Enable the analog and bias circuit for required ADC modules and after the ADC module
-//    wakes-up, enable the digital circuit, as described in 22.7.3 ?ADC Low-power Mode?
-    
-    /* Enable clock to analog circuit */
-    ADCANCONbits.ANEN0 = 1; // Enable the clock to analog bias
-    ADCANCONbits.ANEN1 = 1; // Enable the clock to analog bias
-    ADCANCONbits.ANEN3 = 1; // Enable the clock to analog bias
-    /* Wait for ADC to be ready */
-    while(!ADCANCONbits.WKRDY0); // Wait until ADC0 is ready
-    while(!ADCANCONbits.WKRDY1); // Wait until ADC1 is ready
-    while(!ADCANCONbits.WKRDY3); // Wait until ADC3 is ready
-    
-//    13. Configure the ADC interrupts (if required), as described in 22.6 ?Interrupts?.
-
-    // Turn on ACD units
-        /* Enable the ADC module */
-    ADCCON3bits.DIGEN0 = 1; // Enable ADC0
-    ADCCON3bits.DIGEN1 = 1; // Enable ADC1
-    ADCCON3bits.DIGEN3 = 1; // Enable ADC3
-    
-    
+    // Enable SPI Unit
+    SPI4CONSET = _SPI4CON_ON_MASK;    
 }
-
-
 /* *****************************************************************************
  End of File
  */
