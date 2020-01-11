@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace WebApplication1.Tests
+namespace SmartBlindsWebApp.Tests
 {
     [TestClass]
     public class UnitTest1

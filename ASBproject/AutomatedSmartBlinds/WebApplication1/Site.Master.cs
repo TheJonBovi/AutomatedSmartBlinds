@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebApplication1
+namespace SmartBlindsWebApp
 {
     public partial class SiteMaster : MasterPage
     {

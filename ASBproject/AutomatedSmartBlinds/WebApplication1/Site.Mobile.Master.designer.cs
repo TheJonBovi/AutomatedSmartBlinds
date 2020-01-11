@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication1 {
+namespace SmartBlindsWebApp {
     
     
     public partial class Site_Mobile {

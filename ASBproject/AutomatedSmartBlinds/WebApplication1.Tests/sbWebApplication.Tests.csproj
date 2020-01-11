@@ -63,9 +63,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebApplication1\WebApplication1.csproj">
+    <ProjectReference Include="..\WebApplication1\sbWebApplication.csproj">
       <Project>{5ABD211F-73B7-4661-9E55-4E5F94601B26}</Project>
-      <Name>WebApplication1</Name>
+      <Name>sbWebApplication</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

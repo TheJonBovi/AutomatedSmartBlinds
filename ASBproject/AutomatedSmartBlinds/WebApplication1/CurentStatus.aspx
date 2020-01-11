@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CurentStatus.aspx.cs" Inherits="WebApplication1.CurentStatus" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CurentStatus.aspx.cs" Inherits="SmartBlindsWebApp.CurentStatus" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <div class="jumbotron">
         <h1>Current Status</h1>
@@ -11,8 +11,14 @@
             <p>
                 Get the current Smart Blinds status and make adjustments</p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Get Current Status, Adjust Blinds&nbsp;&nbsp; &raquo;</a>
+               <%-- This is an example od a serice call to the MCU for Data--%>
+                This is an example od a serice call to the MCU for Data
             </p>
+            <br />
+             <p>
+                    <asp:Label ID="txtGasSensorStatus" runat="server" Text="Gas Sensor Status"></asp:Label>
+             </p>
+           
         </div>
          <div class="col-md-4">
             <h2>Temperature Sensor</h2>
