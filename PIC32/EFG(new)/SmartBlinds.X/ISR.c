@@ -44,6 +44,8 @@ int motorUD = 0;
 int motorOC = 0;
 int counterUD = 0;
 int counterOC = 0;
+int temperature_alarm = 0;
+int gas_alarm = 0;
 
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -176,6 +178,7 @@ void __ISR_AT_VECTOR(_TIMER_2_VECTOR, IPL5SRS) T2_ISR(void)
   @Remarks
     Refer to the ISR.h interface header for function usage details.
 */
+//This is for the ADC config
 void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) T3_ISR(void)
 {
     // ADC loop and test output on LED's for proximity sensor
@@ -216,6 +219,37 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) T3_ISR(void)
     
     // Clear T3IF atomically
     IFS0CLR = _IFS0_T3IF_MASK;
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //This section is for the temperature
+    
+    //toggle RB3 for the temperature (AN3)
+    PORTBINV = _PORTB_RB3_MASK;
+
+
+    
+    /*
+     if temperature is above set alert number
+     * then trigger variable to turn on light (later will rotate motors to open blinds)
+     * else if the temperature is below set alert number
+     * then trigger variable to turn on light (later will rotate motors to close blinds)
+     * else
+     * do nothing 
+     */
+    
+    
+    ////////////////////////////////////////////////////////////////////////////////////
+    //This section is for the gas
+    
+    //toggle RB1 for the gas sensor (AN1)
+    PORTBINV = _PORTB_RB1_MASK;
+    
+    /*
+     if the gas/smoke is above the set alert number
+     * then trigger the buzzer to turn on
+     * else
+     * do nothing
+     */
 }
 
 //This ISR will be used for the stepper motors UD/OC
@@ -463,6 +497,7 @@ void __ISR_AT_VECTOR(_TIMER_4_VECTOR, IPL2SRS) T4_ISR(void)
     //clear the T4IF
     IFS0CLR = _IFS0_T4IF_MASK; 
 }
+
 /* *****************************************************************************
  End of File
  */

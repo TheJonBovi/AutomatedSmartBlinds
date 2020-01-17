@@ -106,6 +106,7 @@ int main()
 {
     // Run initialization code
     SYSCLK_config();
+    DIP_config();
     LED_config();
     ISR_config();    
     PBCLK3_config();
@@ -113,6 +114,8 @@ int main()
     T2_32bit_config();
     motor_config();
     rotate_function();
+    //temp_config();
+    //gas_config();
     //T4_16bit_config();
     //buzzer_toggle();
 
