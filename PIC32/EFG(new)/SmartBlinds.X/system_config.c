@@ -654,7 +654,19 @@ void ADC_config(void)
     
 }
 
-
+/*
+ * SPI1 will be used for Wifi communication. The pinout is:
+ * SCK = RD1
+ * MISO = RF0
+ * MOSI = RF1
+ * CS = RF2
+ * 
+ * Speed of SCK 
+ */
+void Wifi_SPI(void)
+{
+    
+}
 /* *****************************************************************************
  End of File
  */

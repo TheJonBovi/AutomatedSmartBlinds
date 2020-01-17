@@ -17,6 +17,7 @@
  * TMR2 for ADC loop set to 32-bit mode, TMR3 ISR priority 1, SRS 1
  * TMR4 for buzzer freq set to 16-bit mode, TMR4 ISR priority 2, SRS 2
  * TMR5 for motors speed set to 16-bit mode, TMR5 ISR priority 2, SRS 2
+ * SPI1 used for Wi-fi communication, SPI1RX ISR priority 6, SRS 6
  */
 /* ************************************************************************** */
 
