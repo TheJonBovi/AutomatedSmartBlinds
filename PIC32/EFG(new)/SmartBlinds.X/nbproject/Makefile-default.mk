@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=ISR.c main.c system_config.c stepper_functions.c buzer_functions.c
+SOURCEFILES_QUOTED_IF_SPACED=ISR.c main.c system_config.c stepper_functions.c temperature_functions.c gas_functions.c buzzer_functions.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ISR.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system_config.o ${OBJECTDIR}/stepper_functions.o ${OBJECTDIR}/buzer_functions.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/ISR.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/system_config.o.d ${OBJECTDIR}/stepper_functions.o.d ${OBJECTDIR}/buzer_functions.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ISR.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system_config.o ${OBJECTDIR}/stepper_functions.o ${OBJECTDIR}/temperature_functions.o ${OBJECTDIR}/gas_functions.o ${OBJECTDIR}/buzzer_functions.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/ISR.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/system_config.o.d ${OBJECTDIR}/stepper_functions.o.d ${OBJECTDIR}/temperature_functions.o.d ${OBJECTDIR}/gas_functions.o.d ${OBJECTDIR}/buzzer_functions.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/ISR.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system_config.o ${OBJECTDIR}/stepper_functions.o ${OBJECTDIR}/buzer_functions.o
+OBJECTFILES=${OBJECTDIR}/ISR.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system_config.o ${OBJECTDIR}/stepper_functions.o ${OBJECTDIR}/temperature_functions.o ${OBJECTDIR}/gas_functions.o ${OBJECTDIR}/buzzer_functions.o
 
 # Source Files
-SOURCEFILES=ISR.c main.c system_config.c stepper_functions.c buzer_functions.c
+SOURCEFILES=ISR.c main.c system_config.c stepper_functions.c temperature_functions.c gas_functions.c buzzer_functions.c
 
 
 CFLAGS=
@@ -130,11 +130,23 @@ ${OBJECTDIR}/stepper_functions.o: stepper_functions.c  nbproject/Makefile-${CND_
 	@${RM} ${OBJECTDIR}/stepper_functions.o 
 	@${FIXDEPS} "${OBJECTDIR}/stepper_functions.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/stepper_functions.o.d" -o ${OBJECTDIR}/stepper_functions.o stepper_functions.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
 	
-${OBJECTDIR}/buzer_functions.o: buzer_functions.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/temperature_functions.o: temperature_functions.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/buzer_functions.o.d 
-	@${RM} ${OBJECTDIR}/buzer_functions.o 
-	@${FIXDEPS} "${OBJECTDIR}/buzer_functions.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/buzer_functions.o.d" -o ${OBJECTDIR}/buzer_functions.o buzer_functions.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	@${RM} ${OBJECTDIR}/temperature_functions.o.d 
+	@${RM} ${OBJECTDIR}/temperature_functions.o 
+	@${FIXDEPS} "${OBJECTDIR}/temperature_functions.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/temperature_functions.o.d" -o ${OBJECTDIR}/temperature_functions.o temperature_functions.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/gas_functions.o: gas_functions.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/gas_functions.o.d 
+	@${RM} ${OBJECTDIR}/gas_functions.o 
+	@${FIXDEPS} "${OBJECTDIR}/gas_functions.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/gas_functions.o.d" -o ${OBJECTDIR}/gas_functions.o gas_functions.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/buzzer_functions.o: buzzer_functions.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/buzzer_functions.o.d 
+	@${RM} ${OBJECTDIR}/buzzer_functions.o 
+	@${FIXDEPS} "${OBJECTDIR}/buzzer_functions.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/buzzer_functions.o.d" -o ${OBJECTDIR}/buzzer_functions.o buzzer_functions.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
 	
 else
 ${OBJECTDIR}/ISR.o: ISR.c  nbproject/Makefile-${CND_CONF}.mk
@@ -161,11 +173,23 @@ ${OBJECTDIR}/stepper_functions.o: stepper_functions.c  nbproject/Makefile-${CND_
 	@${RM} ${OBJECTDIR}/stepper_functions.o 
 	@${FIXDEPS} "${OBJECTDIR}/stepper_functions.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/stepper_functions.o.d" -o ${OBJECTDIR}/stepper_functions.o stepper_functions.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
 	
-${OBJECTDIR}/buzer_functions.o: buzer_functions.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/temperature_functions.o: temperature_functions.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/buzer_functions.o.d 
-	@${RM} ${OBJECTDIR}/buzer_functions.o 
-	@${FIXDEPS} "${OBJECTDIR}/buzer_functions.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/buzer_functions.o.d" -o ${OBJECTDIR}/buzer_functions.o buzer_functions.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	@${RM} ${OBJECTDIR}/temperature_functions.o.d 
+	@${RM} ${OBJECTDIR}/temperature_functions.o 
+	@${FIXDEPS} "${OBJECTDIR}/temperature_functions.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/temperature_functions.o.d" -o ${OBJECTDIR}/temperature_functions.o temperature_functions.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/gas_functions.o: gas_functions.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/gas_functions.o.d 
+	@${RM} ${OBJECTDIR}/gas_functions.o 
+	@${FIXDEPS} "${OBJECTDIR}/gas_functions.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/gas_functions.o.d" -o ${OBJECTDIR}/gas_functions.o gas_functions.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/buzzer_functions.o: buzzer_functions.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/buzzer_functions.o.d 
+	@${RM} ${OBJECTDIR}/buzzer_functions.o 
+	@${FIXDEPS} "${OBJECTDIR}/buzzer_functions.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/buzzer_functions.o.d" -o ${OBJECTDIR}/buzzer_functions.o buzzer_functions.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
 	
 endif
 
