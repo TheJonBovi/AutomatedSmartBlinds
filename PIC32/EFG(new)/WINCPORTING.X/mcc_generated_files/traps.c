@@ -89,15 +89,15 @@ inline static void use_failsafe_stack(void)
 /* Controls where the stack pointer limit is, relative to the end of the
  * failsafe stack
  */    
-    SPLIM = (uint16_t)(((uint8_t *)failsafe_stack) + sizeof(failsafe_stack) 
-            - FAILSAFE_STACK_GUARDSIZE);
+//    SPLIM = (uint16_t)(((uint8_t *)failsafe_stack) + sizeof(failsafe_stack) 
+//            - FAILSAFE_STACK_GUARDSIZE);
 }
 
 /** Oscillator Fail Trap vector */
 void ERROR_HANDLER_NORETURN _OscillatorFail(void)
 { 
-    INTCON1bits.OSCFAIL = 0;        //Clear the trap flag
-    TRAPS_halt_on_error(TRAPS_OSC_FAIL);
+//    INTCON1bits.OSCFAIL = 0;        //Clear the trap flag
+//    TRAPS_halt_on_error(TRAPS_OSC_FAIL);
 }
 
 /** Stack Error Trap Vector */
@@ -107,24 +107,24 @@ void ERROR_HANDLER_NORETURN _StackError(void)
      * means that we cannot trust the stack to operate correctly unless
      * we set the stack pointer to a safe place.
      */
-    use_failsafe_stack(); 
-
-    INTCON1bits.STKERR = 0;        //Clear the trap flag
-    TRAPS_halt_on_error(TRAPS_STACK_ERR);
+//    use_failsafe_stack(); 
+//
+//    INTCON1bits.STKERR = 0;        //Clear the trap flag
+//    TRAPS_halt_on_error(TRAPS_STACK_ERR);
 }
 
 /** Address Error Trap Vector */
 void ERROR_HANDLER_NORETURN _AddressError(void)
 { 
-    INTCON1bits.ADDRERR = 0;        //Clear the trap flag
-    TRAPS_halt_on_error(TRAPS_ADDRESS_ERR);
+//    INTCON1bits.ADDRERR = 0;        //Clear the trap flag
+//    TRAPS_halt_on_error(TRAPS_ADDRESS_ERR);
 }
 
 /** Math Error Trap Vector */
 void ERROR_HANDLER_NORETURN _MathError(void)
 { 
-    INTCON1bits.MATHERR = 0;        //Clear the trap flag
-    TRAPS_halt_on_error(TRAPS_MATH_ERR);
+//    INTCON1bits.MATHERR = 0;        //Clear the trap flag
+//    TRAPS_halt_on_error(TRAPS_MATH_ERR);
 }
 
 

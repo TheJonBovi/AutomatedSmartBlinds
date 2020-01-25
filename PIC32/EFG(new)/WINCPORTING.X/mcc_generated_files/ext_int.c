@@ -28,6 +28,9 @@
 #include <xc.h>
 #include "ext_int.h"
 #include "winc1500_api.h"
+#include <stdbool.h>
+#include <math.h>
+#include <sys/attribs.h>
 
 //***User Area Begin->code: Add External Interrupt handler specific headers 
 extern void m2m_EintHandler(void);
@@ -50,14 +53,18 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _INT2Interrupt(void)
 }
 #elif defined(USING_PICTAIL)
 /**
-  Interrupt Handler for EX_INT3 - INT3
+  Interrupt Handler for EX_INT0 - INT0
 */
-void __attribute__ ( ( interrupt, no_auto_psv ) ) _INT3Interrupt(void)
+//void __attribute__ ( ( interrupt, no_auto_psv ) ) _INT3Interrupt(void)
+void __ISR_AT_VECTOR(_EXTERNAL_0_VECTOR, IPL3SRS) INT0_ISR(void)
   {
-    //***User Area Begin->code: INT3 - External Interrupt 3***
+//    //***User Area Begin->code: INT3 - External Interrupt 3***
     m2m_EintHandler();
-    //***User Area End->code: INT3 - External Interrupt 3***
-    EX_INT3_InterruptFlagClear();
+//    //***User Area End->code: INT3 - External Interrupt 3***
+//    EX_INT3_InterruptFlagClear();
+    
+    //Clear flag before leaving
+    IFS0bits.INT0IF = 0;
 }
 #endif
 
@@ -85,13 +92,16 @@ void EXT_INT_Initialize(void)
     EX_INT2_InterruptEnable();   
 #elif defined(USING_PICTAIL)    
     /*******
-     * INT3
+     * INT0
      * Clear the interrupt flag
      * Set the external interrupt edge detect
      * Enable the interrupt, if enabled in the UI. 
      ********/
-    EX_INT3_InterruptFlagClear();   
-    EX_INT3_NegativeEdgeSet();
-    EX_INT3_InterruptEnable();
+//    EX_INT3_InterruptFlagClear();   
+//    EX_INT3_NegativeEdgeSet();
+//    EX_INT3_InterruptEnable();
+    IFS0bits.INT0IF = 0;
+    INTCONbits.INT0EP = 0;
+    IEC0bits.INT0IE = 1;
 #endif    
 }

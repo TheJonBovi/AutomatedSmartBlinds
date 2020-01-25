@@ -50,6 +50,9 @@
 
 #include <xc.h>
 #include "tmr1.h"
+#include <stdbool.h>
+#include <math.h>
+#include <sys/attribs.h>
 
 static volatile uint32_t g_oneMsCounter = 0;  // added after MCC-generated code
 
@@ -94,6 +97,7 @@ uint32_t GetOneMsCounter(void)
     tmp = g_oneMsCounter;   // get a clean copy of counter variable
     IEC0bits.T1IE = true;   // enable timer interrupt
     
+    
     return tmp;
 }
 
@@ -103,9 +107,16 @@ void TMR1_Initialize (void)
     //TMR1 0; 
     TMR1 = 0x0000;
     //Period = 0.001 s; Frequency = 16000000 Hz; PR1 16000; 
-    PR1 = 0x3E80;
+    //PR1 = 0x3E80;
+    
+    // Set TMR1 pre-scalar to 1:8
+    T1CONbits.TCKPS = 1;
+    
+    // Period = 0x001s; Frequency = 10.5MHz, PR1 = 10500
+    PR1 = 10500;
+    
     //TCKPS 1:1; TON enabled; TSIDL disabled; TCS FOSC/2; TECS SOSC; TSYNC disabled; TGATE disabled; 
-    T1CON = 0x8000;
+    //T1CON = 0x8000;
 
     
     IFS0bits.T1IF = false;
@@ -117,14 +128,15 @@ void TMR1_Initialize (void)
 
 
 
-void __attribute__ ( ( interrupt, no_auto_psv ) ) _T1Interrupt (  )
+//void __attribute__ ( ( interrupt, no_auto_psv ) ) _T1Interrupt (  )
+void __ISR_AT_VECTOR(_TIMER_1_VECTOR, IPL4SRS) TMR1_ISR(void)
 {
     /* Check if the Timer Interrupt/Status is set */
 
     //***User Area Begin
 
     // ticker function call;
-    // ticker is 1 -> Callback function gets called everytime this ISR executes
+    // ticker is 1 -> Callback function gets called every time this ISR executes
     TMR1_CallBack();
 
     //***User Area End

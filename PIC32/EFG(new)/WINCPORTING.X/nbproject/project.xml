@@ -27,6 +27,10 @@
                     <name>exp16_pic24fj128ga310_winc1500</name>
                     <type>2</type>
                 </confElem>
+                <confElem>
+                    <name>pic32mz2048efg144_winc1500</name>
+                    <type>2</type>
+                </confElem>
             </confList>
             <formatting>
                 <project-formatting-style>false</project-formatting-style>

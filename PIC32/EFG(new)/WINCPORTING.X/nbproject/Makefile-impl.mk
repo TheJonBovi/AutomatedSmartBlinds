@@ -27,11 +27,11 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 PROJECTNAME=WINCPORTING.X
 
 # Active Configuration
-DEFAULTCONF=exp16_pic24fj128ga310_winc1500
+DEFAULTCONF=pic32mz2048efg144_winc1500
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=exp16_pic24fj128ga310_winc1500 
+ALLCONFS=exp16_pic24fj128ga310_winc1500 pic32mz2048efg144_winc1500 
 
 
 # build
@@ -46,12 +46,14 @@ ALLCONFS=exp16_pic24fj128ga310_winc1500
 # clobber
 .clobber-impl: .clobber-pre .depcheck-impl
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=exp16_pic24fj128ga310_winc1500 clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=pic32mz2048efg144_winc1500 clean
 
 
 
 # all
 .all-impl: .all-pre .depcheck-impl
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=exp16_pic24fj128ga310_winc1500 build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=pic32mz2048efg144_winc1500 build
 
 
 

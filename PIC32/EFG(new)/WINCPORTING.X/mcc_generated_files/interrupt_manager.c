@@ -54,13 +54,20 @@
 */
 void INTERRUPT_Initialize (void)
 {
+    // Put ISR in multi-vector mode
+     INTCONSET = _INTCON_MVEC_MASK;
 #if defined(USING_PICTAIL)      
-    //    INT3I: INT3 - External Interrupt 3
+    //    INT3I: INT0 - External Interrupt 0
     //    Priority: 1
-        IPC13bits.INT3IP = 1; 
+    IPC0bits.INT0IP = 1;
     //    TI: T1 - Timer1
-    //    Priority: 1
-        IPC0bits.T1IP = 1;
+    //    Priority: 1, sub priority 0
+    IPC1bits.T1IP = 3;
+    // Set SRS 3 for Priority 3 interrupts
+    PRISSSET = (3 << _PRISS_PRI3SS_POSITION) & _PRISS_PRI3SS_MASK;
+    // Set SRS 4 for Priority 4 interrupts
+    PRISSSET = (4 << _PRISS_PRI4SS_POSITION) & _PRISS_PRI4SS_MASK;
+    
 #elif defined(USING_CLICK_BOARD)
     //    INT2I: INT2 - External Interrupt 2
     //    Priority: 1
