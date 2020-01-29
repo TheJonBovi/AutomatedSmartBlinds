@@ -26,7 +26,7 @@
 #pragma config UPLLFSEL = FREQ_24MHZ    // USB PLL Input Frequency Selection (USB PLL input is 24 MHz)
 #else
 #pragma config FPLLIDIV = DIV_2         // System PLL Input Divider (2x Divider) for 12 MHz crystal (Rev B and C boards) 12MHz/2 = 6MHz
-#pragma config UPLLEN = OFF             // USB PLL Enable (USB PLL is disabled)
+//#pragma config UPLLEN = OFF             // USB PLL Enable (USB PLL is disabled)
 #endif
 #pragma config FPLLRNG = RANGE_5_10_MHZ // System PLL Input Range (5-10 MHz Input)
 #pragma config FPLLICLK = PLL_POSC      // System PLL Input Clock Selection (POSC is input to the System PLL)
@@ -106,6 +106,7 @@ int main()
 {
     // Run initialization code
     SYSCLK_config();
+    DIP_config();
     LED_config();
     ISR_config();    
     PBCLK3_config();
@@ -113,6 +114,8 @@ int main()
     T2_32bit_config();
     motor_config();
     rotate_function();
+    //temp_config();
+    //gas_config();
     //T4_16bit_config();
     //buzzer_toggle();
 

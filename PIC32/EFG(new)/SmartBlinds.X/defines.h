@@ -67,7 +67,12 @@
 #define _OCMOTOR_S6 0x010
 #define _OCMOTOR_S7 0x810
 
+//defining temperature values to compare with the temperature readings
+#define TEMP_HIGH 0x05A //90 degrees F
+#define TEMP_LOW  0x03C //60 degrees F
 
+//defining gas/smoke values to compare with the gas/smoke readings
+#define GAS_HIGH 0xFFFF //These are not the real values. Need to calculate them.
 
 
 #endif
