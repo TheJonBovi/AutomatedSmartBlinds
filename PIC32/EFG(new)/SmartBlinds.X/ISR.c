@@ -255,6 +255,11 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) T5_ISR(void)
     //this is for the up down motor
     if (motorUD == 1)
     {
+        //check the counter to its preset stage
+        if (counterUD == 512 || counterUD == -512)
+        {
+            motorUD = 0;
+        }
         switch (UD_stepper_state)
         {
             case 0:
@@ -359,17 +364,18 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) T5_ISR(void)
             default:
                 break;
         }
-        //check the counter to its preset stage
-//        if (counterUD = 32 || counterUD = -32)
-//        {
-//            motorUD = 0;
-//        }
+
 
     }
     
     //This is for the open close motor
     else if (motorOC == 1)
     {
+        //check the counter to its preset stage
+        if (counterOC == 512 || counterOC == -512)
+        {
+            motorOC = 0;
+        }
         switch (OC_stepper_state)
         {
             case 0:
@@ -473,10 +479,7 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) T5_ISR(void)
             default:
                 break;
                 
-//        if (counterOC = 32 || counterOC = -32)
-//        {
-//            motorOC = 0;
-//        }
+
         }
     
     }
