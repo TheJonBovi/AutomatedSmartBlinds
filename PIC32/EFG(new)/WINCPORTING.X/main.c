@@ -46,19 +46,23 @@ int main(void)
 {
     BspInit();
     
-#if defined(USING_PICTAIL)
-    printf("Project built for PICtail\r\n");
-#elif defined(USING_CLICK_BOARD) 
-    printf("Project built for Click Board\r\n");
-#endif
-    
-    printf("Starting driver initialization...\r\n");
+//#if defined(USING_PICTAIL)
+//    printf("Project built for PICtail\r\n");
+//#elif defined(USING_CLICK_BOARD) 
+//    printf("Project built for Click Board\r\n");
+//#endif
+//    
+//    printf("Starting driver initialization...\r\n");
     m2m_wifi_init();
+    
+    uint32_t chipID = 0;
+            
+    chipID = nmi_get_rfrevid();
 
-    while (1) 
+    while (true) 
     {
-        ApplicationTask();
-        m2m_wifi_task();
+//        ApplicationTask();
+//        m2m_wifi_task();
         
         BlinkLed();
     }

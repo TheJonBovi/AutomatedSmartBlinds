@@ -77,7 +77,7 @@
     </code>
 
 */
-#define IO_RA10_WAKE_SetHigh()          _LATA10 = 1
+#define IO_RD5_WAKE_SetHigh()          LATDbits.LATD5 = 1
 /**
   @Summary
     Sets the GPIO pin, RA10, low using LATA10.
@@ -101,7 +101,7 @@
     </code>
 
 */
-#define IO_RA10_WAKE_SetLow()           _LATA10 = 0
+#define IO_RD5_WAKE_SetLow()           LATDbits.LATD5 = 0
 /**
   @Summary
     Toggles the GPIO pin, RA10, using LATA10.
@@ -125,7 +125,7 @@
     </code>
 
 */
-#define IO_RA10_WAKE_Toggle()           _LATA10 ^= 1
+#define IO_RD5_WAKE_Toggle()           LATDbits.LATD5 ^= 1
 /**
   @Summary
     Reads the value of the GPIO pin, RA10.
@@ -151,7 +151,7 @@
     </code>
 
 */
-#define IO_RA10_WAKE_GetValue()         _RA10
+#define IO_RD5_WAKE_GetValue()         PORTDbits.RD5
 /**
   @Summary
     Configures the GPIO pin, RA10, as an input.
@@ -175,7 +175,7 @@
     </code>
 
 */
-#define IO_RA10_WAKE_SetDigitalInput()  _TRISA10 = 1
+#define IO_RD5_WAKE_SetDigitalInput()  TRISDbits.TRISD5 = 1
 /**
   @Summary
     Configures the GPIO pin, RA10, as an output.
@@ -199,7 +199,7 @@
     </code>
 
 */
-#define IO_RA10_WAKE_SetDigitalOutput() _TRISA10 = 0
+#define IO_RD5_WAKE_SetDigitalOutput() TRISDbits.TRISD5 = 0
 /**
   @Summary
     Sets the GPIO pin, RA14, high using LATA14.
@@ -223,7 +223,7 @@
     </code>
 
 */
-#define IO_RA14_EXINT_SetHigh()          _LATA14 = 1
+#define IO_RD0_EXINT_SetHigh()          LATDbits.LATD0 = 1
 /**
   @Summary
     Sets the GPIO pin, RA14, low using LATA14.
@@ -247,7 +247,7 @@
     </code>
 
 */
-#define IO_RA14_EXINT_SetLow()           _LATA14 = 0
+#define IO_RD0_EXINT_SetLow()           LATDbits.LATD0 = 0
 /**
   @Summary
     Toggles the GPIO pin, RA14, using LATA14.
@@ -271,7 +271,7 @@
     </code>
 
 */
-#define IO_RA14_EXINT_Toggle()           _LATA14 ^= 1
+#define IO_RD0_EXINT_Toggle()           LATDbits.LATD0 ^= 1
 /**
   @Summary
     Reads the value of the GPIO pin, RA14.
@@ -297,7 +297,7 @@
     </code>
 
 */
-#define IO_RA14_EXINT_GetValue()         _RA14
+#define IO_RD0_EXINT_GetValue()         PORTDbits.RD0
 /**
   @Summary
     Configures the GPIO pin, RA14, as an input.
@@ -321,7 +321,7 @@
     </code>
 
 */
-#define IO_RA14_EXINT_SetDigitalInput()  _TRISA14 = 1
+#define IO_RD0_EXINT_SetDigitalInput()  TRISDbits.TRISD0 = 1
 /**
   @Summary
     Configures the GPIO pin, RA14, as an output.
@@ -345,7 +345,7 @@
     </code>
 
 */
-#define IO_RA14_EXINT_SetDigitalOutput() _TRISA14 = 0
+#define IO_RD0_EXINT_SetDigitalOutput() TRISDbits.TRISD0 = 0
 /**
   @Summary
     Sets the GPIO pin, RA15, high using LATA15.
@@ -369,7 +369,7 @@
     </code>
 
 */
-#define IO_RA15_EXINT_SetHigh()          _LATA15 = 1
+#define IO_RA15_EXINT_SetHigh()          LATDbits.LATD0 = 1
 /**
   @Summary
     Sets the GPIO pin, RA15, low using LATA15.
@@ -393,7 +393,7 @@
     </code>
 
 */
-#define IO_RA15_EXINT_SetLow()           _LATA15 = 0
+#define IO_RA15_EXINT_SetLow()           LATDbits.LATD0 = 0
 /**
   @Summary
     Toggles the GPIO pin, RA15, using LATA15.
@@ -417,7 +417,7 @@
     </code>
 
 */
-#define IO_RA15_EXINT_Toggle()           _LATA15 ^= 1
+#define IO_RA15_EXINT_Toggle()           LATDbits.LATD0 ^= 1
 /**
   @Summary
     Reads the value of the GPIO pin, RA15.
@@ -443,7 +443,7 @@
     </code>
 
 */
-#define IO_RA15_EXINT_GetValue()         _RA15
+#define IO_RA15_EXINT_GetValue()         PORTDbits.RD0
 /**
   @Summary
     Configures the GPIO pin, RA15, as an input.
@@ -467,7 +467,7 @@
     </code>
 
 */
-#define IO_RA15_EXINT_SetDigitalInput()  _TRISA15 = 1
+#define IO_RA15_EXINT_SetDigitalInput()  TRISDbits.TRISD0 = 1
 /**
   @Summary
     Configures the GPIO pin, RA15, as an output.
@@ -491,7 +491,7 @@
     </code>
 
 */
-#define IO_RA15_EXINT_SetDigitalOutput() _TRISA15 = 0
+#define IO_RA15_EXINT_SetDigitalOutput() TRISDbits.TRISD0 = 0
 /**
   @Summary
     Sets the GPIO pin, RD0, high using LATD0.
@@ -515,7 +515,7 @@
     </code>
 
 */
-#define IO_RD0_CE_SetHigh()          _LATD0 = 1
+#define IO_RD12_CE_SetHigh()          LATDbits.LATD12 = 1
 /**
   @Summary
     Sets the GPIO pin, RD0, low using LATD0.
@@ -539,7 +539,7 @@
     </code>
 
 */
-#define IO_RD0_CE_SetLow()           _LATD0 = 0
+#define IO_RD12_CE_SetLow()           LATDbits.LATD12 = 0
 /**
   @Summary
     Toggles the GPIO pin, RD0, using LATD0.
@@ -563,7 +563,7 @@
     </code>
 
 */
-#define IO_RD0_CE_Toggle()           _LATD0 ^= 1
+#define IO_RD12_CE_Toggle()           LATDbits.LATD12 ^= 1
 /**
   @Summary
     Reads the value of the GPIO pin, RD0.
@@ -589,7 +589,7 @@
     </code>
 
 */
-#define IO_RD0_CE_GetValue()         _RD0
+#define IO_RD12_CE_GetValue()         PORTDbits.RD12
 /**
   @Summary
     Configures the GPIO pin, RD0, as an input.
@@ -613,7 +613,7 @@
     </code>
 
 */
-#define IO_RD0_CE_SetDigitalInput()  _TRISD0 = 1
+#define IO_RD12_CE_SetDigitalInput()  TRISDbits.TRISD12 = 1
 /**
   @Summary
     Configures the GPIO pin, RD0, as an output.
@@ -637,7 +637,7 @@
     </code>
 
 */
-#define IO_RD0_CE_SetDigitalOutput() _TRISD0 = 0
+#define IO_RD12_CE_SetDigitalOutput() TRISDbits.TRISD12 = 0
 /**
   @Summary
     Sets the GPIO pin, RG0, high using LATG0.
@@ -661,7 +661,7 @@
     </code>
 
 */
-#define IO_RG0_RESET_SetHigh()          _LATG0 = 1
+#define IO_RD4_RESET_SetHigh()          LATDbits.LATD4 = 1
 /**
   @Summary
     Sets the GPIO pin, RG0, low using LATG0.
@@ -685,7 +685,7 @@
     </code>
 
 */
-#define IO_RG0_RESET_SetLow()           _LATG0 = 0
+#define IO_RD4_RESET_SetLow()           LATDbits.LATD4 = 0
 /**
   @Summary
     Toggles the GPIO pin, RG0, using LATG0.
@@ -709,7 +709,7 @@
     </code>
 
 */
-#define IO_RG0_RESET_Toggle()           _LATG0 ^= 1
+#define IO_RD4_RESET_Toggle()           LATDbits.LATD4 ^= 1
 /**
   @Summary
     Reads the value of the GPIO pin, RG0.
@@ -735,7 +735,7 @@
     </code>
 
 */
-#define IO_RG0_RESET_GetValue()         _RG0
+#define IO_RD4_RESET_GetValue()         PORTDbits.RD4
 /**
   @Summary
     Configures the GPIO pin, RG0, as an input.
@@ -759,7 +759,7 @@
     </code>
 
 */
-#define IO_RG0_RESET_SetDigitalInput()  _TRISG0 = 1
+#define IO_RD4_RESET_SetDigitalInput()  TRISDbits.TRISD4 = 1
 /**
   @Summary
     Configures the GPIO pin, RG0, as an output.
@@ -783,7 +783,7 @@
     </code>
 
 */
-#define IO_RG0_RESET_SetDigitalOutput() _TRISG0 = 0
+#define IO_RD4_RESET_SetDigitalOutput() TRISDbits.TRISD4 = 0
 /**
   @Summary
     Sets the GPIO pin, RG1, high using LATG1.
@@ -807,7 +807,7 @@
     </code>
 
 */
-#define IO_RG1_CE_SetHigh()          _LATG1 = 1
+#define IO_RG1_CE_SetHigh()          LATDbits.LATD12 = 1
 /**
   @Summary
     Sets the GPIO pin, RG1, low using LATG1.
@@ -831,7 +831,7 @@
     </code>
 
 */
-#define IO_RG1_CE_SetLow()           _LATG1 = 0
+#define IO_RG1_CE_SetLow()           LATDbits.LATD12 = 0
 /**
   @Summary
     Toggles the GPIO pin, RG1, using LATG1.
@@ -855,7 +855,7 @@
     </code>
 
 */
-#define IO_RG1_CE_Toggle()           _LATG1 ^= 1
+#define IO_RG1_CE_Toggle()           LATDbits.LATD12 ^= 1
 /**
   @Summary
     Reads the value of the GPIO pin, RG1.
@@ -881,7 +881,7 @@
     </code>
 
 */
-#define IO_RG1_CE_GetValue()         _RG1
+#define IO_RG1_CE_GetValue()         PORTDbits.RD12
 /**
   @Summary
     Configures the GPIO pin, RG1, as an input.
@@ -905,7 +905,7 @@
     </code>
 
 */
-#define IO_RG1_CE_SetDigitalInput()  _TRISG1 = 1
+#define IO_RG1_CE_SetDigitalInput()  TRISDbits.TRISD12 = 1
 /**
   @Summary
     Configures the GPIO pin, RG1, as an output.
@@ -929,7 +929,7 @@
     </code>
 
 */
-#define IO_RG1_CE_SetDigitalOutput() _TRISG1 = 0
+#define IO_RG1_CE_SetDigitalOutput() TRISDbits.TRISD12 = 0
 /**
   @Summary
     Sets the GPIO pin, RG14, high using LATG14.
@@ -953,7 +953,7 @@
     </code>
 
 */
-#define IO_RG14_RESET_SetHigh()          _LATG14 = 1
+#define IO_RG14_RESET_SetHigh()          LATDbits.LATD4 = 1
 /**
   @Summary
     Sets the GPIO pin, RG14, low using LATG14.
@@ -977,7 +977,7 @@
     </code>
 
 */
-#define IO_RG14_RESET_SetLow()           _LATG14 = 0
+#define IO_RG14_RESET_SetLow()           LATDbits.LATD4 = 0
 /**
   @Summary
     Toggles the GPIO pin, RG14, using LATG14.
@@ -1001,7 +1001,7 @@
     </code>
 
 */
-#define IO_RG14_RESET_Toggle()           _LATG14 ^= 1
+#define IO_RG14_RESET_Toggle()           LATDbits.LATD4 ^= 1
 /**
   @Summary
     Reads the value of the GPIO pin, RG14.
@@ -1027,7 +1027,7 @@
     </code>
 
 */
-#define IO_RG14_RESET_GetValue()         _RG14
+#define IO_RG14_RESET_GetValue()         PORTDbits.RD4
 /**
   @Summary
     Configures the GPIO pin, RG14, as an input.
@@ -1051,7 +1051,7 @@
     </code>
 
 */
-#define IO_RG14_RESET_SetDigitalInput()  _TRISG14 = 1
+#define IO_RG14_RESET_SetDigitalInput()  TRISDbits.TRISD4 = 1
 /**
   @Summary
     Configures the GPIO pin, RG14, as an output.
@@ -1075,7 +1075,7 @@
     </code>
 
 */
-#define IO_RG14_RESET_SetDigitalOutput() _TRISG14 = 0
+#define IO_RG14_RESET_SetDigitalOutput() TRISDbits.TRISD4 = 0
 /**
   @Summary
     Sets the GPIO pin, RG7, high using LATG7.
@@ -1099,7 +1099,7 @@
     </code>
 
 */
-#define IO_RG7_MISO_SetHigh()          _LATG7 = 1
+#define IO_RD11_MISO_SetHigh()          LATDbits.LATD11 = 1
 /**
   @Summary
     Sets the GPIO pin, RG7, low using LATG7.
@@ -1123,7 +1123,7 @@
     </code>
 
 */
-#define IO_RG7_MISO_SetLow()           _LATG7 = 0
+#define IO_RD11_MISO_SetLow()           LATDbits.LATD11 = 0
 /**
   @Summary
     Toggles the GPIO pin, RG7, using LATG7.
@@ -1147,7 +1147,7 @@
     </code>
 
 */
-#define IO_RG7_MISO_Toggle()           _LATG7 ^= 1
+#define IO_RD11_MISO_Toggle()           LATDbits.LATD11 ^= 1
 /**
   @Summary
     Reads the value of the GPIO pin, RG7.
@@ -1173,7 +1173,7 @@
     </code>
 
 */
-#define IO_RG7_MISO_GetValue()         _RG7
+#define IO_RD11_MISO_GetValue()         PORTDbits.RD11
 /**
   @Summary
     Configures the GPIO pin, RG7, as an input.
@@ -1197,7 +1197,7 @@
     </code>
 
 */
-#define IO_RG7_MISO_SetDigitalInput()  _TRISG7 = 1
+#define IO_RD11_MISO_SetDigitalInput()  TRISDbits.TRISD11 = 1
 /**
   @Summary
     Configures the GPIO pin, RG7, as an output.
@@ -1221,7 +1221,7 @@
     </code>
 
 */
-#define IO_RG7_MISO_SetDigitalOutput() _TRISG7 = 0
+#define IO_RD11_MISO_SetDigitalOutput() TRISDbits.TRISD11 = 0
 /**
   @Summary
     Sets the GPIO pin, RG9, high using LATG9.
@@ -1245,7 +1245,7 @@
     </code>
 
 */
-#define IO_RG9_SS2_SetHigh()          _LATG9 = 1
+#define IO_RD2_SS2_SetHigh()          LATDbits.LATD2 = 1
 /**
   @Summary
     Sets the GPIO pin, RG9, low using LATG9.
@@ -1269,7 +1269,7 @@
     </code>
 
 */
-#define IO_RG9_SS2_SetLow()           _LATG9 = 0
+#define IO_RD2_SS2_SetLow()           LATDbits.LATD2 = 0
 /**
   @Summary
     Toggles the GPIO pin, RG9, using LATG9.
@@ -1293,7 +1293,7 @@
     </code>
 
 */
-#define IO_RG9_SS2_Toggle()           _LATG9 ^= 1
+#define IO_RD2_SS2_Toggle()           LATDbits.LATD2 ^= 1
 /**
   @Summary
     Reads the value of the GPIO pin, RG9.
@@ -1319,7 +1319,7 @@
     </code>
 
 */
-#define IO_RG9_SS2_GetValue()         _RG9
+#define IO_RD2_SS2_GetValue()         PORTDbits.RD2
 /**
   @Summary
     Configures the GPIO pin, RG9, as an input.
@@ -1343,7 +1343,7 @@
     </code>
 
 */
-#define IO_RG9_SS2_SetDigitalInput()  _TRISG9 = 1
+#define IO_RD2_SS2_SetDigitalInput()  TRISDbits.TRISD2 = 1
 /**
   @Summary
     Configures the GPIO pin, RG9, as an output.
@@ -1367,7 +1367,7 @@
     </code>
 
 */
-#define IO_RG9_SS2_SetDigitalOutput() _TRISG9 = 0
+#define IO_RD2_SS2_SetDigitalOutput() TRISDbits.TRISD2 = 0
 
 /**
     Section: Function Prototypes

@@ -60,24 +60,41 @@ void PIN_MANAGER_Initialize(void)
     /****************************************************************************
      * Setting the Output Latch SFR(s)
      ***************************************************************************/
-    LATA = 0x0400;
-    LATB = 0x0000;
-    LATC = 0x0000;
-    LATD = 0x0001;
-    LATE = 0x0000;
-    LATF = 0x0000;
-    LATG = 0x4203;
+//    LATA = 0x0400;
+//    LATB = 0x0000;
+//    LATC = 0x0000;
+//    LATD = 0x0001;
+//    LATE = 0x0000;
+//    LATF = 0x0000;
+//    LATG = 0x4203;
 
     /****************************************************************************
      * Setting the GPIO Direction SFR(s)
      ***************************************************************************/
-    TRISA = 0xC2FF;
-    TRISB = 0xFFFF;
-    TRISC = 0x901E;
-    TRISD = 0xFFFE;
-    TRISE = 0x03FF;
-    TRISF = 0x31FF;
-    TRISG = 0xB1CC;
+//    TRISA = 0xC2FF;
+//    TRISB = 0xFFFF;
+//    TRISC = 0x901E;
+//    TRISD = 0xFFFE;
+//    TRISE = 0x03FF;
+//    TRISF = 0x31FF;
+//    TRISG = 0xB1CC;
+    
+    IO_RD5_WAKE_SetDigitalOutput();
+    IO_RD0_EXINT_SetDigitalInput();
+    IO_RA15_EXINT_SetDigitalInput();
+    IO_RD12_CE_SetDigitalOutput();
+    IO_RD4_RESET_SetDigitalOutput();
+    IO_RG1_CE_SetDigitalOutput();
+    IO_RG14_RESET_SetDigitalOutput();
+    IO_RD2_SS2_SetDigitalOutput();
+    
+    // Set WAKE to high to enable chip
+    IO_RD5_WAKE_SetHigh();
+    
+    // Set output for LED0 (onboard LED)
+    TRISHbits.TRISH2 = 0;
+
+    
 
     /****************************************************************************
      * Setting the Weak Pull Up and Weak Pull Down SFR(s)
@@ -109,13 +126,14 @@ void PIN_MANAGER_Initialize(void)
     /****************************************************************************
      * Setting the Analog/Digital Configuration SFR(s)
      ***************************************************************************/
-    ANSA = 0x02C0;
-    ANSB = 0xFF3F;
-    ANSC = 0x0010;
-    ANSD = 0x0CC0;
-    ANSE = 0x02F0;
-    ANSG = 0x0140;
-
+//    ANSA = 0x02C0;
+//    ANSB = 0xFF3F;
+//    ANSC = 0x0010;
+//    ANSD = 0x0CC0;
+//    ANSE = 0x02F0;
+//    ANSG = 0x0140;
+    ANSELD = 0; // all PORTD pins digital
+    ANSELH = 0;
     
 }
 

@@ -92,7 +92,7 @@
 #pragma config UPLLFSEL = FREQ_24MHZ    // USB PLL Input Frequency Selection (USB PLL input is 24 MHz)
 #else
 #pragma config FPLLIDIV = DIV_2         // System PLL Input Divider (2x Divider) for 12 MHz crystal (Rev B and C boards) 12MHz/2 = 6MHz
-#pragma config UPLLEN = OFF             // USB PLL Enable (USB PLL is disabled)
+//#pragma config UPLLEN = OFF             // USB PLL Enable (USB PLL is disabled)
 #endif
 #pragma config FPLLRNG = RANGE_5_10_MHZ // System PLL Input Range (5-10 MHz Input)
 #pragma config FPLLICLK = PLL_POSC      // System PLL Input Clock Selection (POSC is input to the System PLL)
@@ -155,7 +155,7 @@ void OSCILLATOR_Initialize(void)
 // This is for PPS
 static void PinMapInit(void)
 {
-    __builtin_write_OSCCONL(OSCCON & 0xbf);  // unlock pin mapping registers
+//    __builtin_write_OSCCONL(OSCCON & 0xbf);  // unlock pin mapping registers
     
     // UART pins
 //    RPOR8bits.RP17R   = 5;    // Assign U2TX output to Pin RF5/RP17 (Pin 50)
@@ -175,7 +175,7 @@ static void PinMapInit(void)
     RPD3R = 0b1000;
     SDI4R = 0b0011;
     
-    __builtin_write_OSCCONL(OSCCON | 0x40);   // lock pin mapping registers 
+//    __builtin_write_OSCCONL(OSCCON | 0x40);   // lock pin mapping registers 
 }
 
 

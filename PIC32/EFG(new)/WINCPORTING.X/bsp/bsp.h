@@ -24,8 +24,8 @@ limitations under the License.
 // A bare minimum BSP to blink the Explorer16 LED
 
 // LEDs
-#define LED0_TRIS           (TRISAbits.TRISA0)  // Ref D3
-#define LED0_IO             (LATAbits.LATA0)
+#define LED0_TRIS           (TRISHbits.TRISH2)  // Ref D3
+#define LED0_IO             (LATHbits.LATH2)
 #define LED1_TRIS           (TRISAbits.TRISA1)  // Ref D4
 #define LED1_IO             (LATAbits.LATA1)
 #define LED2_TRIS           (TRISAbits.TRISA2)  // Ref D5

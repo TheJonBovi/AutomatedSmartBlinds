@@ -89,129 +89,129 @@ extern "C" {
     </code>
 
 */
-#define EX_INT2_InterruptFlagClear()       (IFS1bits.INT2IF = 0)
-/**
-  @Summary
-    Clears the interrupt enable for INT2
-
-  @Description
-    This routine clears the interrupt enable for the external interrupt, INT2.
-    After calling this routine, external interrupts on this pin will not be serviced by the 
-    interrupt handler, _INT2Interrupt.
-
-  @Preconditions
-    None.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    Changing the external interrupt edge detect from negative to positive
-    <code>
-    // clear the interrupt enable
-    EX_INT2_InterruptDisable();
-    // change the edge
-    EX_INT2_PositiveEdgeSet();
-    // clear the interrupt flag and re-enable the interrupt
-    EX_INT2_InterruptFlagClear();
-    EX_INT2_InterruptEnable();
-    </code>
-
-*/
-#define EX_INT2_InterruptDisable()     (IEC1bits.INT2IE = 0)
-/**
-  @Summary
-    Clears the interrupt enable for INT2
-
-  @Description
-    This routine clears the interrupt enable for the external interrupt, INT2.
-    After calling this routine, external interrupts on this pin will be serviced by the 
-    interrupt handler, _INT2Interrupt.
- 
-  @Preconditions
-    None.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    Setting the external interrupt to handle positive edge interrupts
-    <code>
-    // set the edge
-    EX_INT2_PositiveEdgeSet();
-    // clear the interrupt flag and enable the interrupt
-    EX_INT2_InterruptFlagClear();
-    EX_INT2_InterruptEnable();
-    </code>
-
-*/
-#define EX_INT2_InterruptEnable()       (IEC1bits.INT2IE = 1)
-/**
-  @Summary
-    Sets the edge detect of the external interrupt to negative edge.
-
-  @Description
-    This routine set the edge detect of the extern interrupt to negative edge.  
-    After this routine is called the interrupt flag will be set when the external 
-    interrupt pins level transitions from a high to low level.
- 
-  @Preconditions
-    None.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    Setting the external interrupt to handle negative edge interrupts
-    <code>
-    // set the edge
-    EX_INT2_NegativeEdgeSet();
-    // clear the interrupt flag and enable the interrupt
-    EX_INT2_InterruptFlagClear();
-    EX_INT2_InterruptEnable();
-    </code>
-
-*/
-#define EX_INT2_NegativeEdgeSet()          (INTCON2bits.INT2EP = 1)
-/**
-  @Summary
-    Sets the edge detect of the external interrupt to positive edge.
-
-  @Description
-    This routine set the edge detect of the extern interrupt to positive edge.  
-    After this routine is called the interrupt flag will be set when the external 
-    interrupt pins level transitions from a low to high level.
- 
-  @Preconditions
-    None.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    Setting the external interrupt to handle positive edge interrupts
-    <code>
-    // set the edge
-    EX_INT2_PositiveEdgeSet();
-    // clear the interrupt flag and enable the interrupt
-    EX_INT2_InterruptFlagClear();
-    EX_INT2_InterruptEnable();
-    </code>
-
-*/
-#define EX_INT2_PositiveEdgeSet()          (INTCON2bits.INT2EP = 0)
+//#define EX_INT2_InterruptFlagClear()       (IFS1bits.INT2IF = 0)
+///**
+//  @Summary
+//    Clears the interrupt enable for INT2
+//
+//  @Description
+//    This routine clears the interrupt enable for the external interrupt, INT2.
+//    After calling this routine, external interrupts on this pin will not be serviced by the 
+//    interrupt handler, _INT2Interrupt.
+//
+//  @Preconditions
+//    None.
+//
+//  @Returns
+//    None.
+//
+//  @Param
+//    None.
+//
+//  @Example
+//    Changing the external interrupt edge detect from negative to positive
+//    <code>
+//    // clear the interrupt enable
+//    EX_INT2_InterruptDisable();
+//    // change the edge
+//    EX_INT2_PositiveEdgeSet();
+//    // clear the interrupt flag and re-enable the interrupt
+//    EX_INT2_InterruptFlagClear();
+//    EX_INT2_InterruptEnable();
+//    </code>
+//
+//*/
+//#define EX_INT2_InterruptDisable()     (IEC1bits.INT2IE = 0)
+///**
+//  @Summary
+//    Clears the interrupt enable for INT2
+//
+//  @Description
+//    This routine clears the interrupt enable for the external interrupt, INT2.
+//    After calling this routine, external interrupts on this pin will be serviced by the 
+//    interrupt handler, _INT2Interrupt.
+// 
+//  @Preconditions
+//    None.
+//
+//  @Returns
+//    None.
+//
+//  @Param
+//    None.
+//
+//  @Example
+//    Setting the external interrupt to handle positive edge interrupts
+//    <code>
+//    // set the edge
+//    EX_INT2_PositiveEdgeSet();
+//    // clear the interrupt flag and enable the interrupt
+//    EX_INT2_InterruptFlagClear();
+//    EX_INT2_InterruptEnable();
+//    </code>
+//
+//*/
+//#define EX_INT2_InterruptEnable()       (IEC1bits.INT2IE = 1)
+///**
+//  @Summary
+//    Sets the edge detect of the external interrupt to negative edge.
+//
+//  @Description
+//    This routine set the edge detect of the extern interrupt to negative edge.  
+//    After this routine is called the interrupt flag will be set when the external 
+//    interrupt pins level transitions from a high to low level.
+// 
+//  @Preconditions
+//    None.
+//
+//  @Returns
+//    None.
+//
+//  @Param
+//    None.
+//
+//  @Example
+//    Setting the external interrupt to handle negative edge interrupts
+//    <code>
+//    // set the edge
+//    EX_INT2_NegativeEdgeSet();
+//    // clear the interrupt flag and enable the interrupt
+//    EX_INT2_InterruptFlagClear();
+//    EX_INT2_InterruptEnable();
+//    </code>
+//
+//*/
+//#define EX_INT2_NegativeEdgeSet()          (INTCON2bits.INT2EP = 1)
+///**
+//  @Summary
+//    Sets the edge detect of the external interrupt to positive edge.
+//
+//  @Description
+//    This routine set the edge detect of the extern interrupt to positive edge.  
+//    After this routine is called the interrupt flag will be set when the external 
+//    interrupt pins level transitions from a low to high level.
+// 
+//  @Preconditions
+//    None.
+//
+//  @Returns
+//    None.
+//
+//  @Param
+//    None.
+//
+//  @Example
+//    Setting the external interrupt to handle positive edge interrupts
+//    <code>
+//    // set the edge
+//    EX_INT2_PositiveEdgeSet();
+//    // clear the interrupt flag and enable the interrupt
+//    EX_INT2_InterruptFlagClear();
+//    EX_INT2_InterruptEnable();
+//    </code>
+//
+//*/
+//#define EX_INT2_PositiveEdgeSet()          (INTCON2bits.INT2EP = 0)
 /**
   @Summary
     Clears the interrupt flag for INT3
@@ -240,7 +240,7 @@ extern "C" {
     </code>
 
 */
-#define EX_INT3_InterruptFlagClear()       (IFS3bits.INT3IF = 0)
+#define EX_INT0_InterruptFlagClear()       (IFS0bits.INT3IF = 0)
 /**
   @Summary
     Clears the interrupt enable for INT3
@@ -272,7 +272,7 @@ extern "C" {
     </code>
 
 */
-#define EX_INT3_InterruptDisable()     (IEC3bits.INT3IE = 0)
+#define EX_INT0_InterruptDisable()     (IEC0bits.INT3IE = 0)
 /**
   @Summary
     Clears the interrupt enable for INT3
@@ -302,7 +302,7 @@ extern "C" {
     </code>
 
 */
-#define EX_INT3_InterruptEnable()       (IEC3bits.INT3IE = 1)
+#define EX_INT0_InterruptEnable()       (IEC0bits.INT3IE = 1)
 /**
   @Summary
     Sets the edge detect of the external interrupt to negative edge.
@@ -332,7 +332,7 @@ extern "C" {
     </code>
 
 */
-#define EX_INT3_NegativeEdgeSet()          (INTCON2bits.INT3EP = 1)
+#define EX_INT0_NegativeEdgeSet()          (INTCONbits.INT3EP = 1)
 /**
   @Summary
     Sets the edge detect of the external interrupt to positive edge.
@@ -362,7 +362,7 @@ extern "C" {
     </code>
 
 */
-#define EX_INT3_PositiveEdgeSet()          (INTCON2bits.INT3EP = 0)
+#define EX_INT0_PositiveEdgeSet()          (INTCONbits.INT3EP = 0)
 
 /**
     Section: External Interrupt Initializers

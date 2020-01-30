@@ -117,10 +117,12 @@ void TMR1_Initialize (void)
     
     //TCKPS 1:1; TON enabled; TSIDL disabled; TCS FOSC/2; TECS SOSC; TSYNC disabled; TGATE disabled; 
     //T1CON = 0x8000;
-
     
     IFS0bits.T1IF = false;
     IEC0bits.T1IE = true;
+
+    // Turn on TMR1
+    T1CONbits.ON = 1;
     
     tmr1_obj.timerElapsed = false;
 

@@ -19,7 +19,7 @@ limitations under the License.
 
 uint32_t GetOneMsCounter(void); 
 
-#define WaitForDataByte()   while ((SPI2STATbits.SPITBF == 1) || (SPI2STATbits.SPIRBF == 0))
+#define WaitForDataByte()   while ((SPI4STATbits.SPITBF == 1) || (SPI4STATbits.SPIRBF == 0))
 
 #if defined(USING_PICTAIL)
 void m2mStub_PinSet_CE(t_m2mWifiPinAction action)
@@ -38,11 +38,11 @@ void m2mStub_PinSet_RESET(t_m2mWifiPinAction action)
 {
     if (action == M2M_WIFI_PIN_LOW)
     {
-        IO_RG0_RESET_SetLow();
+        IO_RD4_RESET_SetLow();
     }
     else
     {
-        IO_RG0_RESET_SetHigh();
+        IO_RD4_RESET_SetHigh();
     }
 }
 #elif defined(USING_CLICK_BOARD)
@@ -50,11 +50,11 @@ void m2mStub_PinSet_CE(t_m2mWifiPinAction action)
 {
     if (action == M2M_WIFI_PIN_LOW)
     {
-        IO_RD0_CE_SetLow();
+        IO_RD12_CE_SetLow();
     }
     else
     {
-        IO_RD0_CE_SetHigh();
+        IO_RD12_CE_SetHigh();
     }
 }
 
@@ -78,11 +78,11 @@ void m2mStub_PinSet_SPI_SS(t_m2mWifiPinAction action)
 {
      if (action == M2M_WIFI_PIN_LOW)
     {
-        IO_RG9_SS2_SetLow();
+        IO_RD2_SS2_SetLow();
     }
     else
     {
-        IO_RG9_SS2_SetHigh();
+        IO_RD2_SS2_SetHigh();
     }
 }
 
@@ -93,12 +93,12 @@ uint32_t m2mStub_GetOneMsTimer(void)
 
 void m2mStub_EintEnable(void)
 {
-    EX_INT3_InterruptEnable();  
+    EX_INT0_InterruptEnable();  
 }
 
 void m2mStub_EintDisable(void)
 {
-    EX_INT3_InterruptDisable();
+    EX_INT0_InterruptDisable();
 }
 
 /*******************************************************************************
@@ -142,13 +142,13 @@ void m2mStub_SpiTxRx(uint8_t *p_txBuf,
         /* if still have bytes to transmit from tx buffer */
         if (txLen > 0)
         {
-            SPI2BUF = *p_txBuf++;
+            SPI4BUF = *p_txBuf++;
             --txLen;
         }
         /* else done writing bytes out from tx buffer */
         else
         {
-            SPI2BUF = 0x00; /* clock out a "don't care" byte */
+            SPI4BUF = 0x00; /* clock out a "don't care" byte */
         }
 
         /* wait until tx/rx byte to completely clock out */
@@ -157,13 +157,13 @@ void m2mStub_SpiTxRx(uint8_t *p_txBuf,
         /* if still have bytes to read into rx buffer */
         if (rxLen > 0)
         {
-            *p_rxBuf++ = SPI2BUF;
+            *p_rxBuf++ = SPI4BUF;
             --rxLen;
         }
             /* else done reading bytes into rx buffer */
         else
         {
-            SPI2BUF; /* read and throw away byte */
+            SPI4BUF; /* read and throw away byte */
         }
     } /* end for loop */
 }
@@ -171,7 +171,8 @@ void m2mStub_SpiTxRx(uint8_t *p_txBuf,
 void SpiInit(void)
 {
     /* disable the spi interrupt */
-    IEC2bits.SPI2IE = 0;
+    // This will be the SPI4 RX register
+    IEC5bits.SPI4RXIE = 0;
     
     // * Set SPI2 as master.
     // * Set Primary Prescaler to 1:1, Secondary Prescaler to 2:1.  
@@ -180,13 +181,40 @@ void SpiInit(void)
     //     Output data changes from active (high) to idle (low) clock
     //     Idle state of clock is low, active state of clock is high
     // * Input data is sampled at middle of data output time              
-    SPI2CON1 = 0x013b;    // 8MHz [Prim. Prescal = 1:1, Second. Prescal=2:1
+    //SPI2CON = 0x013b;    // 8MHz [Prim. Prescal = 1:1, Second. Prescal=2:1
     //SPI2CON1 = 0x013f;    // 16MHz [Prim. Prescal = 1:1, Second. Prescal=1:1     
     //SPI2CON1 = 0x0130;    // 125KHz     occasional fails on scan test
     //SPI2CON1 = 0x0139;    // 450Khz
     
-    SPI2CON2 = 0x0000;  // not using frame sync mode or enhanced buffer mode
-    SPI2STAT = 0x8000;  // Enable SPI module
+    // Set CKE, CKP and SMP to match above
+    SPI4CON = 0;
+    SPI4CONbits.CKE = 1;
+    SPI4CONbits.CKP = 0;
+    SPI4CONbits.SMP = 0;
+    
+    // Set SPI4 to master mode
+    SPI4CONbits.MSTEN = 1;
+    
+    // Set SPI4BRG to get an 8Mhz SCK
+    // PB2CLK = 84Mhz and we want a 8Mhz SCLK. So 
+    // 8 = 84 / (2 * (BRG + 1) )
+    // BRG = 5 for 7Mhz clock
+    SPI4BRG = 7;
+    
+    // no frame sync or EBM
+    SPI2CON2 = 0;
+    
+    // Clear the Overflow flag
+    SPI4STATCLR = _SPI4STAT_SPIROV_MASK;
+    
+    // Set CS to idle high before SPI enable
+    IO_RD2_SS2_SetHigh();
+    
+    // Enable SPI module
+    SPI4CONbits.ON = 1;
+    
+//    SPI2CON2 = 0x0000;  // not using frame sync mode or enhanced buffer mode
+//    SPI2STAT = 0x8000;  // Enable SPI module
 }
 
 #if defined(M2M_ENABLE_SPI_FLASH)
