@@ -1,0 +1,113 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sbWebApplication", "WebApplication1\sbWebApplication.csproj", "{5ABD211F-73B7-4661-9E55-4E5F94601B26}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D623A658-1091-454D-BE7C-11D1E77B83A5} = {D623A658-1091-454D-BE7C-11D1E77B83A5}
+		{9F2F756A-D9C3-4A9F-ADC7-012AA34C091F} = {9F2F756A-D9C3-4A9F-ADC7-012AA34C091F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sbWebApplication.Tests", "WebApplication1.Tests\sbWebApplication.Tests.csproj", "{003DDDA6-40D2-49F0-B288-9BA032684EA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsumerWebApp", "ConsumerWebApp\ConsumerWebApp.csproj", "{947E6FDC-FB5F-462A-9D9D-46FCBE47710D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppServices1", "WebAppServices1\WebAppServices1.csproj", "{D623A658-1091-454D-BE7C-11D1E77B83A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWebClient", "HelloWebClient\HelloWebClient.csproj", "{3C72DC9C-C2A1-48F9-8BF7-8379F9F96E60}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D623A658-1091-454D-BE7C-11D1E77B83A5} = {D623A658-1091-454D-BE7C-11D1E77B83A5}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloService", "HelloService\HelloService.csproj", "{2CC45E5C-E289-4606-B165-540FB5F5E5CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloServiceHost", "HelloServiceHost\HelloServiceHost.csproj", "{A5610647-783A-4AF7-9ADB-10EDC8DDC962}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWebClient2", "HelloWebClient2\HelloWebClient2.csproj", "{8751B995-50A2-4CD3-9482-D5E0D5B4844B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sbServices", "sbServices\sbServices.csproj", "{FD34298C-7F58-418E-91DA-8795EAB2832D}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "sbServicesIISHost", "sbServices\sbServicesIISHost\", "{9F2F756A-D9C3-4A9F-ADC7-012AA34C091F}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		ProjectReferences = "{fd34298c-7f58-418e-91da-8795eab2832d}|sbServices.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_52526"
+		Debug.AspNetCompiler.PhysicalPath = "sbServices\sbServicesIISHost\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52526\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_52526"
+		Release.AspNetCompiler.PhysicalPath = "sbServices\sbServicesIISHost\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52526\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "52526"
+		SlnRelativePath = "sbServices\sbServicesIISHost\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sbServicesHost", "sbServicesHost\sbServicesHost.csproj", "{28D4573B-6B7A-4826-B364-275B5A2E6B82}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5ABD211F-73B7-4661-9E55-4E5F94601B26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ABD211F-73B7-4661-9E55-4E5F94601B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ABD211F-73B7-4661-9E55-4E5F94601B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ABD211F-73B7-4661-9E55-4E5F94601B26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{003DDDA6-40D2-49F0-B288-9BA032684EA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{003DDDA6-40D2-49F0-B288-9BA032684EA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{003DDDA6-40D2-49F0-B288-9BA032684EA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{003DDDA6-40D2-49F0-B288-9BA032684EA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{947E6FDC-FB5F-462A-9D9D-46FCBE47710D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{947E6FDC-FB5F-462A-9D9D-46FCBE47710D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{947E6FDC-FB5F-462A-9D9D-46FCBE47710D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{947E6FDC-FB5F-462A-9D9D-46FCBE47710D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D623A658-1091-454D-BE7C-11D1E77B83A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D623A658-1091-454D-BE7C-11D1E77B83A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D623A658-1091-454D-BE7C-11D1E77B83A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D623A658-1091-454D-BE7C-11D1E77B83A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C72DC9C-C2A1-48F9-8BF7-8379F9F96E60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C72DC9C-C2A1-48F9-8BF7-8379F9F96E60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C72DC9C-C2A1-48F9-8BF7-8379F9F96E60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C72DC9C-C2A1-48F9-8BF7-8379F9F96E60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CC45E5C-E289-4606-B165-540FB5F5E5CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CC45E5C-E289-4606-B165-540FB5F5E5CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CC45E5C-E289-4606-B165-540FB5F5E5CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CC45E5C-E289-4606-B165-540FB5F5E5CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5610647-783A-4AF7-9ADB-10EDC8DDC962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5610647-783A-4AF7-9ADB-10EDC8DDC962}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5610647-783A-4AF7-9ADB-10EDC8DDC962}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5610647-783A-4AF7-9ADB-10EDC8DDC962}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8751B995-50A2-4CD3-9482-D5E0D5B4844B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8751B995-50A2-4CD3-9482-D5E0D5B4844B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8751B995-50A2-4CD3-9482-D5E0D5B4844B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8751B995-50A2-4CD3-9482-D5E0D5B4844B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD34298C-7F58-418E-91DA-8795EAB2832D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD34298C-7F58-418E-91DA-8795EAB2832D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD34298C-7F58-418E-91DA-8795EAB2832D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD34298C-7F58-418E-91DA-8795EAB2832D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F2F756A-D9C3-4A9F-ADC7-012AA34C091F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F2F756A-D9C3-4A9F-ADC7-012AA34C091F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F2F756A-D9C3-4A9F-ADC7-012AA34C091F}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F2F756A-D9C3-4A9F-ADC7-012AA34C091F}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{28D4573B-6B7A-4826-B364-275B5A2E6B82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28D4573B-6B7A-4826-B364-275B5A2E6B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28D4573B-6B7A-4826-B364-275B5A2E6B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28D4573B-6B7A-4826-B364-275B5A2E6B82}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23E6B1AA-7C74-46DC-B1A3-0613F4A19030}
+	EndGlobalSection
+EndGlobal
