@@ -4,14 +4,14 @@
 #include <sys/attribs.h>
 #include "defines.h"
 
-int temperature_value = 0; //this should be for the mV value of the temperature
+int temperatureValue = 0; //this should be for the mV value of the temperature
 
 void temperature_function(void)
 {
     while (true)
     {
         
-        temperature_value = temperature_value - 58; //this is for the degree F value of the temperature
+        temperatureValue = temperatureValue - 58; //this is for the degree F value of the temperature
      /*
      if temperature is above set alert number
      * then trigger variable to turn on light (later will rotate motors to open blinds)
@@ -20,15 +20,15 @@ void temperature_function(void)
      * else
      * do nothing 
      */    
-//        if (temperature_value >= 90)
+//        if (temperatureValue >= 90)
 //        {
-//            close_blinds;
+//            closeBlinds;
 //        }
-//        else if (temperature_value =< 60)
+//        else if (temperatureValue =< 60)
 //        {
-//            /close_blinds;
+//            /closeBlinds;
 //        }
 //        else
-//            open_blinds;      
+//            openBlinds;      
     }
 }
