@@ -37,7 +37,8 @@
 
 //global variables
 //variables used for the motor to turn on, direction, and state
-int motorTarget;
+int motorTargetUD;
+int motorTargetOC;
 int UDStepperState = 0;
 int OCStepperState = 0;
 int motorUD;
@@ -47,6 +48,7 @@ int counterUD = 0;
 int counterOC = 0;
 int temperatureAlarm = 0;
 int gasAlarm = 0;
+int proxyAlert = 0;
 
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -186,11 +188,11 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) T3_ISR(void)
     int current_read[3];
    
 //    /* Trigger a conversion */
-//    ADCCON3bits.GSWTRG = 1;
-//    /* Wait the conversions to complete */
-//    while (ADCDSTAT1bits.ARDY0 == 0);
-//    /* fetch the result */
-//    current_read[0] = ADCDATA0;
+    ADCCON3bits.GSWTRG = 1;
+    /* Wait the conversions to complete */
+    while (ADCDSTAT1bits.ARDY0 == 0);
+    /* fetch the result */
+    current_read[0] = ADCDATA0;
 //    while (ADCDSTAT1bits.ARDY1 == 0);
 //    /* fetch the result */
 //    current_read[1] = ADCDATA1;
@@ -210,11 +212,15 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) T3_ISR(void)
     */
 
     // Set the LED levels according to IR proximity reading
-//    if (current_read[0] <= ADC_LOW_WNG) PORTK = 0b0;
-//    else if (ADC_LOW_WNG < current_read[0] && current_read[0] <= ADC_MID_WNG) PORTK = 0b1;
-//    else if (ADC_MID_WNG < current_read[0] && current_read[0] <= ADC_HIGH_WNG) PORTK = 0b11;
-//    else PORTK = 0b111;
-//  
+    if (current_read[0] <= ADC_LOW_WNG) PORTK = 0b0;
+    else if (ADC_LOW_WNG < current_read[0] && current_read[0] <= ADC_MID_WNG) PORTK = 0b1;
+    else if (ADC_MID_WNG < current_read[0] && current_read[0] <= ADC_HIGH_WNG) PORTK = 0b11;
+    else 
+    {
+        proxyAlert = 1;
+        PORTK = 0b111;
+    }
+    
     //toggle RK3 for light
     PORTKINV = _PORTK_RK3_MASK;
     
@@ -262,19 +268,19 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) T5_ISR(void)
     //Otherwise it'll keep the motor off and return to the source.
     
     //If the motor target is less than the motors position, then it'll go up
-    if (motorTarget < counterUD)
+    if (motorTargetUD < counterUD)
         motorDirectionUD = MOTOR_DIR_UP; 
     //else if the motor target is greater than the motors position, then it'll go down
-    else if (motorTarget > counterUD)
+    else if (motorTargetUD > counterUD)
         motorDirectionUD = MOTOR_DIR_DOWN;
     //else the motor will turn off and return
     else
     {
-        motorUD = 0;
+        motorUD = false;
     }
     
     //this is for the up down motor
-    if (motorUD == UD_MOTOR)
+    if (motorUD == true)
     {
         switch (UDStepperState)
         {
@@ -387,18 +393,18 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) T5_ISR(void)
     //Otherwise it'll keep the motor off and return to the source.
     
     //If the motor target is less than the motor location, then it'll close
-    if (motorTarget < counterOC)
+    if (motorTargetUD < counterOC)
         motorDirectionOC = MOTOR_DIR_OPEN; 
     //else if the motor target is greater than the motor location, then it'll open
-    else if (motorTarget > counterOC)
+    else if (motorTargetUD > counterOC)
         motorDirectionOC = MOTOR_DIR_CLOSE;
     //else it'll turn off the motor and return
     else
     {
-        motorOC = 0;
+        motorOC = false;
     }
     //This is for the open close motor
-    if (motorOC == OC_MOTOR)
+    if (motorOC == true)
     {
         switch (OCStepperState)
         {

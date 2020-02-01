@@ -110,7 +110,7 @@ int main()
     LED_config();
     ISR_config();    
     PBCLK3_config();
- //   ADC_config();
+    ADC_config();
     T2_32bit_config();
     motor_config();
     rotate_function();

@@ -6,18 +6,17 @@
 
 extern int motorUD;
 extern int motorOC;
-extern int motorTarget;
+extern int motorTargetUD;
+extern int motorTargetOC;
 extern int counterOC;
 extern int counterUD;
-int stepperMotorState;
 
 //this are temp variables that will either be used or removed
-int proxyAlert;
+extern int proxyAlert;
 int temperatureSensor;
 int smokeSensor;
 int clockTrigger;
 int userTriggerClose;
-int motorTest = 0;
 
 //this function will be used to control which parts of the system will send commands to rotate the motors
 void rotate_function(void)
@@ -30,22 +29,19 @@ void rotate_function(void)
         //This is the left button
         if (PORTGbits.RG1 == 1)
         {
-           motorUD = 1; 
-           motorTarget = UD_FULL_DOWN;
+           motorUD = true; 
+           motorTargetUD = UD_FULL_DOWN;
            MOTOR_ON();
         }
         //else if button for ccw is high, rotate ccw.
         //This is the right button
         else if (PORTGbits.RG0 == 1)
         {
-           motorUD = 1;
-           motorTarget = UD_FULL_UP;
+           motorUD = true;
+           motorTargetUD = UD_FULL_UP;
            MOTOR_ON();
         }
-        if (T5CONbits.ON == false)
-        {
-            motorTest = 1;
-        }
+
 
         //for the OC motor
         //if button for cw is high, rotate cw.
@@ -67,14 +63,34 @@ void rotate_function(void)
         if (T5CONbits.ON == false)
         {
             motorTest = 1;
-        }*/     
+        }*/
+        
+        if (proxyAlert == 1)
+        {
+            motorUD = true; 
+            motorOC = true;
+            motorTargetUD = UD_FULL_DOWN;
+            motorTargetOC = OC_FULL_CLOSE;
+            MOTOR_ON();
+        }
     }
 
     //for triggering the blinds, there will need to be a switch statement
     //this will include the proxy, temperature, clock, smoke, and user interface
     //will also need to work out on which ones will open, close, raise, and lower the blinds
-   /* 
-    switch (stepperMotorState)
+    
+    //if the proxy sensor triggers for the final stage, then turn on the motor and close the blinds.
+
+//    else if (proxyAlert = 0)
+//    {
+//        motorUD = false; 
+//        motorOC = false;
+//        motorTargetUD = UD_FULL_DOWN;
+//        motorTargetOC = OC_FULL_CLOSE;
+//        MOTOR_OFF();        
+//    }
+//    
+   /* switch (stepperMotorState)
     {
         //the first case will be to check if the proxy is triggered to close
         case 0:
@@ -131,8 +147,8 @@ void rotate_function(void)
         default:
             break;
             
-    }
+    }*/
     
-     */   
+  
 }
      
