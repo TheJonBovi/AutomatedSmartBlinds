@@ -89,8 +89,8 @@
 #define OC_FULL_OPEN    128 
 #define OC_R_HALF       192
 #define OC_FULL_R_CLOSE 256
-#define MOTOR_OFF()        T5CONbits.TON = 0
-#define MOTOR_ON()         T5CONbits.TON = 1
+#define MOTOR_OFF()     T5CONbits.TON = 0
+#define MOTOR_ON()      T5CONbits.TON = 1
 #define MOTOR_DIR_UP    1
 #define MOTOR_DIR_DOWN  0
 #define MOTOR_DIR_OPEN  1
