@@ -73,6 +73,41 @@
 
 //defining gas/smoke values to compare with the gas/smoke readings
 #define GAS_HIGH 0xFFFF //These are not the real values. Need to calculate them.
+#define GAS_LOW  0x0000
+
+//the positions for the UD motor. They can also be used for the opposite direction.
+//new measurements for the OC: 0 is full open, 256 is full close, -256 is full reverse close
+//128 is half open, -128 is half reverse open, 64 is quarter open, -64 is quarter reverse open
+#define UD_FULL_UP      0
+#define UD_1_QUARTER    128
+#define UD_HALF         256
+#define UD_3_QUARTER    384
+#define UD_FULL_DOWN    512
+
+#define OC_FULL_CLOSE   0
+#define OC_HALF         64
+#define OC_FULL_OPEN    128 
+#define OC_R_HALF       192
+#define OC_FULL_R_CLOSE 256
+#define MOTOR_OFF()     T5CONbits.TON = 0
+#define MOTOR_ON()      T5CONbits.TON = 1
+#define MOTOR_DIR_UP    1
+#define MOTOR_DIR_DOWN  0
+#define MOTOR_DIR_OPEN  1
+#define MOTOR_DIR_CLOSE 0
+#define UD_MOTOR        1
+#define OC_MOTOR        2
+
+//These will be the call commands for each of the functions
+#define CLOSE_BLINDS        0x0001
+#define HALF_CLOSE_BLINDS   0x0010
+#define OPEN_BLINDS         0x0011
+#define R_CLOSE_BLINDS      0x0100
+#define R_HALF_CLOSE_BLIDNS 0x0101
+#define RAISE_BLINDS        0x0110
+#define HALF_RAISE_BLINDS   0x0111
+#define LOWER_BLINDS        0x1000
+#define HALF_LOWER_BLINDS   0x1001
 
 
 #endif
