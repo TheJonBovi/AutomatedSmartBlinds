@@ -1,7 +1,7 @@
 #ifndef __DEMO_CONFIG_H
 #define __DEMO_CONFIG_H
 
-#define USING_AP_SCAN
+//#define USING_AP_SCAN
 //#define USING_MAC_ADDRESS
 //#define USING_MODE_AP
 //#define USING_TCP_SERVER
@@ -21,7 +21,7 @@
 //#define USING_HTTP_DOWNLOAD
 //#define USING_SEND_EMAIL
 //#define USING_OTA_UPDATE
-//#define USING_WEATHER_CLIENT
+#define USING_WEATHER_CLIENT
 //#define USING_PROVISION_AP
 //#define USING_PUBNUB
 //#define USING_SIMPLE_GROWL

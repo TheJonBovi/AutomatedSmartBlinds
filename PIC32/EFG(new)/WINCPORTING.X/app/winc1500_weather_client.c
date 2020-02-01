@@ -56,9 +56,9 @@ limitations under the License.
 //==============================================================================
 
 /** Wi-Fi AP Settings. */
-#define WLAN_SSID              "DEMO_AP"             // target AP
+#define WLAN_SSID              "OOP_2.4"             // target AP
 #define WLAN_AUTH              M2M_WIFI_SEC_WPA_PSK   // AP Security 
-#define WLAN_PSK               "12345678"            // security password
+#define WLAN_PSK               "goatcheese"            // security password
 
 #define WIFI_BUFFER_SIZE       1400                  // Receive buffer size.
 #define SERVER_PORT            (80)                  // Using broadcast address for simplicity
