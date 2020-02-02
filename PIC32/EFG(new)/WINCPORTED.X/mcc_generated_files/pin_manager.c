@@ -109,3 +109,14 @@ void PIN_MANAGER_Initialize(void)
     
 }
 
+// Initialize the DIP switches for debugging purposes
+void DIP_Initialize(void)
+{
+    //this is gonna be for pins rh3-10
+    //clear the PORTH registers
+    PORTHCLR = _PORTH_RH3_MASK | _PORTH_RH4_MASK | _PORTH_RH5_MASK | _PORTH_RH6_MASK | _PORTH_RH7_MASK | _PORTH_RH8_MASK | _PORTH_RH9_MASK | _PORTH_RH10_MASK;
+    //set the DIP pins to inputs
+    TRISHSET = _TRISH_TRISH3_MASK | _TRISH_TRISH4_MASK | _TRISH_TRISH5_MASK | _TRISH_TRISH6_MASK | _TRISH_TRISH7_MASK | _TRISH_TRISH8_MASK | _TRISH_TRISH9_MASK | _TRISH_TRISH10_MASK; 
+    //clear the DIP analog pins for the stepper motor
+    ANSELHCLR = _ANSELH_ANSH4_MASK | _ANSELH_ANSH5_MASK | _ANSELH_ANSH6_MASK;
+}

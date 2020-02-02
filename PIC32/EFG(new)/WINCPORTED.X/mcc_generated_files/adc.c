@@ -189,10 +189,12 @@ void ADC_Initialize(void)
         /* Enable the ADC module */
     ADCCON3bits.DIGEN0 = 1; // Enable ADC0
     ADCCON3bits.DIGEN1 = 1; // Enable ADC1
-    ADCCON3bits.DIGEN3 = 1; // Enable ADC3
-    
-    
+    ADCCON3bits.DIGEN3 = 1; // Enable ADC3a 
+   
 }
+
+
+
 
 /* *****************************************************************************
  End of File

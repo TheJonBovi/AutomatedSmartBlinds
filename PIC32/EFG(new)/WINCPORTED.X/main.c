@@ -33,6 +33,7 @@ limitations under the License.
 #include "winc1500_api.h"   // primary WINC1500 include file
 #include "demo_config.h"    // selects which demo to run
 #include "bsp.h"            // defines for LED's and push buttons on board
+#include "stepper_test.h"
     
 //==============================================================================
 // FUNCTION PROTOTYPES
@@ -44,26 +45,18 @@ static void BlinkLed(void);
 //==============================================================================
 int main(void)
 {
+    // This function initailizes modules, located mainly in the mcc file
     BspInit();
     
-//#if defined(USING_PICTAIL)
-//    printf("Project built for PICtail\r\n");
-//#elif defined(USING_CLICK_BOARD) 
-//    printf("Project built for Click Board\r\n");
-//#endif
-//    
-//    printf("Starting driver initialization...\r\n");
+    // Required for wifi functionality
     m2m_wifi_init();
     
-//    uint32_t chipID = 0;
-//            
-//    chipID = GetChipId();
-
+    // Main while loop
     while (true) 
     {
-        ApplicationTask();
-        m2m_wifi_task();
-        
+//        ApplicationTask();
+//        m2m_wifi_task();
+        motor_test();
         BlinkLed();
     }
 }

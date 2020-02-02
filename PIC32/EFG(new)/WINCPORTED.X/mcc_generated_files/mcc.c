@@ -81,6 +81,26 @@
 
 #include "mcc.h"
 
+//global variables
+//variables used for the motor to turn on, direction, and state
+int motorTargetUD;
+int motorTargetOC;
+int UDStepperState = 0;
+int OCStepperState = 0;
+int motorUD;
+int motorOC;
+int motorID;
+int counterUD = 0;
+int counterOC = 0;
+int temperatureAlarm = 0;
+int gasAlarm = 0;
+int proxyAlert = 0;
+
+int temperatureSensor;
+int smokeSensor;
+int clockTrigger;
+int userTriggerClose;
+
 static void PinMapInit(void);   // added to MCC-generated code
 
 void SYSTEM_Initialize(void)
@@ -93,9 +113,14 @@ void SYSTEM_Initialize(void)
     //UART2_Initialize();
     EXT_INT_Initialize();
     TMR1_Initialize();
+    
+    // Added routines ported from SmartBlinds project
     LED_Initialize();
     TMR2_32bit_Initialize();
     ADC_Initialize();
+    TMR5_16bit_Motor_Initialize();
+    DIP_Initialize();
+    switch_Initialize();
 }
 
 void OSCILLATOR_Initialize(void)
@@ -158,7 +183,18 @@ void PBCLK3_Initialize(void)
     asm volatile( "ei" ); // Re-Enable Interrupts
 }
 
-
+void switch_Initialize(void)
+{
+    //set up 2 buttons for cw and ccw
+    
+    //clear port g for the registers
+    PORTGCLR = _PORTG_RG0_MASK;
+    PORTGCLR = _PORTG_RG1_MASK;
+    
+    //set to input for both registers
+    TRISGSET = _TRISG_TRISG0_MASK;
+    TRISGSET = _TRISG_TRISG1_MASK;
+}
 
 /**
  End of File

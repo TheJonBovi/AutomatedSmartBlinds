@@ -89,6 +89,8 @@ void OSCILLATOR_Initialize(void);
 
 void PBCLK3_Initialize(void);
 
+void switch_Initialize(void);
+
 #endif  /* MCC_H */
 /**
  End of File

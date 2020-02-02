@@ -27,6 +27,9 @@
 #include <stdbool.h>
 #include "tmr2_3.h"
 #include "defines.h"
+#include "mcc.h"
+
+extern int proxyAlert;
 
 void TMR2_Initialize(void)
 {
@@ -77,7 +80,6 @@ void TMR3_Initialize(void)
     
     asm volatile( "ei" ); // Re-Enable Interrupts
 }
-
 
 void TMR2_32bit_Initialize(void)
 {
@@ -181,29 +183,15 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
     {
         proxyAlert = 1;
         PORTK = 0b111;
-    }
-    
-    //toggle RK3 for light
-    PORTKINV = _PORTK_RK3_MASK;
-    
-    // Clear T3IF atomically
-    IFS0CLR = _IFS0_T3IF_MASK;
+    }   
     
     ///////////////////////////////////////////////////////////////////////////////////////////
     //This section is for the temperature
     
-    //toggle RB3 for the temperature (AN3)
-    PORTBINV = _PORTB_RB3_MASK;
-    
-    // Clear T3IF atomically
-    IFS0CLR = _IFS0_T3IF_MASK;
-
     
     ////////////////////////////////////////////////////////////////////////////////////
     //This section is for the gas
     
-    //toggle RB1 for the gas sensor (AN1)
-    PORTBINV = _PORTB_RB1_MASK;
     
     // Clear T3IF atomically
     IFS0CLR = _IFS0_T3IF_MASK;
