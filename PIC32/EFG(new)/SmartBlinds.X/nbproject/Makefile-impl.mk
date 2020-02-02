@@ -27,11 +27,11 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 PROJECTNAME=SmartBlinds.X
 
 # Active Configuration
-DEFAULTCONF=default
+DEFAULTCONF=pic32mz2048efm144_winc1500
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=default 
+ALLCONFS=exp16_pic24fj128ga310_winc1500 pic32mz2048efg144_winc1500 pic32mz2048efm144_winc1500 
 
 
 # build
@@ -45,13 +45,17 @@ ALLCONFS=default
 
 # clobber
 .clobber-impl: .clobber-pre .depcheck-impl
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=default clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=exp16_pic24fj128ga310_winc1500 clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=pic32mz2048efg144_winc1500 clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=pic32mz2048efm144_winc1500 clean
 
 
 
 # all
 .all-impl: .all-pre .depcheck-impl
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=default build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=exp16_pic24fj128ga310_winc1500 build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=pic32mz2048efg144_winc1500 build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=pic32mz2048efm144_winc1500 build
 
 
 

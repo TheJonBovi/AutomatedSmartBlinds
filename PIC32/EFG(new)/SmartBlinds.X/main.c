@@ -1,125 +1,82 @@
-/* ************************************************************************** */
-/** 
- 
- * Automated Smart Blinds
- * 
- *  Andrew, Chad and Michael
- * 
- *
- * main.c
- * 
- * 
- * This is the main file for the PIC32, running the RTS loop and all
- * configuration information
- * 
- */
-/* ************************************************************************** */
+/*******************************************************************************
+   File Name:
+    main.c
 
-/* ************************************************************************** */
-/* ************************************************************************** */
-/* Section: Pramas                                                            */
-/* ************************************************************************** */
-/* ************************************************************************** */
+  Summary:
+    Main entry point for WINC1500 demos.
 
-#if defined(__32MZ2048EFG144__)
-#pragma config FPLLIDIV = DIV_4         // System PLL Input Divider (4x Divider) for 24MHz clock (Rev D (C1) board) 24MHz/2 = 6MHz
-#pragma config UPLLFSEL = FREQ_24MHZ    // USB PLL Input Frequency Selection (USB PLL input is 24 MHz)
-#else
-#pragma config FPLLIDIV = DIV_2         // System PLL Input Divider (2x Divider) for 12 MHz crystal (Rev B and C boards) 12MHz/2 = 6MHz
-//#pragma config UPLLEN = OFF             // USB PLL Enable (USB PLL is disabled)
-#endif
-#pragma config FPLLRNG = RANGE_5_10_MHZ // System PLL Input Range (5-10 MHz Input)
-#pragma config FPLLICLK = PLL_POSC      // System PLL Input Clock Selection (POSC is input to the System PLL)
-#pragma config FPLLMULT = MUL_112       // System PLL Multiplier (PLL Multiply by 112) 6MHz * 112 = 672MHz
-#pragma config FPLLODIV = DIV_8         // System PLL Output Clock Divider (8x Divider) 672MHz / 8 = 84MHz
+  Description:
+    This file is the main entry point for the WINC1500 demos.  The project is meant 
+    as an example of how to create applications for the WINC1500.
+*******************************************************************************/
 
-// DEVCFG1
-#pragma config FNOSC = SPLL             // Oscillator Selection Bits (Primary Osc (HS,EC))
-#pragma config FSOSCEN = OFF            // Secondary Oscillator Enable (Disable SOSC)
+/*==============================================================================
+Copyright 2016 Microchip Technology Inc.
 
-#if defined(__32MZ2048EFG144__)
-#pragma config POSCMOD = EC             // Primary Oscillator Configuration EC - External clock osc
-#else
-#pragma config POSCMOD = HS             // Primary Oscillator Configuration HS - Crystal osc
-#endif
-#pragma config FCKSM = CSDCMD           // Clock Switching and Monitor Selection (Clock Switch Disabled, FSCM Disabled)
-#pragma config FWDTEN = OFF             // Watchdog Timer Enable (WDT Disabled)
-#pragma config FDMTEN = OFF             // Deadman Timer Enable (Deadman Timer is disabled)
-#pragma config DMTINTV = WIN_127_128    // Default DMT Count Window Interval (Window/Interval value is 127/128 counter value)
-#pragma config DMTCNT = DMT31           // Max Deadman Timer count = 2^31
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-// DEVCFG0
-#pragma config JTAGEN = OFF             // JTAG Enable (JTAG Disabled)
-#pragma config ICESEL = ICS_PGx2        // ICE/ICD Comm Channel Select (Communicate on PGEC2/PGED2)
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+==============================================================================*/
 
 
-/* ************************************************************************** */
-/* ************************************************************************** */
-/* Section: Included Files                                                    */
-/* ************************************************************************** */
-/* ************************************************************************** */
-
-/* This section lists the other files that are included in this file.
- */
-
-#include <xc.h>
-#include <stdbool.h>
-#include <math.h>
-#include <sys/attribs.h>
-
-
-/* ************************************************************************** */
-/* ************************************************************************** */
-/* Section: File Scope or Global Data                                         */
-/* ************************************************************************** */
-/* ************************************************************************** */
-
-/*  A brief description of a section can be given directly below the section
-    banner.
- */
-
-/* ************************************************************************** */
-/** Descriptive Data Item Name
-
-  @Summary
-    Brief one-line summary of the data item.
+//==============================================================================
+// INCLUDES
+//==============================================================================    
+#include "winc1500_api.h"   // primary WINC1500 include file
+#include "demo_config.h"    // selects which demo to run
+#include "bsp.h"            // defines for LED's and push buttons on board
+#include "stepper_test.h"
     
-  @Description
-    Full description, explaining the purpose and usage of data item.
-    <p>
-    Additional description in consecutive paragraphs separated by HTML 
-    paragraph breaks, as necessary.
-    <p>
-    Type "JavaDoc" in the "How Do I?" IDE toolbar for more information on tags.
-    
-  @Remarks
-    Any additional remarks
- */
+//==============================================================================
+// FUNCTION PROTOTYPES
+//==============================================================================    
+static void BlinkLed(void);
 
-/* ************************************************************************** */
-/* ************************************************************************** */
-// Section: Main Function                                                     */
-/* ************************************************************************** */
-/* ************************************************************************** */
-
-int main()
+//==============================================================================
+// Main application entry point.
+//==============================================================================
+int main(void)
 {
-    // Run initialization code
-    SYSCLK_config();
-    DIP_config();
-    LED_config();
-    ISR_config();    
-    PBCLK3_config();
-    ADC_config();
-    T2_32bit_config();
-    motor_config();
-    rotate_function();
-    //temp_config();
-    //gas_config();
-    //T4_16bit_config();
-    //buzzer_toggle();
-
+    // This function initailizes modules, located mainly in the mcc file
+    BspInit();
     
-    // Endless loop
-    while(true);
+    // Required for wifi functionality
+    m2m_wifi_init();
+    
+    // Main while loop
+    while (true) 
+    {
+        // These two lines control the state machine for the current WIFI configureation (currently in demo_config.h)
+        ApplicationTask();
+        m2m_wifi_task();
+        
+        
+        motor_test_UD();
+        
+        // Blinks onboard LED at 1sec 
+        BlinkLed();
+    }
 }
+
+static void BlinkLed(void)
+{
+    static uint32_t t = 0;
+    
+    // Blink LED on board every 500ms
+    if ((m2mStub_GetOneMsTimer() - t) >= 500) 
+    {
+        t = m2mStub_GetOneMsTimer();
+        ToggleLed();
+    }
+}
+
+
+//DOM-IGNORE-END

@@ -27,61 +27,58 @@ extern int proxyAlert;
 extern int motorUD;
 extern int motorOC;
 
-void motor_test(void)
+void motor_test_UD(void)
 {
     //need to start getting the counter to control on how far the motor will rotate. Both for the OC and UD.
-    while (true)
+    //for the UD motor
+    //if button for cw is high, rotate cw.
+    //This is the left button
+    if (PORTGbits.RG1 == 1)
     {
-        //for the UD motor
-        //if button for cw is high, rotate cw.
-        //This is the left button
-        if (PORTGbits.RG1 == 1)
-        {
-           motorUD = true; 
-           motorTargetUD = UD_FULL_DOWN;
-           MOTOR_ON();
-        }
-        //else if button for ccw is high, rotate ccw.
-        //This is the right button
-        else if (PORTGbits.RG0 == 1)
-        {
-           motorUD = true;
-           motorTargetUD = UD_FULL_UP;
-           MOTOR_ON();
-        }
-
-
-        //for the OC motor
-        //if button for cw is high, rotate cw.
-        //This is the left button
-     /*   if (PORTGbits.RG1 == 1)
-        {
-           motorOC = 2; 
-           motorTarget = OC_FULL_OPEN;
-           MOTOR_ON();
-        }
-        //else if button for ccw is high, rotate ccw.
-        //This is the right button
-        else if (PORTGbits.RG0 == 1)
-        {
-           motorOC = 2;
-           motorTarget = OC_FULL_CLOSE;
-           MOTOR_ON();
-        }
-        if (T5CONbits.ON == false)
-        {
-            motorTest = 1;
-        }*/
-        
-        if (proxyAlert == 1)
-        {
-            motorUD = true; 
-            motorOC = true;
-            motorTargetUD = UD_FULL_DOWN;
-            motorTargetOC = OC_FULL_CLOSE;
-            MOTOR_ON();
-        }
+       motorUD = true; 
+       motorTargetUD = UD_FULL_DOWN;
+       MOTOR_ON();
     }
+    //else if button for ccw is high, rotate ccw.
+    //This is the right button
+    else if (PORTGbits.RG0 == 1)
+    {
+       motorUD = true;
+       motorTargetUD = UD_FULL_UP;
+       MOTOR_ON();
+    }
+
+//    if (proxyAlert == 1)
+//    {
+//        motorUD = true; 
+//        motorOC = true;
+//        motorTargetUD = UD_FULL_DOWN;
+//        motorTargetOC = OC_FULL_CLOSE;
+//        MOTOR_ON();
+//    }
+}
+    
+void motor_test_OC(void)
+{
+    //for the OC motor
+    //if button for cw is high, rotate cw.
+    //This is the left button
+    if (PORTGbits.RG1 == 1)
+    {
+       motorOC = true; 
+       motorTargetUD = OC_FULL_OPEN;
+       MOTOR_ON();
+    }
+    //else if button for ccw is high, rotate ccw.
+    //This is the right button
+    else if (PORTGbits.RG0 == 1)
+    {
+       motorOC = true;
+       motorTargetUD = OC_FULL_CLOSE;
+       MOTOR_ON();
+    }
+    
+}
 
     //for triggering the blinds, there will need to be a switch statement
     //this will include the proxy, temperature, clock, smoke, and user interface
@@ -155,8 +152,6 @@ void motor_test(void)
         default:
             break;
     }*/
-
-}
 /* *****************************************************************************
  End of File
  */

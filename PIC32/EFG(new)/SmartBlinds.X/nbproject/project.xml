@@ -4,7 +4,7 @@
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
             <name>SmartBlinds</name>
-            <creation-uuid>1da85a82-d26b-4576-bbaa-f5eda25caf8c</creation-uuid>
+            <creation-uuid>0808e816-23b4-4d1b-860b-f7a34df0fecc</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>
             <cpp-extensions/>
@@ -13,11 +13,26 @@
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList>
+                <sourceRootElem>../src</sourceRootElem>
+                <sourceRootElem>../../../../../framework</sourceRootElem>
+                <sourceRootElem>../config</sourceRootElem>
                 <sourceRootElem>.</sourceRootElem>
+                <sourceRootElem>../winc1500_pic24fj128ga010_ex16.X</sourceRootElem>
+                <sourceRootElem>../stubs</sourceRootElem>
+                <sourceRootElem>../firmware/src</sourceRootElem>
+                <sourceRootElem>../../../../framework/driver/wifi/winc1500</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
-                    <name>default</name>
+                    <name>exp16_pic24fj128ga310_winc1500</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>pic32mz2048efg144_winc1500</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>pic32mz2048efm144_winc1500</name>
                     <type>2</type>
                 </confElem>
             </confList>

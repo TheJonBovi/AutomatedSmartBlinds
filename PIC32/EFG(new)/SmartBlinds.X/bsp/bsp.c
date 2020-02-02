@@ -27,36 +27,8 @@ void BspInit(void)
     
     SpiInit();           // Initialize SPI with custom driver (not using MCC for SPI)
     
-    // Initialize Explorer16 LED/button ports
-    InitializeBoard();
 }
 
-/****************************************************************************
-  Function:
-    void InitializeBoard(void)
-
-  Description:
-    This routine initializes the Explorer16 LED's
- 
-  Parameters:
-    None
-
-  Returns:
-    None
- ***************************************************************************/
-static void InitializeBoard(void)
-{
-    // LEDs
-//    LED0_TRIS = 0;
-//    LED1_TRIS = 0;
-//    LED2_TRIS = 0;
-//    LED3_TRIS = 0;
-//    LED4_TRIS = 0;
-//    LED5_TRIS = 0;
-//    LED6_TRIS = 0;
-//    LED7_TRIS = 0;
-//    LED_PUT(0x00);
-}
 
  void ToggleLed(void)
  {

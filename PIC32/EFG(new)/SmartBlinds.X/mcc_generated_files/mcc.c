@@ -108,13 +108,15 @@ void SYSTEM_Initialize(void)
     PinMapInit();               // added to MCC-generated code
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
-    PBCLK3_Initialize();
+
     INTERRUPT_Initialize();
     //UART2_Initialize();
     EXT_INT_Initialize();
     TMR1_Initialize();
     
     // Added routines ported from SmartBlinds project
+    PBCLK3_Initialize();
+    PBCLK2_Initialize();
     LED_Initialize();
     TMR2_32bit_Initialize();
     ADC_Initialize();
@@ -177,7 +179,21 @@ void PBCLK3_Initialize(void)
     SYSKEY = 0; // Ensure lock
     SYSKEY = 0xAA996655; // Write Key 1
     SYSKEY = 0x556699AA; // Write Key 2
-    PB3DIV = _PB3DIV_ON_MASK | ((0 << _PB3DIV_PBDIV_POSITION) & _PB3DIV_PBDIV_MASK); // 0 = div by 1, 1 = div by 2 etc up to 128
+    PB3DIV = _PB3DIV_ON_MASK | ((1 << _PB3DIV_PBDIV_POSITION) & _PB3DIV_PBDIV_MASK); // 0 = div by 1, 1 = div by 2 etc up to 128
+    SYSKEY = 0; // Re lock
+    
+    asm volatile( "ei" ); // Re-Enable Interrupts
+}
+
+void PBCLK2_Initialize(void)
+{
+    asm volatile( "di" ); // Disable Interrupts
+    
+    // PBCLK2 setup to 2:1 
+    SYSKEY = 0; // Ensure lock
+    SYSKEY = 0xAA996655; // Write Key 1
+    SYSKEY = 0x556699AA; // Write Key 2
+    PB2DIV = _PB2DIV_ON_MASK | ((1 << _PB2DIV_PBDIV_POSITION) & _PB2DIV_PBDIV_MASK); // 0 = div by 1, 1 = div by 2 etc up to 128
     SYSKEY = 0; // Re lock
     
     asm volatile( "ei" ); // Re-Enable Interrupts

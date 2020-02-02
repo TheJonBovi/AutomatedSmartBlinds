@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/SmartBlinds.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=SmartBlinds.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=smartblinds.x/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/SmartBlindsOld02022020.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=SmartBlindsOld02022020.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=smartblindsold02022020.x/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/smartblinds.x/bin
+makeDirectory ${TMPDIR}/smartblindsold02022020.x/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/smartblinds.x.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/smartblindsold02022020.x.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/smartblinds.x.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/smartblindsold02022020.x.tar *
 checkReturnCode
 
 # Cleanup

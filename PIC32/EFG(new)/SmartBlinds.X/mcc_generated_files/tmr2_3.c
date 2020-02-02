@@ -31,6 +31,17 @@
 
 extern int proxyAlert;
 
+typedef struct _TMR_OBJ_STRUCT
+{
+    /* Timer Elapsed */
+    bool                                                    timerElapsed;
+    /*Software Counter value*/
+    uint8_t                                                 count;
+
+} TMR_OBJ;
+
+static TMR_OBJ tmr1_obj;
+
 void TMR2_Initialize(void)
 {
     asm volatile( "di" ); // Disable Interrupts
@@ -84,7 +95,6 @@ void TMR3_Initialize(void)
 void TMR2_32bit_Initialize(void)
 {
     asm volatile( "di" ); // Disable Interrupts
-    
     
     // Clear configure registers to disable, Set TMR2 for 16-bit mode, 1:1 prescalar (i.e. clock speed) 
     T2CON = 0;
@@ -147,7 +157,8 @@ void __ISR_AT_VECTOR(_TIMER_2_VECTOR, IPL5SRS) TMR2_ISR(void)
 */
 //This is for the ADC configs
 void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
-{
+{ 
+    
     // ADC loop and test output on LED's for proximity sensor
     int current_read[3];
    
