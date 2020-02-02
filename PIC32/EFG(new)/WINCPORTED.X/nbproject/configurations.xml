@@ -56,6 +56,10 @@
         <itemPath>mcc_generated_files/traps.h</itemPath>
         <itemPath>mcc_generated_files/tmr1.h</itemPath>
         <itemPath>mcc_generated_files/ext_int.h</itemPath>
+        <itemPath>mcc_generated_files/led.h</itemPath>
+        <itemPath>mcc_generated_files/tmr2_3.h</itemPath>
+        <itemPath>mcc_generated_files/adc.h</itemPath>
+        <itemPath>mcc_generated_files/defines.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -170,6 +174,9 @@
         <itemPath>mcc_generated_files/pin_manager.c</itemPath>
         <itemPath>mcc_generated_files/tmr1.c</itemPath>
         <itemPath>mcc_generated_files/ext_int.c</itemPath>
+        <itemPath>mcc_generated_files/led.c</itemPath>
+        <itemPath>mcc_generated_files/tmr2_3.c</itemPath>
+        <itemPath>mcc_generated_files/adc.c</itemPath>
       </logicalFolder>
       <logicalFolder name="stubs" displayName="stubs" projectFiles="true">
         <itemPath>stubs/wf_mcu_driver_stub.c</itemPath>
@@ -283,9 +290,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="warning-level" value=""/>
       </C32-AS>
-      <C32-CO>
-        <property key="coverage-enable" value=""/>
-      </C32-CO>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
@@ -648,9 +652,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="warning-level" value=""/>
       </C32-AS>
-      <C32-CO>
-        <property key="coverage-enable" value=""/>
-      </C32-CO>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
@@ -1121,9 +1122,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="warning-level" value=""/>
       </C32-AS>
-      <C32-CO>
-        <property key="coverage-enable" value=""/>
-      </C32-CO>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>

@@ -10,9 +10,9 @@ CND_CONF=pic32mz2048efm144_winc1500
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/WINCPORTING.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=WINCPORTING.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=wincporting.x/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/WINCPORTED.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=WINCPORTED.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=wincported.x/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/wincporting.x/bin
+makeDirectory ${TMPDIR}/wincported.x/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/wincporting.x.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/wincported.x.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/wincporting.x.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/wincported.x.tar *
 checkReturnCode
 
 # Cleanup

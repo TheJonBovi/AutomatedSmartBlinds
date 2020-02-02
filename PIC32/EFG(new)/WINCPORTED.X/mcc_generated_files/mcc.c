@@ -47,44 +47,6 @@
 
 #include "winc1500_api.h"
 
-//// CONFIG4
-//#pragma config DSWDTPS = DSWDTPS1F    // Deep Sleep Watchdog Timer Postscale Select bits->1:68719476736 (25.7 Days)
-//#pragma config DSWDTOSC = LPRC    // DSWDT Reference Clock Select->DSWDT uses LPRC as reference clock
-//#pragma config DSBOREN = ON    // Deep Sleep BOR Enable bit->DSBOR Enabled
-//#pragma config DSWDTEN = ON    // Deep Sleep Watchdog Timer Enable->DSWDT Enabled
-//#pragma config DSSWEN = ON    // DSEN Bit Enable->Deep Sleep is controlled by the register bit DSEN
-//
-//// CONFIG3
-//#pragma config WPFP = WPFP127    // Write Protection Flash Page Segment Boundary->Page 127 (0x1FC00)
-//#pragma config VBTBOR = ON    // VBAT BOR enable bit->VBAT BOR enabled
-//#pragma config SOSCSEL = ON    // SOSC Selection bits->SOSC circuit selected
-//#pragma config WDTWIN = PS25_0    // Watch Dog Timer Window Width->Watch Dog Timer Window Width is 25 percent
-//#pragma config BOREN = ON    // Brown-out Reset Enable->Brown-out Reset Enable
-//#pragma config WPDIS = WPDIS    // Segment Write Protection Disable->Disabled
-//#pragma config WPCFG = WPCFGDIS    // Write Protect Configuration Page Select->Disabled
-//#pragma config WPEND = WPENDMEM    // Segment Write Protection End Page Select->Write Protect from WPFP to the last page of memory
-//
-//// CONFIG2
-//#pragma config POSCMD = NONE    // Primary Oscillator Select->Primary Oscillator Disabled
-//#pragma config BOREN1 = EN    // BOR Override bit->BOR Enabled [When BOREN=1]
-//#pragma config IOL1WAY = ON    // IOLOCK One-Way Set Enable bit->Once set, the IOLOCK bit cannot be cleared
-//#pragma config OSCIOFCN = OFF    // OSCO Pin Configuration->OSCO/CLKO/RC15 functions as CLKO (FOSC/2)
-//#pragma config FCKSM = CSDCMD    // Clock Switching and Fail-Safe Clock Monitor Configuration bits->Clock switching and Fail-Safe Clock Monitor are disabled
-//#pragma config FNOSC = FRCPLL    // Initial Oscillator Select->Fast RC Oscillator with PLL module (FRCPLL)
-//#pragma config ALTVREF = DLT_AV_DLT_CV    // Alternate VREF/CVREF Pins Selection bit->Voltage reference input, ADC =RA9/RA10 Comparator =RA9,RA10
-//#pragma config IESO = ON    // Internal External Switchover->Enabled
-//
-//// CONFIG1
-//#pragma config WDTPS = PS32768    // Watchdog Timer Postscaler Select->1:32768
-//#pragma config FWPSA = PR128    // WDT Prescaler Ratio Select->1:128
-//#pragma config FWDTEN = WDT_DIS    // Watchdog Timer Enable->WDT disabled in hardware; SWDTEN bit disabled
-//#pragma config WINDIS = OFF    // Windowed WDT Disable->Standard Watchdog Timer
-//#pragma config ICS = PGx2    // Emulator Pin Placement Select bits->Emulator functions are shared with PGEC2/PGED2
-//#pragma config LPCFG = OFF    // Low power regulator control->Disabled
-//#pragma config GWRP = OFF    // General Segment Write Protect->Disabled
-//#pragma config GCP = OFF    // General Segment Code Protect->Code protection is disabled
-//#pragma config JTAGEN = OFF    // JTAG Port Enable->Disabled
-
 // PIC32MZ2048ECG144 or EFG144 based HMZ144 board Configuration Bit Settings
 // DEVCFG2
 #if defined(__32MZ2048EFG144__)
@@ -126,10 +88,14 @@ void SYSTEM_Initialize(void)
     PinMapInit();               // added to MCC-generated code
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
+    PBCLK3_Initialize();
     INTERRUPT_Initialize();
     //UART2_Initialize();
     EXT_INT_Initialize();
     TMR1_Initialize();
+    LED_Initialize();
+    TMR2_32bit_Initialize();
+    ADC_Initialize();
 }
 
 void OSCILLATOR_Initialize(void)
@@ -176,6 +142,20 @@ static void PinMapInit(void)
     SDI4R = 0b0011;
     
 //    __builtin_write_OSCCONL(OSCCON | 0x40);   // lock pin mapping registers 
+}
+
+void PBCLK3_Initialize(void)
+{
+    asm volatile( "di" ); // Disable Interrupts
+    
+    // PBCLK3 setup to 1:1 
+    SYSKEY = 0; // Ensure lock
+    SYSKEY = 0xAA996655; // Write Key 1
+    SYSKEY = 0x556699AA; // Write Key 2
+    PB3DIV = _PB3DIV_ON_MASK | ((0 << _PB3DIV_PBDIV_POSITION) & _PB3DIV_PBDIV_MASK); // 0 = div by 1, 1 = div by 2 etc up to 128
+    SYSKEY = 0; // Re lock
+    
+    asm volatile( "ei" ); // Re-Enable Interrupts
 }
 
 

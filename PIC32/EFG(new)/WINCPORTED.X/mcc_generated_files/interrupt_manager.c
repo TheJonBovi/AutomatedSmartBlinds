@@ -56,6 +56,7 @@ void INTERRUPT_Initialize (void)
 {
     // Put ISR in multi-vector mode
      INTCONSET = _INTCON_MVEC_MASK;
+     
 #if defined(USING_PICTAIL)      
     //    INT3I: INT0 - External Interrupt 0
     //    Priority: 1

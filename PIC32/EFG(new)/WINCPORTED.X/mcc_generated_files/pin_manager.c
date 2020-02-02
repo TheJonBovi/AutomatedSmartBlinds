@@ -71,13 +71,6 @@ void PIN_MANAGER_Initialize(void)
     /****************************************************************************
      * Setting the GPIO Direction SFR(s)
      ***************************************************************************/
-//    TRISA = 0xC2FF;
-//    TRISB = 0xFFFF;
-//    TRISC = 0x901E;
-//    TRISD = 0xFFFE;
-//    TRISE = 0x03FF;
-//    TRISF = 0x31FF;
-//    TRISG = 0xB1CC;
     
     IO_RD5_WAKE_SetDigitalOutput();
     IO_RD0_EXINT_SetDigitalInput();
@@ -88,29 +81,13 @@ void PIN_MANAGER_Initialize(void)
     IO_RG14_RESET_SetDigitalOutput();
     IO_RD2_SS2_SetDigitalOutput();
     
-    // Set WAKE to high to enable chip
-    //IO_RD5_WAKE_SetHigh();
-    
     // Set output for LED0 (onboard LED)
     TRISHbits.TRISH2 = 0;
-
-    
 
     /****************************************************************************
      * Setting the Weak Pull Up and Weak Pull Down SFR(s)
      ***************************************************************************/
-//    CNPD1 = 0x0000;
-//    CNPD2 = 0x0000;
-//    CNPD3 = 0x0000;
-//    CNPD4 = 0x0000;
-//    CNPD5 = 0x0000;
-//    CNPD6 = 0x0000;
-//    CNPU1 = 0x0000;
-//    CNPU2 = 0x0000;
-//    CNPU3 = 0x0000;
-//    CNPU4 = 0x0000;
-//    CNPU5 = 0x0000;
-//    CNPU6 = 0x0000;
+
 
     /****************************************************************************
      * Setting the Open Drain SFR(s)
@@ -126,12 +103,7 @@ void PIN_MANAGER_Initialize(void)
     /****************************************************************************
      * Setting the Analog/Digital Configuration SFR(s)
      ***************************************************************************/
-//    ANSA = 0x02C0;
-//    ANSB = 0xFF3F;
-//    ANSC = 0x0010;
-//    ANSD = 0x0CC0;
-//    ANSE = 0x02F0;
-//    ANSG = 0x0140;
+
     ANSELD = 0; // all PORTD pins digital
     ANSELH = 0;
     

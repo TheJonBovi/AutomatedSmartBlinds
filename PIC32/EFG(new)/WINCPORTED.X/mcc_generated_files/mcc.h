@@ -54,8 +54,12 @@
 #include "traps.h"
 #include "interrupt_manager.h"
 #include "tmr1.h"
+#include "led.h"
+#include "tmr2_3.h"
+#include "adc.h"
+#include "defines.h"
 
-#define _XTAL_FREQ  32000000UL
+#define _XTAL_FREQ  84000000UL
 
 /**
  * @Param
@@ -83,6 +87,7 @@ void SYSTEM_Initialize(void);
  */
 void OSCILLATOR_Initialize(void);
 
+void PBCLK3_Initialize(void);
 
 #endif  /* MCC_H */
 /**
