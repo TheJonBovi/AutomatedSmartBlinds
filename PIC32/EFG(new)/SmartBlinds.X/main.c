@@ -60,6 +60,8 @@ int main(void)
         
         
         motor_test_UD();
+        //motor_test_OC();
+        
         
         // Blinks onboard LED at 1sec 
         BlinkLed();

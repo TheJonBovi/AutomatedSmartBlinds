@@ -64,6 +64,10 @@
 #define GAS_HIGH 0xFFFF //These are not the real values. Need to calculate them.
 #define GAS_LOW  0x0000
 
+// This value is how we set the motor speed. For reverence
+// 300 = 1 rot / 5 seconds
+#define MOTOR_PR_SETTING 300
+
 //the positions for the UD motor. They can also be used for the opposite direction.
 //new measurements for the OC: 0 is full open, 256 is full close, -256 is full reverse close
 //128 is half open, -128 is half reverse open, 64 is quarter open, -64 is quarter reverse open

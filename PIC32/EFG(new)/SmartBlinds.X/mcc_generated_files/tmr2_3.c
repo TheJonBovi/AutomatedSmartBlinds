@@ -103,8 +103,7 @@ void TMR2_32bit_Initialize(void)
     T2CONSET = _T2CON_T32_MASK;
     
     // Set T2 clock prescalar to 2:1 
-    T2CONbits.TCKPS = 0b001;
-    
+    T2CONbits.TCKPS = 0;
     
     // Clear TMR2 and TMR3 registers to zero counts
     TMR2 = 0;

@@ -91,8 +91,8 @@ void TMR5_16bit_Motor_Initialize(void)
     //Clear the timer 5 register
     TMR5 = 0x0;
     
-    //load the period 5 register for the specific amount of 5210
-    PR5 = 0x0281;
+    //load the period 5 register to set motor rotation
+    PR5 = MOTOR_PR_SETTING;
 
     // Disable TMR5 interrupts and set up TMR5 interrupts.
     // Set Shadow register set 2 for TMR5 interrupts (Priority 2)
@@ -132,7 +132,7 @@ void TMR5_16bit_Motor_Initialize(void)
 }
 
 //This ISR will be used for the stepper motors UD/OC
-void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) TMR5_ISR(void)
+void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) TMR5_MOTOR_ISR(void)
 {
     int motorDirectionUD;
     int motorDirectionOC;
