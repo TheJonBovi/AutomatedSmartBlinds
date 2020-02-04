@@ -159,6 +159,7 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) TMR5_MOTOR_ISR(void)
     else
     {
         motorUD = false;
+        PORTC = _UDMOTOR_SOFF;
     }
     
     //this is for the up down motor
@@ -275,15 +276,16 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) TMR5_MOTOR_ISR(void)
     //Otherwise it'll keep the motor off and return to the source.
     
     //If the motor target is less than the motor location, then it'll close
-    if (motorTargetUD < counterOC)
+    if (motorTargetOC < counterOC)
         motorDirectionOC = MOTOR_DIR_OPEN; 
     //else if the motor target is greater than the motor location, then it'll open
-    else if (motorTargetUD > counterOC)
+    else if (motorTargetOC > counterOC)
         motorDirectionOC = MOTOR_DIR_CLOSE;
     //else it'll turn off the motor and return
     else
     {
         motorOC = false;
+        PORTB = _OCMOTOR_SOFF;
     }
     //This is for the open close motor
     if (motorOC == true)

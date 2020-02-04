@@ -33,8 +33,12 @@ limitations under the License.
 #include "winc1500_api.h"   // primary WINC1500 include file
 #include "demo_config.h"    // selects which demo to run
 #include "bsp.h"            // defines for LED's and push buttons on board
+#include "mcc.h"
 #include "stepper_test.h"
     
+extern int proxyAlert;
+extern int proxyCount;
+
 //==============================================================================
 // FUNCTION PROTOTYPES
 //==============================================================================    
@@ -60,13 +64,15 @@ int main(void)
         
         
         motor_test_UD();
-        //motor_test_OC();
+        motor_test_OC();
+        proxy_motor_test();
         
         
         // Blinks onboard LED at 1sec 
         BlinkLed();
     }
 }
+
 
 static void BlinkLed(void)
 {
@@ -77,6 +83,18 @@ static void BlinkLed(void)
     {
         t = m2mStub_GetOneMsTimer();
         ToggleLed();
+        
+        
+        // Things that happen every 500ms
+        if (proxyCount < maxProxy && proxyAlert == 1)
+        {
+            ++proxyCount;
+        }
+        else if (proxyCount >= maxProxy && proxyAlert == 1)
+        {
+            proxyCount = 0;
+            proxyAlert = 0;
+        }
     }
 }
 

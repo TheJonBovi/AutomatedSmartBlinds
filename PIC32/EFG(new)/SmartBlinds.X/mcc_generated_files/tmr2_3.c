@@ -30,6 +30,7 @@
 #include "mcc.h"
 
 extern int proxyAlert;
+extern int proxyCount;
 
 typedef struct _TMR_OBJ_STRUCT
 {
@@ -192,6 +193,7 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
     else 
     {
         proxyAlert = 1;
+        proxyCount = 0;
         PORTK = 0b111;
     }   
     

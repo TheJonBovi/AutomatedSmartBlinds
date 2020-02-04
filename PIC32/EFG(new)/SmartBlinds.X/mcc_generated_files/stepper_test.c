@@ -27,35 +27,35 @@ extern int proxyAlert;
 extern int motorUD;
 extern int motorOC;
 
+bool buttonLockUD = false;
+bool buttonLockOC = false;
+
+
 void motor_test_UD(void)
 {
     //need to start getting the counter to control on how far the motor will rotate. Both for the OC and UD.
     //for the UD motor
     //if button for cw is high, rotate cw.
     //This is the left button
-    if (PORTGbits.RG1 == 1)
+    if (PORTGbits.RG1 == 1 && buttonLockUD == false)
     {
+        
        motorUD = true; 
        motorTargetUD = UD_FULL_DOWN;
        MOTOR_ON();
+       buttonLockUD = true;
     }
     //else if button for ccw is high, rotate ccw.
     //This is the right button
-    else if (PORTGbits.RG0 == 1)
+    else if (PORTGbits.RG1 == 1 && buttonLockUD == true)
     {
        motorUD = true;
        motorTargetUD = UD_FULL_UP;
        MOTOR_ON();
+       buttonLockUD = false;
     }
 
-//    if (proxyAlert == 1)
-//    {
-//        motorUD = true; 
-//        motorOC = true;
-//        motorTargetUD = UD_FULL_DOWN;
-//        motorTargetOC = OC_FULL_CLOSE;
-//        MOTOR_ON();
-//    }
+
 }
     
 void motor_test_OC(void)
@@ -63,19 +63,21 @@ void motor_test_OC(void)
     //for the OC motor
     //if button for cw is high, rotate cw.
     //This is the left button
-    if (PORTGbits.RG1 == 1)
+    if (PORTGbits.RG0 == 1 && buttonLockOC == false)
     {
        motorOC = true; 
-       motorTargetUD = OC_FULL_OPEN;
+       motorTargetOC = OC_FULL_OPEN;
        MOTOR_ON();
+       buttonLockOC = true;
     }
     //else if button for ccw is high, rotate ccw.
     //This is the right button
-    else if (PORTGbits.RG0 == 1)
+    else if (PORTGbits.RG0 == 1 && buttonLockOC == true)
     {
        motorOC = true;
-       motorTargetUD = OC_FULL_CLOSE;
+       motorTargetOC = OC_FULL_CLOSE;
        MOTOR_ON();
+       buttonLockOC = false;
     }
     
 }
@@ -85,16 +87,25 @@ void motor_test_OC(void)
     //will also need to work out on which ones will open, close, raise, and lower the blinds
     
     //if the proxy sensor triggers for the final stage, then turn on the motor and close the blinds.
-
-//    else if (proxyAlert = 0)
-//    {
-//        motorUD = false; 
-//        motorOC = false;
-//        motorTargetUD = UD_FULL_DOWN;
-//        motorTargetOC = OC_FULL_CLOSE;
-//        MOTOR_OFF();        
-//    }
-//    
+void proxy_motor_test(void)
+{
+    if (proxyAlert == 1)
+    {
+        motorUD = true; 
+        motorOC = true;
+        motorTargetUD = UD_FULL_DOWN;
+        motorTargetOC = OC_FULL_CLOSE;
+        MOTOR_ON();
+    }
+    else if (proxyAlert == 0)
+    {
+        motorUD = true; 
+        motorOC = true;
+        motorTargetUD = UD_FULL_UP;
+        motorTargetOC = OC_FULL_OPEN;
+        MOTOR_ON();        
+    }
+}   
    /* switch (stepperMotorState)
     {
         //the first case will be to check if the proxy is triggered to close

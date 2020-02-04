@@ -24,6 +24,9 @@ void motor_test_UD(void);
 // function to use buttons to test UD motor
 void motor_test_OC(void);
 
+//function to test both the proxy and stepper motors simultaneously
+void proxy_motor_test(void);
+
 #endif /* _STEPPER_TEST_H */
 
 /* *****************************************************************************
