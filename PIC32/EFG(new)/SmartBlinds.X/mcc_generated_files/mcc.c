@@ -94,7 +94,11 @@ int counterUD = 0;
 int counterOC = 0;
 int temperatureAlarm = 0;
 int gasAlarm = 0;
+
+
 int proxyAlert = 0;
+int proxyCount = 0;
+
 
 int temperatureSensor;
 int smokeSensor;
