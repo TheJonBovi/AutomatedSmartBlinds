@@ -23,33 +23,33 @@
          <div class="col-md-4">
             <h2>Temperature Sensor</h2>
             <p>
-                Get the current Smart Blinds status and make adjustments</p>
+                Current Temperature: <asp:Label ID="lblCurrentTemp" runat="server" Text="Temperature Sensor Status"></asp:Label></p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Get Current Status, Adjust Blinds&nbsp;&nbsp; &raquo;</a>
+                
             </p>
         </div>
          <div class="col-md-4">
             <h2>Proximity Sensor</h2>
             <p>
-                Get the current Smart Blinds status and make adjustments</p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Get Current Status, Adjust Blinds&nbsp;&nbsp; &raquo;</a>
-            </p>
+                Current Proximity Status: <asp:Label runat="server" ID="lblCurrentProxStatus" Text="Great!"></asp:Label></p>
+           
         </div>
          <div class="col-md-4">
             <h2>Blinds Vertical</h2>
             <p>
-                Get the current Smart Blinds status and make adjustments</p>
+                Current Vertical Location: <asp:Label ID="lblBlindsVertical" runat="server" ></asp:Label></p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Get Current Status, Adjust Blinds&nbsp;&nbsp; &raquo;</a>
+                <asp:Button CssClass="btn btn-default" ID="btnAdjustBlindVertical" Text="Adjust Blinds Vertical &raquo;" runat="server" OnClick="btnAdjustBlindVertical_Click" />
+                &nbsp;&nbsp;&nbsp; <asp:TextBox runat="server" ID="txtNewBlindVertical" ></asp:TextBox>
             </p>
         </div>
          <div class="col-md-4">
             <h2>Blinds Horizantel</h2>
             <p>
-                Get the current Smart Blinds status and make adjustments</p>
+                Current Horizontal Location:  <asp:Label ID="lblBlindHorizontal" runat="server" ></asp:Label></p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Get Current Status, Adjust Blinds&nbsp;&nbsp; &raquo;</a>
+                <asp:Button CssClass="btn btn-default" ID="btnAdjistBlindHorizontal" Text="Adjust Blinds Vertical &raquo;" runat="server" OnClick="btnAdjistBlindHorizontal_Click" />
+                 &nbsp;&nbsp;&nbsp; <asp:TextBox runat="server" ID="txtNewBlindHorizontal" ></asp:TextBox>
             </p>
         </div>
           <div class="col-md-4">

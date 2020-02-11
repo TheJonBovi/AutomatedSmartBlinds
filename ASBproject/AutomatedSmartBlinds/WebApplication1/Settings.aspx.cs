@@ -11,6 +11,16 @@ namespace SmartBlindsWebApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+          
+        }
+
+        protected void btnAdjistBlindHorizontal_Click(object sender, EventArgs e)
+        {
+         
+        }
+
+        protected void btnAdjustBlindVertical_Click(object sender, EventArgs e)
+        {
 
         }
     }

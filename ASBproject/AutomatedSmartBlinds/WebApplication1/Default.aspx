@@ -9,6 +9,17 @@
     </div>
 
     <div class="row">
+         <div class="col-md-4">
+            <h2>Current User</h2>
+            <p>
+                <asp:Label ID="lblCurrentUser" runat="server" ></asp:Label> </p>
+            <p>
+                <asp:Button CssClass="btn btn-default" ID="btnChangeUser" runat="server" Text="Change Current User &raquo;" OnClick="btnChangeUser_Click" />&nbsp;&nbsp;
+                <asp:DropDownList runat="server" ID="ddlUsersList" DataSourceID="sqldsUserList" DataTextField="fname" DataValueField="fname" ></asp:DropDownList>
+                <asp:SqlDataSource ID="sqldsUserList" runat="server" ConnectionString="<%$ ConnectionStrings:smartblindsdbConnectionString %>" SelectCommand="SELECT [fname], [lname] FROM [sbUsers]"></asp:SqlDataSource>
+                <%--<a class="btn btn-default" href="CurentStatus.aspx">Get Current Status, Adjust Blinds&nbsp;&nbsp; &raquo;</a>--%>
+            </p>
+        </div>
         <div class="col-md-4">
             <h2>Current Status</h2>
             <p>
@@ -35,5 +46,9 @@
         </div>
         
     </div>
-
+    <asp:SqlDataSource ID="sqldsActiveUser" runat="server" ConnectionString="<%$ ConnectionStrings:smartblindsdbConnectionString %>" SelectCommand="SELECT * FROM [sbUsers] WHERE ([active] = @active)">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="True" Name="active" Type="Boolean" />
+        </SelectParameters>
+    </asp:SqlDataSource>
 </asp:Content>

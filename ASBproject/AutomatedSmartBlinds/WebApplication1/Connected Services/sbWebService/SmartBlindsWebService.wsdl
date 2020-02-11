@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="TestHelloWorldd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestHelloWorlddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestHelloWorlddResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrentUser">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCurrentUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrentUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBlindSettings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SysID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBlindSettingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBlindSettingsResult" type="tns:BlindSettings" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BlindSettings">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SysID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SbHorizontal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SbVertical" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetBlindSettings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SysID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetBlindSettingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetBlindSettingsResult" type="tns:BlindSettings" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TestHelloWorlddSoapIn">
+    <wsdl:part name="parameters" element="tns:TestHelloWorldd" />
+  </wsdl:message>
+  <wsdl:message name="TestHelloWorlddSoapOut">
+    <wsdl:part name="parameters" element="tns:TestHelloWorlddResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrentUser" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrentUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBlindSettingsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBlindSettings" />
+  </wsdl:message>
+  <wsdl:message name="GetBlindSettingsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBlindSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetBlindSettingsSoapIn">
+    <wsdl:part name="parameters" element="tns:SetBlindSettings" />
+  </wsdl:message>
+  <wsdl:message name="SetBlindSettingsSoapOut">
+    <wsdl:part name="parameters" element="tns:SetBlindSettingsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SmartBlindsWebServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">HellloWorldd</wsdl:documentation>
+      <wsdl:input name="TestHelloWorldd" message="tns:TestHelloWorlddSoapIn" />
+      <wsdl:output name="TestHelloWorldd" message="tns:TestHelloWorlddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentUser">
+      <wsdl:input message="tns:GetCurrentUserSoapIn" />
+      <wsdl:output message="tns:GetCurrentUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindSettings">
+      <wsdl:input message="tns:GetBlindSettingsSoapIn" />
+      <wsdl:output message="tns:GetBlindSettingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBlindSettings">
+      <wsdl:input message="tns:SetBlindSettingsSoapIn" />
+      <wsdl:output message="tns:SetBlindSettingsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SmartBlindsWebServiceSoap" type="tns:SmartBlindsWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/TestHelloWorldd" style="document" />
+      <wsdl:input name="TestHelloWorldd">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="TestHelloWorldd">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentUser">
+      <soap:operation soapAction="http://tempuri.org/GetCurrentUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindSettings">
+      <soap:operation soapAction="http://tempuri.org/GetBlindSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBlindSettings">
+      <soap:operation soapAction="http://tempuri.org/SetBlindSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SmartBlindsWebServiceSoap12" type="tns:SmartBlindsWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/TestHelloWorldd" style="document" />
+      <wsdl:input name="TestHelloWorldd">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="TestHelloWorldd">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentUser">
+      <soap12:operation soapAction="http://tempuri.org/GetCurrentUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindSettings">
+      <soap12:operation soapAction="http://tempuri.org/GetBlindSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBlindSettings">
+      <soap12:operation soapAction="http://tempuri.org/SetBlindSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SmartBlindsWebService">
+    <wsdl:port name="SmartBlindsWebServiceSoap" binding="tns:SmartBlindsWebServiceSoap">
+      <soap:address location="http://localhost:54935/SmartBlindsWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SmartBlindsWebServiceSoap12" binding="tns:SmartBlindsWebServiceSoap12">
+      <soap12:address location="http://localhost:54935/SmartBlindsWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
