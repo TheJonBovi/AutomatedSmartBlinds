@@ -26,6 +26,7 @@ extern int motorTargetOC;
 extern int proxyAlert;
 extern int motorUD;
 extern int motorOC;
+extern int temperatureAlarm;
 
 bool buttonLockUD = false;
 bool buttonLockOC = false;
@@ -106,39 +107,29 @@ void proxy_motor_test(void)
         MOTOR_ON();        
     }
 }   
-   /* switch (stepperMotorState)
+
+void temperature_test(void)
+{
+    if (temperatureAlarm == 1)
     {
-        //the first case will be to check if the proxy is triggered to close
-        case 0:
-            //if someone is too close to the proxy, close blinds
-            if (proxyAlert = 1)//replace variable if needed
-            {
-                closeBlinds = 1;
-            }
-            else
-                openBlinds = 1;
-            break;
-         //the second case will be to check if the temperature is triggered to close  
-        case 1:
-            //if the temperature is too hot, close blinds
-            if (temperatureSensor = 1)//replace variable to reflect temperature variable to be used
-            {
-                closeBlinds = 1;
-            }
-            else
-                openBlinds = 1;
-            break;
-        //the third case will be to check if the smoke is triggered to open (or close)
-        case 2:
-            //if the smoke sensor is triggered, open and close blinds
-            if (smokeSensor = 1)//replace variable to reflect the smoke sensor variable to be used
-            {
-                //close the blinds, wait certain amount of seconds, open blinds, wait certain amount of seconds, then repeat
-            }
-            else
-                openBlinds = 1;
-            break;
-        //the forth case will be to check if the clock is triggered to open (or close)    
+        motorUD = true; 
+        motorOC = true;
+        motorTargetUD = UD_FULL_DOWN;
+        motorTargetOC = OC_FULL_CLOSE;
+        MOTOR_ON();        
+    }
+    else if (temperatureAlarm == 0)
+    {
+        motorUD = true; 
+        motorOC = true;
+        motorTargetUD = UD_FULL_UP;
+        motorTargetOC = OC_FULL_OPEN;
+        MOTOR_ON(); 
+    }
+    
+}
+
+  /*        //the forth case will be to check if the clock is triggered to open (or close)    
         case 3:
             //if it is certain times of the day, close the blinds
             if (clockTrigger = 1)

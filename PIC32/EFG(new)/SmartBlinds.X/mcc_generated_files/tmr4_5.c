@@ -31,6 +31,7 @@ extern int counterOC;
 extern int motorOC;
 extern int UDStepperState;
 extern int OCStepperState;
+extern bool buzzerTrigger;
 
 //Timer 4 is for the buzzer
 void TMR4_16bit_Initialize(void)

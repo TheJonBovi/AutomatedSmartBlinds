@@ -59,12 +59,11 @@
 #define _OCMOTOR_SOFF 0x0000
 
 //defining temperature values to compare with the temperature readings
-#define TEMP_HIGH 0x05A //90 degrees F
-#define TEMP_LOW  0x03C //60 degrees F
+#define TEMP_HIGH 0x005A //90 degrees F
+#define TEMP_LOW  0x003C //60 degrees F
 
 //defining gas/smoke values to compare with the gas/smoke readings
 #define GAS_HIGH 0xFFFF //These are not the real values. Need to calculate them.
-#define GAS_LOW  0x0000
 
 // This value is how we set the motor speed. For reverence
 // 300 = 1 rot / 5 seconds

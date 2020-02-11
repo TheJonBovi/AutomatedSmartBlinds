@@ -38,6 +38,8 @@ limitations under the License.
     
 extern int proxyAlert;
 extern int proxyCount;
+extern int gasAlarm;
+extern bool buzzerTrigger;
 
 //==============================================================================
 // FUNCTION PROTOTYPES
@@ -94,6 +96,14 @@ static void BlinkLed(void)
         {
             proxyCount = 0;
             proxyAlert = 0;
+        }
+        else if (gasAlarm == 1)
+        {
+            buzzerTrigger = true;
+        }
+        else if (gasAlarm == 0)
+        {
+            buzzerTrigger = false;
         }
     }
 }
