@@ -30,6 +30,9 @@
 #include "mcc.h"
 
 extern int proxyAlert;
+extern int proxyCount;
+extern int temperatureAlarm;
+extern int gasAlarm;
 
 typedef struct _TMR_OBJ_STRUCT
 {
@@ -167,13 +170,15 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
     while (ADCDSTAT1bits.ARDY0 == 0);
     /* fetch the result */
     current_read[0] = ADCDATA0;
-//    while (ADCDSTAT1bits.ARDY1 == 0);
-//    /* fetch the result */
-//    current_read[1] = ADCDATA1;
-//    while (ADCDSTAT1bits.ARDY3 == 0);
-//    /* fetch the result */
-//    current_read[2] = ADCDATA3;
-//    
+    while (ADCDSTAT1bits.ARDY1 == 0);
+    /* fetch the result */
+    //current_read[1]*3.3/4096 == current_read[1];
+    current_read[1] = ADCDATA1;
+    while (ADCDSTAT1bits.ARDY3 == 0);
+    /* fetch the result */
+    //current_read[2]*5/1024 == current_read[2];
+    current_read[2] = ADCDATA3;
+    
 
     /*
     * Process results here
@@ -192,15 +197,40 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
     else 
     {
         proxyAlert = 1;
+        proxyCount = 0;
         PORTK = 0b111;
     }   
     
     ///////////////////////////////////////////////////////////////////////////////////////////
     //This section is for the temperature
-    
-    
+    //if the temperature is too cold or too hot, then set the alarm
+    if (current_read[1] <= TEMP_LOW || current_read[1] >= TEMP_HIGH)
+    {
+        temperatureAlarm = 1;
+        PORTB = 0b0000;
+    }
+    //else if the temperature is between the too cold or too hot settings, then turn off the temperature alarm
+    else
+    {
+        temperatureAlarm = 0;
+        PORTB = 0b0001;
+    }
     ////////////////////////////////////////////////////////////////////////////////////
     //This section is for the gas
+    //if the sensor detects anything below the high gas value
+    //then it'll keep the gas alarm turned off
+    if (current_read[3] <= GAS_HIGH)
+    {
+        gasAlarm = 0;
+        PORTB = 0b0001;
+    }
+    //else if the sensor detects dangerous levels of smoke or gas
+    //then it'll trigger the gas alarm until the gas clears.
+    else
+    {
+        gasAlarm = 1;
+        PORTB = 0b0010;
+    }
     
     
     // Clear T3IF atomically

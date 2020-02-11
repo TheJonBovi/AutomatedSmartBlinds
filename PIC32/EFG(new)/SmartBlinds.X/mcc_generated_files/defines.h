@@ -46,6 +46,7 @@
 #define _UDMOTOR_S5 0x0006
 #define _UDMOTOR_S6 0x0002
 #define _UDMOTOR_S7 0x0012
+#define _UDMOTOR_SOFF 0x0000
 //open close motor
 #define _OCMOTOR_S0 0x800
 #define _OCMOTOR_S1 0xA00
@@ -55,14 +56,14 @@
 #define _OCMOTOR_S5 0x110
 #define _OCMOTOR_S6 0x010
 #define _OCMOTOR_S7 0x810
+#define _OCMOTOR_SOFF 0x0000
 
 //defining temperature values to compare with the temperature readings
-#define TEMP_HIGH 0x05A //90 degrees F
-#define TEMP_LOW  0x03C //60 degrees F
+#define TEMP_HIGH 0x005A //90 degrees F
+#define TEMP_LOW  0x003C //60 degrees F
 
 //defining gas/smoke values to compare with the gas/smoke readings
 #define GAS_HIGH 0xFFFF //These are not the real values. Need to calculate them.
-#define GAS_LOW  0x0000
 
 // This value is how we set the motor speed. For reverence
 // 300 = 1 rot / 5 seconds
@@ -102,7 +103,7 @@
 #define LOWER_BLINDS        0x1000
 #define HALF_LOWER_BLINDS   0x1001
 
-
+#define maxProxy 15
 
 #endif /* _DEFINES_H */
 
