@@ -59,11 +59,13 @@
 #define _OCMOTOR_SOFF 0x0000
 
 //defining temperature values to compare with the temperature readings
-#define TEMP_HIGH 0x005A //90 degrees F
+//190 is BE. 245 with hot breath. Set to 400 dec for high.
+#define TEMP_HIGH 0x0190 //90 degrees F is the target.
 #define TEMP_LOW  0x003C //60 degrees F
 
 //defining gas/smoke values to compare with the gas/smoke readings
-#define GAS_HIGH 0xFFFF //These are not the real values. Need to calculate them.
+//550-590 dec is the average for any given time. Set to 800 dec for high.
+#define GAS_HIGH 0x320 //These are not the real values. Need to calculate them.
 
 // This value is how we set the motor speed. For reverence
 // 300 = 1 rot / 5 seconds
@@ -72,38 +74,48 @@
 //the positions for the UD motor. They can also be used for the opposite direction.
 //new measurements for the OC: 0 is full open, 256 is full close, -256 is full reverse close
 //128 is half open, -128 is half reverse open, 64 is quarter open, -64 is quarter reverse open
-#define UD_FULL_UP      0
-#define UD_1_QUARTER    128
-#define UD_HALF         256
-#define UD_3_QUARTER    384
-#define UD_FULL_DOWN    512
+#define UD_FULL_UP      0 //fully up
+#define UD_1_QUARTER    128 //quarter way down
+#define UD_HALF         256 //halfway down
+#define UD_3_QUARTER    384 //3 quarter way down
+#define UD_FULL_DOWN    512 //fully down
 
-#define OC_FULL_CLOSE   0
-#define OC_HALF         64
-#define OC_FULL_OPEN    128 
-#define OC_R_HALF       192
-#define OC_FULL_R_CLOSE 256
-#define MOTOR_OFF()     T5CONbits.TON = 0
-#define MOTOR_ON()      T5CONbits.TON = 1
-#define MOTOR_DIR_UP    1
-#define MOTOR_DIR_DOWN  0
-#define MOTOR_DIR_OPEN  1
-#define MOTOR_DIR_CLOSE 0
-#define UD_MOTOR        1
-#define OC_MOTOR        2
+#define OC_FULL_CLOSE   0 //fully closed (facing up)
+#define OC_HALF         64 //half way to full open
+#define OC_FULL_OPEN    128 //full open (can see through)
+#define OC_R_HALF       192 //mostly closed
+#define OC_FULL_R_CLOSE 256 //fully closed (facing down))
+
+#define MOTOR_OFF()     T5CONbits.TON = 0 //set the motor off
+#define MOTOR_ON()      T5CONbits.TON = 1 //set the motor on
+#define MOTOR_DIR_UP    1 //used to check on what direction the motor is going
+#define MOTOR_DIR_DOWN  0 //used to check on what direction the motor is going
+#define MOTOR_DIR_OPEN  1 //used to check on what direction the motor is going
+#define MOTOR_DIR_CLOSE 0 //used to check on what direction the motor is going
+#define UD_MOTOR        1 //used to set which motor to be turned on or off
+#define OC_MOTOR        2 //used to set which motor to be turned on or off
 
 //These will be the call commands for each of the functions
-#define CLOSE_BLINDS        0x0001
-#define HALF_CLOSE_BLINDS   0x0010
-#define OPEN_BLINDS         0x0011
-#define R_CLOSE_BLINDS      0x0100
-#define R_HALF_CLOSE_BLIDNS 0x0101
-#define RAISE_BLINDS        0x0110
-#define HALF_RAISE_BLINDS   0x0111
-#define LOWER_BLINDS        0x1000
-#define HALF_LOWER_BLINDS   0x1001
+//open close commands
+#define CLOSE_BLINDS                0b0000001 //oc full close
+#define HALF_CLOSE_BLINDS           0b0000010 //oc half
+#define OPEN_BLINDS                 0b0000011 //oc full open
+#define REVERSE_CLOSE_BLINDS        0b0000100 //oc r half
+#define REVERSE_HALF_CLOSE_BLIDNS   0b0000101 //oc full r close
+//up down commands
+#define RAISE_BLINDS                0b0000110 //full up
+#define ONE_QUARTER_BLINDS          0b0000111 //1 quarter down
+#define LOWER_BLINDS                0b0001000 //full down
+#define THREE_QUARTER_BLINDS        0b0001001 //3 quarter down
+#define HALF_BLINDS                 0b0001010 //half raise/lower
 
-#define maxProxy 15
+#define TEMP_REQUEST                0b0001011 //request for the temperature readings
+#define GAS_REQUEST                 0b0001100 //request for the gas sensor readings
+
+//this is meant for a timer in main to have the proxy remain on
+//and thus have the connected function remain on until the counter
+//has reached the max timer.
+#define maxProxy 15 
 
 #endif /* _DEFINES_H */
 

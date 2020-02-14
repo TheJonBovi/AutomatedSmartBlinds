@@ -27,6 +27,7 @@ extern int proxyAlert;
 extern int motorUD;
 extern int motorOC;
 extern int temperatureAlarm;
+extern int callRequest;
 
 bool buttonLockUD = false;
 bool buttonLockOC = false;
@@ -83,11 +84,11 @@ void motor_test_OC(void)
     
 }
 
-    //for triggering the blinds, there will need to be a switch statement
-    //this will include the proxy, temperature, clock, smoke, and user interface
-    //will also need to work out on which ones will open, close, raise, and lower the blinds
-    
-    //if the proxy sensor triggers for the final stage, then turn on the motor and close the blinds.
+//for triggering the blinds, there will need to be a switch statement
+//this will include the proxy, temperature, clock, smoke, and user interface
+//will also need to work out on which ones will open, close, raise, and lower the blinds
+
+//if the proxy sensor triggers for the final stage, then turn on the motor and close the blinds.
 void proxy_motor_test(void)
 {
     if (proxyAlert == 1)
@@ -108,6 +109,8 @@ void proxy_motor_test(void)
     }
 }   
 
+//this is the temperature control. If the temperature alarm
+//gets triggered, then the following commands will execute.
 void temperature_test(void)
 {
     if (temperatureAlarm == 1)
@@ -129,8 +132,80 @@ void temperature_test(void)
     
 }
 
+
+//This function will be checking for any commands from the web server.
+//Once it obtains one, then it will execute the call.
+void call_control(void)
+{
+    //the open/close commands
+    if (callRequest == CLOSE_BLINDS)
+    {
+        motorOC = true;
+        motorTargetOC = OC_FULL_CLOSE;
+        MOTOR_ON();     
+    }
+    else if (callRequest == OPEN_BLINDS)
+    {
+        motorOC = true;
+        motorTargetOC = OC_FULL_OPEN;
+        MOTOR_ON();            
+    }
+    else if (callRequest == HALF_CLOSE_BLINDS)
+    {
+        motorOC = true;
+        motorTargetOC = OC_HALF;
+        MOTOR_ON();             
+    }
+    else if (callRequest == REVERSE_CLOSE_BLINDS)
+    {
+        motorOC = true;
+        motorTargetOC = OC_R_HALF;
+        MOTOR_ON(); 
+    }
+    else if (callRequest == REVERSE_HALF_CLOSE_BLIDNS)
+    {
+        motorOC = true;
+        motorTargetOC = OC_FULL_R_CLOSE;
+        MOTOR_ON();             
+    }
+
+    //the up/down commands
+    else if (callRequest == RAISE_BLINDS)
+    {
+        motorUD = true; 
+        motorTargetUD = UD_FULL_UP;
+        MOTOR_ON();            
+    }
+    else if (callRequest == ONE_QUARTER_BLINDS)
+    {
+        motorUD = true; 
+        motorTargetUD = UD_1_QUARTER;
+        MOTOR_ON();              
+    }
+    else if (callRequest == LOWER_BLINDS)
+    {
+        motorUD = true; 
+        motorTargetUD = UD_FULL_DOWN;
+        MOTOR_ON();              
+    }
+    else if (callRequest == THREE_QUARTER_BLINDS)
+    {
+        motorUD = true; 
+        motorTargetUD = UD_3_QUARTER;
+        MOTOR_ON();              
+    }
+    else if (callRequest == HALF_BLINDS)
+    {
+        motorUD = true; 
+        motorTargetUD = UD_HALF;
+        MOTOR_ON();              
+    }
+}
+
   /*        //the forth case will be to check if the clock is triggered to open (or close)    
-        case 3:
+            //this is a maybe as we don't have a clock
+            //that will run continuously.
+            case 3:
             //if it is certain times of the day, close the blinds
             if (clockTrigger = 1)
             {
@@ -139,21 +214,6 @@ void temperature_test(void)
             else
                 openBlinds = 1;
             break;
-        //the fifth case will be to check if the user has triggered the system to open (or close)    
-        case 4:
-            //if the user wants the blinds to open, then open
-            if (userTriggerClose = 1)
-            {
-                closeBlinds = 1;
-            }
-            else
-                openBlinds = 1;
-            break;
-            
-        //may also want to have a default setting to have it on normal operations. Brainstorm this...    
-        default:
-            break;
-    }*/
 /* *****************************************************************************
  End of File
  */

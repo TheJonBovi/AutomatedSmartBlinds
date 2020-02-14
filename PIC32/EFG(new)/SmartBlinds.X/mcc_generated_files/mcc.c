@@ -101,6 +101,9 @@ bool buzzerTrigger = false;
 int proxyAlert = 0;
 int proxyCount = 0;
 
+//This will be the command request used as a middle man between the web server
+//and the micro processor
+int callRequest = 0;
 
 int temperatureSensor;
 int smokeSensor;

@@ -31,6 +31,10 @@ void proxy_motor_test(void);
 //both during high and low temperatures
 void temperature_test(void);
 
+//function to test for incoming requests from the web server and
+//execute said requests
+void call_control(void);
+
 
 #endif /* _STEPPER_TEST_H */
 

@@ -215,11 +215,11 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
         temperatureAlarm = 0;
         PORTB = 0b0001;
     }
-    ////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////
     //This section is for the gas
     //if the sensor detects anything below the high gas value
     //then it'll keep the gas alarm turned off
-    if (current_read[3] <= GAS_HIGH)
+    if (current_read[2] < GAS_HIGH)
     {
         gasAlarm = 0;
         PORTB = 0b0001;

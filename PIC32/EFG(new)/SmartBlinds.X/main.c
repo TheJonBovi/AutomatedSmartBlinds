@@ -46,6 +46,7 @@ extern bool buzzerTrigger;
 //==============================================================================    
 static void BlinkLed(void);
 
+
 //==============================================================================
 // Main application entry point.
 //==============================================================================
@@ -72,6 +73,9 @@ int main(void)
         
         // Blinks onboard LED at 1sec 
         BlinkLed();
+        
+        //check for call requests every 500ms
+        call_control();
     }
 }
 
@@ -100,6 +104,13 @@ static void BlinkLed(void)
         else if (gasAlarm == 1)
         {
             buzzerTrigger = true;
+            //might want to also open and close the blinds
+            //need to write a small function that will compare
+            //the position of the blinds to its destination
+            //then continue with the opening and closing.
+            //
+            //if so, then will want to put it in stepper_test.c
+            
         }
         else if (gasAlarm == 0)
         {
@@ -107,6 +118,7 @@ static void BlinkLed(void)
         }
     }
 }
+
 
 
 //DOM-IGNORE-END
