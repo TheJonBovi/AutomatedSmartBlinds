@@ -58,6 +58,9 @@ int main(void)
     // Required for wifi functionality
     m2m_wifi_init();
     
+    // Read register 0x40, which should return the static CHIP version 0x40
+    char cam_version_test = SPI1_read_byte(0x40);
+    
     // Main while loop
     while (true) 
     {
@@ -69,6 +72,8 @@ int main(void)
         motor_test_UD();
         motor_test_OC();
         proxy_motor_test();
+        
+        
         
         
         // Blinks onboard LED at 1sec 

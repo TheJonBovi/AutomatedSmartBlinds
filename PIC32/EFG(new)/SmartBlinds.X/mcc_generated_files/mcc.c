@@ -132,6 +132,7 @@ void SYSTEM_Initialize(void)
     TMR5_16bit_Motor_Initialize();
     DIP_Initialize();
     switch_Initialize();
+    SPI1_Camera_Initialize();
 }
 
 void OSCILLATOR_Initialize(void)
@@ -184,7 +185,7 @@ void PBCLK3_Initialize(void)
 {
     asm volatile( "di" ); // Disable Interrupts
     
-    // PBCLK3 setup to 1:1 
+    // PBCLK3 setup to 2:1 
     SYSKEY = 0; // Ensure lock
     SYSKEY = 0xAA996655; // Write Key 1
     SYSKEY = 0x556699AA; // Write Key 2
