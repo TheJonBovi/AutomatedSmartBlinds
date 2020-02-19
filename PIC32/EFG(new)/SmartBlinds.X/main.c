@@ -44,7 +44,7 @@ extern bool buzzerTrigger;
 //==============================================================================
 // FUNCTION PROTOTYPES
 //==============================================================================    
-static void BlinkLed(void);
+static void mainLoop500ms(void);
 
 
 //==============================================================================
@@ -59,7 +59,7 @@ int main(void)
     m2m_wifi_init();
     
     // Read register 0x40, which should return the static CHIP version 0x40
-    char cam_version_test = SPI1_read_byte(0x40);
+     char cam_version_test = SPI1_read_byte(0x40);
     
     // Main while loop
     while (true) 
@@ -73,30 +73,31 @@ int main(void)
         motor_test_OC();
         proxy_motor_test();
         
-        
-        
-        
         // Blinks onboard LED at 1sec 
-        BlinkLed();
+        mainLoop500ms();
         
-        //check for call requests every 500ms
-        call_control();
+
     }
 }
 
-
-static void BlinkLed(void)
+// Things that happen every 500ms
+static void mainLoop500ms(void)
 {
     static uint32_t t = 0;
-    
-    // Blink LED on board every 500ms
+
     if ((m2mStub_GetOneMsTimer() - t) >= 500) 
     {
         t = m2mStub_GetOneMsTimer();
+        
+        // Blink onboard LED
         ToggleLed();
         
+        // Test blink RD1 (remove after SPI1 works)
+        //LATDbits.LATD1 ^= 1;
         
-        // Things that happen every 500ms
+        //check for call requests every 500ms
+        call_control();
+        
         if (proxyCount < maxProxy && proxyAlert == 1)
         {
             ++proxyCount;

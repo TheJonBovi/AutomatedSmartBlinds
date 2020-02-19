@@ -27,6 +27,8 @@ void SPI1_write_byte(int addr, char * value);
 // Function to read a single byte from the register at addr
 char SPI1_read_byte(int addr);
 
+// function to test RD1 soldering job by setting it to an output to blink an LED
+void test_RD1_Initialize(void);
 
 #endif /* _SPI1_H*/
 

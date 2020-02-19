@@ -133,6 +133,7 @@ void SYSTEM_Initialize(void)
     DIP_Initialize();
     switch_Initialize();
     SPI1_Camera_Initialize();
+    //test_RD1_Initialize();
 }
 
 void OSCILLATOR_Initialize(void)
