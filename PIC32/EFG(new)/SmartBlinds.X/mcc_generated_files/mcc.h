@@ -58,7 +58,10 @@
 #include "tmr2_3.h"
 #include "adc.h"
 #include "defines.h"
+#include "camera.h"
 #include "SPI1.h"
+#include "I2C1.h"
+#include "ov2640_regs.h"
 
 #define _XTAL_FREQ  84000000UL
 

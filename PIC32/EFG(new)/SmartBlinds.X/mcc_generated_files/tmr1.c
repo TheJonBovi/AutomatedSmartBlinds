@@ -226,6 +226,14 @@ void TMR1_SoftwareCounterClear(void)
     tmr1_obj.count = 0; 
 }
 
+// Function to delay in ms
+void delay_ms(uint32_t delay)
+{
+    uint32_t t = m2mStub_GetOneMsTimer(); 
+    while ((m2mStub_GetOneMsTimer() - t) <= delay) ;
+}
+
+
 /**
  End of File
 */

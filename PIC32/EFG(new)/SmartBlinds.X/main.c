@@ -59,8 +59,18 @@ int main(void)
     m2m_wifi_init();
     
     // Read register 0x40, which should return the static CHIP version 0x40
-     char cam_version_test = SPI1_read_byte(0x40);
+    //char cam_version_test = SPI1_read_byte(0x40);
     
+    // Read Product ID number from sensor chip
+    unsigned char MSB_ID;
+    
+    // Switch to BANK 1
+    I2C1_Sensor_Write(0xff, CAM_BANK_1);
+    
+    I2C1_Sensor_Read(0x1C, &MSB_ID);
+    
+    I2C1_Sensor_Read(0x1D, &MSB_ID); 
+
     // Main while loop
     while (true) 
     {
@@ -75,8 +85,6 @@ int main(void)
         
         // Blinks onboard LED at 1sec 
         mainLoop500ms();
-        
-
     }
 }
 
@@ -92,8 +100,8 @@ static void mainLoop500ms(void)
         // Blink onboard LED
         ToggleLed();
         
-        // Test blink RD1 (remove after SPI1 works)
-        //LATDbits.LATD1 ^= 1;
+        // Test for RD1 soldering (do not use for production code!)
+        //toggle_RD1();
         
         //check for call requests every 500ms
         call_control();

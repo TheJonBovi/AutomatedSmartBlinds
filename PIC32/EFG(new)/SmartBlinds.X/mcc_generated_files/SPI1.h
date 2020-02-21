@@ -22,13 +22,16 @@
 void SPI1_Camera_Initialize(void);
 
 // Function for writing a single byte to the camera internal memory
-void SPI1_write_byte(int addr, char * value);
+void SPI1_write_byte(int addr, char value);
 
 // Function to read a single byte from the register at addr
 char SPI1_read_byte(int addr);
 
 // function to test RD1 soldering job by setting it to an output to blink an LED
 void test_RD1_Initialize(void);
+
+// Function to test RD1 soldering by flashing
+void toggle_RD1(void);
 
 #endif /* _SPI1_H*/
 

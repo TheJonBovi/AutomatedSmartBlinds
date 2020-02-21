@@ -132,8 +132,15 @@ void SYSTEM_Initialize(void)
     TMR5_16bit_Motor_Initialize();
     DIP_Initialize();
     switch_Initialize();
+    
+    I2C1_Sensor_Initialize();
+    
+    // Select ONE of these two routines, not both
     SPI1_Camera_Initialize();
     //test_RD1_Initialize();
+    
+    // Configure the Camera 
+    Camera_Configure();
 }
 
 void OSCILLATOR_Initialize(void)

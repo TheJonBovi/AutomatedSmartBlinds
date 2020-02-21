@@ -316,6 +316,9 @@ int TMR1_SoftwareCounterGet(void);
 
 void TMR1_SoftwareCounterClear(void);
 
+// Function to delay in ms
+void delay_ms(uint32_t delay);
+
 #ifdef __cplusplus  // Provide C++ Compatibility
 
     }

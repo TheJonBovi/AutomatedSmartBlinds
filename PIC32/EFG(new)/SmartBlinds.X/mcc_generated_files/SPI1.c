@@ -64,7 +64,7 @@ void SPI1_Camera_Initialize(void)
     SPI1CONSET = _SPI1CON_ON_MASK;    
 }
 
-void SPI1_write_byte(int addr, char * value)
+void SPI1_write_byte(int addr, char value)
 {
     ASSERT_CS;
     asm volatile( "NOP" ); // no-op delay
@@ -79,7 +79,7 @@ void SPI1_write_byte(int addr, char * value)
     // Read the dummy in from address send
     SPI1BUF;
     
-    SPI1BUF = *value;
+    SPI1BUF = value;
     
     // Wait for receive buffer to fill (1 = not full)
     while (SPI1STATbits.SPIRBF == 0);
@@ -128,10 +128,15 @@ char SPI1_read_byte(int addr)
 
 void test_RD1_Initialize(void)
 {
-    // SET RD0 to an output to test with LED
+    // SET RD1 to an output to test with LED
     TRISDbits.TRISD1 = 0;
     
     LATDbits.LATD1 = 0;
+}
+
+void toggle_RD1(void)
+{
+    LATDbits.LATD1 ^= 1;
 }
 
 //

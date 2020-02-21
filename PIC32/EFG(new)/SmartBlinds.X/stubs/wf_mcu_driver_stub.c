@@ -239,4 +239,5 @@ bool m2m_wifi_console_is_read_data(void)
 {
     return (U2STAbits.URXDA == 1);
 }
+
 #endif // M2M_ENABLE_SPI_FLASH
