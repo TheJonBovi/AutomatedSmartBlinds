@@ -56,11 +56,11 @@ limitations under the License.
 //==============================================================================
 
 /** Wi-Fi AP Settings. */
-//#define WLAN_SSID              "OOP_2.4"             // target AP
-#define WLAN_SSID               "IPHONE"
+#define WLAN_SSID              "OOP_2.4"             // target AP
+//#define WLAN_SSID               "IPHONE"
 #define WLAN_AUTH              M2M_WIFI_SEC_WPA_PSK   // AP Security 
-//#define WLAN_PSK               "goatcheese"            // security password
-#define WLAN_PSK                  "0o1twqfx7fof5"
+#define WLAN_PSK               "goatcheese"            // security password
+//#define WLAN_PSK                  "0o1twqfx7fof5"
 
 #define WIFI_BUFFER_SIZE       1400                  // Receive buffer size.
 #define SERVER_PORT            (80)                  // Using broadcast address for simplicity
