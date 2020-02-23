@@ -26,6 +26,7 @@
 extern const struct sensor_reg OV2640_JPEG_INIT[];
 extern const struct sensor_reg OV2640_YUV422[];
 extern const struct sensor_reg OV2640_1024x768_JPEG[];
+extern const struct sensor_reg OV2640_JPEG[];
 
 // Set up Camera to JPEG, size, etc.
 void Camera_Configure(void)
@@ -48,8 +49,11 @@ void Camera_Configure(void)
     // Initialize JPEG
     I2C1_Sensor_Bulk_Write(OV2640_JPEG_INIT);
     
-    // Initialize something else i'm not sure what
+    // Initialize JPEG encoding scheme (still not sure what it means tho)
     I2C1_Sensor_Bulk_Write(OV2640_YUV422);
+    
+    // Set sensor to JPEG after init
+    I2C1_Sensor_Bulk_Write(OV2640_JPEG);
     
     // Switch Banks
     I2C1_Sensor_Write(CAM_BANKSEL, CAM_BANK_1);
