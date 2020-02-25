@@ -5,9 +5,6 @@
 #include <string.h>
 #include "SPI1.h"
 
-#define ASSERT_CS PORTFCLR = _TRISF_TRISF2_MASK 
-#define NEGATE_CS PORTFSET = _TRISF_TRISF2_MASK
-
 void SPI1_Camera_Initialize(void)
 {
     // Set RF0-2 to digital
@@ -137,6 +134,14 @@ void test_RD1_Initialize(void)
 void toggle_RD1(void)
 {
     LATDbits.LATD1 ^= 1;
+}
+
+uint8_t SPI1_transfer(uint8_t data)
+{
+    SPI1BUF = data;
+    asm volatile("nop");
+    while (SPI1STATbits.SPIRBF == 0);
+    return SPI1BUF;
 }
 
 //

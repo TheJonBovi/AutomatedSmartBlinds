@@ -69,14 +69,126 @@ void Camera_Configure(void)
     // Clear the FIFO Flag
     
     // TODO: CS will not assert again in this call, RBF not filling for some reason
-    clear_fifo_flag();
+    Camera_clear_fifo_flag();
 }
 
-void clear_fifo_flag(void)
+void Camera_clear_fifo_flag(void)
 {
     SPI1_write_byte(ARDUCHIP_FIFO, FIFO_CLEAR_MASK);
 }
 
+void Camera_flush_fifo(void)
+{
+    SPI1_write_byte(ARDUCHIP_FIFO, FIFO_START_MASK);
+}
+
+void Camera_start_capture(void)
+{
+    SPI1_write_byte(ARDUCHIP_FIFO, FIFO_CLEAR_MASK);
+}
+
+uint32_t Camera_read_fifo_length(void)
+{
+    uint32_t len1,len2,len3,length=0;
+    len1 = SPI1_read_byte(FIFO_SIZE1);
+    len2 = SPI1_read_byte(FIFO_SIZE2);
+    len3 = SPI1_read_byte(FIFO_SIZE3) & 0x7f;
+    length = ((len3 << 16) | (len2 << 8) | len1) & 0x07fffff;
+	return length;
+}
+
+void Camera_set_bit(uint8_t addr, uint8_t bit)
+{
+    uint8_t addr_val;
+	addr_val = SPI1_read_byte(addr_val);
+	SPI1_write_byte(addr, addr_val | bit);
+}
+
+uint8_t Camera_get_bit(uint8_t addr, uint8_t bit)
+{
+    uint8_t result;
+    result = SPI1_read_byte(addr);
+    result = result & bit;
+    return result;
+}
+
+void Camera_clear_bit(uint8_t addr, uint8_t bit)
+{
+	uint8_t addr_val;
+	addr_val = SPI1_read_byte(addr);
+	SPI1_write_byte(addr, addr_val & (~bit));
+}
+
+uint8_t Camera_read_fifo_burst(void)
+{
+    uint8_t temp = 0, temp_last = 0;
+    uint32_t length = 0;
+    length = Camera_read_fifo_length();
+    bool is_header = false;
+    
+    if (length >= MAX_FIFO_SIZE) //512 kb
+    {
+        //TODO: ERROR max fifo size too large
+        return 0;
+    }
+    if (length == 0 ) //0 kb
+    {
+        // TODO: ERROR fifo length zero
+        return 0;
+    }
+    
+    //myCAM.CS_LOW();
+    ASSERT_CS;
+    asm volatile( "NOP" ); // no-op delay
+    asm volatile( "NOP" ); // no-op delay
+    
+
+    //--myCAM.set_fifo_burst(); //Set fifo burst mode
+    SPI1_transfer(BURST_FIFO_READ);
+    
+    //temp =  SPI.transfer(0x00); Write a dummy to finish this command
+    temp = SPI1_transfer(0);
+    
+    length --;
+    while ( length-- )
+    {
+        temp_last = temp;
+      
+        //temp =  SPI.transfer(0x00); // read data in
+        temp = SPI1_transfer(0);
+        
+        if (is_header == true)
+        {
+            // TODO: SAVE DATA
+            //Serial.write(temp);
+            
+        }
+        else if ((temp == 0xD8) & (temp_last == 0xFF))
+        {
+            is_header = true;
+            //Serial.println(F("ACK CMD IMG END"));
+            
+            // TODO: SAVE DATA
+            //Serial.write(temp_last);
+            //Serial.write(temp);
+        }
+        if ( (temp == 0xD9) && (temp_last == 0xFF) ) //If find the end ,break while,
+               break;
+        
+        // 1260 counts at 84Mhz
+        // TODO: Make a delay function for this
+        //delayMicroseconds(15);
+    }
+    
+    
+    //myCAM.CS_HIGH();
+    asm volatile( "NOP" ); // no-op delay
+    asm volatile( "NOP" ); // no-op delay
+    NEGATE_CS;
+    
+    is_header = false;
+    return 1;
+}
 /* *****************************************************************************
  End of File
  */
