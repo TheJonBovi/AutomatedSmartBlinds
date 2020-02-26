@@ -59,7 +59,8 @@ int main(void)
     m2m_wifi_init();
     
     // Read register 0x40, which should return the static CHIP version 0x40
-    //char cam_version_test = SPI1_read_byte(0x40);
+    char cam_version_test = SPI1_read_byte(0x40);
+
     
     // Read Product ID number from sensor chip
     unsigned char MSB_ID;

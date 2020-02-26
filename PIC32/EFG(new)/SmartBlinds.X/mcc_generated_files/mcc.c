@@ -140,7 +140,7 @@ void SYSTEM_Initialize(void)
     //test_RD1_Initialize();
     
     // Configure the Camera 
-    //Camera_Configure();
+    Camera_Configure();
 }
 
 void OSCILLATOR_Initialize(void)

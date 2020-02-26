@@ -27,7 +27,7 @@ void SPI1_Camera_Initialize(void)
     LATFSET = _LATF_LATF2_MASK;
     TRISFCLR = _TRISF_TRISF2_MASK;
     
-    // SPI MODE 0 => Set CKE = 1, CKP = 0, SMP = 1
+    // SPI MODE 0 => Set CKE = 0, CKP = 0, SMP = 0
     SPI1CONbits.CKE = 0;
     SPI1CONbits.CKP = 0;
     SPI1CONbits.SMP = 0;
@@ -81,7 +81,7 @@ void SPI1_write_byte(int addr, char value)
     // Wait for receive buffer to fill (1 = not full)
     while (SPI1STATbits.SPIRBF == 0);
     
-    SPI4BUF; // discard iDummy from value send
+    SPI1BUF; // discard iDummy from value send
     
     // Negate CS line to end transmission
     asm volatile( "NOP" ); // no-op delay
