@@ -59,8 +59,6 @@ int main(void)
     // Required for wifi functionality
     m2m_wifi_init();
     
-    
-    
 //    // Read register 0x40, which should return the static CHIP version 0x40
 //    char cam_version_test = SPI1_read_byte(0x40);
 //    
@@ -71,8 +69,8 @@ int main(void)
 //    I2C1_Sensor_Read(0x1C, &MSB_ID);    
 //    I2C1_Sensor_Read(0x1D, &MSB_ID); 
     
-    // Test for capturing an image
-    Camera_capture_image();
+//    // Test for capturing an image
+//    Camera_capture_image();
 
     // Main while loop
     while (true) 
