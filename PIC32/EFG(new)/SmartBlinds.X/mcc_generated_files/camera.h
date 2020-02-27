@@ -41,6 +41,12 @@
 
 #define JPEG_SIZE OV2640_1024x768_JPEG
 
+#define ARDUCHIP_TRIG      		0x41  //Trigger source
+#define VSYNC_MASK         		0x01
+#define SHUTTER_MASK       		0x02
+#define CAP_DONE_MASK      		0x08
+
+
 // Set up Camera to JPEG, size, etc.
 void Camera_Configure(void);
 
@@ -67,6 +73,9 @@ void Camera_clear_bit(uint8_t addr, uint8_t bit);
 
 // Function for reading camera data
 uint8_t Camera_read_fifo_burst(void);
+
+// Function to capture an image
+void Camera_capture_image();
 
 #endif /* _CAMERA_H */
 

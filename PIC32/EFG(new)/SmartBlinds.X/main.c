@@ -41,11 +41,12 @@ extern int proxyCount;
 extern int gasAlarm;
 extern bool buzzerTrigger;
 
+char JPEG_BUFFER[JPEG_MAX_SIZE];
+
 //==============================================================================
 // FUNCTION PROTOTYPES
 //==============================================================================    
 static void mainLoop500ms(void);
-
 
 //==============================================================================
 // Main application entry point.
@@ -69,6 +70,9 @@ int main(void)
 //    I2C1_Sensor_Write(0xff, CAM_BANK_1);
 //    I2C1_Sensor_Read(0x1C, &MSB_ID);    
 //    I2C1_Sensor_Read(0x1D, &MSB_ID); 
+    
+    // Test for capturing an image
+    Camera_capture_image();
 
     // Main while loop
     while (true) 

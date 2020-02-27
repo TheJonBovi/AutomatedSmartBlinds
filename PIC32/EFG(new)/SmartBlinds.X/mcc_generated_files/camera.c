@@ -28,6 +28,8 @@ extern const struct sensor_reg OV2640_YUV422[];
 extern const struct sensor_reg OV2640_1024x768_JPEG[];
 extern const struct sensor_reg OV2640_JPEG[];
 
+extern char JPEG_BUFFER[];
+
 // Set up Camera to JPEG, size, etc.
 void Camera_Configure(void)
 {
@@ -67,8 +69,6 @@ void Camera_Configure(void)
     delay_ms(1000);
     
     // Clear the FIFO Flag
-    
-    // TODO: CS will not assert again in this call, RBF not filling for some reason
     Camera_clear_fifo_flag();
 }
 
@@ -119,7 +119,7 @@ void Camera_clear_bit(uint8_t addr, uint8_t bit)
 	SPI1_write_byte(addr, addr_val & (~bit));
 }
 
-uint8_t Camera_read_fifo_burst(void)
+uint8_t Camera_read_fifo_burst()
 {
     uint8_t temp = 0, temp_last = 0;
     uint32_t length = 0;
@@ -150,6 +150,7 @@ uint8_t Camera_read_fifo_burst(void)
     temp = SPI1_transfer(0);
     
     length --;
+    uint32_t buffer_index = 0;
     while ( length-- )
     {
         temp_last = temp;
@@ -161,7 +162,8 @@ uint8_t Camera_read_fifo_burst(void)
         {
             // TODO: SAVE DATA
             //Serial.write(temp);
-            
+            JPEG_BUFFER[buffer_index] = temp;
+            ++buffer_index;
         }
         else if ((temp == 0xD8) & (temp_last == 0xFF))
         {
@@ -169,6 +171,8 @@ uint8_t Camera_read_fifo_burst(void)
             //Serial.println(F("ACK CMD IMG END"));
             
             // TODO: SAVE DATA
+            JPEG_BUFFER[buffer_index] = temp_last;
+            JPEG_BUFFER[++buffer_index] = temp;
             //Serial.write(temp_last);
             //Serial.write(temp);
         }
@@ -188,6 +192,24 @@ uint8_t Camera_read_fifo_burst(void)
     
     is_header = false;
     return 1;
+}
+
+void Camera_capture_image(void)
+{
+    Camera_flush_fifo();
+    Camera_clear_fifo_flag();
+    Camera_start_capture();
+    
+    // TODO: waiting for image currently in busy wait - may want to wait in the 500ms loop
+    while (!Camera_get_bit(ARDUCHIP_TRIG, CAP_DONE_MASK))
+    {
+        delay_ms(100);
+    }
+    
+    Camera_read_fifo_burst();
+    
+    Camera_clear_fifo_flag();
+    
 }
 /* *****************************************************************************
  End of File
