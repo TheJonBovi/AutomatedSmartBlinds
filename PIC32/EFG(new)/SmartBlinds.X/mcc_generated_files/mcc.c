@@ -123,6 +123,8 @@ void SYSTEM_Initialize(void)
     EXT_INT_Initialize();
     TMR1_Initialize();
     
+    buzzer_Initialize();
+    
     // Added routines ported from SmartBlinds project
     PBCLK3_Initialize();
     PBCLK2_Initialize();
@@ -133,14 +135,12 @@ void SYSTEM_Initialize(void)
     DIP_Initialize();
     switch_Initialize();
     
-    I2C1_Sensor_Initialize();
-    
-    // Select ONE of these two routines, not both
-    SPI1_Camera_Initialize();
-    //test_RD1_Initialize();
+    // Initialize Camera
+    //I2C1_Sensor_Initialize();
+    //SPI1_Camera_Initialize();
     
     // Configure the Camera 
-    Camera_Configure();
+    //Camera_Configure();
 }
 
 void OSCILLATOR_Initialize(void)
@@ -215,6 +215,15 @@ void PBCLK2_Initialize(void)
     SYSKEY = 0; // Re lock
     
     asm volatile( "ei" ); // Re-Enable Interrupts
+}
+
+void buzzer_Initialize(void)
+{
+    //set up the buzzer to work on RF2
+    PORTKCLR = _PORTK_RK3_MASK;
+    
+    TRISKCLR = _TRISK_TRISK3_MASK;
+    
 }
 
 void switch_Initialize(void)
