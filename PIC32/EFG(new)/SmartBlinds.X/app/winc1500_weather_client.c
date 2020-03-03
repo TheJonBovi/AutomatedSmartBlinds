@@ -56,19 +56,23 @@ limitations under the License.
 //==============================================================================
 
 /** Wi-Fi AP Settings. */
-#define WLAN_SSID              "OOP_2.4"             // target AP
-//#define WLAN_SSID               "IPHONE"
+
+//#define WLAN_SSID              "OOP_2.4"             // target AP
+#define WLAN_SSID               "guesthouse guests"
 #define WLAN_AUTH              M2M_WIFI_SEC_WPA_PSK   // AP Security 
-#define WLAN_PSK               "goatcheese"            // security password
-//#define WLAN_PSK                  "0o1twqfx7fof5"
+//#define WLAN_PSK               "goatcheese"            // security password
+#define WLAN_PSK                  "guesthouse1"
 
 #define WIFI_BUFFER_SIZE       1400                  // Receive buffer size.
 #define SERVER_PORT            (80)                  // Using broadcast address for simplicity
 
-#define PREFIX_BUFFER          "GET /data/2.5/weather?q="
-#define POST_BUFFER            "&appid=c592e14137c3471fa9627b44f6649db4&mode=xml&units=metric HTTP/1.1\r\nHost: api.openweathermap.org\r\nAccept: */*\r\n\r\n"
-#define WEATHER_SERVER_NAME    "api.openweathermap.org"  // Weather information provider server
-#define CITY_NAME              "paris"    // Input City Name
+//#define PREFIX_BUFFER          "GET /data/2.5/weather?q="
+//#define POST_BUFFER            "&appid=c592e14137c3471fa9627b44f6649db4&mode=xml&units=metric HTTP/1.1\r\nHost: api.openweathermap.org\r\nAccept: */*\r\n\r\n"
+//#define WEATHER_SERVER_NAME    "api.openweathermap.org"  // Weather information provider server
+//#define CITY_NAME              "paris"    // Input City Name
+
+#define WEATHER_SERVER_NAME     "smartblinds.eastus.cloudapp.azure.com"
+#define PREFIX_BUFFER           "GET /SmartBlindsWebService.asmx/GetXML HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
 
 #define IPV4_BYTE(val, index)  ((val >> (index * 8)) & 0xFF)  // IP address parsing.
 #define HEX2ASCII(x)           (((x) >= 10) ? (((x) - 10) + 'A') : ((x) + '0'))
@@ -99,6 +103,10 @@ static char g_ssid[] = {WLAN_SSID};
 static void wifi_cb(uint8_t msgType, void *pvMsg);
 static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg);
 static void resolve_cb(char *pu8DomainName, uint32_t serverIP);
+
+uint8_t testvar =1;
+char testcvar[100];
+
 
 void ApplicationTask(void)
 {
@@ -166,10 +174,13 @@ void ApplicationTask(void)
         break;
 
     case APP_STATE_WORKING:       
-            
+
+        testvar++;
+        
         break;
         
     case APP_STATE_DONE:
+        testvar++;
         break;
     default:
         break;
@@ -196,8 +207,8 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
             if (s_TcpConnection) 
             {
                 memset(s_ReceivedBuffer, 0, sizeof(s_ReceivedBuffer));
-                sprintf((char *)s_ReceivedBuffer, "%s%s%s", PREFIX_BUFFER, (char *)CITY_NAME, POST_BUFFER);
-
+                //sprintf((char *)s_ReceivedBuffer, "%s%s%s", PREFIX_BUFFER, (char *)CITY_NAME, POST_BUFFER);
+                sprintf((char *)s_ReceivedBuffer, "%s", PREFIX_BUFFER);
                 t_socketConnect *pstrConnect = (t_socketConnect *)pvMsg;
                 if (pstrConnect && pstrConnect->error >= SOCK_ERR_NO_ERROR) 
                 {
@@ -225,17 +236,17 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
             if (pstrRecv && pstrRecv->bufSize > 0) 
             {
                 /* Get city name. */
-                pcIndxPtr = strstr((char *)pstrRecv->p_rxBuf, "name=");
-                printf("City: ");
+                pcIndxPtr = strstr((char *)pstrRecv->p_rxBuf, "\">");
+                printf("Value Returned: ");
                 if (NULL != pcIndxPtr) 
                 {
-                    pcIndxPtr = pcIndxPtr + strlen("name=") + 1;
-                    pcEndPtr = strstr(pcIndxPtr, "\">");
+                    pcIndxPtr = pcIndxPtr + strlen("\">");
+                    pcEndPtr = strstr(pcIndxPtr, "</");
                     if (NULL != pcEndPtr) 
                     {
                         *pcEndPtr = 0;
                     }
-
+                    strcpy(testcvar, pcIndxPtr );
                     printf("%s\r\n", pcIndxPtr);
                 } 
                 else 
@@ -255,12 +266,14 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
                     {
                         *pcEndPtr = 0;
                     }
-
+                     strcpy(testcvar, pcIndxPtr );
                     printf("%s\r\n", pcIndxPtr);
                 } 
                 else 
                 {
                     printf("N/A\r\n");
+                    SetAppState(APP_STATE_START); //start process over again
+                    strcpy(testcvar, "Reset");
                     break;
                 }
 
@@ -276,10 +289,11 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
                         *pcEndPtr = 0;
                     }
                     printf("%s\r\n", pcIndxPtr);
-                    
+                     strcpy(testcvar, pcIndxPtr );
                     /* Response processed, now close connection. */
                     close(tcp_client_socket);
                     tcp_client_socket = -1;
+                    
                     break;
                 }
 
