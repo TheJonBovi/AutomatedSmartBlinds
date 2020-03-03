@@ -117,7 +117,7 @@
 //has reached the max timer.
 #define maxProxy 15 
 
-#define JPEG_MAX_SIZE               50000          
+#define JPEG_MAX_SIZE               100000          
 
 #endif /* _DEFINES_H */
 

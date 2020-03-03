@@ -136,11 +136,11 @@ void SYSTEM_Initialize(void)
     switch_Initialize();
     
     // Initialize Camera
-    //I2C1_Sensor_Initialize();
-    //SPI1_Camera_Initialize();
+    I2C1_Sensor_Initialize();
+    SPI1_Camera_Initialize();
     
     // Configure the Camera 
-    //Camera_Configure();
+    Camera_Configure();
 }
 
 void OSCILLATOR_Initialize(void)
