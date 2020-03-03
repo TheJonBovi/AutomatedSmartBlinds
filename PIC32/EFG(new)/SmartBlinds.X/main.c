@@ -6,7 +6,7 @@
     Main entry point for WINC1500 demos.
 
   Description:
-    This file is the main entry point for the WINC1500 demos.  The project is meant 
+    This file is the main entry point for the WINC1500 demos.  The project is meant
     as an example of how to create applications for the WINC1500.
 *******************************************************************************/
 
@@ -29,13 +29,13 @@ limitations under the License.
 
 //==============================================================================
 // INCLUDES
-//==============================================================================    
+//==============================================================================
 #include "winc1500_api.h"   // primary WINC1500 include file
 #include "demo_config.h"    // selects which demo to run
 #include "bsp.h"            // defines for LED's and push buttons on board
 #include "mcc.h"
 #include "stepper_test.h"
-    
+
 extern int proxyAlert;
 extern int proxyCount;
 extern int gasAlarm;
@@ -44,8 +44,15 @@ extern bool buzzerTrigger;
 char JPEG_BUFFER[JPEG_MAX_SIZE] = {0};
 
 //==============================================================================
+// VARS FOR WIFI MODULE
+//==============================================================================
+
+//extern uint8_t testvar =1;
+//extern char testcvar[100];
+
+//==============================================================================
 // FUNCTION PROTOTYPES
-//==============================================================================    
+//==============================================================================
 static void mainLoop500ms(void);
 
 //==============================================================================
@@ -55,37 +62,47 @@ int main(void)
 {
     // This function initailizes modules, located mainly in the mcc file
     BspInit();
-    
+
     // Required for wifi functionality
     m2m_wifi_init();
-    
-    // Read register 0x40, which should return the static CHIP version 0x40
-    char cam_version_test = SPI1_read_byte(0x40);
-    
+
+
+//    // Read register 0x40, which should return the static CHIP version 0x40
+//    char cam_version_test = SPI1_read_byte(0x40);
+//
+//    // Read Product ID number from sensor chip
+//    unsigned char MSB_ID;
+//    // Switch to BANK 1
+//    I2C1_Sensor_Write(0xff, CAM_BANK_1);
+//    I2C1_Sensor_Read(0x1C, &MSB_ID);
+//    I2C1_Sensor_Read(0x1D, &MSB_ID);
+
     // Read Product ID number from sensor chip
     unsigned char MSB_ID;
     // Switch to BANK 1
     I2C1_Sensor_Write(0xff, CAM_BANK_1);
-    I2C1_Sensor_Read(0x1C, &MSB_ID);    
-    I2C1_Sensor_Read(0x1D, &MSB_ID); 
-    
+    I2C1_Sensor_Read(0x1C, &MSB_ID);
+    I2C1_Sensor_Read(0x1D, &MSB_ID);
+
     // Test for capturing an image
     Camera_capture_image();
 
+
     // Main while loop
-    while (true) 
+    while (true)
     {
+
         // These two lines control the state machine for the current WIFI configureation (currently in demo_config.h)
         ApplicationTask();
+
         m2m_wifi_task();
-        
-        
-        motor_test_UD();
-        motor_test_OC();
-        proxy_motor_test();
-        
-        // Blinks onboard LED at 1sec 
-        mainLoop500ms();
+
+     //   motor_test_UD();
+    //    motor_test_OC();
+    //    proxy_motor_test();
+
+        // Blinks onboard LED at 1sec
+      //  mainLoop500ms();
     }
 }
 
@@ -94,19 +111,19 @@ static void mainLoop500ms(void)
 {
     static uint32_t t = 0;
 
-    if ((m2mStub_GetOneMsTimer() - t) >= 500) 
+    if ((m2mStub_GetOneMsTimer() - t) >= 500)
     {
         t = m2mStub_GetOneMsTimer();
-        
+
         // Blink onboard LED
         ToggleLed();
-        
+
         // Test for RD1 soldering (do not use for production code!)
         //toggle_RD1();
-        
+
         //check for call requests every 500ms
         call_control();
-        
+
         if (proxyCount < maxProxy && proxyAlert == 1)
         {
             ++proxyCount;
@@ -125,7 +142,7 @@ static void mainLoop500ms(void)
             //then continue with the opening and closing.
             //
             //if so, then will want to put it in stepper_test.c
-            
+
         }
         else if (gasAlarm == 0)
         {
