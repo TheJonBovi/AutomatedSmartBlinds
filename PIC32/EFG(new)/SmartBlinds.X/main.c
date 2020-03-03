@@ -63,19 +63,8 @@ int main(void)
     // This function initailizes modules, located mainly in the mcc file
     BspInit();
 
-    // Required for wifi functionality
-    m2m_wifi_init();
-
-
-//    // Read register 0x40, which should return the static CHIP version 0x40
-//    char cam_version_test = SPI1_read_byte(0x40);
-//
-//    // Read Product ID number from sensor chip
-//    unsigned char MSB_ID;
-//    // Switch to BANK 1
-//    I2C1_Sensor_Write(0xff, CAM_BANK_1);
-//    I2C1_Sensor_Read(0x1C, &MSB_ID);
-//    I2C1_Sensor_Read(0x1D, &MSB_ID);
+    // Read register 0x40, which should return the static CHIP version 0x40
+    char cam_version_test = SPI1_read_byte(0x40);
 
     // Read Product ID number from sensor chip
     unsigned char MSB_ID;
@@ -86,7 +75,9 @@ int main(void)
 
     // Test for capturing an image
     Camera_capture_image();
-
+    
+    // Required for wifi functionality
+    m2m_wifi_init();
 
     // Main while loop
     while (true)
@@ -97,12 +88,12 @@ int main(void)
 
         m2m_wifi_task();
 
-     //   motor_test_UD();
-    //    motor_test_OC();
-    //    proxy_motor_test();
+        motor_test_UD();
+        motor_test_OC();
+        proxy_motor_test();
 
         // Blinks onboard LED at 1sec
-      //  mainLoop500ms();
+        mainLoop500ms();
     }
 }
 

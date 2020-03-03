@@ -198,7 +198,7 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
     else if (ADC_MID_WNG < current_read[0] && current_read[0] <= ADC_HIGH_WNG) PORTK = 0b11;
     else 
     {
-        if (proxy_debounce < 50)
+        if (proxy_debounce < 5)
         {
             ++proxy_debounce;
         }

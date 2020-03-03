@@ -137,8 +137,8 @@ void SYSTEM_Initialize(void)
 
 
     // Initialize Camera
-    //I2C1_Sensor_Initialize();
-    //SPI1_Camera_Initialize();
+    I2C1_Sensor_Initialize();
+    SPI1_Camera_Initialize();
 
 
     // Configure the Camera
