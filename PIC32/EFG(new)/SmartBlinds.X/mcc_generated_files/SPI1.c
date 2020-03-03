@@ -5,9 +5,6 @@
 #include <string.h>
 #include "SPI1.h"
 
-#define ASSERT_CS PORTFCLR = _TRISF_TRISF2_MASK 
-#define NEGATE_CS PORTFSET = _TRISF_TRISF2_MASK
-
 void SPI1_Camera_Initialize(void)
 {
     // Set RF0-2 to digital
@@ -30,7 +27,7 @@ void SPI1_Camera_Initialize(void)
     LATFSET = _LATF_LATF2_MASK;
     TRISFCLR = _TRISF_TRISF2_MASK;
     
-    // SPI MODE 0 => Set CKE = 1, CKP = 0, SMP = 1
+    // SPI MODE 0 => Set CKE = 0, CKP = 0, SMP = 0
     SPI1CONbits.CKE = 0;
     SPI1CONbits.CKP = 0;
     SPI1CONbits.SMP = 0;
@@ -84,7 +81,7 @@ void SPI1_write_byte(int addr, char value)
     // Wait for receive buffer to fill (1 = not full)
     while (SPI1STATbits.SPIRBF == 0);
     
-    SPI4BUF; // discard iDummy from value send
+    SPI1BUF; // discard iDummy from value send
     
     // Negate CS line to end transmission
     asm volatile( "NOP" ); // no-op delay
@@ -137,6 +134,14 @@ void test_RD1_Initialize(void)
 void toggle_RD1(void)
 {
     LATDbits.LATD1 ^= 1;
+}
+
+uint8_t SPI1_transfer(uint8_t data)
+{
+    SPI1BUF = data;
+    asm volatile("nop");
+    while (SPI1STATbits.SPIRBF == 0);
+    return SPI1BUF;
 }
 
 //
