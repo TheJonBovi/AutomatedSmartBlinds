@@ -184,7 +184,6 @@ uint8_t Camera_read_fifo_burst()
         //delayMicroseconds(15);
     }
     
-    
     //myCAM.CS_HIGH();
     asm volatile( "NOP" ); // no-op delay
     asm volatile( "NOP" ); // no-op delay

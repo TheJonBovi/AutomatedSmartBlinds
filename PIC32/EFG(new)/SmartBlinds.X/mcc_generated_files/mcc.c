@@ -122,9 +122,9 @@ void SYSTEM_Initialize(void)
     //UART2_Initialize();
     EXT_INT_Initialize();
     TMR1_Initialize();
-    
+
     buzzer_Initialize();
-    
+
     // Added routines ported from SmartBlinds project
     PBCLK3_Initialize();
     PBCLK2_Initialize();
@@ -134,33 +134,33 @@ void SYSTEM_Initialize(void)
     TMR5_16bit_Motor_Initialize();
     DIP_Initialize();
     switch_Initialize();
-    
+
 
     // Initialize Camera
-    //I2C1_Sensor_Initialize();
-    //SPI1_Camera_Initialize();
+    I2C1_Sensor_Initialize();
+    SPI1_Camera_Initialize();
 
-    
-    // Configure the Camera 
-    //Camera_Configure();
+
+    // Configure the Camera
+    Camera_Configure();
 }
 
 void OSCILLATOR_Initialize(void)
 {
-    
+
     asm volatile( "di" ); // Disable Interrupts
     PRECON = (1 & _PRECON_PFMWS_MASK) | ((3 << _PRECON_PREFEN_POSITION) & _PRECON_PREFEN_MASK); // enable prefetch cache and 1 waitstates
     asm volatile( "ei" ); // Re-Enable Interrupts
-    
-//    // CF no clock failure; NOSC FRCPLL; SOSCEN disabled; POSCEN disabled; CLKLOCK unlocked; OSWEN Switch is Complete; IOLOCK not-active; 
+
+//    // CF no clock failure; NOSC FRCPLL; SOSCEN disabled; POSCEN disabled; CLKLOCK unlocked; OSWEN Switch is Complete; IOLOCK not-active;
 //    __builtin_write_OSCCONL((uint8_t) (0x0100 & 0x00FF));
-//    // RCDIV FRC/1; DOZE 1:8; DOZEN disabled; ROI disabled; 
+//    // RCDIV FRC/1; DOZE 1:8; DOZEN disabled; ROI disabled;
 //    CLKDIV = 0x3000;
-//    // TUN Center frequency; 
+//    // TUN Center frequency;
 //    OSCTUN = 0x0000;
-//    // ROEN disabled; ROSEL disabled; RODIV Base clock value; ROSSLP disabled; 
+//    // ROEN disabled; ROSEL disabled; RODIV Base clock value; ROSSLP disabled;
 //    REFOCON = 0x0000;
-//    // WDTO disabled; TRAPR disabled; SLEEP disabled; BOR disabled; DPSLP disabled; CM disabled; SWR disabled; SWDTEN disabled; EXTR disabled; POR disabled; IDLE disabled; IOPUWR disabled; VREGS disabled; 
+//    // WDTO disabled; TRAPR disabled; SLEEP disabled; BOR disabled; DPSLP disabled; CM disabled; SWR disabled; SWDTEN disabled; EXTR disabled; POR disabled; IDLE disabled; IOPUWR disabled; VREGS disabled;
 //    RCON = 0x0000;
 }
 
@@ -169,53 +169,53 @@ void OSCILLATOR_Initialize(void)
 static void PinMapInit(void)
 {
 //    __builtin_write_OSCCONL(OSCCON & 0xbf);  // unlock pin mapping registers
-    
+
     // UART pins
 //    RPOR8bits.RP17R   = 5;    // Assign U2TX output to Pin RF5/RP17 (Pin 50)
 //    RPINR19bits.U2RXR = 10;   // Assign U2RX output to Pin RF4/RP10 (Pin 49)
-    
-#if defined(USING_PICTAIL)    
+
+#if defined(USING_PICTAIL)
     // External Interrupt 3
 //    RPINR1bits.INT3R  = 36;   // Assign EXT3 input to Pin RA14/RPI36 (Pin 66))
 #elif defined(USING_CLICK_BOARD)
     RPINR1bits.INT2R  = 35;   // Assign EXT2 input to Pin RA15/RPI35 (Pin 67))
-#endif    
+#endif
     // SPI pins
-//    RPOR10bits.RP21R  = 11;   // Assign SCK2 output to Pin RG6/RP21 (Pin 10)  
+//    RPOR10bits.RP21R  = 11;   // Assign SCK2 output to Pin RG6/RP21 (Pin 10)
 //    RPOR9bits.RP19R   = 10;   // Assign SDO2 output to Pin RG8/RP19 (Pin 12)
 //    RPINR22bits.SDI2R = 26;   // Assign SDI2 input to Pin RG7/RP26 (Pin 11)
-    
+
     RPD3R = 0b1000;
     SDI4R = 0b0011;
-    
-//    __builtin_write_OSCCONL(OSCCON | 0x40);   // lock pin mapping registers 
+
+//    __builtin_write_OSCCONL(OSCCON | 0x40);   // lock pin mapping registers
 }
 
 void PBCLK3_Initialize(void)
 {
     asm volatile( "di" ); // Disable Interrupts
-    
-    // PBCLK3 setup to 2:1 
+
+    // PBCLK3 setup to 2:1
     SYSKEY = 0; // Ensure lock
     SYSKEY = 0xAA996655; // Write Key 1
     SYSKEY = 0x556699AA; // Write Key 2
     PB3DIV = _PB3DIV_ON_MASK | ((1 << _PB3DIV_PBDIV_POSITION) & _PB3DIV_PBDIV_MASK); // 0 = div by 1, 1 = div by 2 etc up to 128
     SYSKEY = 0; // Re lock
-    
+
     asm volatile( "ei" ); // Re-Enable Interrupts
 }
 
 void PBCLK2_Initialize(void)
 {
     asm volatile( "di" ); // Disable Interrupts
-    
-    // PBCLK2 setup to 2:1 
+
+    // PBCLK2 setup to 2:1
     SYSKEY = 0; // Ensure lock
     SYSKEY = 0xAA996655; // Write Key 1
     SYSKEY = 0x556699AA; // Write Key 2
     PB2DIV = _PB2DIV_ON_MASK | ((1 << _PB2DIV_PBDIV_POSITION) & _PB2DIV_PBDIV_MASK); // 0 = div by 1, 1 = div by 2 etc up to 128
     SYSKEY = 0; // Re lock
-    
+
     asm volatile( "ei" ); // Re-Enable Interrupts
 }
 
@@ -223,19 +223,19 @@ void buzzer_Initialize(void)
 {
     //set up the buzzer to work on RF2
     PORTKCLR = _PORTK_RK3_MASK;
-    
+
     TRISKCLR = _TRISK_TRISK3_MASK;
-    
+
 }
 
 void switch_Initialize(void)
 {
     //set up 2 buttons for cw and ccw
-    
+
     //clear port g for the registers
     PORTGCLR = _PORTG_RG0_MASK;
     PORTGCLR = _PORTG_RG1_MASK;
-    
+
     //set to input for both registers
     TRISGSET = _TRISG_TRISG0_MASK;
     TRISGSET = _TRISG_TRISG1_MASK;

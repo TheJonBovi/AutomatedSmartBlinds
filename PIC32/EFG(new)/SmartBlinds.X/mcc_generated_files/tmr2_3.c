@@ -45,6 +45,8 @@ typedef struct _TMR_OBJ_STRUCT
 
 static TMR_OBJ tmr1_obj;
 
+uint8_t proxy_debounce = 0;
+
 void TMR2_Initialize(void)
 {
     asm volatile( "di" ); // Disable Interrupts
@@ -196,9 +198,18 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
     else if (ADC_MID_WNG < current_read[0] && current_read[0] <= ADC_HIGH_WNG) PORTK = 0b11;
     else 
     {
-        proxyAlert = 1;
-        proxyCount = 0;
-        PORTK = 0b111;
+        if (proxy_debounce < 5)
+        {
+            ++proxy_debounce;
+        }
+        else
+        {
+            proxyAlert = 1;
+            proxyCount = 0;
+            PORTK = 0b111;
+            proxy_debounce = 0;
+        }
+        
     }   
     
     ///////////////////////////////////////////////////////////////////////////////////////////

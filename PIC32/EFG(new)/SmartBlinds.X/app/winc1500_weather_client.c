@@ -57,11 +57,11 @@ limitations under the License.
 
 /** Wi-Fi AP Settings. */
 
-//#define WLAN_SSID              "OOP_2.4"             // target AP
-#define WLAN_SSID               "guesthouse guests"
+#define WLAN_SSID              "OOP_2.4"             // target AP
+//#define WLAN_SSID               "guesthouse guests"
 #define WLAN_AUTH              M2M_WIFI_SEC_WPA_PSK   // AP Security 
-//#define WLAN_PSK               "goatcheese"            // security password
-#define WLAN_PSK                  "guesthouse1"
+#define WLAN_PSK               "goatcheese"            // security password
+//#define WLAN_PSK                  "guesthouse1"
 
 #define WIFI_BUFFER_SIZE       1400                  // Receive buffer size.
 #define SERVER_PORT            (80)                  // Using broadcast address for simplicity
@@ -72,7 +72,11 @@ limitations under the License.
 //#define CITY_NAME              "paris"    // Input City Name
 
 #define WEATHER_SERVER_NAME     "smartblinds.eastus.cloudapp.azure.com"
-#define PREFIX_BUFFER           "GET /SmartBlindsWebService.asmx/GetXML HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
+//#define PREFIX_BUFFER           "GET /SmartBlindsWebService.asmx/GetXML HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
+#define LOG_ENTRY_BUFFER        "GET /SmartBlindsWebService.asmx/LogEntry?func=0&val=69\r\n\r\n"
+#define LOG_FUNCTION            "0"
+#define TEST_LOG_VAR            "420"
+
 
 #define IPV4_BYTE(val, index)  ((val >> (index * 8)) & 0xFF)  // IP address parsing.
 #define HEX2ASCII(x)           (((x) >= 10) ? (((x) - 10) + 'A') : ((x) + '0'))
@@ -208,7 +212,8 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
             {
                 memset(s_ReceivedBuffer, 0, sizeof(s_ReceivedBuffer));
                 //sprintf((char *)s_ReceivedBuffer, "%s%s%s", PREFIX_BUFFER, (char *)CITY_NAME, POST_BUFFER);
-                sprintf((char *)s_ReceivedBuffer, "%s", PREFIX_BUFFER);
+                //sprintf((char *)s_ReceivedBuffer, "%s", PREFIX_BUFFER);
+                sprintf((char *)s_ReceivedBuffer, "%s", LOG_ENTRY_BUFFER);
                 t_socketConnect *pstrConnect = (t_socketConnect *)pvMsg;
                 if (pstrConnect && pstrConnect->error >= SOCK_ERR_NO_ERROR) 
                 {
@@ -235,7 +240,7 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
             t_socketRecv *pstrRecv = (t_socketRecv *)pvMsg;
             if (pstrRecv && pstrRecv->bufSize > 0) 
             {
-                /* Get city name. */
+                /* Get temperature. */
                 pcIndxPtr = strstr((char *)pstrRecv->p_rxBuf, "\">");
                 printf("Value Returned: ");
                 if (NULL != pcIndxPtr) 
