@@ -133,10 +133,10 @@ void SYSTEM_Initialize(void)
     DIP_Initialize();
     switch_Initialize();
     
-    I2C1_Sensor_Initialize();
+   // I2C1_Sensor_Initialize();
     
     // Select ONE of these two routines, not both
-    SPI1_Camera_Initialize();
+   // SPI1_Camera_Initialize();
     //test_RD1_Initialize();
     
     // Configure the Camera 
