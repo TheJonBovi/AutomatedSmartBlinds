@@ -93,13 +93,20 @@ int motorID;
 int counterUD = 0;
 int counterOC = 0;
 
-
+// globals for the temperature
 int temperatureAlarm = 0;
+uint8_t current_temp;
+
+// globals for the gas sensor
 int gasAlarm = 0;
 bool buzzerTrigger = false;
 
-int proxyAlert = 0;
+// Globals for the proxy sensor
+int proxyAlarm = 0;
 int proxyCount = 0;
+
+// Globals for wifi service
+uint8_t message_type;
 
 //This will be the command request used as a middle man between the web server
 //and the micro processor

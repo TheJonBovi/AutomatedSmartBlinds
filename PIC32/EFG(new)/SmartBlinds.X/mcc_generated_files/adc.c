@@ -159,8 +159,6 @@ void ADC_Initialize(void)
     ADCEIEN2 = 0;    
     
 //    10. Turn on the ADC module, as described in 22.4.9 ?Turning ON the ADC?.
-    
-   
     /* Turn the ADC on */
     ADCCON1bits.ON = 1;
     

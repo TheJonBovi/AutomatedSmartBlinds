@@ -23,7 +23,7 @@
 
 extern int motorTargetUD;
 extern int motorTargetOC;
-extern int proxyAlert;
+extern int proxyAlarm;
 extern int motorUD;
 extern int motorOC;
 extern int temperatureAlarm;
@@ -91,7 +91,7 @@ void motor_test_OC(void)
 //if the proxy sensor triggers for the final stage, then turn on the motor and close the blinds.
 void proxy_motor_test(void)
 {
-    if (proxyAlert == 1)
+    if (proxyAlarm == 1)
     {
         motorUD = true; 
         motorOC = true;
@@ -99,7 +99,7 @@ void proxy_motor_test(void)
         motorTargetOC = OC_FULL_CLOSE;
         MOTOR_ON();
     }
-    else if (proxyAlert == 0)
+    else if (proxyAlarm == 0)
     {
         motorUD = true; 
         motorOC = true;

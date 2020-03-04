@@ -21,7 +21,7 @@ limitations under the License.
     || defined(USING_MODE_AP) || defined(USING_MODE_STA) || defined(USING_MODE_P2P) || defined(USING_MODE_CHANGE) || defined(USING_POWER_SAVE_MODE) || defined(USING_SIGNAL_STRENGTH) \
     || defined(USING_SECURITY_WEP_WPA) || defined(USING_SECURITY_WPS) || defined(USING_TIME_CLIENT) || defined(USING_WEATHER_CLIENT) || defined(USING_LOCATE_IP_ADDRESS) \
     || defined(USING_HTTP_DOWNLOAD) || defined(USING_PUBNUB) || defined(USING_SEND_EMAIL) || defined(USING_OTA_UPDATE) \
-    || defined(USING_SIMPLE_GROWL) || defined(USING_FW_UPDATE_OVER_SERIAL)
+    || defined(USING_SIMPLE_GROWL) || defined(USING_FW_UPDATE_OVER_SERIAL) || defined(USING_SMARTBLINDS_SERVICE)
 
 static bool g_driverInitComplete = false;
 

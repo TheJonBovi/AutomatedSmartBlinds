@@ -150,6 +150,7 @@
         <itemPath>app/winc1500_tcp_server.c</itemPath>
         <itemPath>app/winc1500_time_client.c</itemPath>
         <itemPath>app/winc1500_weather_client.c</itemPath>
+        <itemPath>app/smartblinds_service.c</itemPath>
       </logicalFolder>
       <logicalFolder name="bsp" displayName="bsp" projectFiles="true">
         <itemPath>bsp/bsp.c</itemPath>

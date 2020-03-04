@@ -119,6 +119,9 @@
 
 #define JPEG_MAX_SIZE               100000          
 
+// Defines for wifi state machine to determine which string to send
+#define WIFI_LOG_ENTRY_MODE        0
+#define WIFI_HELLOXML_MODE         1  
 #endif /* _DEFINES_H */
 
 /* *****************************************************************************

@@ -36,7 +36,7 @@ limitations under the License.
 #include "mcc.h"
 #include "stepper_test.h"
 
-extern int proxyAlert;
+extern int proxyAlarm;
 extern int proxyCount;
 extern int gasAlarm;
 extern bool buzzerTrigger;
@@ -115,14 +115,14 @@ static void mainLoop500ms(void)
         //check for call requests every 500ms
         call_control();
 
-        if (proxyCount < maxProxy && proxyAlert == 1)
+        if (proxyCount < maxProxy && proxyAlarm == 1)
         {
             ++proxyCount;
         }
-        else if (proxyCount >= maxProxy && proxyAlert == 1)
+        else if (proxyCount >= maxProxy && proxyAlarm == 1)
         {
             proxyCount = 0;
-            proxyAlert = 0;
+            proxyAlarm = 0;
         }
         else if (gasAlarm == 1)
         {
