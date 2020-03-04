@@ -95,7 +95,7 @@ int counterOC = 0;
 
 // globals for the temperature
 int temperatureAlarm = 0;
-uint8_t current_temp;
+double current_temp;
 
 // globals for the gas sensor
 int gasAlarm = 0;

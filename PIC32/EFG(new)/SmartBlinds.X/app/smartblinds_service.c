@@ -81,7 +81,7 @@ limitations under the License.
 #define GetAppState()          g_appState
 
 extern int temperatureAlarm;
-extern uint8_t current_temp;
+extern double current_temp;
 extern uint8_t message_type;
 extern int proxyAlarm;
 extern int gasAlarm;
