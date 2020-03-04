@@ -91,22 +91,32 @@ void motor_test_OC(void)
 //if the proxy sensor triggers for the final stage, then turn on the motor and close the blinds.
 void proxy_motor_test(void)
 {
-    if (proxyAlarm == 1)
+    switch (proxyAlarm)
     {
-        motorUD = true; 
-        motorOC = true;
-        motorTargetUD = UD_FULL_DOWN;
-        motorTargetOC = OC_FULL_CLOSE;
-        MOTOR_ON();
+        case 1:
+            motorUD = true; 
+            motorOC = true;
+            motorTargetUD = UD_FULL_DOWN;
+            motorTargetOC = OC_FULL_CLOSE;
+            MOTOR_ON();
+            break;
+            //case 2 is controlled in main
+            //get to case 2 in tmr5 isr
+            //get to state 3 in main
+        case 3:
+            motorUD = true; 
+            motorOC = true;
+            motorTargetUD = UD_FULL_UP;
+            motorTargetOC = OC_FULL_OPEN;
+            MOTOR_ON();        
+            break;
+        default:
+            break;
+           
+            
     }
-    else if (proxyAlarm == 0)
-    {
-        motorUD = true; 
-        motorOC = true;
-        motorTargetUD = UD_FULL_UP;
-        motorTargetOC = OC_FULL_OPEN;
-        MOTOR_ON();        
-    }
+        
+    
 }   
 
 //this is the temperature control. If the temperature alarm

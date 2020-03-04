@@ -88,8 +88,8 @@ int main(void)
 
         m2m_wifi_task();
 
-        motor_test_UD();
-        motor_test_OC();
+//        motor_test_UD();
+//        motor_test_OC();
         proxy_motor_test();
 
         // Blinks onboard LED at 1sec
@@ -113,16 +113,16 @@ static void mainLoop500ms(void)
         //toggle_RD1();
 
         //check for call requests every 500ms
-        call_control();
+        //call_control();
 
-        if (proxyCount < maxProxy && proxyAlarm == 1)
+        if (proxyCount < maxProxy && proxyAlarm == 2)
         {
             ++proxyCount;
         }
-        else if (proxyCount >= maxProxy && proxyAlarm == 1)
+        else if (proxyCount >= maxProxy && proxyAlarm == 2)
         {
             proxyCount = 0;
-            proxyAlarm = 0;
+            proxyAlarm = 3;
         }
         else if (gasAlarm == 1)
         {

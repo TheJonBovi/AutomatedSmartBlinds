@@ -90,7 +90,7 @@ int OCStepperState = 0;
 int motorUD;
 int motorOC;
 int motorID;
-int counterUD = 0;
+int counterUD = 512;
 int counterOC = 0;
 
 // globals for the temperature
