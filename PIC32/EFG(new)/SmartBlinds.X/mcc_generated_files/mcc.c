@@ -83,15 +83,15 @@
 
 //global variables
 //variables used for the motor to turn on, direction, and state
-int motorTargetUD;
-int motorTargetOC;
+int motorTargetUD = 0;      //This needs to be set to 0 (or full up to where the blinds are at the base) during start up. Both hardware and software.
+int motorTargetOC = 128;    //This needs to be set to 128 (or full open as in you're able to see through them) during start up. Both hardware and software.
 int UDStepperState = 0;
 int OCStepperState = 0;
 int motorUD;
 int motorOC;
 int motorID;
 int counterUD = 0;
-int counterOC = 0;
+int counterOC = 128;
 
 // globals for the temperature
 int temperatureAlarm = 0;
