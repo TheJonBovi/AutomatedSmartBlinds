@@ -74,15 +74,15 @@
 //the positions for the UD motor. They can also be used for the opposite direction.
 //new measurements for the OC: 0 is full open, 256 is full close, -256 is full reverse close
 //128 is half open, -128 is half reverse open, 64 is quarter open, -64 is quarter reverse open
-#define UD_FULL_UP      0 //fully up
+#define UD_FULL_UP      512 //fully up. modify to 512 (was 0)
 #define UD_1_QUARTER    128 //quarter way down
 #define UD_HALF         256 //halfway down
 #define UD_3_QUARTER    384 //3 quarter way down
-#define UD_FULL_DOWN    512 //fully down
+#define UD_FULL_DOWN    0 //fully down. modify to 0 (was 512)
 
 #define OC_FULL_CLOSE   0 //fully closed (facing up)
 #define OC_HALF         64 //half way to full open
-#define OC_FULL_OPEN    128 //full open (can see through)
+#define OC_FULL_OPEN    200 //full open (can see through). modify to 200(was 128))
 #define OC_R_HALF       192 //mostly closed
 #define OC_FULL_R_CLOSE 256 //fully closed (facing down))
 

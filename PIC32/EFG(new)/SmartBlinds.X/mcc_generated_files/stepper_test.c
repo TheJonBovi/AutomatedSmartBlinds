@@ -202,18 +202,6 @@ void call_control(void)
     }
 }
 
-  /*        //the forth case will be to check if the clock is triggered to open (or close)    
-            //this is a maybe as we don't have a clock
-            //that will run continuously.
-            case 3:
-            //if it is certain times of the day, close the blinds
-            if (clockTrigger = 1)
-            {
-                closeBlinds = 1;
-            }
-            else
-                openBlinds = 1;
-            break;
 /* *****************************************************************************
  End of File
  */
