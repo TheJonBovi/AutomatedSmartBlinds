@@ -212,14 +212,14 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
                 if ( message_type == WIFI_LOG_ENTRY_MODE )
                 {
                     //sprintf((char *)s_ReceivedBuffer, "%s", LOG_ENTRY_BUFFER);
-                    sprintf((char *)s_ReceivedBuffer, "%s%u%s%u%s%u%s%u%s%u%s", log_entry1, current_temp, log_entry2, proxyAlarm, log_entry3, gasAlarm, log_entry4, motorTargetUD, log_entry5, motorTargetOC, log_entry6);
+                    sprintf((char *)s_ReceivedBuffer, "%s%f%s%u%s%u%s%u%s%u%s", log_entry1, current_temp, log_entry2, proxyAlarm, log_entry3, gasAlarm, log_entry4, motorTargetUD, log_entry5, motorTargetOC, log_entry6);
                 }
                 else if ( message_type == WIFI_HELLOXML_MODE )
                 {
                     sprintf((char *)s_ReceivedBuffer, "%s", getxml_buffer);
                 }
                
-                t_socketConnect *pstrConnect = (t_socketConnect *)pvMsg;
+                t_socketConnect *pstrCos_ReceivedBuffernnect = (t_socketConnect *)pvMsg;
                 if (pstrConnect && pstrConnect->error >= SOCK_ERR_NO_ERROR) 
                 {
                     send(tcp_client_socket, s_ReceivedBuffer, strlen((char *)s_ReceivedBuffer), 0);
