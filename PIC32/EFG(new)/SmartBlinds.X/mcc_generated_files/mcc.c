@@ -46,6 +46,7 @@
 // Configuration bits: selected in the GUI
 
 #include "winc1500_api.h"
+#include "defines.h"
 
 // PIC32MZ2048ECG144 or EFG144 based HMZ144 board Configuration Bit Settings
 // DEVCFG2
@@ -112,7 +113,7 @@ int rcv_OC_target = 0;
 double rcv_temp_target = 0;
 
 // Globals for wifi service
-uint8_t message_type = 0;
+uint8_t message_type = WIFI_HELLOXML_MODE;
 
 //This will be the command request used as a middle man between the web server
 //and the micro processor
