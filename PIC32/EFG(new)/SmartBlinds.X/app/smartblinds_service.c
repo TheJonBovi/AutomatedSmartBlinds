@@ -176,7 +176,34 @@ void ApplicationTask(void)
 
     case APP_STATE_WORKING:       
 
-        testvar++;
+        // TODO: code to control when socket closing / opening
+        
+        /* Connect TCP client socket, but only if there is no socket open */
+        // Set message_type to determine what type of socket transmission
+
+        if (tcp_client_socket < 0)
+        {
+            message_type = WIFI_HELLOXML_MODE;
+            if ((tcp_client_socket = socket(AF_INET, SOCK_STREAM, 0)) < 0) 
+            {
+                printf("main: failed to create TCP client socket error!\r\n");
+                SetAppState(APP_STATE_DONE);
+                break;
+            }
+
+            addr_in.sin_family = AF_INET;
+            addr_in.sin_port = _htons(SERVER_PORT);
+            addr_in.sin_addr.s_addr = s_HostIp;
+            if (connect(tcp_client_socket, (struct sockaddr *)&addr_in, sizeof(struct sockaddr_in)) != SOCK_ERR_NO_ERROR) 
+            {
+                printf("main: failed to connect socket error!\r\n");
+                SetAppState(APP_STATE_DONE);
+                break;
+            }
+
+            s_TcpConnection = true;
+        }
+
         
         break;
         
@@ -219,7 +246,7 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
                     sprintf((char *)s_ReceivedBuffer, "%s", getxml_buffer);
                 }
                
-                t_socketConnect *pstrCos_ReceivedBuffernnect = (t_socketConnect *)pvMsg;
+                t_socketConnect *pstrConnect = (t_socketConnect *)pvMsg;
                 if (pstrConnect && pstrConnect->error >= SOCK_ERR_NO_ERROR) 
                 {
                     send(tcp_client_socket, s_ReceivedBuffer, strlen((char *)s_ReceivedBuffer), 0);
@@ -247,7 +274,6 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
             {
                 /* Get temperature. */
                 pcIndxPtr = strstr((char *)pstrRecv->p_rxBuf, "\">");
-                printf("Value Returned: ");
                 if (NULL != pcIndxPtr) 
                 {
                     pcIndxPtr = pcIndxPtr + strlen("\">");
@@ -257,68 +283,39 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
                         *pcEndPtr = 0;
                     }
                     strcpy(testcvar, pcIndxPtr );
-                    printf("%s\r\n", pcIndxPtr);
                 } 
                 else 
                 {
                     printf("N/A\r\n");
                     break;
                 }
-
-                /* Get temperature. */
-                pcIndxPtr = strstr(pcEndPtr + 1, "temperature value");
-                printf("Temperature: ");
-                if (NULL != pcIndxPtr) 
-                {
-                    pcIndxPtr = pcIndxPtr + strlen("temperature value") + 2;
-                    pcEndPtr = strstr(pcIndxPtr, "\" ");
-                    if (NULL != pcEndPtr) 
-                    {
-                        *pcEndPtr = 0;
-                    }
-                     strcpy(testcvar, pcIndxPtr );
-                    printf("%s\r\n", pcIndxPtr);
-                } 
-                else 
-                {
-                    printf("N/A\r\n");
-                    SetAppState(APP_STATE_START); //start process over again
-                    strcpy(testcvar, "Reset");
-                    break;
-                }
-
-                /* Get weather condition. */
-                pcIndxPtr = strstr(pcEndPtr + 1, "weather number");
-                if (NULL != pcIndxPtr) 
-                {
-                    printf("Weather Condition: ");
-                    pcIndxPtr = pcIndxPtr + strlen("weather number") + 14;
-                    pcEndPtr = strstr(pcIndxPtr, "\" ");
-                    if (NULL != pcEndPtr) 
-                    {
-                        *pcEndPtr = 0;
-                    }
-                    printf("%s\r\n", pcIndxPtr);
-                     strcpy(testcvar, pcIndxPtr );
                     /* Response processed, now close connection. */
                     close(tcp_client_socket);
                     tcp_client_socket = -1;
                     
                     break;
-                }
 
                 memset(s_ReceivedBuffer, 0, sizeof(s_ReceivedBuffer));
                 recv(tcp_client_socket, &s_ReceivedBuffer[0], WIFI_BUFFER_SIZE, 0);
             } 
             else 
             {
-                printf("recv error!\r\n");
+                // Close socket
                 close(tcp_client_socket);
                 tcp_client_socket = -1;
             }
         }
         break;
-
+        
+        case M2M_SOCKET_SEND_EVENT:
+        {
+            if (message_type == WIFI_LOG_ENTRY_MODE)
+            {
+                // Log updated, close socket after sending 
+                close(tcp_client_socket);
+                tcp_client_socket = -1;
+            }
+        }
         default:
             break;
         }
