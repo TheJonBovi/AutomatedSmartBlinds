@@ -71,8 +71,10 @@ limitations under the License.
 #define log_entry3                "&gasLog="
 #define log_entry4                "&sbHorxLog="
 #define log_entry5                "&sbVertLog="
-#define log_entry6                "\r\n\r\n"
+#define log_entry6                " HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
+//#define log_entry6                "\r\n\r\n"
 #define getxml_buffer             "GET /SmartBlindsWebService.asmx/GetXML HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
+#define LOG_ENTRY_BUFFER          "GET /SmartBlindsWebService.asmx/LogEntry?func=0&val=6969\r\n\r\n"
 
 #define IPV4_BYTE(val, index)  ((val >> (index * 8)) & 0xFF)  // IP address parsing.
 #define HEX2ASCII(x)           (((x) >= 10) ? (((x) - 10) + 'A') : ((x) + '0'))

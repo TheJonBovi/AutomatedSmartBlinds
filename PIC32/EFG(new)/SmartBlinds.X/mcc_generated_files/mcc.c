@@ -106,7 +106,7 @@ int proxyAlarm = 0;
 int proxyCount = 0;
 
 // Globals for wifi service
-uint8_t message_type;
+uint8_t message_type = 0;
 
 //This will be the command request used as a middle man between the web server
 //and the micro processor
