@@ -32,7 +32,7 @@
 extern int proxyAlarm;
 extern int proxyCount;
 extern int temperatureAlarm;
-extern uint8_t current_temp;
+extern double current_temp;
 extern int gasAlarm;
 
 typedef struct _TMR_OBJ_STRUCT
@@ -177,7 +177,7 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
     /* fetch the result */
     //current_read[1]*3.3/4096 == current_read[1];
     current_read[1] = ADCDATA1;
-    current_temp = ADCDATA1 * 3.3 / 4095;
+    current_temp = ADCDATA1 * 3.3 / 4095 * 1000 - 58;
     while (ADCDSTAT1bits.ARDY3 == 0);
     /* fetch the result */
     //current_read[2]*5/1024 == current_read[2];

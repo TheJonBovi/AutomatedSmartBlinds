@@ -60,15 +60,15 @@
 
 //defining temperature values to compare with the temperature readings
 //190 is BE. 245 with hot breath. Set to 400 dec for high.
-#define TEMP_HIGH 0x0190 //90 degrees F is the target.
-#define TEMP_LOW  0x003C //60 degrees F
+#define TEMP_HIGH 90 //90 degrees F is the target.
+#define TEMP_LOW  60 //60 degrees F
 
 //defining gas/smoke values to compare with the gas/smoke readings
 //550-590 dec is the average for any given time. Set to 800 dec for high.
 #define GAS_HIGH 0x320 //These are not the real values. Need to calculate them.
 
 // This value is how we set the motor speed. For reverence
-// 300 = 1 rot / 5 seconds
+// 300 = 1 rot / 5 seconds, changed to 900 to slow down the motor
 #define MOTOR_PR_SETTING 900
 
 //the positions for the UD motor. They can also be used for the opposite direction.
