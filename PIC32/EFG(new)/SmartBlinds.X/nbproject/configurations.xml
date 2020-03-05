@@ -92,63 +92,27 @@
         <logicalFolder name="winc1500_ap_scan"
                        displayName="winc1500_ap_scan"
                        projectFiles="true">
-          <itemPath>app/winc1500_ap_scan/ota_event_stub.c</itemPath>
-          <itemPath>app/winc1500_ap_scan/socket_event_stub.c</itemPath>
-          <itemPath>app/winc1500_ap_scan/wifi_event_stub.c</itemPath>
-          <itemPath>app/winc1500_ap_scan/winc1500_ap_scan.c</itemPath>
         </logicalFolder>
         <logicalFolder name="winc1500_provision_ap"
                        displayName="winc1500_provision_ap"
                        projectFiles="true">
-          <itemPath>app/winc1500_provision_ap/winc1500_provision_ap.c</itemPath>
         </logicalFolder>
         <logicalFolder name="winc1500_pubnub"
                        displayName="winc1500_pubnub"
                        projectFiles="true">
-          <itemPath>app/winc1500_pubnub/PubNub.c</itemPath>
-          <itemPath>app/winc1500_pubnub/winc1500_pubnub.c</itemPath>
         </logicalFolder>
         <logicalFolder name="winc1500_simple_growl"
                        displayName="winc1500_simple_growl"
                        projectFiles="true">
-          <itemPath>app/winc1500_simple_growl/growl.c</itemPath>
-          <itemPath>app/winc1500_simple_growl/winc1500_simple_growl.c</itemPath>
         </logicalFolder>
         <logicalFolder name="winc1500_udp_client"
                        displayName="winc1500_udp_client"
                        projectFiles="true">
-          <itemPath>app/winc1500_udp_client/ota_event_stub.c</itemPath>
-          <itemPath>app/winc1500_udp_client/socket_event_stub.c</itemPath>
-          <itemPath>app/winc1500_udp_client/wifi_event_stub.c</itemPath>
-          <itemPath>app/winc1500_udp_client/winc1500_udp_client.c</itemPath>
         </logicalFolder>
         <logicalFolder name="winc1500_udp_server"
                        displayName="winc1500_udp_server"
                        projectFiles="true">
-          <itemPath>app/winc1500_udp_server/ota_event_stub.c</itemPath>
-          <itemPath>app/winc1500_udp_server/socket_event_stub.c</itemPath>
-          <itemPath>app/winc1500_udp_server/wifi_event_stub.c</itemPath>
-          <itemPath>app/winc1500_udp_server/winc1500_udp_server.c</itemPath>
         </logicalFolder>
-        <itemPath>app/winc1500_fw_update_over_serial.c</itemPath>
-        <itemPath>app/winc1500_http_download.c</itemPath>
-        <itemPath>app/winc1500_locate_ip_address.c</itemPath>
-        <itemPath>app/winc1500_mac_address.c</itemPath>
-        <itemPath>app/winc1500_mode_ap.c</itemPath>
-        <itemPath>app/winc1500_mode_change.c</itemPath>
-        <itemPath>app/winc1500_mode_p2p.c</itemPath>
-        <itemPath>app/winc1500_mode_sta.c</itemPath>
-        <itemPath>app/winc1500_ota_firmware_update.c</itemPath>
-        <itemPath>app/winc1500_power_save_mode.c</itemPath>
-        <itemPath>app/winc1500_provision_http.c</itemPath>
-        <itemPath>app/winc1500_security_wep_wpa.c</itemPath>
-        <itemPath>app/winc1500_security_wps.c</itemPath>
-        <itemPath>app/winc1500_send_email.c</itemPath>
-        <itemPath>app/winc1500_signal_strength.c</itemPath>
-        <itemPath>app/winc1500_ssl_connect.c</itemPath>
-        <itemPath>app/winc1500_tcp_client.c</itemPath>
-        <itemPath>app/winc1500_tcp_server.c</itemPath>
-        <itemPath>app/winc1500_time_client.c</itemPath>
         <itemPath>app/winc1500_weather_client.c</itemPath>
         <itemPath>app/smartblinds_service.c</itemPath>
       </logicalFolder>
