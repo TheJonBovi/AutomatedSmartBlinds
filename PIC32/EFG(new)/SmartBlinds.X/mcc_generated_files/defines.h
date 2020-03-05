@@ -58,11 +58,6 @@
 #define _OCMOTOR_S7 0x810
 #define _OCMOTOR_SOFF 0x0000
 
-//defining temperature values to compare with the temperature readings
-//190 is BE. 245 with hot breath. Set to 400 dec for high.
-#define TEMP_HIGH 90 //90 degrees F is the target.
-#define TEMP_LOW  60 //60 degrees F
-
 //defining gas/smoke values to compare with the gas/smoke readings
 //550-590 dec is the average for any given time. Set to 800 dec for high.
 #define GAS_HIGH 0x320 //These are not the real values. Need to calculate them.
@@ -74,17 +69,17 @@
 //the positions for the UD motor. They can also be used for the opposite direction.
 //new measurements for the OC: 0 is full open, 256 is full close, -256 is full reverse close
 //128 is half open, -128 is half reverse open, 64 is quarter open, -64 is quarter reverse open
-#define UD_FULL_UP      1024 //fully up. modify to 512 (was 0)
-#define UD_1_QUARTER    128 //quarter way down
-#define UD_HALF         256 //halfway down
-#define UD_3_QUARTER    384 //3 quarter way down
-#define UD_FULL_DOWN    0 //fully down. modify to 0 (was 512)
+#define UD_FULL_UP      1024 //fully up. modify to 1024 (was 0)
+#define UD_1_QUARTER    768 //quarter way down
+#define UD_HALF         512 //halfway down
+#define UD_3_QUARTER    256 //3 quarter way down
+#define UD_FULL_DOWN    0 //fully down. modify to 0 (was 1024)
 
-#define OC_FULL_CLOSE   200 //fully closed (facing up)
-#define OC_HALF         64 //half way to full open
-#define OC_FULL_OPEN    0 //full open (can see through). modify to 200(was 128))
-#define OC_R_HALF       192 //mostly closed
-#define OC_FULL_R_CLOSE 256 //fully closed (facing down))
+#define OC_FULL_CLOSE   150 //fully closed (facing up)
+#define OC_HALF         75 //half way to full open
+#define OC_FULL_OPEN    0 //full open (can see through).
+#define OC_R_HALF       -75 //mostly closed
+#define OC_FULL_R_CLOSE -150 //fully closed (facing down))
 
 #define MOTOR_OFF()     T5CONbits.TON = 0 //set the motor off
 #define MOTOR_ON()      T5CONbits.TON = 1 //set the motor on

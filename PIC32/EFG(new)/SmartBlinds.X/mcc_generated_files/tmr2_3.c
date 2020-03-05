@@ -34,6 +34,8 @@ extern int proxyCount;
 extern int temperatureAlarm;
 extern double current_temp;
 extern int gasAlarm;
+extern double temp_high;
+extern double temp_low;
 
 typedef struct _TMR_OBJ_STRUCT
 {
@@ -166,6 +168,7 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
     
     // ADC loop and test output on LED's for proximity sensor
     int current_read[3];
+    double temp_low = (temp_high - 5); //the high temp minus 5 degrees
    
 //    /* Trigger a conversion */
     ADCCON3bits.GSWTRG = 1;
@@ -217,7 +220,7 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
     ///////////////////////////////////////////////////////////////////////////////////////////
     //This section is for the temperature
     //if the temperature is too cold or too hot, then set the alarm
-    if (current_read[1] <= TEMP_LOW || current_read[1] >= TEMP_HIGH)
+    if (current_read[1] <= temp_low || current_read[1] >= temp_high)
     {
         temperatureAlarm = 1;
         PORTB = 0b0000;

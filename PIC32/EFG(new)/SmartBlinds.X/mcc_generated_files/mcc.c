@@ -94,6 +94,8 @@ int counterUD = 512;
 int counterOC = 0;
 
 // globals for the temperature
+double temp_high = 90; //90 degrees F is the target.
+double temp_low;
 int temperatureAlarm = 0;
 double current_temp;
 
@@ -105,14 +107,18 @@ bool buzzerTrigger = false;
 int proxyAlarm = 0;
 int proxyCount = 0;
 
+int rcv_UD_target = 0;
+int rcv_OC_target = 0;
+double rcv_temp_target = 0;
+
 // Globals for wifi service
 uint8_t message_type = 0;
 
 //This will be the command request used as a middle man between the web server
 //and the micro processor
-int callRequest = 0;
+int callRequest;
 
-int temperatureSensor;
+double temperatureSensor;
 int smokeSensor;
 int clockTrigger;
 int userTriggerClose;

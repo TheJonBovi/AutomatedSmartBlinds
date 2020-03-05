@@ -83,7 +83,7 @@ int main(void)
     while (true)
     {
 
-        // These two lines control the state machine for the current WIFI configureation (currently in demo_config.h)
+        // These two lines control the state machine for the current WIFI configuration (currently in demo_config.h)
         ApplicationTask();
 
         m2m_wifi_task();
@@ -91,6 +91,8 @@ int main(void)
 //        motor_test_UD();
 //        motor_test_OC();
         proxy_motor_test();
+        temperature_test();
+        
 
         // Blinks onboard LED at 1sec
         mainLoop500ms();
@@ -113,7 +115,7 @@ static void mainLoop500ms(void)
         //toggle_RD1();
 
         //check for call requests every 500ms
-        //call_control();
+        call_control();
 
         if (proxyCount < maxProxy && proxyAlarm == 2)
         {
