@@ -27,6 +27,8 @@
 #define LED_BLU _TRISF_RF1_MASK
 #define LED_GRN _TRISF_RF2_MASK
 
+#define WDT_Clear() WDTCONSET = (0x5743 << _WDTCON_WDTCLRKEY_POSITION) & _WDTCON_WDTCLRKEY_MASK
+
 
 //define own motor position, mask, and length
 //up down motor
@@ -111,7 +113,7 @@
 //and thus have the connected function remain on until the counter
 //has reached the max timer.
 #define maxProxy            15 
-#define maxTMR3ISRdebounce  7
+#define maxTMR3ISRdebounce  8
 
 #define JPEG_MAX_SIZE               100000          
 
@@ -120,9 +122,22 @@
 #define WIFI_LOG_ENTRY_MODE         1
 #define WIFI_HELLOXML_MODE          2
 #define WIFI_RECIEVE_MODE           3
+#define WIFI_IMG_UPLOAD_MODE        4
+
+// Defines for Call Control State Machine
+#define CALL_IDLE_STATE             0
+#define CALL_LOG_STATE              1
+#define CALL_RCV_STATE              2
+#define CALL_IMG_STATE              3
+#define CALL_LOG_WAIT_STATE         4
+#define CALL_RCV_WAIT_STATE         5
+#define CALL_RCV_PROCESS_STATE      6
+
+#define callControlDelayMAX         4
 
 // toggles test functionality in project
-//#define TESTS
+#define CAMERA_ON
+
 
 #endif /* _DEFINES_H */
 

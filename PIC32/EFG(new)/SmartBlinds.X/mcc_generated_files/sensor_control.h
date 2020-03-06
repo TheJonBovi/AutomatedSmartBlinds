@@ -38,6 +38,9 @@ void gas_control(void);
 //execute said requests
 void call_control(void);
 
+// Fuction to toggle LED's wheny proxy alarm mode is active
+void proxy_LED_alarm(void);
+
 
 #endif /* _SENSOR_CONTROL_H */
 

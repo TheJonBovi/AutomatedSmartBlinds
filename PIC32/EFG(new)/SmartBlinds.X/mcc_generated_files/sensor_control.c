@@ -21,6 +21,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "sensor_control.h"
+#include "winc1500_api.h"
 
 // Motor Control Global Variables
 extern int motorTargetUD;
@@ -49,7 +50,11 @@ extern int gasAlarmState;
 bool buttonLockUD = false;
 bool buttonLockOC = false;
 
+// Call Control Global Variables
+extern int callControlState;
 extern uint8_t message_type;
+
+
 
 //no longer needed, but could be used in the future
 void motor_test_UD(void)
@@ -197,16 +202,15 @@ void gas_control(void)
 {
     switch (gasAlarmState)
     {
+        case 0:
+            buzzer_clear();
+            break;
         case 1:
             buzzer_toggle();
             break;
-        case 2:
-            buzzer_clear();
-            gasAlarmState = 0;
-            break;
+
         default:
             break;
-        // TODO: make a timer turn the buzzer on and off to chirp
         
         //might want to also open and close the blinds
         //need to write a small function that will compare
@@ -217,99 +221,10 @@ void gas_control(void)
 
 
 }
-
-//This function will be checking for any commands from the web server.
-//Once it obtains one, then it will execute the call.
-void call_control(void)
-{
-    //update the temperature
-    // temperature
-    rcv_temp_target = temp_high;
     
-    //the open/close commands
-    if (rcv_OC_target != motorTargetOC)
-    {
-        motorTargetOC = rcv_OC_target;
-        motorOC = true;
-        MOTOR_ON();
-    }
-    if (rcv_UD_target != motorTargetUD)
-    {
-        motorTargetUD = rcv_UD_target;
-        motorUD = true;
-        MOTOR_ON();
-    }
-    /*
-    if (rcv_OC_target == CLOSE_BLINDS)
-    {
-        motorOC = true;
-        motorTargetOC = OC_FULL_CLOSE;
-        MOTOR_ON();     
-    }
-    else if (rcv_OC_target == OPEN_BLINDS)
-    {
-        motorOC = true;
-        motorTargetOC = OC_FULL_OPEN;
-        MOTOR_ON();            
-    }
-    else if (rcv_OC_target == HALF_CLOSE_BLINDS)
-    {
-        motorOC = true;
-        motorTargetOC = OC_HALF;
-        MOTOR_ON();             
-    }
-    else if (rcv_OC_target == REVERSE_CLOSE_BLINDS)
-    {
-        motorOC = true;
-        motorTargetOC = OC_R_HALF;
-        MOTOR_ON(); 
-    }
-    else if (rcv_OC_target == REVERSE_HALF_CLOSE_BLIDNS)
-    {
-        motorOC = true;
-        motorTargetOC = OC_FULL_R_CLOSE;
-        MOTOR_ON();             
-    }
-
-    //the up/down commands
-    else if (rcv_UD_target == RAISE_BLINDS)
-    {
-        motorUD = true; 
-        motorTargetUD = UD_FULL_UP;
-        MOTOR_ON();            
-    }
-    else if (rcv_UD_target == ONE_QUARTER_BLINDS)
-    {
-        motorUD = true; 
-        motorTargetUD = UD_1_QUARTER;
-        MOTOR_ON();              
-    }
-    else if (rcv_UD_target == LOWER_BLINDS)
-    {
-        motorUD = true; 
-        motorTargetUD = UD_FULL_DOWN;
-        MOTOR_ON();              
-    }
-    else if (rcv_UD_target == THREE_QUARTER_BLINDS)
-    {
-        motorUD = true; 
-        motorTargetUD = UD_3_QUARTER;
-        MOTOR_ON();              
-    }
-    else if (rcv_UD_target == HALF_BLINDS)
-    {
-        motorUD = true; 
-        motorTargetUD = UD_HALF;
-        MOTOR_ON();              
-    }
-    */
-}
-
-void wifi_log_control(void)
+void proxy_LED_alarm(void)
 {
-    // TODO: log current status 
-    message_type = WIFI_LOG_ENTRY_MODE;
-    
+    if (proxyAlarmState > 0) PORTK ^= 0b101;
 }
 
 /* *****************************************************************************

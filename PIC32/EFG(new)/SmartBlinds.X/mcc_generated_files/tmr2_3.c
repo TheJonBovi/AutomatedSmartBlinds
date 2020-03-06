@@ -29,13 +29,18 @@
 #include "defines.h"
 #include "mcc.h"
 
+// Proximity Sensor Global Variables
 extern int proxyAlarmState;
 extern int proxyCount;
+
+// Temperature Sensor Control Global Variables
 extern int temperatureAlarmState;
 extern double current_temp;
-extern int gasAlarmState;
 extern double temp_high;
 extern double temp_low;
+
+// Gas Sensor Global Variables
+extern int gasAlarmState;
 
 typedef struct _TMR_OBJ_STRUCT
 {
@@ -202,7 +207,7 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
     
     
     // Set the LED levels according to IR proximity reading
-    if (current_read[0] <= ADC_LOW_WNG)
+    if (current_read[0] <= ADC_LOW_WNG && proxyAlarmState == 0)
     {
         if (proxy_debounce < maxTMR3ISRdebounce) ++proxy_debounce;
         else
@@ -212,7 +217,7 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
         }
 
     }
-    else if (ADC_LOW_WNG < current_read[0] && current_read[0] <= ADC_MID_WNG) 
+    else if (ADC_LOW_WNG < current_read[0] && current_read[0] <= ADC_MID_WNG && proxyAlarmState == 0) 
     {
         if (proxy_debounce < maxTMR3ISRdebounce) ++proxy_debounce;
         else
@@ -221,7 +226,7 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
             PORTK = 0b1;
         }
     }
-    else if (ADC_MID_WNG < current_read[0] && current_read[0] <= ADC_HIGH_WNG) 
+    else if (ADC_MID_WNG < current_read[0] && current_read[0] <= ADC_HIGH_WNG && proxyAlarmState == 0) 
     {
         if (proxy_debounce < maxTMR3ISRdebounce) ++proxy_debounce;
                 else
@@ -233,10 +238,17 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
     else 
     {
         if (proxy_debounce < maxTMR3ISRdebounce) ++proxy_debounce;
-        else
+        else if (proxyAlarmState == 0)
         {
             proxyAlarmState = 1;
             PORTK = 0b111;
+//            JPEG_ready = true;
+//            Camera_capture_image();
+            
+            proxy_debounce = 0;
+        }
+        else 
+        {
             proxy_debounce = 0;
         }
         
@@ -291,7 +303,7 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
     //then it'll trigger the gas alarm until the gas clears.
     else
     {
-        gasAlarmState = 2;
+        gasAlarmState = 0;
 
     }
     

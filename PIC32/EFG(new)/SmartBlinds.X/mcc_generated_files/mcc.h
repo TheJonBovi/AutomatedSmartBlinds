@@ -106,6 +106,8 @@ void buzzer_set(void);
 
 void switch_Initialize(void);
 
+void watchdog_Initialize(void);
+
 #endif  /* MCC_H */
 /**
  End of File

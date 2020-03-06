@@ -40,7 +40,7 @@ limitations under the License.
 // FUNCTION PROTOTYPES
 //==============================================================================
 static void mainLoop500ms(void);
-void watchDogTimer(void);
+void watchdog_Initialize(void);
 
 //==============================================================================
 // Main application entry point.
@@ -50,7 +50,7 @@ int main(void)
     // This function initailizes modules, located mainly in the mcc file
     BspInit();
 
-#ifdef TESTS
+#ifdef CAMERA_ON
     // Read register 0x40, which should return the static CHIP version 0x40
     char cam_version_test = SPI1_read_byte(0x40);
 
@@ -77,43 +77,27 @@ int main(void)
         m2m_wifi_task();
 
         mainLoop500ms();
+        
+        WDT_Clear();
     }
 }
 
-// Things that happen every 500ms
 static void mainLoop500ms(void)
 {
     static uint32_t t = 0;
     uint32_t temp = m2mStub_GetOneMsTimer();
     if ((temp - t) >= 500)
     {
+        // Things that happen every 500ms
         t = m2mStub_GetOneMsTimer();
         ToggleLed();
         proxy_motor_control();
         temperature_control();
         gas_control();
-//        call_control();
+        call_control();
+        proxy_LED_alarm();
     }
 
 }
 
-//This is the watchdog timer that will reset the pic after a certain amount of time
-//Section 16 in datasheet for WTD.
-//also section 9 here for further details http://ww1.microchip.com/downloads/en/DeviceDoc/61114E.pdf
-//https://www.microchip.com/forums/m691058.aspx
-//https://microchipdeveloper.com/8bit:wdt
-//
-void watchDogTimer(void)
-{
-    //feed the watchdog
-    WDTCONbits.WDTCLRKEY = 1;
-    
-    //enable the watchdog
-    WDTCONbits.ON = 1;
-    
-    //need to check both triss and ansel
-    
-    //this set up the timer (with i variable for example)
-    //and have it tick down until it reaches 0
-    //then reset the watchdog timer
-}
+

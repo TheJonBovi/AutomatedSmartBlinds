@@ -72,6 +72,9 @@
 #endif
 #pragma config FCKSM = CSDCMD           // Clock Switching and Monitor Selection (Clock Switch Disabled, FSCM Disabled)
 #pragma config FWDTEN = OFF             // Watchdog Timer Enable (WDT Disabled)
+#pragma config WDTPS = PS4096           // Watchdog Timer Postscaler (1:512)
+#pragma config WDTSPGM = STOP           // Watchdog Timer Stop During Flash Programming (WDT stops during Flash programming)
+#pragma config WINDIS = NORMAL          // Watchdog Timer Window Mode (Watchdog Timer is in non-Window mode)
 #pragma config FDMTEN = OFF             // Deadman Timer Enable (Deadman Timer is disabled)
 #pragma config DMTINTV = WIN_127_128    // Default DMT Count Window Interval (Window/Interval value is 127/128 counter value)
 #pragma config DMTCNT = DMT31           // Max Deadman Timer count = 2^31
@@ -86,10 +89,9 @@
 
 #include "mcc.h"
 
-//global variables
-//variables used for the motor to turn on, direction, and state
-int motorTargetUD = 1024;      //This needs to be set to 0 (or full up to where the blinds are at the base) during start up. Both hardware and software.
-int motorTargetOC = 0;    //This needs to be set to 128 (or full open as in you're able to see through them) during start up. Both hardware and software.
+// Motor Control Global Variables
+int motorTargetUD = 1024;      //This needs to be set to 1024 (or full up to where the blinds are at the base) during start up. Both hardware and software.
+int motorTargetOC = 0;    //This needs to be set to 0 (or full open as in you're able to see through them) during start up. Both hardware and software.
 int UDStepperState = 0;
 int OCStepperState = 0;
 int motorUD;
@@ -98,33 +100,29 @@ int motorID;
 int counterUD = 1024;
 int counterOC = 0;
 
-// globals for the temperature
+// Temperature Sensor Control Global Variables
 double temp_high = 120; 
 double temp_low;
 int temperatureAlarmState = 0;
 double current_temp;
 
-// globals for the gas sensor
+// Gas Sensor Global Variables
 int gasAlarmState = 0;
 
-// Globals for the proxy sensor
+// Proximity Sensor Global Variables
 int proxyAlarmState = 0;
 int proxyCount = 0;
-
 int rcv_UD_target = 0;
 int rcv_OC_target = 0;
 double rcv_temp_target = 0;
 
 // Globals for wifi service
 uint8_t message_type = WIFI_DO_NOTHING;
-//uint8_t message_type = WIFI_RECIEVE_MODE;
+int callControlState = 0;
 
-double temperatureSensor;
-int smokeSensor;
-int clockTrigger;
-int userTriggerClose;
-
+// Image storage and flag Global Variables
 char JPEG_BUFFER[JPEG_MAX_SIZE] = {0};
+bool JPEG_ready = false;
 
 static void PinMapInit(void);   // added to MCC-generated code
 
@@ -133,25 +131,23 @@ void SYSTEM_Initialize(void)
     PinMapInit();               // added to MCC-generated code
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
-
-    INTERRUPT_Initialize();
-    //UART2_Initialize();
-    EXT_INT_Initialize();
-    TMR1_Initialize();
-
-    buzzer_Initialize();
-
-    // Added routines ported from SmartBlinds project
     PBCLK3_Initialize();
     PBCLK2_Initialize();
-    LED_Initialize();
+    
+    INTERRUPT_Initialize();
+    EXT_INT_Initialize();
+    TMR1_Initialize();
     TMR2_32bit_Initialize();
-    ADC_Initialize();
     TMR5_16bit_Motor_Initialize();
-    DIP_Initialize();
+    
+    //DIP_Initialize();
+    ADC_Initialize();
+    buzzer_Initialize();
     switch_Initialize();
+    LED_Initialize();
 
 
+#ifdef CAMERA_ON
     // Initialize Camera
     I2C1_Sensor_Initialize();
     SPI1_Camera_Initialize();
@@ -159,6 +155,9 @@ void SYSTEM_Initialize(void)
 
     // Configure the Camera
     Camera_Configure();
+#endif
+    
+//    watchdog_Initialize();
 }
 
 void OSCILLATOR_Initialize(void)
@@ -270,6 +269,24 @@ void switch_Initialize(void)
     //set to input for both registers
     TRISGSET = _TRISG_TRISG0_MASK;
     TRISGSET = _TRISG_TRISG1_MASK;
+}
+
+//This is the watchdog timer that will reset the pic after a certain amount of time
+//Section 16 in datasheet for WTD.
+//also section 9 here for further details http://ww1.microchip.com/downloads/en/DeviceDoc/61114E.pdf
+//https://www.microchip.com/forums/m691058.aspx
+//https://microchipdeveloper.com/8bit:wdt
+//
+void watchdog_Initialize(void)
+{
+    // Clear WDT flag
+    WDT_Clear();
+    
+    // Clear register to turn off and initalize
+    WDTCON = 0;
+    
+    //enable the watchdog
+    WDTCONbits.ON = 1;
 }
 
 /**

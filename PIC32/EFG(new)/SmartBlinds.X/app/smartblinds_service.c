@@ -43,10 +43,12 @@ limitations under the License.
 // INCLUDES
 //==============================================================================
 
+#include <xc.h>
 #include "winc1500_api.h"
 #include "demo_config.h"
 #include "wf_common.h"
 #include "defines.h"
+#include <string.h>
 
 #if defined(USING_SMARTBLINDS_SERVICE)
 
@@ -88,6 +90,10 @@ extern int rcv_UD_target;
 extern int rcv_OC_target;
 extern int motorTargetUD;
 extern int motorTargetOC;
+extern int motorUD;
+extern int motorOC;
+int newMotorTargetUD;
+int newMotorTargetOC;
 
 // Proximity Sensor Global Variables
 extern int proxyAlarmState;
@@ -99,6 +105,8 @@ extern int gasAlarmState;
 extern int temperatureAlarmState;
 extern double rcv_temp_target;
 extern double current_temp;
+extern double temp_high;
+double new_temp_high;
 
 // Buffers to receive web UI 
 char conv_rcv_UD_target[20] = {0};
@@ -107,6 +115,9 @@ char conv_rcv_temp_target[20] = {0};
 
 // Message variable to determine what socket to open
 extern uint8_t message_type;
+extern int callControlState;
+int callControlDelay = CALL_IDLE_STATE;
+
 
 // application states
 typedef enum
@@ -181,6 +192,7 @@ void ApplicationTask(void)
             case WIFI_LOG_ENTRY_MODE:
             case WIFI_HELLOXML_MODE:
             case WIFI_RECIEVE_MODE:
+            case WIFI_IMG_UPLOAD_MODE:
                 if (tcp_client_socket < 0)
                 {
                     if ((tcp_client_socket = socket(AF_INET, SOCK_STREAM, 0)) < 0) 
@@ -243,13 +255,17 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
                 switch (message_type)
                 {
                     case WIFI_LOG_ENTRY_MODE:
-                        sprintf((char *)s_ReceivedBuffer, "%s%f%s%u%s%u%s%u%s%u%s", log_entry1, current_temp, log_entry2, proxyAlarmState, log_entry3, gasAlarmState, log_entry4, motorTargetUD, log_entry5, motorTargetOC, log_entry6);
+                        sprintf((char *)s_ReceivedBuffer, "%s%f%s%u%s%u%s%u%s%i%s", log_entry1, current_temp, log_entry2, proxyAlarmState, log_entry3, gasAlarmState, log_entry4, motorTargetUD, log_entry5, motorTargetOC, log_entry6);
                         break;
                     case WIFI_HELLOXML_MODE:
                         sprintf((char *)s_ReceivedBuffer, "%s", getxml_buffer);
                         break;
                     case WIFI_RECIEVE_MODE:
                         sprintf((char *)s_ReceivedBuffer, "%s", recieve_buffer);
+                        break;
+                    case WIFI_IMG_UPLOAD_MODE:
+                        // Initial Image sending packet
+                        
                         break;
                 }
                
@@ -326,7 +342,13 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
                         if (NULL != pcEndPtr) *pcEndPtr = 0;
                     }
                         strcpy(conv_rcv_temp_target, pcIndxPtr );
-
+                        message_type = WIFI_DO_NOTHING;
+                        
+                        // pull out the values from parsed strings
+                        newMotorTargetUD = atoi(conv_rcv_UD_target);
+                        newMotorTargetOC = atoi(conv_rcv_OC_target);
+                        new_temp_high = (double) atoi(conv_rcv_temp_target);
+                        
                         /* Response processed, now close connection. */
                         close(tcp_client_socket);
                         tcp_client_socket = -1;
@@ -335,7 +357,7 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
 
                 } else 
                 {
-                    printf("socket_cb: recv error!\r\n");
+                    message_type = WIFI_DO_NOTHING;
                     close(tcp_client_socket);
                     tcp_client_socket = -1;
                 }
@@ -344,8 +366,9 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
         
         case M2M_SOCKET_SEND_EVENT:
         {
-            if (message_type == WIFI_LOG_ENTRY_MODE)
+            if (message_type == WIFI_LOG_ENTRY_MODE | message_type == WIFI_HELLOXML_MODE)
             {
+                message_type = WIFI_DO_NOTHING;
                 // Log updated, close socket after sending 
                 close(tcp_client_socket);
                 tcp_client_socket = -1;
@@ -396,6 +419,61 @@ static void wifi_cb(uint8_t msgType, void *pvMsg)
         break;
     }
     }
+}
+
+
+// This function will be logging and checking for any updates from the web
+// service at regular intervals
+void call_control(void)
+{
+    switch(callControlState)
+    {
+        case CALL_IDLE_STATE:
+            if (callControlDelay < callControlDelayMAX) ++callControlDelay;
+            else 
+            {
+                callControlState = CALL_LOG_STATE;
+                callControlDelay = 0;
+            }
+            break;
+        case CALL_LOG_STATE:
+            message_type = WIFI_LOG_ENTRY_MODE;
+            callControlState = CALL_LOG_WAIT_STATE;
+            break;
+        case CALL_LOG_WAIT_STATE:
+            if (tcp_client_socket > 0) callControlState = CALL_LOG_WAIT_STATE;
+            else callControlState = CALL_RCV_STATE;
+            break;
+        case CALL_RCV_STATE:
+            message_type = WIFI_RECIEVE_MODE;
+            callControlState = CALL_RCV_WAIT_STATE;
+            break;
+        case CALL_RCV_WAIT_STATE:
+            if (tcp_client_socket > 0) callControlState = CALL_RCV_WAIT_STATE;
+            else callControlState = CALL_RCV_PROCESS_STATE;
+            break;
+        case CALL_RCV_PROCESS_STATE:
+            if (newMotorTargetUD != motorTargetUD)
+            {
+                motorTargetUD = newMotorTargetUD;
+                motorUD = true;       
+                MOTOR_ON();
+            }
+            if (newMotorTargetOC != motorTargetOC)
+            {
+                motorTargetOC = newMotorTargetOC;
+                motorOC = true;       
+                MOTOR_ON();
+            }
+            
+            temp_high = new_temp_high;
+            callControlState = CALL_IDLE_STATE;
+            //callControlState = 100;
+            break;
+        case 100:
+            break;
+    }
+
 }
 
 #endif
