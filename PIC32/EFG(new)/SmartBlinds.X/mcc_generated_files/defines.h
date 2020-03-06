@@ -38,53 +38,48 @@
 
 //define all of the states that will be needed
 //up down motor
-#define _UDMOTOR_S0 0x0010
-#define _UDMOTOR_S1 0x0018
-#define _UDMOTOR_S2 0x0008
-#define _UDMOTOR_S3 0x000C
-#define _UDMOTOR_S4 0x0004
-#define _UDMOTOR_S5 0x0006
-#define _UDMOTOR_S6 0x0002
-#define _UDMOTOR_S7 0x0012
-#define _UDMOTOR_SOFF 0x0000
+#define _UDMOTOR_S0     0x0010
+#define _UDMOTOR_S1     0x0018
+#define _UDMOTOR_S2     0x0008
+#define _UDMOTOR_S3     0x000C
+#define _UDMOTOR_S4     0x0004
+#define _UDMOTOR_S5     0x0006
+#define _UDMOTOR_S6     0x0002
+#define _UDMOTOR_S7     0x0012
+#define _UDMOTOR_SOFF   0x0000
 //open close motor
-#define _OCMOTOR_S0 0x800
-#define _OCMOTOR_S1 0xA00
-#define _OCMOTOR_S2 0x200
-#define _OCMOTOR_S3 0x300
-#define _OCMOTOR_S4 0x100
-#define _OCMOTOR_S5 0x110
-#define _OCMOTOR_S6 0x010
-#define _OCMOTOR_S7 0x810
-#define _OCMOTOR_SOFF 0x0000
-
-//defining temperature values to compare with the temperature readings
-//190 is BE. 245 with hot breath. Set to 400 dec for high.
-#define TEMP_HIGH 0x0190 //90 degrees F is the target.
-#define TEMP_LOW  0x003C //60 degrees F
+#define _OCMOTOR_S0     0x800
+#define _OCMOTOR_S1     0xA00
+#define _OCMOTOR_S2     0x200
+#define _OCMOTOR_S3     0x300
+#define _OCMOTOR_S4     0x100
+#define _OCMOTOR_S5     0x110
+#define _OCMOTOR_S6     0x010
+#define _OCMOTOR_S7     0x810
+#define _OCMOTOR_SOFF   0x0000
 
 //defining gas/smoke values to compare with the gas/smoke readings
 //550-590 dec is the average for any given time. Set to 800 dec for high.
-#define GAS_HIGH 0x320 //These are not the real values. Need to calculate them.
+#define GAS_HIGH        0x320 //These are not the real values. Need to calculate them.
 
 // This value is how we set the motor speed. For reverence
-// 300 = 1 rot / 5 seconds
-#define MOTOR_PR_SETTING 300
+// 300 = 1 rot / 5 seconds, changed to 900 to slow down the motor
+#define MOTOR_PR_SETTING 900
 
 //the positions for the UD motor. They can also be used for the opposite direction.
 //new measurements for the OC: 0 is full open, 256 is full close, -256 is full reverse close
 //128 is half open, -128 is half reverse open, 64 is quarter open, -64 is quarter reverse open
-#define UD_FULL_UP      512 //fully up. modify to 512 (was 0)
-#define UD_1_QUARTER    128 //quarter way down
-#define UD_HALF         256 //halfway down
-#define UD_3_QUARTER    384 //3 quarter way down
-#define UD_FULL_DOWN    0 //fully down. modify to 0 (was 512)
+#define UD_FULL_UP      1024 //fully up. modify to 1024 (was 0)
+#define UD_1_QUARTER    768 //quarter way down
+#define UD_HALF         512 //halfway down
+#define UD_3_QUARTER    256 //3 quarter way down
+#define UD_FULL_DOWN    0 //fully down. modify to 0 (was 1024)
 
-#define OC_FULL_CLOSE   0 //fully closed (facing up)
-#define OC_HALF         64 //half way to full open
-#define OC_FULL_OPEN    200 //full open (can see through). modify to 200(was 128))
-#define OC_R_HALF       192 //mostly closed
-#define OC_FULL_R_CLOSE 256 //fully closed (facing down))
+#define OC_FULL_CLOSE   150 //fully closed (facing up)
+#define OC_HALF         75 //half way to full open
+#define OC_FULL_OPEN    0 //full open (can see through).
+#define OC_R_HALF       -75 //mostly closed
+#define OC_FULL_R_CLOSE -150 //fully closed (facing down))
 
 #define MOTOR_OFF()     T5CONbits.TON = 0 //set the motor off
 #define MOTOR_ON()      T5CONbits.TON = 1 //set the motor on
@@ -115,13 +110,20 @@
 //this is meant for a timer in main to have the proxy remain on
 //and thus have the connected function remain on until the counter
 //has reached the max timer.
-#define maxProxy 15 
+#define maxProxy            15 
+#define maxTMR3ISRdebounce  5
 
 #define JPEG_MAX_SIZE               100000          
 
-// Defines for wifi state machine to determine which string to send
-#define WIFI_LOG_ENTRY_MODE        0
-#define WIFI_HELLOXML_MODE         1  
+// Defines for wifi message_type to determine which string to send
+#define WIFI_DO_NOTHING             0
+#define WIFI_LOG_ENTRY_MODE         1
+#define WIFI_HELLOXML_MODE          2
+#define WIFI_RECIEVE_MODE           3
+
+// toggles test functionality in project
+//#define TESTS
+
 #endif /* _DEFINES_H */
 
 /* *****************************************************************************

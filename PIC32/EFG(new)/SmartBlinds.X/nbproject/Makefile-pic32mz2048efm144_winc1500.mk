@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=app/demo_support/iot/http/http_client.c app/demo_support/iot/json.c app/demo_support/iot/stream_writer.c app/demo_support/iot/sw_timer.c app/demo_support/winc1500_support_stub.c app/winc1500_ap_scan/ota_event_stub.c app/winc1500_ap_scan/socket_event_stub.c app/winc1500_ap_scan/wifi_event_stub.c app/winc1500_ap_scan/winc1500_ap_scan.c app/winc1500_provision_ap/winc1500_provision_ap.c app/winc1500_pubnub/PubNub.c app/winc1500_pubnub/winc1500_pubnub.c app/winc1500_simple_growl/growl.c app/winc1500_simple_growl/winc1500_simple_growl.c app/winc1500_udp_client/ota_event_stub.c app/winc1500_udp_client/socket_event_stub.c app/winc1500_udp_client/wifi_event_stub.c app/winc1500_udp_client/winc1500_udp_client.c app/winc1500_udp_server/ota_event_stub.c app/winc1500_udp_server/socket_event_stub.c app/winc1500_udp_server/wifi_event_stub.c app/winc1500_udp_server/winc1500_udp_server.c app/winc1500_fw_update_over_serial.c app/winc1500_http_download.c app/winc1500_locate_ip_address.c app/winc1500_mac_address.c app/winc1500_mode_ap.c app/winc1500_mode_change.c app/winc1500_mode_p2p.c app/winc1500_mode_sta.c app/winc1500_ota_firmware_update.c app/winc1500_power_save_mode.c app/winc1500_provision_http.c app/winc1500_security_wep_wpa.c app/winc1500_security_wps.c app/winc1500_send_email.c app/winc1500_signal_strength.c app/winc1500_ssl_connect.c app/winc1500_tcp_client.c app/winc1500_tcp_server.c app/winc1500_time_client.c app/winc1500_weather_client.c app/smartblinds_service.c bsp/bsp.c framework/driver/winc1500/src/wf_asic.c framework/driver/winc1500/src/wf_hif.c framework/driver/winc1500/src/wf_ota.c framework/driver/winc1500/src/wf_socket.c framework/driver/winc1500/src/wf_spi.c framework/driver/winc1500/src/wf_spi_flash.c framework/driver/winc1500/src/wf_utils.c framework/driver/winc1500/src/wf_wifi.c mcc_generated_files/traps.c mcc_generated_files/uart2.c mcc_generated_files/mcc.c mcc_generated_files/interrupt_manager.c mcc_generated_files/pin_manager.c mcc_generated_files/tmr1.c mcc_generated_files/ext_int.c mcc_generated_files/led.c mcc_generated_files/tmr2_3.c mcc_generated_files/adc.c mcc_generated_files/tmr4_5.c mcc_generated_files/stepper_test.c mcc_generated_files/SPI1.c mcc_generated_files/I2C1.c mcc_generated_files/camera.c mcc_generated_files/ov2640_regs.c stubs/wf_mcu_driver_stub.c main.c
+SOURCEFILES_QUOTED_IF_SPACED=app/demo_support/iot/http/http_client.c app/demo_support/iot/json.c app/demo_support/iot/stream_writer.c app/demo_support/iot/sw_timer.c app/demo_support/winc1500_support_stub.c app/winc1500_weather_client.c app/smartblinds_service.c bsp/bsp.c framework/driver/winc1500/src/wf_asic.c framework/driver/winc1500/src/wf_hif.c framework/driver/winc1500/src/wf_ota.c framework/driver/winc1500/src/wf_socket.c framework/driver/winc1500/src/wf_spi.c framework/driver/winc1500/src/wf_spi_flash.c framework/driver/winc1500/src/wf_utils.c framework/driver/winc1500/src/wf_wifi.c mcc_generated_files/traps.c mcc_generated_files/uart2.c mcc_generated_files/mcc.c mcc_generated_files/interrupt_manager.c mcc_generated_files/pin_manager.c mcc_generated_files/tmr1.c mcc_generated_files/ext_int.c mcc_generated_files/led.c mcc_generated_files/tmr2_3.c mcc_generated_files/adc.c mcc_generated_files/tmr4_5.c mcc_generated_files/SPI1.c mcc_generated_files/I2C1.c mcc_generated_files/camera.c mcc_generated_files/ov2640_regs.c stubs/wf_mcu_driver_stub.c main.c mcc_generated_files/stepper_control.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/app/demo_support/iot/http/http_client.o ${OBJECTDIR}/app/demo_support/iot/json.o ${OBJECTDIR}/app/demo_support/iot/stream_writer.o ${OBJECTDIR}/app/demo_support/iot/sw_timer.o ${OBJECTDIR}/app/demo_support/winc1500_support_stub.o ${OBJECTDIR}/app/winc1500_ap_scan/ota_event_stub.o ${OBJECTDIR}/app/winc1500_ap_scan/socket_event_stub.o ${OBJECTDIR}/app/winc1500_ap_scan/wifi_event_stub.o ${OBJECTDIR}/app/winc1500_ap_scan/winc1500_ap_scan.o ${OBJECTDIR}/app/winc1500_provision_ap/winc1500_provision_ap.o ${OBJECTDIR}/app/winc1500_pubnub/PubNub.o ${OBJECTDIR}/app/winc1500_pubnub/winc1500_pubnub.o ${OBJECTDIR}/app/winc1500_simple_growl/growl.o ${OBJECTDIR}/app/winc1500_simple_growl/winc1500_simple_growl.o ${OBJECTDIR}/app/winc1500_udp_client/ota_event_stub.o ${OBJECTDIR}/app/winc1500_udp_client/socket_event_stub.o ${OBJECTDIR}/app/winc1500_udp_client/wifi_event_stub.o ${OBJECTDIR}/app/winc1500_udp_client/winc1500_udp_client.o ${OBJECTDIR}/app/winc1500_udp_server/ota_event_stub.o ${OBJECTDIR}/app/winc1500_udp_server/socket_event_stub.o ${OBJECTDIR}/app/winc1500_udp_server/wifi_event_stub.o ${OBJECTDIR}/app/winc1500_udp_server/winc1500_udp_server.o ${OBJECTDIR}/app/winc1500_fw_update_over_serial.o ${OBJECTDIR}/app/winc1500_http_download.o ${OBJECTDIR}/app/winc1500_locate_ip_address.o ${OBJECTDIR}/app/winc1500_mac_address.o ${OBJECTDIR}/app/winc1500_mode_ap.o ${OBJECTDIR}/app/winc1500_mode_change.o ${OBJECTDIR}/app/winc1500_mode_p2p.o ${OBJECTDIR}/app/winc1500_mode_sta.o ${OBJECTDIR}/app/winc1500_ota_firmware_update.o ${OBJECTDIR}/app/winc1500_power_save_mode.o ${OBJECTDIR}/app/winc1500_provision_http.o ${OBJECTDIR}/app/winc1500_security_wep_wpa.o ${OBJECTDIR}/app/winc1500_security_wps.o ${OBJECTDIR}/app/winc1500_send_email.o ${OBJECTDIR}/app/winc1500_signal_strength.o ${OBJECTDIR}/app/winc1500_ssl_connect.o ${OBJECTDIR}/app/winc1500_tcp_client.o ${OBJECTDIR}/app/winc1500_tcp_server.o ${OBJECTDIR}/app/winc1500_time_client.o ${OBJECTDIR}/app/winc1500_weather_client.o ${OBJECTDIR}/app/smartblinds_service.o ${OBJECTDIR}/bsp/bsp.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_asic.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_hif.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_ota.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_socket.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_spi.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_spi_flash.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_utils.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_wifi.o ${OBJECTDIR}/mcc_generated_files/traps.o ${OBJECTDIR}/mcc_generated_files/uart2.o ${OBJECTDIR}/mcc_generated_files/mcc.o ${OBJECTDIR}/mcc_generated_files/interrupt_manager.o ${OBJECTDIR}/mcc_generated_files/pin_manager.o ${OBJECTDIR}/mcc_generated_files/tmr1.o ${OBJECTDIR}/mcc_generated_files/ext_int.o ${OBJECTDIR}/mcc_generated_files/led.o ${OBJECTDIR}/mcc_generated_files/tmr2_3.o ${OBJECTDIR}/mcc_generated_files/adc.o ${OBJECTDIR}/mcc_generated_files/tmr4_5.o ${OBJECTDIR}/mcc_generated_files/stepper_test.o ${OBJECTDIR}/mcc_generated_files/SPI1.o ${OBJECTDIR}/mcc_generated_files/I2C1.o ${OBJECTDIR}/mcc_generated_files/camera.o ${OBJECTDIR}/mcc_generated_files/ov2640_regs.o ${OBJECTDIR}/stubs/wf_mcu_driver_stub.o ${OBJECTDIR}/main.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/app/demo_support/iot/http/http_client.o.d ${OBJECTDIR}/app/demo_support/iot/json.o.d ${OBJECTDIR}/app/demo_support/iot/stream_writer.o.d ${OBJECTDIR}/app/demo_support/iot/sw_timer.o.d ${OBJECTDIR}/app/demo_support/winc1500_support_stub.o.d ${OBJECTDIR}/app/winc1500_ap_scan/ota_event_stub.o.d ${OBJECTDIR}/app/winc1500_ap_scan/socket_event_stub.o.d ${OBJECTDIR}/app/winc1500_ap_scan/wifi_event_stub.o.d ${OBJECTDIR}/app/winc1500_ap_scan/winc1500_ap_scan.o.d ${OBJECTDIR}/app/winc1500_provision_ap/winc1500_provision_ap.o.d ${OBJECTDIR}/app/winc1500_pubnub/PubNub.o.d ${OBJECTDIR}/app/winc1500_pubnub/winc1500_pubnub.o.d ${OBJECTDIR}/app/winc1500_simple_growl/growl.o.d ${OBJECTDIR}/app/winc1500_simple_growl/winc1500_simple_growl.o.d ${OBJECTDIR}/app/winc1500_udp_client/ota_event_stub.o.d ${OBJECTDIR}/app/winc1500_udp_client/socket_event_stub.o.d ${OBJECTDIR}/app/winc1500_udp_client/wifi_event_stub.o.d ${OBJECTDIR}/app/winc1500_udp_client/winc1500_udp_client.o.d ${OBJECTDIR}/app/winc1500_udp_server/ota_event_stub.o.d ${OBJECTDIR}/app/winc1500_udp_server/socket_event_stub.o.d ${OBJECTDIR}/app/winc1500_udp_server/wifi_event_stub.o.d ${OBJECTDIR}/app/winc1500_udp_server/winc1500_udp_server.o.d ${OBJECTDIR}/app/winc1500_fw_update_over_serial.o.d ${OBJECTDIR}/app/winc1500_http_download.o.d ${OBJECTDIR}/app/winc1500_locate_ip_address.o.d ${OBJECTDIR}/app/winc1500_mac_address.o.d ${OBJECTDIR}/app/winc1500_mode_ap.o.d ${OBJECTDIR}/app/winc1500_mode_change.o.d ${OBJECTDIR}/app/winc1500_mode_p2p.o.d ${OBJECTDIR}/app/winc1500_mode_sta.o.d ${OBJECTDIR}/app/winc1500_ota_firmware_update.o.d ${OBJECTDIR}/app/winc1500_power_save_mode.o.d ${OBJECTDIR}/app/winc1500_provision_http.o.d ${OBJECTDIR}/app/winc1500_security_wep_wpa.o.d ${OBJECTDIR}/app/winc1500_security_wps.o.d ${OBJECTDIR}/app/winc1500_send_email.o.d ${OBJECTDIR}/app/winc1500_signal_strength.o.d ${OBJECTDIR}/app/winc1500_ssl_connect.o.d ${OBJECTDIR}/app/winc1500_tcp_client.o.d ${OBJECTDIR}/app/winc1500_tcp_server.o.d ${OBJECTDIR}/app/winc1500_time_client.o.d ${OBJECTDIR}/app/winc1500_weather_client.o.d ${OBJECTDIR}/app/smartblinds_service.o.d ${OBJECTDIR}/bsp/bsp.o.d ${OBJECTDIR}/framework/driver/winc1500/src/wf_asic.o.d ${OBJECTDIR}/framework/driver/winc1500/src/wf_hif.o.d ${OBJECTDIR}/framework/driver/winc1500/src/wf_ota.o.d ${OBJECTDIR}/framework/driver/winc1500/src/wf_socket.o.d ${OBJECTDIR}/framework/driver/winc1500/src/wf_spi.o.d ${OBJECTDIR}/framework/driver/winc1500/src/wf_spi_flash.o.d ${OBJECTDIR}/framework/driver/winc1500/src/wf_utils.o.d ${OBJECTDIR}/framework/driver/winc1500/src/wf_wifi.o.d ${OBJECTDIR}/mcc_generated_files/traps.o.d ${OBJECTDIR}/mcc_generated_files/uart2.o.d ${OBJECTDIR}/mcc_generated_files/mcc.o.d ${OBJECTDIR}/mcc_generated_files/interrupt_manager.o.d ${OBJECTDIR}/mcc_generated_files/pin_manager.o.d ${OBJECTDIR}/mcc_generated_files/tmr1.o.d ${OBJECTDIR}/mcc_generated_files/ext_int.o.d ${OBJECTDIR}/mcc_generated_files/led.o.d ${OBJECTDIR}/mcc_generated_files/tmr2_3.o.d ${OBJECTDIR}/mcc_generated_files/adc.o.d ${OBJECTDIR}/mcc_generated_files/tmr4_5.o.d ${OBJECTDIR}/mcc_generated_files/stepper_test.o.d ${OBJECTDIR}/mcc_generated_files/SPI1.o.d ${OBJECTDIR}/mcc_generated_files/I2C1.o.d ${OBJECTDIR}/mcc_generated_files/camera.o.d ${OBJECTDIR}/mcc_generated_files/ov2640_regs.o.d ${OBJECTDIR}/stubs/wf_mcu_driver_stub.o.d ${OBJECTDIR}/main.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/app/demo_support/iot/http/http_client.o ${OBJECTDIR}/app/demo_support/iot/json.o ${OBJECTDIR}/app/demo_support/iot/stream_writer.o ${OBJECTDIR}/app/demo_support/iot/sw_timer.o ${OBJECTDIR}/app/demo_support/winc1500_support_stub.o ${OBJECTDIR}/app/winc1500_weather_client.o ${OBJECTDIR}/app/smartblinds_service.o ${OBJECTDIR}/bsp/bsp.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_asic.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_hif.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_ota.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_socket.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_spi.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_spi_flash.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_utils.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_wifi.o ${OBJECTDIR}/mcc_generated_files/traps.o ${OBJECTDIR}/mcc_generated_files/uart2.o ${OBJECTDIR}/mcc_generated_files/mcc.o ${OBJECTDIR}/mcc_generated_files/interrupt_manager.o ${OBJECTDIR}/mcc_generated_files/pin_manager.o ${OBJECTDIR}/mcc_generated_files/tmr1.o ${OBJECTDIR}/mcc_generated_files/ext_int.o ${OBJECTDIR}/mcc_generated_files/led.o ${OBJECTDIR}/mcc_generated_files/tmr2_3.o ${OBJECTDIR}/mcc_generated_files/adc.o ${OBJECTDIR}/mcc_generated_files/tmr4_5.o ${OBJECTDIR}/mcc_generated_files/SPI1.o ${OBJECTDIR}/mcc_generated_files/I2C1.o ${OBJECTDIR}/mcc_generated_files/camera.o ${OBJECTDIR}/mcc_generated_files/ov2640_regs.o ${OBJECTDIR}/stubs/wf_mcu_driver_stub.o ${OBJECTDIR}/main.o ${OBJECTDIR}/mcc_generated_files/stepper_control.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/app/demo_support/iot/http/http_client.o.d ${OBJECTDIR}/app/demo_support/iot/json.o.d ${OBJECTDIR}/app/demo_support/iot/stream_writer.o.d ${OBJECTDIR}/app/demo_support/iot/sw_timer.o.d ${OBJECTDIR}/app/demo_support/winc1500_support_stub.o.d ${OBJECTDIR}/app/winc1500_weather_client.o.d ${OBJECTDIR}/app/smartblinds_service.o.d ${OBJECTDIR}/bsp/bsp.o.d ${OBJECTDIR}/framework/driver/winc1500/src/wf_asic.o.d ${OBJECTDIR}/framework/driver/winc1500/src/wf_hif.o.d ${OBJECTDIR}/framework/driver/winc1500/src/wf_ota.o.d ${OBJECTDIR}/framework/driver/winc1500/src/wf_socket.o.d ${OBJECTDIR}/framework/driver/winc1500/src/wf_spi.o.d ${OBJECTDIR}/framework/driver/winc1500/src/wf_spi_flash.o.d ${OBJECTDIR}/framework/driver/winc1500/src/wf_utils.o.d ${OBJECTDIR}/framework/driver/winc1500/src/wf_wifi.o.d ${OBJECTDIR}/mcc_generated_files/traps.o.d ${OBJECTDIR}/mcc_generated_files/uart2.o.d ${OBJECTDIR}/mcc_generated_files/mcc.o.d ${OBJECTDIR}/mcc_generated_files/interrupt_manager.o.d ${OBJECTDIR}/mcc_generated_files/pin_manager.o.d ${OBJECTDIR}/mcc_generated_files/tmr1.o.d ${OBJECTDIR}/mcc_generated_files/ext_int.o.d ${OBJECTDIR}/mcc_generated_files/led.o.d ${OBJECTDIR}/mcc_generated_files/tmr2_3.o.d ${OBJECTDIR}/mcc_generated_files/adc.o.d ${OBJECTDIR}/mcc_generated_files/tmr4_5.o.d ${OBJECTDIR}/mcc_generated_files/SPI1.o.d ${OBJECTDIR}/mcc_generated_files/I2C1.o.d ${OBJECTDIR}/mcc_generated_files/camera.o.d ${OBJECTDIR}/mcc_generated_files/ov2640_regs.o.d ${OBJECTDIR}/stubs/wf_mcu_driver_stub.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/mcc_generated_files/stepper_control.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/app/demo_support/iot/http/http_client.o ${OBJECTDIR}/app/demo_support/iot/json.o ${OBJECTDIR}/app/demo_support/iot/stream_writer.o ${OBJECTDIR}/app/demo_support/iot/sw_timer.o ${OBJECTDIR}/app/demo_support/winc1500_support_stub.o ${OBJECTDIR}/app/winc1500_ap_scan/ota_event_stub.o ${OBJECTDIR}/app/winc1500_ap_scan/socket_event_stub.o ${OBJECTDIR}/app/winc1500_ap_scan/wifi_event_stub.o ${OBJECTDIR}/app/winc1500_ap_scan/winc1500_ap_scan.o ${OBJECTDIR}/app/winc1500_provision_ap/winc1500_provision_ap.o ${OBJECTDIR}/app/winc1500_pubnub/PubNub.o ${OBJECTDIR}/app/winc1500_pubnub/winc1500_pubnub.o ${OBJECTDIR}/app/winc1500_simple_growl/growl.o ${OBJECTDIR}/app/winc1500_simple_growl/winc1500_simple_growl.o ${OBJECTDIR}/app/winc1500_udp_client/ota_event_stub.o ${OBJECTDIR}/app/winc1500_udp_client/socket_event_stub.o ${OBJECTDIR}/app/winc1500_udp_client/wifi_event_stub.o ${OBJECTDIR}/app/winc1500_udp_client/winc1500_udp_client.o ${OBJECTDIR}/app/winc1500_udp_server/ota_event_stub.o ${OBJECTDIR}/app/winc1500_udp_server/socket_event_stub.o ${OBJECTDIR}/app/winc1500_udp_server/wifi_event_stub.o ${OBJECTDIR}/app/winc1500_udp_server/winc1500_udp_server.o ${OBJECTDIR}/app/winc1500_fw_update_over_serial.o ${OBJECTDIR}/app/winc1500_http_download.o ${OBJECTDIR}/app/winc1500_locate_ip_address.o ${OBJECTDIR}/app/winc1500_mac_address.o ${OBJECTDIR}/app/winc1500_mode_ap.o ${OBJECTDIR}/app/winc1500_mode_change.o ${OBJECTDIR}/app/winc1500_mode_p2p.o ${OBJECTDIR}/app/winc1500_mode_sta.o ${OBJECTDIR}/app/winc1500_ota_firmware_update.o ${OBJECTDIR}/app/winc1500_power_save_mode.o ${OBJECTDIR}/app/winc1500_provision_http.o ${OBJECTDIR}/app/winc1500_security_wep_wpa.o ${OBJECTDIR}/app/winc1500_security_wps.o ${OBJECTDIR}/app/winc1500_send_email.o ${OBJECTDIR}/app/winc1500_signal_strength.o ${OBJECTDIR}/app/winc1500_ssl_connect.o ${OBJECTDIR}/app/winc1500_tcp_client.o ${OBJECTDIR}/app/winc1500_tcp_server.o ${OBJECTDIR}/app/winc1500_time_client.o ${OBJECTDIR}/app/winc1500_weather_client.o ${OBJECTDIR}/app/smartblinds_service.o ${OBJECTDIR}/bsp/bsp.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_asic.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_hif.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_ota.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_socket.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_spi.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_spi_flash.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_utils.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_wifi.o ${OBJECTDIR}/mcc_generated_files/traps.o ${OBJECTDIR}/mcc_generated_files/uart2.o ${OBJECTDIR}/mcc_generated_files/mcc.o ${OBJECTDIR}/mcc_generated_files/interrupt_manager.o ${OBJECTDIR}/mcc_generated_files/pin_manager.o ${OBJECTDIR}/mcc_generated_files/tmr1.o ${OBJECTDIR}/mcc_generated_files/ext_int.o ${OBJECTDIR}/mcc_generated_files/led.o ${OBJECTDIR}/mcc_generated_files/tmr2_3.o ${OBJECTDIR}/mcc_generated_files/adc.o ${OBJECTDIR}/mcc_generated_files/tmr4_5.o ${OBJECTDIR}/mcc_generated_files/stepper_test.o ${OBJECTDIR}/mcc_generated_files/SPI1.o ${OBJECTDIR}/mcc_generated_files/I2C1.o ${OBJECTDIR}/mcc_generated_files/camera.o ${OBJECTDIR}/mcc_generated_files/ov2640_regs.o ${OBJECTDIR}/stubs/wf_mcu_driver_stub.o ${OBJECTDIR}/main.o
+OBJECTFILES=${OBJECTDIR}/app/demo_support/iot/http/http_client.o ${OBJECTDIR}/app/demo_support/iot/json.o ${OBJECTDIR}/app/demo_support/iot/stream_writer.o ${OBJECTDIR}/app/demo_support/iot/sw_timer.o ${OBJECTDIR}/app/demo_support/winc1500_support_stub.o ${OBJECTDIR}/app/winc1500_weather_client.o ${OBJECTDIR}/app/smartblinds_service.o ${OBJECTDIR}/bsp/bsp.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_asic.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_hif.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_ota.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_socket.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_spi.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_spi_flash.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_utils.o ${OBJECTDIR}/framework/driver/winc1500/src/wf_wifi.o ${OBJECTDIR}/mcc_generated_files/traps.o ${OBJECTDIR}/mcc_generated_files/uart2.o ${OBJECTDIR}/mcc_generated_files/mcc.o ${OBJECTDIR}/mcc_generated_files/interrupt_manager.o ${OBJECTDIR}/mcc_generated_files/pin_manager.o ${OBJECTDIR}/mcc_generated_files/tmr1.o ${OBJECTDIR}/mcc_generated_files/ext_int.o ${OBJECTDIR}/mcc_generated_files/led.o ${OBJECTDIR}/mcc_generated_files/tmr2_3.o ${OBJECTDIR}/mcc_generated_files/adc.o ${OBJECTDIR}/mcc_generated_files/tmr4_5.o ${OBJECTDIR}/mcc_generated_files/SPI1.o ${OBJECTDIR}/mcc_generated_files/I2C1.o ${OBJECTDIR}/mcc_generated_files/camera.o ${OBJECTDIR}/mcc_generated_files/ov2640_regs.o ${OBJECTDIR}/stubs/wf_mcu_driver_stub.o ${OBJECTDIR}/main.o ${OBJECTDIR}/mcc_generated_files/stepper_control.o
 
 # Source Files
-SOURCEFILES=app/demo_support/iot/http/http_client.c app/demo_support/iot/json.c app/demo_support/iot/stream_writer.c app/demo_support/iot/sw_timer.c app/demo_support/winc1500_support_stub.c app/winc1500_ap_scan/ota_event_stub.c app/winc1500_ap_scan/socket_event_stub.c app/winc1500_ap_scan/wifi_event_stub.c app/winc1500_ap_scan/winc1500_ap_scan.c app/winc1500_provision_ap/winc1500_provision_ap.c app/winc1500_pubnub/PubNub.c app/winc1500_pubnub/winc1500_pubnub.c app/winc1500_simple_growl/growl.c app/winc1500_simple_growl/winc1500_simple_growl.c app/winc1500_udp_client/ota_event_stub.c app/winc1500_udp_client/socket_event_stub.c app/winc1500_udp_client/wifi_event_stub.c app/winc1500_udp_client/winc1500_udp_client.c app/winc1500_udp_server/ota_event_stub.c app/winc1500_udp_server/socket_event_stub.c app/winc1500_udp_server/wifi_event_stub.c app/winc1500_udp_server/winc1500_udp_server.c app/winc1500_fw_update_over_serial.c app/winc1500_http_download.c app/winc1500_locate_ip_address.c app/winc1500_mac_address.c app/winc1500_mode_ap.c app/winc1500_mode_change.c app/winc1500_mode_p2p.c app/winc1500_mode_sta.c app/winc1500_ota_firmware_update.c app/winc1500_power_save_mode.c app/winc1500_provision_http.c app/winc1500_security_wep_wpa.c app/winc1500_security_wps.c app/winc1500_send_email.c app/winc1500_signal_strength.c app/winc1500_ssl_connect.c app/winc1500_tcp_client.c app/winc1500_tcp_server.c app/winc1500_time_client.c app/winc1500_weather_client.c app/smartblinds_service.c bsp/bsp.c framework/driver/winc1500/src/wf_asic.c framework/driver/winc1500/src/wf_hif.c framework/driver/winc1500/src/wf_ota.c framework/driver/winc1500/src/wf_socket.c framework/driver/winc1500/src/wf_spi.c framework/driver/winc1500/src/wf_spi_flash.c framework/driver/winc1500/src/wf_utils.c framework/driver/winc1500/src/wf_wifi.c mcc_generated_files/traps.c mcc_generated_files/uart2.c mcc_generated_files/mcc.c mcc_generated_files/interrupt_manager.c mcc_generated_files/pin_manager.c mcc_generated_files/tmr1.c mcc_generated_files/ext_int.c mcc_generated_files/led.c mcc_generated_files/tmr2_3.c mcc_generated_files/adc.c mcc_generated_files/tmr4_5.c mcc_generated_files/stepper_test.c mcc_generated_files/SPI1.c mcc_generated_files/I2C1.c mcc_generated_files/camera.c mcc_generated_files/ov2640_regs.c stubs/wf_mcu_driver_stub.c main.c
+SOURCEFILES=app/demo_support/iot/http/http_client.c app/demo_support/iot/json.c app/demo_support/iot/stream_writer.c app/demo_support/iot/sw_timer.c app/demo_support/winc1500_support_stub.c app/winc1500_weather_client.c app/smartblinds_service.c bsp/bsp.c framework/driver/winc1500/src/wf_asic.c framework/driver/winc1500/src/wf_hif.c framework/driver/winc1500/src/wf_ota.c framework/driver/winc1500/src/wf_socket.c framework/driver/winc1500/src/wf_spi.c framework/driver/winc1500/src/wf_spi_flash.c framework/driver/winc1500/src/wf_utils.c framework/driver/winc1500/src/wf_wifi.c mcc_generated_files/traps.c mcc_generated_files/uart2.c mcc_generated_files/mcc.c mcc_generated_files/interrupt_manager.c mcc_generated_files/pin_manager.c mcc_generated_files/tmr1.c mcc_generated_files/ext_int.c mcc_generated_files/led.c mcc_generated_files/tmr2_3.c mcc_generated_files/adc.c mcc_generated_files/tmr4_5.c mcc_generated_files/SPI1.c mcc_generated_files/I2C1.c mcc_generated_files/camera.c mcc_generated_files/ov2640_regs.c stubs/wf_mcu_driver_stub.c main.c mcc_generated_files/stepper_control.c
 
 
 
@@ -136,222 +136,6 @@ ${OBJECTDIR}/app/demo_support/winc1500_support_stub.o: app/demo_support/winc1500
 	@${RM} ${OBJECTDIR}/app/demo_support/winc1500_support_stub.o.d 
 	@${RM} ${OBJECTDIR}/app/demo_support/winc1500_support_stub.o 
 	@${FIXDEPS} "${OBJECTDIR}/app/demo_support/winc1500_support_stub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/demo_support/winc1500_support_stub.o.d" -o ${OBJECTDIR}/app/demo_support/winc1500_support_stub.o app/demo_support/winc1500_support_stub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_ap_scan/ota_event_stub.o: app/winc1500_ap_scan/ota_event_stub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_ap_scan" 
-	@${RM} ${OBJECTDIR}/app/winc1500_ap_scan/ota_event_stub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_ap_scan/ota_event_stub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_ap_scan/ota_event_stub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_ap_scan/ota_event_stub.o.d" -o ${OBJECTDIR}/app/winc1500_ap_scan/ota_event_stub.o app/winc1500_ap_scan/ota_event_stub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_ap_scan/socket_event_stub.o: app/winc1500_ap_scan/socket_event_stub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_ap_scan" 
-	@${RM} ${OBJECTDIR}/app/winc1500_ap_scan/socket_event_stub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_ap_scan/socket_event_stub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_ap_scan/socket_event_stub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_ap_scan/socket_event_stub.o.d" -o ${OBJECTDIR}/app/winc1500_ap_scan/socket_event_stub.o app/winc1500_ap_scan/socket_event_stub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_ap_scan/wifi_event_stub.o: app/winc1500_ap_scan/wifi_event_stub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_ap_scan" 
-	@${RM} ${OBJECTDIR}/app/winc1500_ap_scan/wifi_event_stub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_ap_scan/wifi_event_stub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_ap_scan/wifi_event_stub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_ap_scan/wifi_event_stub.o.d" -o ${OBJECTDIR}/app/winc1500_ap_scan/wifi_event_stub.o app/winc1500_ap_scan/wifi_event_stub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_ap_scan/winc1500_ap_scan.o: app/winc1500_ap_scan/winc1500_ap_scan.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_ap_scan" 
-	@${RM} ${OBJECTDIR}/app/winc1500_ap_scan/winc1500_ap_scan.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_ap_scan/winc1500_ap_scan.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_ap_scan/winc1500_ap_scan.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_ap_scan/winc1500_ap_scan.o.d" -o ${OBJECTDIR}/app/winc1500_ap_scan/winc1500_ap_scan.o app/winc1500_ap_scan/winc1500_ap_scan.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_provision_ap/winc1500_provision_ap.o: app/winc1500_provision_ap/winc1500_provision_ap.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_provision_ap" 
-	@${RM} ${OBJECTDIR}/app/winc1500_provision_ap/winc1500_provision_ap.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_provision_ap/winc1500_provision_ap.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_provision_ap/winc1500_provision_ap.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_provision_ap/winc1500_provision_ap.o.d" -o ${OBJECTDIR}/app/winc1500_provision_ap/winc1500_provision_ap.o app/winc1500_provision_ap/winc1500_provision_ap.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_pubnub/PubNub.o: app/winc1500_pubnub/PubNub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_pubnub" 
-	@${RM} ${OBJECTDIR}/app/winc1500_pubnub/PubNub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_pubnub/PubNub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_pubnub/PubNub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_pubnub/PubNub.o.d" -o ${OBJECTDIR}/app/winc1500_pubnub/PubNub.o app/winc1500_pubnub/PubNub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_pubnub/winc1500_pubnub.o: app/winc1500_pubnub/winc1500_pubnub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_pubnub" 
-	@${RM} ${OBJECTDIR}/app/winc1500_pubnub/winc1500_pubnub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_pubnub/winc1500_pubnub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_pubnub/winc1500_pubnub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_pubnub/winc1500_pubnub.o.d" -o ${OBJECTDIR}/app/winc1500_pubnub/winc1500_pubnub.o app/winc1500_pubnub/winc1500_pubnub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_simple_growl/growl.o: app/winc1500_simple_growl/growl.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_simple_growl" 
-	@${RM} ${OBJECTDIR}/app/winc1500_simple_growl/growl.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_simple_growl/growl.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_simple_growl/growl.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_simple_growl/growl.o.d" -o ${OBJECTDIR}/app/winc1500_simple_growl/growl.o app/winc1500_simple_growl/growl.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_simple_growl/winc1500_simple_growl.o: app/winc1500_simple_growl/winc1500_simple_growl.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_simple_growl" 
-	@${RM} ${OBJECTDIR}/app/winc1500_simple_growl/winc1500_simple_growl.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_simple_growl/winc1500_simple_growl.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_simple_growl/winc1500_simple_growl.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_simple_growl/winc1500_simple_growl.o.d" -o ${OBJECTDIR}/app/winc1500_simple_growl/winc1500_simple_growl.o app/winc1500_simple_growl/winc1500_simple_growl.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_udp_client/ota_event_stub.o: app/winc1500_udp_client/ota_event_stub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_udp_client" 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_client/ota_event_stub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_client/ota_event_stub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_udp_client/ota_event_stub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_udp_client/ota_event_stub.o.d" -o ${OBJECTDIR}/app/winc1500_udp_client/ota_event_stub.o app/winc1500_udp_client/ota_event_stub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_udp_client/socket_event_stub.o: app/winc1500_udp_client/socket_event_stub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_udp_client" 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_client/socket_event_stub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_client/socket_event_stub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_udp_client/socket_event_stub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_udp_client/socket_event_stub.o.d" -o ${OBJECTDIR}/app/winc1500_udp_client/socket_event_stub.o app/winc1500_udp_client/socket_event_stub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_udp_client/wifi_event_stub.o: app/winc1500_udp_client/wifi_event_stub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_udp_client" 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_client/wifi_event_stub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_client/wifi_event_stub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_udp_client/wifi_event_stub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_udp_client/wifi_event_stub.o.d" -o ${OBJECTDIR}/app/winc1500_udp_client/wifi_event_stub.o app/winc1500_udp_client/wifi_event_stub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_udp_client/winc1500_udp_client.o: app/winc1500_udp_client/winc1500_udp_client.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_udp_client" 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_client/winc1500_udp_client.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_client/winc1500_udp_client.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_udp_client/winc1500_udp_client.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_udp_client/winc1500_udp_client.o.d" -o ${OBJECTDIR}/app/winc1500_udp_client/winc1500_udp_client.o app/winc1500_udp_client/winc1500_udp_client.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_udp_server/ota_event_stub.o: app/winc1500_udp_server/ota_event_stub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_udp_server" 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_server/ota_event_stub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_server/ota_event_stub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_udp_server/ota_event_stub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_udp_server/ota_event_stub.o.d" -o ${OBJECTDIR}/app/winc1500_udp_server/ota_event_stub.o app/winc1500_udp_server/ota_event_stub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_udp_server/socket_event_stub.o: app/winc1500_udp_server/socket_event_stub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_udp_server" 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_server/socket_event_stub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_server/socket_event_stub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_udp_server/socket_event_stub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_udp_server/socket_event_stub.o.d" -o ${OBJECTDIR}/app/winc1500_udp_server/socket_event_stub.o app/winc1500_udp_server/socket_event_stub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_udp_server/wifi_event_stub.o: app/winc1500_udp_server/wifi_event_stub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_udp_server" 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_server/wifi_event_stub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_server/wifi_event_stub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_udp_server/wifi_event_stub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_udp_server/wifi_event_stub.o.d" -o ${OBJECTDIR}/app/winc1500_udp_server/wifi_event_stub.o app/winc1500_udp_server/wifi_event_stub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_udp_server/winc1500_udp_server.o: app/winc1500_udp_server/winc1500_udp_server.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_udp_server" 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_server/winc1500_udp_server.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_server/winc1500_udp_server.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_udp_server/winc1500_udp_server.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_udp_server/winc1500_udp_server.o.d" -o ${OBJECTDIR}/app/winc1500_udp_server/winc1500_udp_server.o app/winc1500_udp_server/winc1500_udp_server.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_fw_update_over_serial.o: app/winc1500_fw_update_over_serial.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_fw_update_over_serial.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_fw_update_over_serial.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_fw_update_over_serial.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_fw_update_over_serial.o.d" -o ${OBJECTDIR}/app/winc1500_fw_update_over_serial.o app/winc1500_fw_update_over_serial.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_http_download.o: app/winc1500_http_download.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_http_download.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_http_download.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_http_download.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_http_download.o.d" -o ${OBJECTDIR}/app/winc1500_http_download.o app/winc1500_http_download.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_locate_ip_address.o: app/winc1500_locate_ip_address.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_locate_ip_address.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_locate_ip_address.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_locate_ip_address.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_locate_ip_address.o.d" -o ${OBJECTDIR}/app/winc1500_locate_ip_address.o app/winc1500_locate_ip_address.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_mac_address.o: app/winc1500_mac_address.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_mac_address.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_mac_address.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_mac_address.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_mac_address.o.d" -o ${OBJECTDIR}/app/winc1500_mac_address.o app/winc1500_mac_address.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_mode_ap.o: app/winc1500_mode_ap.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_mode_ap.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_mode_ap.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_mode_ap.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_mode_ap.o.d" -o ${OBJECTDIR}/app/winc1500_mode_ap.o app/winc1500_mode_ap.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_mode_change.o: app/winc1500_mode_change.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_mode_change.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_mode_change.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_mode_change.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_mode_change.o.d" -o ${OBJECTDIR}/app/winc1500_mode_change.o app/winc1500_mode_change.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_mode_p2p.o: app/winc1500_mode_p2p.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_mode_p2p.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_mode_p2p.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_mode_p2p.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_mode_p2p.o.d" -o ${OBJECTDIR}/app/winc1500_mode_p2p.o app/winc1500_mode_p2p.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_mode_sta.o: app/winc1500_mode_sta.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_mode_sta.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_mode_sta.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_mode_sta.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_mode_sta.o.d" -o ${OBJECTDIR}/app/winc1500_mode_sta.o app/winc1500_mode_sta.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_ota_firmware_update.o: app/winc1500_ota_firmware_update.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_ota_firmware_update.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_ota_firmware_update.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_ota_firmware_update.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_ota_firmware_update.o.d" -o ${OBJECTDIR}/app/winc1500_ota_firmware_update.o app/winc1500_ota_firmware_update.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_power_save_mode.o: app/winc1500_power_save_mode.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_power_save_mode.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_power_save_mode.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_power_save_mode.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_power_save_mode.o.d" -o ${OBJECTDIR}/app/winc1500_power_save_mode.o app/winc1500_power_save_mode.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_provision_http.o: app/winc1500_provision_http.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_provision_http.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_provision_http.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_provision_http.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_provision_http.o.d" -o ${OBJECTDIR}/app/winc1500_provision_http.o app/winc1500_provision_http.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_security_wep_wpa.o: app/winc1500_security_wep_wpa.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_security_wep_wpa.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_security_wep_wpa.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_security_wep_wpa.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_security_wep_wpa.o.d" -o ${OBJECTDIR}/app/winc1500_security_wep_wpa.o app/winc1500_security_wep_wpa.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_security_wps.o: app/winc1500_security_wps.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_security_wps.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_security_wps.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_security_wps.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_security_wps.o.d" -o ${OBJECTDIR}/app/winc1500_security_wps.o app/winc1500_security_wps.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_send_email.o: app/winc1500_send_email.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_send_email.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_send_email.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_send_email.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_send_email.o.d" -o ${OBJECTDIR}/app/winc1500_send_email.o app/winc1500_send_email.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_signal_strength.o: app/winc1500_signal_strength.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_signal_strength.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_signal_strength.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_signal_strength.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_signal_strength.o.d" -o ${OBJECTDIR}/app/winc1500_signal_strength.o app/winc1500_signal_strength.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_ssl_connect.o: app/winc1500_ssl_connect.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_ssl_connect.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_ssl_connect.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_ssl_connect.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_ssl_connect.o.d" -o ${OBJECTDIR}/app/winc1500_ssl_connect.o app/winc1500_ssl_connect.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_tcp_client.o: app/winc1500_tcp_client.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_tcp_client.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_tcp_client.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_tcp_client.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_tcp_client.o.d" -o ${OBJECTDIR}/app/winc1500_tcp_client.o app/winc1500_tcp_client.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_tcp_server.o: app/winc1500_tcp_server.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_tcp_server.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_tcp_server.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_tcp_server.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_tcp_server.o.d" -o ${OBJECTDIR}/app/winc1500_tcp_server.o app/winc1500_tcp_server.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_time_client.o: app/winc1500_time_client.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_time_client.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_time_client.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_time_client.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_time_client.o.d" -o ${OBJECTDIR}/app/winc1500_time_client.o app/winc1500_time_client.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
 ${OBJECTDIR}/app/winc1500_weather_client.o: app/winc1500_weather_client.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/app" 
@@ -485,12 +269,6 @@ ${OBJECTDIR}/mcc_generated_files/tmr4_5.o: mcc_generated_files/tmr4_5.c  nbproje
 	@${RM} ${OBJECTDIR}/mcc_generated_files/tmr4_5.o 
 	@${FIXDEPS} "${OBJECTDIR}/mcc_generated_files/tmr4_5.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/mcc_generated_files/tmr4_5.o.d" -o ${OBJECTDIR}/mcc_generated_files/tmr4_5.o mcc_generated_files/tmr4_5.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
-${OBJECTDIR}/mcc_generated_files/stepper_test.o: mcc_generated_files/stepper_test.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/stepper_test.o.d 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/stepper_test.o 
-	@${FIXDEPS} "${OBJECTDIR}/mcc_generated_files/stepper_test.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/mcc_generated_files/stepper_test.o.d" -o ${OBJECTDIR}/mcc_generated_files/stepper_test.o mcc_generated_files/stepper_test.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
 ${OBJECTDIR}/mcc_generated_files/SPI1.o: mcc_generated_files/SPI1.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/SPI1.o.d 
@@ -527,6 +305,12 @@ ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/main.o 
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/main.o.d" -o ${OBJECTDIR}/main.o main.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
+${OBJECTDIR}/mcc_generated_files/stepper_control.o: mcc_generated_files/stepper_control.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
+	@${RM} ${OBJECTDIR}/mcc_generated_files/stepper_control.o.d 
+	@${RM} ${OBJECTDIR}/mcc_generated_files/stepper_control.o 
+	@${FIXDEPS} "${OBJECTDIR}/mcc_generated_files/stepper_control.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/mcc_generated_files/stepper_control.o.d" -o ${OBJECTDIR}/mcc_generated_files/stepper_control.o mcc_generated_files/stepper_control.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  
+	
 else
 ${OBJECTDIR}/app/demo_support/iot/http/http_client.o: app/demo_support/iot/http/http_client.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/app/demo_support/iot/http" 
@@ -557,222 +341,6 @@ ${OBJECTDIR}/app/demo_support/winc1500_support_stub.o: app/demo_support/winc1500
 	@${RM} ${OBJECTDIR}/app/demo_support/winc1500_support_stub.o.d 
 	@${RM} ${OBJECTDIR}/app/demo_support/winc1500_support_stub.o 
 	@${FIXDEPS} "${OBJECTDIR}/app/demo_support/winc1500_support_stub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/demo_support/winc1500_support_stub.o.d" -o ${OBJECTDIR}/app/demo_support/winc1500_support_stub.o app/demo_support/winc1500_support_stub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_ap_scan/ota_event_stub.o: app/winc1500_ap_scan/ota_event_stub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_ap_scan" 
-	@${RM} ${OBJECTDIR}/app/winc1500_ap_scan/ota_event_stub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_ap_scan/ota_event_stub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_ap_scan/ota_event_stub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_ap_scan/ota_event_stub.o.d" -o ${OBJECTDIR}/app/winc1500_ap_scan/ota_event_stub.o app/winc1500_ap_scan/ota_event_stub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_ap_scan/socket_event_stub.o: app/winc1500_ap_scan/socket_event_stub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_ap_scan" 
-	@${RM} ${OBJECTDIR}/app/winc1500_ap_scan/socket_event_stub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_ap_scan/socket_event_stub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_ap_scan/socket_event_stub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_ap_scan/socket_event_stub.o.d" -o ${OBJECTDIR}/app/winc1500_ap_scan/socket_event_stub.o app/winc1500_ap_scan/socket_event_stub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_ap_scan/wifi_event_stub.o: app/winc1500_ap_scan/wifi_event_stub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_ap_scan" 
-	@${RM} ${OBJECTDIR}/app/winc1500_ap_scan/wifi_event_stub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_ap_scan/wifi_event_stub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_ap_scan/wifi_event_stub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_ap_scan/wifi_event_stub.o.d" -o ${OBJECTDIR}/app/winc1500_ap_scan/wifi_event_stub.o app/winc1500_ap_scan/wifi_event_stub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_ap_scan/winc1500_ap_scan.o: app/winc1500_ap_scan/winc1500_ap_scan.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_ap_scan" 
-	@${RM} ${OBJECTDIR}/app/winc1500_ap_scan/winc1500_ap_scan.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_ap_scan/winc1500_ap_scan.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_ap_scan/winc1500_ap_scan.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_ap_scan/winc1500_ap_scan.o.d" -o ${OBJECTDIR}/app/winc1500_ap_scan/winc1500_ap_scan.o app/winc1500_ap_scan/winc1500_ap_scan.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_provision_ap/winc1500_provision_ap.o: app/winc1500_provision_ap/winc1500_provision_ap.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_provision_ap" 
-	@${RM} ${OBJECTDIR}/app/winc1500_provision_ap/winc1500_provision_ap.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_provision_ap/winc1500_provision_ap.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_provision_ap/winc1500_provision_ap.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_provision_ap/winc1500_provision_ap.o.d" -o ${OBJECTDIR}/app/winc1500_provision_ap/winc1500_provision_ap.o app/winc1500_provision_ap/winc1500_provision_ap.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_pubnub/PubNub.o: app/winc1500_pubnub/PubNub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_pubnub" 
-	@${RM} ${OBJECTDIR}/app/winc1500_pubnub/PubNub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_pubnub/PubNub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_pubnub/PubNub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_pubnub/PubNub.o.d" -o ${OBJECTDIR}/app/winc1500_pubnub/PubNub.o app/winc1500_pubnub/PubNub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_pubnub/winc1500_pubnub.o: app/winc1500_pubnub/winc1500_pubnub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_pubnub" 
-	@${RM} ${OBJECTDIR}/app/winc1500_pubnub/winc1500_pubnub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_pubnub/winc1500_pubnub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_pubnub/winc1500_pubnub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_pubnub/winc1500_pubnub.o.d" -o ${OBJECTDIR}/app/winc1500_pubnub/winc1500_pubnub.o app/winc1500_pubnub/winc1500_pubnub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_simple_growl/growl.o: app/winc1500_simple_growl/growl.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_simple_growl" 
-	@${RM} ${OBJECTDIR}/app/winc1500_simple_growl/growl.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_simple_growl/growl.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_simple_growl/growl.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_simple_growl/growl.o.d" -o ${OBJECTDIR}/app/winc1500_simple_growl/growl.o app/winc1500_simple_growl/growl.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_simple_growl/winc1500_simple_growl.o: app/winc1500_simple_growl/winc1500_simple_growl.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_simple_growl" 
-	@${RM} ${OBJECTDIR}/app/winc1500_simple_growl/winc1500_simple_growl.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_simple_growl/winc1500_simple_growl.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_simple_growl/winc1500_simple_growl.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_simple_growl/winc1500_simple_growl.o.d" -o ${OBJECTDIR}/app/winc1500_simple_growl/winc1500_simple_growl.o app/winc1500_simple_growl/winc1500_simple_growl.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_udp_client/ota_event_stub.o: app/winc1500_udp_client/ota_event_stub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_udp_client" 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_client/ota_event_stub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_client/ota_event_stub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_udp_client/ota_event_stub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_udp_client/ota_event_stub.o.d" -o ${OBJECTDIR}/app/winc1500_udp_client/ota_event_stub.o app/winc1500_udp_client/ota_event_stub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_udp_client/socket_event_stub.o: app/winc1500_udp_client/socket_event_stub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_udp_client" 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_client/socket_event_stub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_client/socket_event_stub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_udp_client/socket_event_stub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_udp_client/socket_event_stub.o.d" -o ${OBJECTDIR}/app/winc1500_udp_client/socket_event_stub.o app/winc1500_udp_client/socket_event_stub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_udp_client/wifi_event_stub.o: app/winc1500_udp_client/wifi_event_stub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_udp_client" 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_client/wifi_event_stub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_client/wifi_event_stub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_udp_client/wifi_event_stub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_udp_client/wifi_event_stub.o.d" -o ${OBJECTDIR}/app/winc1500_udp_client/wifi_event_stub.o app/winc1500_udp_client/wifi_event_stub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_udp_client/winc1500_udp_client.o: app/winc1500_udp_client/winc1500_udp_client.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_udp_client" 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_client/winc1500_udp_client.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_client/winc1500_udp_client.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_udp_client/winc1500_udp_client.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_udp_client/winc1500_udp_client.o.d" -o ${OBJECTDIR}/app/winc1500_udp_client/winc1500_udp_client.o app/winc1500_udp_client/winc1500_udp_client.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_udp_server/ota_event_stub.o: app/winc1500_udp_server/ota_event_stub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_udp_server" 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_server/ota_event_stub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_server/ota_event_stub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_udp_server/ota_event_stub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_udp_server/ota_event_stub.o.d" -o ${OBJECTDIR}/app/winc1500_udp_server/ota_event_stub.o app/winc1500_udp_server/ota_event_stub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_udp_server/socket_event_stub.o: app/winc1500_udp_server/socket_event_stub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_udp_server" 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_server/socket_event_stub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_server/socket_event_stub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_udp_server/socket_event_stub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_udp_server/socket_event_stub.o.d" -o ${OBJECTDIR}/app/winc1500_udp_server/socket_event_stub.o app/winc1500_udp_server/socket_event_stub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_udp_server/wifi_event_stub.o: app/winc1500_udp_server/wifi_event_stub.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_udp_server" 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_server/wifi_event_stub.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_server/wifi_event_stub.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_udp_server/wifi_event_stub.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_udp_server/wifi_event_stub.o.d" -o ${OBJECTDIR}/app/winc1500_udp_server/wifi_event_stub.o app/winc1500_udp_server/wifi_event_stub.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_udp_server/winc1500_udp_server.o: app/winc1500_udp_server/winc1500_udp_server.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app/winc1500_udp_server" 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_server/winc1500_udp_server.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_udp_server/winc1500_udp_server.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_udp_server/winc1500_udp_server.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_udp_server/winc1500_udp_server.o.d" -o ${OBJECTDIR}/app/winc1500_udp_server/winc1500_udp_server.o app/winc1500_udp_server/winc1500_udp_server.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_fw_update_over_serial.o: app/winc1500_fw_update_over_serial.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_fw_update_over_serial.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_fw_update_over_serial.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_fw_update_over_serial.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_fw_update_over_serial.o.d" -o ${OBJECTDIR}/app/winc1500_fw_update_over_serial.o app/winc1500_fw_update_over_serial.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_http_download.o: app/winc1500_http_download.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_http_download.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_http_download.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_http_download.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_http_download.o.d" -o ${OBJECTDIR}/app/winc1500_http_download.o app/winc1500_http_download.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_locate_ip_address.o: app/winc1500_locate_ip_address.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_locate_ip_address.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_locate_ip_address.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_locate_ip_address.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_locate_ip_address.o.d" -o ${OBJECTDIR}/app/winc1500_locate_ip_address.o app/winc1500_locate_ip_address.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_mac_address.o: app/winc1500_mac_address.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_mac_address.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_mac_address.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_mac_address.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_mac_address.o.d" -o ${OBJECTDIR}/app/winc1500_mac_address.o app/winc1500_mac_address.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_mode_ap.o: app/winc1500_mode_ap.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_mode_ap.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_mode_ap.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_mode_ap.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_mode_ap.o.d" -o ${OBJECTDIR}/app/winc1500_mode_ap.o app/winc1500_mode_ap.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_mode_change.o: app/winc1500_mode_change.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_mode_change.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_mode_change.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_mode_change.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_mode_change.o.d" -o ${OBJECTDIR}/app/winc1500_mode_change.o app/winc1500_mode_change.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_mode_p2p.o: app/winc1500_mode_p2p.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_mode_p2p.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_mode_p2p.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_mode_p2p.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_mode_p2p.o.d" -o ${OBJECTDIR}/app/winc1500_mode_p2p.o app/winc1500_mode_p2p.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_mode_sta.o: app/winc1500_mode_sta.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_mode_sta.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_mode_sta.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_mode_sta.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_mode_sta.o.d" -o ${OBJECTDIR}/app/winc1500_mode_sta.o app/winc1500_mode_sta.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_ota_firmware_update.o: app/winc1500_ota_firmware_update.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_ota_firmware_update.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_ota_firmware_update.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_ota_firmware_update.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_ota_firmware_update.o.d" -o ${OBJECTDIR}/app/winc1500_ota_firmware_update.o app/winc1500_ota_firmware_update.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_power_save_mode.o: app/winc1500_power_save_mode.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_power_save_mode.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_power_save_mode.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_power_save_mode.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_power_save_mode.o.d" -o ${OBJECTDIR}/app/winc1500_power_save_mode.o app/winc1500_power_save_mode.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_provision_http.o: app/winc1500_provision_http.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_provision_http.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_provision_http.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_provision_http.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_provision_http.o.d" -o ${OBJECTDIR}/app/winc1500_provision_http.o app/winc1500_provision_http.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_security_wep_wpa.o: app/winc1500_security_wep_wpa.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_security_wep_wpa.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_security_wep_wpa.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_security_wep_wpa.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_security_wep_wpa.o.d" -o ${OBJECTDIR}/app/winc1500_security_wep_wpa.o app/winc1500_security_wep_wpa.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_security_wps.o: app/winc1500_security_wps.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_security_wps.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_security_wps.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_security_wps.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_security_wps.o.d" -o ${OBJECTDIR}/app/winc1500_security_wps.o app/winc1500_security_wps.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_send_email.o: app/winc1500_send_email.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_send_email.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_send_email.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_send_email.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_send_email.o.d" -o ${OBJECTDIR}/app/winc1500_send_email.o app/winc1500_send_email.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_signal_strength.o: app/winc1500_signal_strength.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_signal_strength.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_signal_strength.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_signal_strength.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_signal_strength.o.d" -o ${OBJECTDIR}/app/winc1500_signal_strength.o app/winc1500_signal_strength.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_ssl_connect.o: app/winc1500_ssl_connect.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_ssl_connect.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_ssl_connect.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_ssl_connect.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_ssl_connect.o.d" -o ${OBJECTDIR}/app/winc1500_ssl_connect.o app/winc1500_ssl_connect.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_tcp_client.o: app/winc1500_tcp_client.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_tcp_client.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_tcp_client.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_tcp_client.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_tcp_client.o.d" -o ${OBJECTDIR}/app/winc1500_tcp_client.o app/winc1500_tcp_client.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_tcp_server.o: app/winc1500_tcp_server.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_tcp_server.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_tcp_server.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_tcp_server.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_tcp_server.o.d" -o ${OBJECTDIR}/app/winc1500_tcp_server.o app/winc1500_tcp_server.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/app/winc1500_time_client.o: app/winc1500_time_client.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/app" 
-	@${RM} ${OBJECTDIR}/app/winc1500_time_client.o.d 
-	@${RM} ${OBJECTDIR}/app/winc1500_time_client.o 
-	@${FIXDEPS} "${OBJECTDIR}/app/winc1500_time_client.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/app/winc1500_time_client.o.d" -o ${OBJECTDIR}/app/winc1500_time_client.o app/winc1500_time_client.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
 ${OBJECTDIR}/app/winc1500_weather_client.o: app/winc1500_weather_client.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/app" 
@@ -906,12 +474,6 @@ ${OBJECTDIR}/mcc_generated_files/tmr4_5.o: mcc_generated_files/tmr4_5.c  nbproje
 	@${RM} ${OBJECTDIR}/mcc_generated_files/tmr4_5.o 
 	@${FIXDEPS} "${OBJECTDIR}/mcc_generated_files/tmr4_5.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/mcc_generated_files/tmr4_5.o.d" -o ${OBJECTDIR}/mcc_generated_files/tmr4_5.o mcc_generated_files/tmr4_5.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
-${OBJECTDIR}/mcc_generated_files/stepper_test.o: mcc_generated_files/stepper_test.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/stepper_test.o.d 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/stepper_test.o 
-	@${FIXDEPS} "${OBJECTDIR}/mcc_generated_files/stepper_test.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/mcc_generated_files/stepper_test.o.d" -o ${OBJECTDIR}/mcc_generated_files/stepper_test.o mcc_generated_files/stepper_test.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
 ${OBJECTDIR}/mcc_generated_files/SPI1.o: mcc_generated_files/SPI1.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/SPI1.o.d 
@@ -947,6 +509,12 @@ ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/main.o.d" -o ${OBJECTDIR}/main.o main.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/mcc_generated_files/stepper_control.o: mcc_generated_files/stepper_control.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
+	@${RM} ${OBJECTDIR}/mcc_generated_files/stepper_control.o.d 
+	@${RM} ${OBJECTDIR}/mcc_generated_files/stepper_control.o 
+	@${FIXDEPS} "${OBJECTDIR}/mcc_generated_files/stepper_control.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"app" -I"bsp" -I"framework" -I"mcc_generated_files" -I"stubs" -I"app/demo_support/iot" -I"framework/driver/winc1500" -I"framework/driver/winc1500/src" -MMD -MF "${OBJECTDIR}/mcc_generated_files/stepper_control.o.d" -o ${OBJECTDIR}/mcc_generated_files/stepper_control.o mcc_generated_files/stepper_control.c    -DXPRJ_pic32mz2048efm144_winc1500=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  
 	
 endif
 

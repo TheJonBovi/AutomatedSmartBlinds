@@ -34,21 +34,7 @@ limitations under the License.
 #include "demo_config.h"    // selects which demo to run
 #include "bsp.h"            // defines for LED's and push buttons on board
 #include "mcc.h"
-#include "stepper_test.h"
-
-extern int proxyAlarm;
-extern int proxyCount;
-extern int gasAlarm;
-extern bool buzzerTrigger;
-
-char JPEG_BUFFER[JPEG_MAX_SIZE] = {0};
-
-//==============================================================================
-// VARS FOR WIFI MODULE
-//==============================================================================
-
-//extern uint8_t testvar =1;
-//extern char testcvar[100];
+#include "stepper_control.h"
 
 //==============================================================================
 // FUNCTION PROTOTYPES
@@ -63,6 +49,7 @@ int main(void)
     // This function initailizes modules, located mainly in the mcc file
     BspInit();
 
+#ifdef TESTS
     // Read register 0x40, which should return the static CHIP version 0x40
     char cam_version_test = SPI1_read_byte(0x40);
 
@@ -75,6 +62,7 @@ int main(void)
 
     // Test for capturing an image
     Camera_capture_image();
+#endif
     
     // Required for wifi functionality
     m2m_wifi_init();
@@ -82,17 +70,11 @@ int main(void)
     // Main while loop
     while (true)
     {
-
-        // These two lines control the state machine for the current WIFI configureation (currently in demo_config.h)
+        // These two lines control the state machine for the current WIFI configuration (currently in demo_config.h)
         ApplicationTask();
 
         m2m_wifi_task();
 
-        motor_test_UD();
-        motor_test_OC();
-        proxy_motor_test();
-
-        // Blinks onboard LED at 1sec
         mainLoop500ms();
     }
 }
@@ -101,47 +83,15 @@ int main(void)
 static void mainLoop500ms(void)
 {
     static uint32_t t = 0;
-
-    if ((m2mStub_GetOneMsTimer() - t) >= 500)
+    uint32_t temp = m2mStub_GetOneMsTimer();
+    if ((temp - t) >= 500)
     {
         t = m2mStub_GetOneMsTimer();
-
-        // Blink onboard LED
         ToggleLed();
-
-        // Test for RD1 soldering (do not use for production code!)
-        //toggle_RD1();
-
-        //check for call requests every 500ms
-        call_control();
-
-        if (proxyCount < maxProxy && proxyAlarm == 1)
-        {
-            ++proxyCount;
-        }
-        else if (proxyCount >= maxProxy && proxyAlarm == 1)
-        {
-            proxyCount = 0;
-            proxyAlarm = 0;
-        }
-        else if (gasAlarm == 1)
-        {
-            buzzerTrigger = true;
-            //might want to also open and close the blinds
-            //need to write a small function that will compare
-            //the position of the blinds to its destination
-            //then continue with the opening and closing.
-            //
-            //if so, then will want to put it in stepper_test.c
-
-        }
-        else if (gasAlarm == 0)
-        {
-            buzzerTrigger = false;
-        }
+        proxy_motor_control();
+//        temperature_control();
+//        gas_control();
+//        call_control();
     }
+
 }
-
-
-
-//DOM-IGNORE-END

@@ -46,6 +46,7 @@
 // Configuration bits: selected in the GUI
 
 #include "winc1500_api.h"
+#include "defines.h"
 
 // PIC32MZ2048ECG144 or EFG144 based HMZ144 board Configuration Bit Settings
 // DEVCFG2
@@ -83,39 +84,47 @@
 
 //global variables
 //variables used for the motor to turn on, direction, and state
-int motorTargetUD = 0;      //This needs to be set to 0 (or full up to where the blinds are at the base) during start up. Both hardware and software.
+int motorTargetUD = 1024;      //This needs to be set to 0 (or full up to where the blinds are at the base) during start up. Both hardware and software.
 int motorTargetOC = 0;    //This needs to be set to 128 (or full open as in you're able to see through them) during start up. Both hardware and software.
 int UDStepperState = 0;
 int OCStepperState = 0;
 int motorUD;
 int motorOC;
 int motorID;
-int counterUD = 0;
+int counterUD = 1024;
 int counterOC = 0;
 
 // globals for the temperature
-int temperatureAlarm = 0;
-uint8_t current_temp;
+double temp_high = 90; //90 degrees F is the target.
+double temp_low;
+int temperatureAlarmState = 0;
+double current_temp;
 
 // globals for the gas sensor
-int gasAlarm = 0;
-bool buzzerTrigger = false;
+int gasAlarmState = 0;
 
 // Globals for the proxy sensor
-int proxyAlarm = 0;
+int proxyAlarmState = 0;
 int proxyCount = 0;
 
+int rcv_UD_target = 0;
+int rcv_OC_target = 0;
+double rcv_temp_target = 0;
+
 // Globals for wifi service
-uint8_t message_type;
+uint8_t message_type = WIFI_DO_NOTHING;
+//uint8_t message_type = WIFI_RECIEVE_MODE;
 
 //This will be the command request used as a middle man between the web server
 //and the micro processor
-int callRequest = 0;
+int callRequest;
 
-int temperatureSensor;
+double temperatureSensor;
 int smokeSensor;
 int clockTrigger;
 int userTriggerClose;
+
+char JPEG_BUFFER[JPEG_MAX_SIZE] = {0};
 
 static void PinMapInit(void);   // added to MCC-generated code
 
@@ -233,6 +242,11 @@ void buzzer_Initialize(void)
 
     TRISKCLR = _TRISK_TRISK3_MASK;
 
+}
+
+void buzzer_Toggle(void)
+{
+    PORTKbits.RK3 ^= 1;
 }
 
 void switch_Initialize(void)
