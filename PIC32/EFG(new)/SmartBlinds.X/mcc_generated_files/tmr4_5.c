@@ -393,9 +393,9 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) TMR5_MOTOR_ISR(void)
     //if both of the motors are signaled to turn off, then turn off the motors
     if (motorOC == 0 && motorUD == 0)
     {
-        if (proxyAlarmState == 1)
+        if (proxyAlarmState == 4)
             proxyAlarmState = 2;
-        else if (proxyAlarmState == 3)
+        else if (proxyAlarmState == 5)
             proxyAlarmState = 0;
         MOTOR_OFF();
     }

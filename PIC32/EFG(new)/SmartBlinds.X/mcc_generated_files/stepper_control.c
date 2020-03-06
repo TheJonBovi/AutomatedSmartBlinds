@@ -113,6 +113,8 @@ void proxy_motor_control(void)
             
             motorTargetUD = UD_FULL_DOWN;
             motorTargetOC = OC_FULL_CLOSE;
+            
+            proxyAlarmState = 4;
             MOTOR_ON();
             break;
             //get to case 2 in tmr5 isr
@@ -135,7 +137,16 @@ void proxy_motor_control(void)
             // restore blinds to previous positions
             motorTargetUD = prevMotorTargetUD;
             motorTargetOC = prevMotorTargetOC;
-            MOTOR_ON();        
+            proxyAlarmState = 5;
+            MOTOR_ON();  
+            break;
+            
+        // Wait case for going into shutter mode
+        case 4:
+            break;
+            
+        // Wait case for leaving shutter mode
+        case 5:
             break;
         default:
             break;    
