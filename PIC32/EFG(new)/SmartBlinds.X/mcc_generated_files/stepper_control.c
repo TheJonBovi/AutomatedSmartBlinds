@@ -190,8 +190,11 @@ void gas_control(void)
     switch (gasAlarmState)
     {
         case 1:
+            buzzer_toggle();
             break;
         case 2:
+            buzzer_clear();
+            gasAlarmState = 0;
             break;
         default:
             break;

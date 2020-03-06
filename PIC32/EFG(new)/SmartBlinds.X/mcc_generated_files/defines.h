@@ -60,7 +60,7 @@
 
 //defining gas/smoke values to compare with the gas/smoke readings
 //550-590 dec is the average for any given time. Set to 800 dec for high.
-#define GAS_HIGH        0x320 //These are not the real values. Need to calculate them.
+#define GAS_HIGH        -1 //These are not the real values. Need to calculate them.
 
 // This value is how we set the motor speed. For reverence
 // 300 = 1 rot / 5 seconds, changed to 900 to slow down the motor

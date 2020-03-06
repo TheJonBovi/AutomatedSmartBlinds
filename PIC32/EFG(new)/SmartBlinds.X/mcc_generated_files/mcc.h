@@ -97,7 +97,11 @@ void PBCLK2_Initialize(void);
 
 void buzzer_Initialize(void);
 
-void buzzer_Toggle(void);
+void buzzer_toggle(void);
+
+void buzzer_clear(void);
+
+void buzzer_set(void);
 
 void switch_Initialize(void);
 

@@ -95,7 +95,7 @@ int counterUD = 1024;
 int counterOC = 0;
 
 // globals for the temperature
-double temp_high = 90; //90 degrees F is the target.
+double temp_high = 120; 
 double temp_low;
 int temperatureAlarmState = 0;
 double current_temp;
@@ -237,16 +237,26 @@ void PBCLK2_Initialize(void)
 
 void buzzer_Initialize(void)
 {
-    //set up the buzzer to work on RF2
+    //set up the buzzer to work on RK3
     PORTKCLR = _PORTK_RK3_MASK;
 
     TRISKCLR = _TRISK_TRISK3_MASK;
 
 }
 
-void buzzer_Toggle(void)
+void buzzer_toggle(void)
 {
     PORTKbits.RK3 ^= 1;
+}
+
+void buzzer_clear(void)
+{
+    PORTKbits.RK3 = 0;
+}
+
+void buzzer_set(void)
+{
+    PORTKbits.RK3 = 1;
 }
 
 void switch_Initialize(void)

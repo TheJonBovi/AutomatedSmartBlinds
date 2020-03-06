@@ -90,7 +90,7 @@ static void mainLoop500ms(void)
         ToggleLed();
         proxy_motor_control();
 //        temperature_control();
-//        gas_control();
+        gas_control();
 //        call_control();
     }
 

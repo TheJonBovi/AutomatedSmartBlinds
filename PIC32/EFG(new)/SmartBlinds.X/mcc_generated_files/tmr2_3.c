@@ -51,6 +51,8 @@ static TMR_OBJ tmr1_obj;
 int proxy_debounce = 0;
 int temp_debounce = 0;
 
+double current_gas;
+
 void TMR2_Initialize(void)
 {
     asm volatile( "di" ); // Disable Interrupts
@@ -173,17 +175,18 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
    
 //    /* Trigger a conversion */
     ADCCON3bits.GSWTRG = 1;
+    
     /* Wait the conversions to complete */
     while (ADCDSTAT1bits.ARDY0 == 0);
-    /* fetch the result */
+    /* fetch the result for PROXIMITY */
     current_read[0] = ADCDATA0;
+    
     while (ADCDSTAT1bits.ARDY1 == 0);
-    /* fetch the result */
+    /* fetch the result for TEMP */
     current_read[1] = ADCDATA1;
     
     while (ADCDSTAT1bits.ARDY3 == 0);
-    /* fetch the result */
-    //current_read[2]*5/1024 == current_read[2];
+    /* fetch the result for GAS */
     current_read[2] = ADCDATA3;
     
 
@@ -253,17 +256,20 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
     //This section is for the gas
     //if the sensor detects anything below the high gas value
     //then it'll keep the gas alarm turned off
-    if (current_read[2] < GAS_HIGH)
+    
+    current_gas = (5 * ((1023-(double)current_read[2])/(double)current_read[2]));
+    // If gas gets below certain Rs/Ro, trigger buzzer
+    if (current_gas < GAS_HIGH)
     {
-        gasAlarmState = 0;
-        PORTB = 0b0001;
+        gasAlarmState = 1;
+
     }
     //else if the sensor detects dangerous levels of smoke or gas
     //then it'll trigger the gas alarm until the gas clears.
     else
     {
-        gasAlarmState = 1;
-        PORTB = 0b0010;
+        gasAlarmState = 2;
+
     }
     
     
