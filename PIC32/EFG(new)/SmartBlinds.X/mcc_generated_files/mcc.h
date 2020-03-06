@@ -63,6 +63,7 @@
 #include "I2C1.h"
 #include "ov2640_regs.h"
 
+
 #define _XTAL_FREQ  84000000UL
 
 /**

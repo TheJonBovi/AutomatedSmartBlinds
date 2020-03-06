@@ -40,6 +40,7 @@ limitations under the License.
 // FUNCTION PROTOTYPES
 //==============================================================================
 static void mainLoop500ms(void);
+void watchDogTimer(void);
 
 //==============================================================================
 // Main application entry point.
@@ -94,4 +95,25 @@ static void mainLoop500ms(void)
 //        call_control();
     }
 
+}
+
+//This is the watchdog timer that will reset the pic after a certain amount of time
+//Section 16 in datasheet for WTD.
+//also section 9 here for further details http://ww1.microchip.com/downloads/en/DeviceDoc/61114E.pdf
+//https://www.microchip.com/forums/m691058.aspx
+//https://microchipdeveloper.com/8bit:wdt
+//
+void watchDogTimer(void)
+{
+    //feed the watchdog
+    WDTCONbits.WDTCLRKEY = 1;
+    
+    //enable the watchdog
+    WDTCONbits.ON = 1;
+    
+    //need to check both triss and ansel
+    
+    //this set up the timer (with i variable for example)
+    //and have it tick down until it reaches 0
+    //then reset the watchdog timer
 }

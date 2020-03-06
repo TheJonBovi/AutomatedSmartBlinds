@@ -80,6 +80,10 @@
 #pragma config JTAGEN = OFF             // JTAG Enable (JTAG Disabled)
 #pragma config ICESEL = ICS_PGx2        // ICE/ICD Comm Channel Select (Communicate on PGEC2/PGED2)
 
+//postscaler 1:4096, period 4096 seconds
+//#pragma config WDTPS = PS4096
+//#pragma config WDTPS = PS8192             //(example) 4 second watchdog timer with 80MHz clock. Need 84MHz
+
 #include "mcc.h"
 
 //global variables
