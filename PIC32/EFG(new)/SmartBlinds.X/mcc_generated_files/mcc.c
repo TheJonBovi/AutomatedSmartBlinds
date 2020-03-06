@@ -115,10 +115,6 @@ double rcv_temp_target = 0;
 uint8_t message_type = WIFI_DO_NOTHING;
 //uint8_t message_type = WIFI_RECIEVE_MODE;
 
-//This will be the command request used as a middle man between the web server
-//and the micro processor
-int callRequest;
-
 double temperatureSensor;
 int smokeSensor;
 int clockTrigger;

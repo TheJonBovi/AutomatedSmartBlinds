@@ -34,7 +34,7 @@ limitations under the License.
 #include "demo_config.h"    // selects which demo to run
 #include "bsp.h"            // defines for LED's and push buttons on board
 #include "mcc.h"
-#include "stepper_control.h"
+#include "sensor_control.h"
 
 //==============================================================================
 // FUNCTION PROTOTYPES

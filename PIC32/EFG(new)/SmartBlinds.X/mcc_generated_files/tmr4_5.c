@@ -23,6 +23,7 @@
 #include "mcc.h"
 #include "tmr4_5.h"
 
+// Motor Control Global Variables
 extern int motorTargetUD;
 extern int motorTargetOC;
 extern int counterUD;
@@ -31,7 +32,8 @@ extern int counterOC;
 extern int motorOC;
 extern int UDStepperState;
 extern int OCStepperState;
-extern bool buzzerTrigger;
+
+// Proximity Sensor Global Variables
 extern int proxyAlarmState;
 
 //Timer 4 is for the buzzer
@@ -138,25 +140,15 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) TMR5_MOTOR_ISR(void)
 {
     int motorDirectionUD;
     int motorDirectionOC;
-    
-    //TODO LIST
-    /*
-     Put blinker in this ISR
-     check ISR steps for each motor step
-     debug each step
-     */
-     
-    
+        
     //This will check if the target is either greater or less than
     //the motors position, and choose which direction to go accordingly.
     //Otherwise it'll keep the motor off and return to the source.
     
     //If the motor target is less than the motors position, then it'll go up
-    if (motorTargetUD < counterUD)
-        motorDirectionUD = MOTOR_DIR_UP; 
+    if (motorTargetUD < counterUD) motorDirectionUD = MOTOR_DIR_UP; 
     //else if the motor target is greater than the motors position, then it'll go down
-    else if (motorTargetUD > counterUD)
-        motorDirectionUD = MOTOR_DIR_DOWN;
+    else if (motorTargetUD > counterUD) motorDirectionUD = MOTOR_DIR_DOWN;
     //else the motor will turn off and return
     else
     {
@@ -278,11 +270,9 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) TMR5_MOTOR_ISR(void)
     //Otherwise it'll keep the motor off and return to the source.
     
     //If the motor target is less than the motor location, then it'll close
-    if (motorTargetOC < counterOC)
-        motorDirectionOC = MOTOR_DIR_OPEN; 
+    if (motorTargetOC < counterOC) motorDirectionOC = MOTOR_DIR_OPEN; 
     //else if the motor target is greater than the motor location, then it'll open
-    else if (motorTargetOC > counterOC)
-        motorDirectionOC = MOTOR_DIR_CLOSE;
+    else if (motorTargetOC > counterOC) motorDirectionOC = MOTOR_DIR_CLOSE;
     //else it'll turn off the motor and return
     else
     {
@@ -413,6 +403,7 @@ void __ISR_AT_VECTOR(_TIMER_4_VECTOR, IPL2SRS) TMR4_ISR(void)
     //clear the T4IF
     IFS0CLR = _IFS0_T4IF_MASK; 
 }
+
 /* *****************************************************************************
  End of File
  */

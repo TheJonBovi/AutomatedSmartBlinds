@@ -20,26 +20,32 @@
 #include <sys/attribs.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include "stepper_control.h"
+#include "sensor_control.h"
 
+// Motor Control Global Variables
 extern int motorTargetUD;
 extern int motorTargetOC;
-extern int proxyAlarmState;
 extern int motorUD;
 extern int motorOC;
-extern int temperatureAlarmState;
-extern int callRequest;
 extern int rcv_UD_target;
 extern int rcv_OC_target;
-extern double rcv_temp_target;
-extern double temp_high;
-extern double temp_low;
-extern int proxyCount;
-extern int gasAlarmState;
-
 int prevMotorTargetUD;
 int prevMotorTargetOC;
 
+// Temperature Sensor Control Global Variables
+extern int temperatureAlarmState;
+extern double rcv_temp_target;
+extern double temp_high;
+extern double temp_low;
+
+// Proximity Sensor Global Variables
+extern int proxyCount;
+extern int proxyAlarmState;
+
+// Gas Sensor Global Variables
+extern int gasAlarmState;
+
+// Button Locking Variables
 bool buttonLockUD = false;
 bool buttonLockOC = false;
 
@@ -209,7 +215,6 @@ void gas_control(void)
 
 
 }
-
 
 //This function will be checking for any commands from the web server.
 //Once it obtains one, then it will execute the call.

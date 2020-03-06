@@ -65,7 +65,7 @@
         <itemPath>mcc_generated_files/I2C1.h</itemPath>
         <itemPath>mcc_generated_files/camera.h</itemPath>
         <itemPath>mcc_generated_files/ov2640_regs.h</itemPath>
-        <itemPath>mcc_generated_files/stepper_control.h</itemPath>
+        <itemPath>mcc_generated_files/sensor_control.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -129,7 +129,7 @@
         <itemPath>mcc_generated_files/I2C1.c</itemPath>
         <itemPath>mcc_generated_files/camera.c</itemPath>
         <itemPath>mcc_generated_files/ov2640_regs.c</itemPath>
-        <itemPath>mcc_generated_files/stepper_control.c</itemPath>
+        <itemPath>mcc_generated_files/sensor_control.c</itemPath>
       </logicalFolder>
       <logicalFolder name="stubs" displayName="stubs" projectFiles="true">
         <itemPath>stubs/wf_mcu_driver_stub.c</itemPath>
@@ -605,9 +605,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="warning-level" value=""/>
       </C32-AS>
-      <C32-CO>
-        <property key="coverage-enable" value=""/>
-      </C32-CO>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>

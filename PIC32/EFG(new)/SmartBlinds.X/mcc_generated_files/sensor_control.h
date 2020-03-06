@@ -15,8 +15,8 @@
  */
 /* ************************************************************************** */
 
-#ifndef _STEPPER_CONTROL_H    /* Guard against multiple inclusion */
-#define _STEPPER_CONTROL_H
+#ifndef _SENSOR_CONTROL_H    /* Guard against multiple inclusion */
+#define _SENSOR_CONTROL_H
 
 // function to use buttons to test UD motor
 void motor_test_UD(void);
@@ -39,7 +39,7 @@ void gas_control(void);
 void call_control(void);
 
 
-#endif /* _STEPPER_CONTROL_H */
+#endif /* _SENSOR_CONTROL_H */
 
 /* *****************************************************************************
  End of File

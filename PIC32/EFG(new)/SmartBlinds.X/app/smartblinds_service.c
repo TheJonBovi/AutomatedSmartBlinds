@@ -176,7 +176,7 @@ void ApplicationTask(void)
                 {
                     if ((tcp_client_socket = socket(AF_INET, SOCK_STREAM, 0)) < 0) 
                     {
-                        //printf("main: failed to create TCP client socket error!\r\n");
+                        //failed to create TCP client socket error!
                         SetAppState(APP_STATE_DONE);
                         break;
                     }
@@ -186,7 +186,7 @@ void ApplicationTask(void)
                     addr_in.sin_addr.s_addr = s_HostIp;
                     if (connect(tcp_client_socket, (struct sockaddr *)&addr_in, sizeof(struct sockaddr_in)) != SOCK_ERR_NO_ERROR) 
                     {
-                        //printf("main: failed to connect socket error!\r\n");
+                        //failed to connect socket error!
                         SetAppState(APP_STATE_DONE);
                         break;
                     }
@@ -200,6 +200,8 @@ void ApplicationTask(void)
         break;
         
     case APP_STATE_DONE:
+        
+        // We should not get here
         testvar++;
         break;
     default:
@@ -272,36 +274,27 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
                     /* Get Horizontal */
 
                     pcIndxPtr = strstr((char *)pstrRecv->p_rxBuf, "h=");
-                    //strcpy(testcvar, pcIndxPtr );
-                    printf("Horizontal: ");
-                    //strcpy(testcvar, pcIndxPtr );
                     if (NULL != pcIndxPtr) 
                     {
                         pcIndxPtr = pcIndxPtr + strlen("h=") + 1;
                         pcEndPtr = strstr(pcIndxPtr, "\" />");
-                        if (NULL != pcEndPtr) {
-                            *pcEndPtr = 0;
-                        }
+                        if (NULL != pcEndPtr) *pcEndPtr = 0;
                         strcpy(conv_rcv_OC_target, pcIndxPtr );
-                        printf("%s\r\n", pcIndxPtr);
-                    } else {
-                        printf("N/A\r\n");
+                    } else 
+                    {
                         break;
                     }
 
                     /* Get Vertical. */
                     pcIndxPtr = strstr(pcEndPtr + 1, "v=");
-                    printf("Vertical: ");
                     if (NULL != pcIndxPtr) 
                     {
                         pcIndxPtr = pcIndxPtr + strlen("v=") + 1;
                         pcEndPtr = strstr(pcIndxPtr, "\" />");
-                        if (NULL != pcEndPtr) {
-                            *pcEndPtr = 0;
-                        }
+                        if (NULL != pcEndPtr) *pcEndPtr = 0;
                         strcpy(conv_rcv_UD_target, pcIndxPtr );
-                    } else {
-                        printf("N/A\r\n");
+                    } else 
+                    {
                         break;
                     }
 
@@ -312,21 +305,16 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
                         printf("Weather Condition: ");
                         pcIndxPtr = pcIndxPtr + strlen("p=") + 1;
                         pcEndPtr = strstr(pcIndxPtr, "\" />");
-                        if (NULL != pcEndPtr) {
-                            *pcEndPtr = 0;
-                        }
-                        printf("%s\r\n", pcIndxPtr);
+                        if (NULL != pcEndPtr) *pcEndPtr = 0;
+                        //strcpy(TARGET_FOR_PROX_NOT_IMPLEMENTED, pcIndxPtr );
 
-                        /* Get Temperature*/
+                    /* Get Temperature*/
                     pcIndxPtr = strstr(pcEndPtr + 1, "t=");
                     if (NULL != pcIndxPtr) 
                     {
-                        printf("Temperature: ");
                         pcIndxPtr = pcIndxPtr + strlen("t=") + 1;
                         pcEndPtr = strstr(pcIndxPtr, "\" />");
-                        if (NULL != pcEndPtr) {
-                            *pcEndPtr = 0;
-                        }
+                        if (NULL != pcEndPtr) *pcEndPtr = 0;
                     }
                         strcpy(conv_rcv_temp_target, pcIndxPtr );
 
