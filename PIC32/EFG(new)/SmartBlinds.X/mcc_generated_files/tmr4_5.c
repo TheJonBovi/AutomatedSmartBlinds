@@ -32,7 +32,7 @@ extern int motorOC;
 extern int UDStepperState;
 extern int OCStepperState;
 extern bool buzzerTrigger;
-extern int proxyAlarm;
+extern int proxyAlarmState;
 
 //Timer 4 is for the buzzer
 void TMR4_16bit_Initialize(void)
@@ -393,10 +393,10 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) TMR5_MOTOR_ISR(void)
     //if both of the motors are signaled to turn off, then turn off the motors
     if (motorOC == 0 && motorUD == 0)
     {
-        if (proxyAlarm == 1)
-            proxyAlarm = 2;
-        else if (proxyAlarm == 3)
-            proxyAlarm = 0;
+        if (proxyAlarmState == 1)
+            proxyAlarmState = 2;
+        else if (proxyAlarmState == 3)
+            proxyAlarmState = 0;
         MOTOR_OFF();
     }
         

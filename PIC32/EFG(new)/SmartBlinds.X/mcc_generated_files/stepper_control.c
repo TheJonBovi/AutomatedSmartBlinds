@@ -20,19 +20,25 @@
 #include <sys/attribs.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include "stepper_control.h"
 
 extern int motorTargetUD;
 extern int motorTargetOC;
-extern int proxyAlarm;
+extern int proxyAlarmState;
 extern int motorUD;
 extern int motorOC;
-extern int temperatureAlarm;
+extern int temperatureAlarmState;
 extern int callRequest;
 extern int rcv_UD_target;
 extern int rcv_OC_target;
 extern double rcv_temp_target;
 extern double temp_high;
 extern double temp_low;
+extern int proxyCount;
+extern int gasAlarmState;
+
+int prevMotorTargetUD;
+int prevMotorTargetOC;
 
 bool buttonLockUD = false;
 bool buttonLockOC = false;
@@ -92,57 +98,102 @@ void motor_test_OC(void)
 //will also need to work out on which ones will open, close, raise, and lower the blinds
 
 //if the proxy sensor triggers for the final stage, then turn on the motor and close the blinds.
-void proxy_motor_test(void)
+void proxy_motor_control(void)
 {
-    switch (proxyAlarm)
+    switch (proxyAlarmState)
     {
+        // if proxy triggered, shutter blinds
         case 1:
             motorUD = true; 
             motorOC = true;
+            
+            // Save off current position
+            prevMotorTargetUD = motorTargetUD;
+            prevMotorTargetOC = motorTargetOC;
+            
             motorTargetUD = UD_FULL_DOWN;
             motorTargetOC = OC_FULL_CLOSE;
             MOTOR_ON();
             break;
-            //case 2 is controlled in main
             //get to case 2 in tmr5 isr
-            //get to state 3 in main
+        // controls how long to wait before putting blinds back after an alarm
+        case 2:
+            if (proxyCount < maxProxy) 
+            {
+                ++proxyCount;
+            }
+            else if (proxyCount >= maxProxy)
+            {
+                proxyCount = 0;
+                proxyAlarmState = 3;
+            }
+            // Once alarm is over, return blinds to previous values
         case 3:
             motorUD = true; 
             motorOC = true;
-            motorTargetUD = UD_FULL_UP;
-            motorTargetOC = OC_FULL_OPEN;
+            
+            // restore blinds to previous positions
+            motorTargetUD = prevMotorTargetUD;
+            motorTargetOC = prevMotorTargetOC;
             MOTOR_ON();        
             break;
         default:
-            break;
-           
-            
+            break;    
     }
-        
-    
 }   
 
 //this is the temperature control. If the temperature alarm
 //gets triggered, then the following commands will execute.
-void temperature_test(void)
+void temperature_control(void)
 {
-    if (temperatureAlarm == 1)
+    switch (temperatureAlarmState)
     {
-        motorUD = true; 
-        motorOC = true;
-        motorTargetUD = UD_FULL_DOWN;
-        motorTargetOC = OC_FULL_CLOSE;
-        MOTOR_ON();        
+        // if temperature goes above the trigger limit, shutter blinds
+        case 1:
+            motorUD = true; 
+            motorOC = true;
+            // Save off current position
+            prevMotorTargetUD = motorTargetUD;
+            prevMotorTargetOC = motorTargetOC;
+            MOTOR_ON();
+            break;
+        // when temperature lowers again to an acceptable range 
+        // (in adc ISR), return to original values
+        case 2:
+            motorUD = true; 
+            motorOC = true;
+
+            // restore blinds to previous positions
+            motorTargetUD = prevMotorTargetUD;
+            motorTargetOC = prevMotorTargetOC;
+            MOTOR_ON(); 
+            break;
+        default:
+            break;
+            
     }
-    else if (temperatureAlarm == 0)
+}
+
+void gas_control(void)
+{
+    switch (gasAlarmState)
     {
-        motorUD = true; 
-        motorOC = true;
-        motorTargetUD = UD_FULL_UP;
-        motorTargetOC = OC_FULL_OPEN;
-        MOTOR_ON(); 
+        case 1:
+            break;
+        case 2:
+            break;
+        default:
+            break;
+        // TODO: make a timer turn the buzzer on and off to chirp
+        
+        //might want to also open and close the blinds
+        //need to write a small function that will compare
+        //the position of the blinds to its destination
+        //then continue with the opening and closing.
+        
     }
-    
+
+
 }
 
 

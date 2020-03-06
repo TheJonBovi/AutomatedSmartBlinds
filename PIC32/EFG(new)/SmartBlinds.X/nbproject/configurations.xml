@@ -61,11 +61,11 @@
         <itemPath>mcc_generated_files/adc.h</itemPath>
         <itemPath>mcc_generated_files/defines.h</itemPath>
         <itemPath>mcc_generated_files/tmr4_5.h</itemPath>
-        <itemPath>mcc_generated_files/stepper_test.h</itemPath>
         <itemPath>mcc_generated_files/SPI1.h</itemPath>
         <itemPath>mcc_generated_files/I2C1.h</itemPath>
         <itemPath>mcc_generated_files/camera.h</itemPath>
         <itemPath>mcc_generated_files/ov2640_regs.h</itemPath>
+        <itemPath>mcc_generated_files/stepper_control.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -88,30 +88,6 @@
             <itemPath>app/demo_support/iot/sw_timer.c</itemPath>
           </logicalFolder>
           <itemPath>app/demo_support/winc1500_support_stub.c</itemPath>
-        </logicalFolder>
-        <logicalFolder name="winc1500_ap_scan"
-                       displayName="winc1500_ap_scan"
-                       projectFiles="true">
-        </logicalFolder>
-        <logicalFolder name="winc1500_provision_ap"
-                       displayName="winc1500_provision_ap"
-                       projectFiles="true">
-        </logicalFolder>
-        <logicalFolder name="winc1500_pubnub"
-                       displayName="winc1500_pubnub"
-                       projectFiles="true">
-        </logicalFolder>
-        <logicalFolder name="winc1500_simple_growl"
-                       displayName="winc1500_simple_growl"
-                       projectFiles="true">
-        </logicalFolder>
-        <logicalFolder name="winc1500_udp_client"
-                       displayName="winc1500_udp_client"
-                       projectFiles="true">
-        </logicalFolder>
-        <logicalFolder name="winc1500_udp_server"
-                       displayName="winc1500_udp_server"
-                       projectFiles="true">
         </logicalFolder>
         <itemPath>app/winc1500_weather_client.c</itemPath>
         <itemPath>app/smartblinds_service.c</itemPath>
@@ -149,11 +125,11 @@
         <itemPath>mcc_generated_files/tmr2_3.c</itemPath>
         <itemPath>mcc_generated_files/adc.c</itemPath>
         <itemPath>mcc_generated_files/tmr4_5.c</itemPath>
-        <itemPath>mcc_generated_files/stepper_test.c</itemPath>
         <itemPath>mcc_generated_files/SPI1.c</itemPath>
         <itemPath>mcc_generated_files/I2C1.c</itemPath>
         <itemPath>mcc_generated_files/camera.c</itemPath>
         <itemPath>mcc_generated_files/ov2640_regs.c</itemPath>
+        <itemPath>mcc_generated_files/stepper_control.c</itemPath>
       </logicalFolder>
       <logicalFolder name="stubs" displayName="stubs" projectFiles="true">
         <itemPath>stubs/wf_mcu_driver_stub.c</itemPath>

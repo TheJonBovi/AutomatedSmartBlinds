@@ -97,6 +97,8 @@ void PBCLK2_Initialize(void);
 
 void buzzer_Initialize(void);
 
+void buzzer_Toggle(void);
+
 void switch_Initialize(void);
 
 #endif  /* MCC_H */
