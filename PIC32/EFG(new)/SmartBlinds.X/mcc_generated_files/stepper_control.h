@@ -15,8 +15,8 @@
  */
 /* ************************************************************************** */
 
-#ifndef _STEPPER_TEST_H    /* Guard against multiple inclusion */
-#define _STEPPER_TEST_H
+#ifndef _STEPPER_CONTROL_H    /* Guard against multiple inclusion */
+#define _STEPPER_CONTROL_H
 
 // function to use buttons to test UD motor
 void motor_test_UD(void);
@@ -24,19 +24,22 @@ void motor_test_UD(void);
 // function to use buttons to test UD motor
 void motor_test_OC(void);
 
-//function to test both the proxy and stepper motors simultaneously
-void proxy_motor_test(void);
+//function to control both the proxy and stepper motors simultaneously
+void proxy_motor_control(void);
 
-//function to test the temperature sensor and close the blinds
+//function to control temperature sensor and close the blinds
 //both during high and low temperatures
-void temperature_test(void);
+void temperature_control(void);
 
-//function to test for incoming requests from the web server and
+// function to control gas sensor alarm
+void gas_control(void);
+
+//function to control based on incoming requests from the web server and
 //execute said requests
 void call_control(void);
 
 
-#endif /* _STEPPER_TEST_H */
+#endif /* _STEPPER_CONTROL_H */
 
 /* *****************************************************************************
  End of File

@@ -29,11 +29,11 @@
 #include "defines.h"
 #include "mcc.h"
 
-extern int proxyAlarm;
+extern int proxyAlarmState;
 extern int proxyCount;
-extern int temperatureAlarm;
+extern int temperatureAlarmState;
 extern double current_temp;
-extern int gasAlarm;
+extern int gasAlarmState;
 extern double temp_high;
 extern double temp_low;
 
@@ -48,7 +48,8 @@ typedef struct _TMR_OBJ_STRUCT
 
 static TMR_OBJ tmr1_obj;
 
-uint8_t proxy_debounce = 0;
+int proxy_debounce = 0;
+int temp_debounce = 0;
 
 void TMR2_Initialize(void)
 {
@@ -178,9 +179,8 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
     current_read[0] = ADCDATA0;
     while (ADCDSTAT1bits.ARDY1 == 0);
     /* fetch the result */
-    //current_read[1]*3.3/4096 == current_read[1];
     current_read[1] = ADCDATA1;
-    current_temp = ADCDATA1 * 3.3 / 4095 * 1000 - 58;
+    
     while (ADCDSTAT1bits.ARDY3 == 0);
     /* fetch the result */
     //current_read[2]*5/1024 == current_read[2];
@@ -203,14 +203,13 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
     else if (ADC_MID_WNG < current_read[0] && current_read[0] <= ADC_HIGH_WNG) PORTK = 0b11;
     else 
     {
-        if (proxy_debounce < 5)
+        if (proxy_debounce < maxTMR3ISRdebounce)
         {
             ++proxy_debounce;
         }
         else
         {
-            proxyAlarm = 1;
-            proxyCount = 0;
+            proxyAlarmState = 1;
             PORTK = 0b111;
             proxy_debounce = 0;
         }
@@ -220,31 +219,50 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
     ///////////////////////////////////////////////////////////////////////////////////////////
     //This section is for the temperature
     //if the temperature is too cold or too hot, then set the alarm
-    if (current_read[1] <= temp_low || current_read[1] >= temp_high)
+    
+    current_temp = current_read[1] * 3300 / 4096 - 58;
+    if (current_temp >= temp_high)
     {
-        temperatureAlarm = 1;
-        PORTB = 0b0000;
+        if (temp_debounce < maxTMR3ISRdebounce)
+        {
+            ++temp_debounce;
+        }
+        else
+        {
+            temperatureAlarmState = 1;
+            temp_debounce = 0;
+        }
+
     }
     //else if the temperature is between the too cold or too hot settings, then turn off the temperature alarm
-    else
+    else if (current_temp <= temp_low)
     {
-        temperatureAlarm = 0;
-        PORTB = 0b0001;
+        if (temp_debounce < maxTMR3ISRdebounce)
+        {
+            ++temp_debounce;
+        }
+        else
+        {
+            temperatureAlarmState = 0;
+            temp_debounce = 0;
+        }
     }
+    
+    
     //////////////////////////////////////////////////////////////////////////////////////////
     //This section is for the gas
     //if the sensor detects anything below the high gas value
     //then it'll keep the gas alarm turned off
     if (current_read[2] < GAS_HIGH)
     {
-        gasAlarm = 0;
+        gasAlarmState = 0;
         PORTB = 0b0001;
     }
     //else if the sensor detects dangerous levels of smoke or gas
     //then it'll trigger the gas alarm until the gas clears.
     else
     {
-        gasAlarm = 1;
+        gasAlarmState = 1;
         PORTB = 0b0010;
     }
     
@@ -254,3 +272,4 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
     
 
 }
+
