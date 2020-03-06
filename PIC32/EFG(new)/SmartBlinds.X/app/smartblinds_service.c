@@ -83,21 +83,30 @@ limitations under the License.
 #define SetAppState(state)     g_appState = state
 #define GetAppState()          g_appState
 
-extern int temperatureAlarmState;
-extern double current_temp;
-extern uint8_t message_type;
-extern int proxyAlarmState;
-extern int gasAlarmState;
+// Motor Control Global Variables
+extern int rcv_UD_target;
+extern int rcv_OC_target;
 extern int motorTargetUD;
 extern int motorTargetOC;
 
-extern int rcv_UD_target;
-extern int rcv_OC_target;
-extern double rcv_temp_target;
+// Proximity Sensor Global Variables
+extern int proxyAlarmState;
 
+// Gas Sensor Global Variables
+extern int gasAlarmState;
+
+// Temperature Sensor Global Variables
+extern int temperatureAlarmState;
+extern double rcv_temp_target;
+extern double current_temp;
+
+// Buffers to receive web UI 
 char conv_rcv_UD_target[20] = {0};
 char conv_rcv_OC_target[20] = {0};
 char conv_rcv_temp_target[20] = {0};
+
+// Message variable to determine what socket to open
+extern uint8_t message_type;
 
 // application states
 typedef enum
@@ -332,47 +341,6 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
                 }
 		}
 		break;
-//        {
-//            char *pcIndxPtr;
-//            char *pcEndPtr;
-//
-//            t_socketRecv *pstrRecv = (t_socketRecv *)pvMsg;
-//            if (pstrRecv && pstrRecv->bufSize > 0) 
-//            {
-//                /* Get temperature. */
-//                pcIndxPtr = strstr((char *)pstrRecv->p_rxBuf, "\">");
-//                if (NULL != pcIndxPtr) 
-//                {
-//                    pcIndxPtr = pcIndxPtr + strlen("\">");
-//                    pcEndPtr = strstr(pcIndxPtr, "</");
-//                    if (NULL != pcEndPtr) 
-//                    {
-//                        *pcEndPtr = 0;
-//                    }
-//                    strcpy(testcvar, pcIndxPtr );
-//                } 
-//                else 
-//                {
-//                    printf("N/A\r\n");
-//                    break;
-//                }
-//                    /* Response processed, now close connection. */
-//                    close(tcp_client_socket);
-//                    tcp_client_socket = -1;
-//                    
-//                    break;
-//
-//                memset(s_ReceivedBuffer, 0, sizeof(s_ReceivedBuffer));
-//                recv(tcp_client_socket, &s_ReceivedBuffer[0], WIFI_BUFFER_SIZE, 0);
-//            } 
-//            else 
-//            {
-//                // Close socket
-//                close(tcp_client_socket);
-//                tcp_client_socket = -1;
-//            }
-//        }
-//        break;
         
         case M2M_SOCKET_SEND_EVENT:
         {

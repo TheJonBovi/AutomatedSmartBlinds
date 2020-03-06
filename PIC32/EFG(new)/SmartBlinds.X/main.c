@@ -89,7 +89,7 @@ static void mainLoop500ms(void)
         t = m2mStub_GetOneMsTimer();
         ToggleLed();
         proxy_motor_control();
-//        temperature_control();
+        temperature_control();
         gas_control();
 //        call_control();
     }

@@ -199,17 +199,40 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
     * has elapsed.
     *
     */
-
+    
+    
     // Set the LED levels according to IR proximity reading
-    if (current_read[0] <= ADC_LOW_WNG) PORTK = 0b0;
-    else if (ADC_LOW_WNG < current_read[0] && current_read[0] <= ADC_MID_WNG) PORTK = 0b1;
-    else if (ADC_MID_WNG < current_read[0] && current_read[0] <= ADC_HIGH_WNG) PORTK = 0b11;
+    if (current_read[0] <= ADC_LOW_WNG)
+    {
+        if (proxy_debounce < maxTMR3ISRdebounce) ++proxy_debounce;
+        else
+        {
+            proxy_debounce = 0;
+            PORTK = 0b0;
+        }
+
+    }
+    else if (ADC_LOW_WNG < current_read[0] && current_read[0] <= ADC_MID_WNG) 
+    {
+        if (proxy_debounce < maxTMR3ISRdebounce) ++proxy_debounce;
+        else
+        {
+            proxy_debounce = 0;
+            PORTK = 0b1;
+        }
+    }
+    else if (ADC_MID_WNG < current_read[0] && current_read[0] <= ADC_HIGH_WNG) 
+    {
+        if (proxy_debounce < maxTMR3ISRdebounce) ++proxy_debounce;
+                else
+        {
+            proxy_debounce = 0;
+            PORTK = 0b11;
+        }
+    }
     else 
     {
-        if (proxy_debounce < maxTMR3ISRdebounce)
-        {
-            ++proxy_debounce;
-        }
+        if (proxy_debounce < maxTMR3ISRdebounce) ++proxy_debounce;
         else
         {
             proxyAlarmState = 1;

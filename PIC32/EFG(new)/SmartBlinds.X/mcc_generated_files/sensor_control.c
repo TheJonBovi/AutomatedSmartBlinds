@@ -49,6 +49,8 @@ extern int gasAlarmState;
 bool buttonLockUD = false;
 bool buttonLockOC = false;
 
+extern uint8_t message_type;
+
 //no longer needed, but could be used in the future
 void motor_test_UD(void)
 {
@@ -301,6 +303,13 @@ void call_control(void)
         MOTOR_ON();              
     }
     */
+}
+
+void wifi_log_control(void)
+{
+    // TODO: log current status 
+    message_type = WIFI_LOG_ENTRY_MODE;
+    
 }
 
 /* *****************************************************************************

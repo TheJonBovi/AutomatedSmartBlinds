@@ -19,7 +19,7 @@
 #define _DEFINES_H
 
 // These will be the ADC values used to determine distance / proximity zones.
-#define ADC_LOW_WNG 2400
+#define ADC_LOW_WNG 2200
 #define ADC_MID_WNG 2500
 #define ADC_HIGH_WNG 3125
 
@@ -111,7 +111,7 @@
 //and thus have the connected function remain on until the counter
 //has reached the max timer.
 #define maxProxy            15 
-#define maxTMR3ISRdebounce  5
+#define maxTMR3ISRdebounce  7
 
 #define JPEG_MAX_SIZE               100000          
 
