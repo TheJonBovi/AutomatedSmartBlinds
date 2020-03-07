@@ -106,6 +106,10 @@ double temp_high = 120;
 double temp_low;
 int temperatureAlarmState = 0;
 double current_temp;
+int temp_array_position = 0;
+double temp_avg = 70;
+double temp_array[20] = {70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70};
+double current_temp_avg;
 
 // Gas Sensor Global Variables
 int gasAlarmState = 0;
