@@ -38,6 +38,11 @@ extern int temperatureAlarmState;
 extern double rcv_temp_target;
 extern double temp_high;
 extern double temp_low;
+extern int temp_array_position;
+extern double temp_avg;
+extern double temp_array[20];
+extern double current_temp_avg;
+extern double current_temp;
 
 // Proximity Sensor Global Variables
 extern int proxyCount;
@@ -170,6 +175,11 @@ void proxy_motor_control(void)
 //gets triggered, then the following commands will execute.
 void temperature_control(void)
 {
+    int n = 20;
+    
+    //set the average temperature from the temperature array
+    current_temp_avg = temp_array[20] / n;
+    
     switch (temperatureAlarmState)
     {
         // if temperature goes above the trigger limit, shutter blinds

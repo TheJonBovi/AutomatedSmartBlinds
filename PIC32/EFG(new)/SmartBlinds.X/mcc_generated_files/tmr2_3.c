@@ -38,6 +38,10 @@ extern int temperatureAlarmState;
 extern double current_temp;
 extern double temp_high;
 extern double temp_low;
+extern int temp_array_position;
+extern double temp_avg;
+extern double temp_array[20];
+extern double current_temp_avg;
 
 // Gas Sensor Global Variables
 extern int gasAlarmState;
@@ -256,10 +260,29 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
     
     ///////////////////////////////////////////////////////////////////////////////////////////
     //This section is for the temperature
-    //if the temperature is too cold or too hot, then set the alarm
-    
+    //if the temperature is too hot, then set the alarm
+
     current_temp = current_read[1] * 3300 / 4096 - 58;
-    if (current_temp >= temp_high)
+    //if the current temperature within 5 degrees of the
+    //average temperature, then log into temperature array
+    if (temp_avg - 5 < current_temp < temp_avg + 5)
+    {
+        temp_array[temp_array_position];
+        temp_array_position++;
+    }
+    //else do nothing
+    else{};
+    
+    //reset the array position when it reaches the end of the array
+    if (temp_array_position > 20)
+    {
+        temp_array_position = 0;
+    }
+
+    
+    //if the temperature average is greater or equal to the
+    //high temperature trigger, then trigger the alarm
+    if (current_temp_avg >= temp_high)
     {
         if (temp_debounce < maxTMR3ISRdebounce)
         {
@@ -272,8 +295,8 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
         }
 
     }
-    //else if the temperature is between the too cold or too hot settings, then turn off the temperature alarm
-    else if (current_temp <= temp_low)
+    //else if the average temperature is lower than the too hot settings, then turn off the temperature alarm
+    else if (current_temp_avg <= temp_low)
     {
         if (temp_debounce < maxTMR3ISRdebounce)
         {
