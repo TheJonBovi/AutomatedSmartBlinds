@@ -135,9 +135,10 @@
 
 #define callControlDelayMAX         4
 
-// toggles test functionality in project
-#define CAMERA_ON
-
+// toggles various functionality in project
+//#define CAMERA_ON
+//#define DREW_PHONE
+#define DREW_HOUSE
 
 #endif /* _DEFINES_H */
 

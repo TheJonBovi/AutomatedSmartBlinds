@@ -160,7 +160,7 @@ uint8_t Camera_read_fifo_burst()
         
         if (is_header == true)
         {
-            // TODO: SAVE DATA
+            // SAVE DATA
             //Serial.write(temp);
             JPEG_BUFFER[buffer_index] = temp;
             ++buffer_index;
@@ -170,7 +170,7 @@ uint8_t Camera_read_fifo_burst()
             is_header = true;
             //Serial.println(F("ACK CMD IMG END"));
             
-            // TODO: SAVE DATA
+            // SAVE DATA
             JPEG_BUFFER[buffer_index] = temp_last;
             JPEG_BUFFER[++buffer_index] = temp;
             //Serial.write(temp_last);

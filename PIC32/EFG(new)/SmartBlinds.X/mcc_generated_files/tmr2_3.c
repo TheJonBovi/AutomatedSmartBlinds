@@ -242,8 +242,10 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
         {
             proxyAlarmState = 1;
             PORTK = 0b111;
-//            JPEG_ready = true;
-//            Camera_capture_image();
+#ifdef CAMERA_ON        
+            JPEG_ready = true;
+            Camera_capture_image();
+#endif
             
             proxy_debounce = 0;
         }

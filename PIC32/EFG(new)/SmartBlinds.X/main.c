@@ -47,6 +47,8 @@ void watchdog_Initialize(void);
 //==============================================================================
 int main(void)
 {
+    
+
     // This function initailizes modules, located mainly in the mcc file
     BspInit();
 
@@ -94,7 +96,7 @@ static void mainLoop500ms(void)
         proxy_motor_control();
         temperature_control();
         gas_control();
-        call_control();
+        //call_control();
         proxy_LED_alarm();
     }
 

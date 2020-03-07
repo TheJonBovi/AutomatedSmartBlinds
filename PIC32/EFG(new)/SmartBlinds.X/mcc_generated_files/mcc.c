@@ -47,6 +47,8 @@
 
 #include "winc1500_api.h"
 #include "defines.h"
+#include <string.h>
+#include "mcc.h"
 
 // PIC32MZ2048ECG144 or EFG144 based HMZ144 board Configuration Bit Settings
 // DEVCFG2
@@ -87,7 +89,6 @@
 //#pragma config WDTPS = PS4096
 //#pragma config WDTPS = PS8192             //(example) 4 second watchdog timer with 80MHz clock. Need 84MHz
 
-#include "mcc.h"
 
 // Motor Control Global Variables
 int motorTargetUD = 1024;      //This needs to be set to 1024 (or full up to where the blinds are at the base) during start up. Both hardware and software.
@@ -117,7 +118,8 @@ int rcv_OC_target = 0;
 double rcv_temp_target = 0;
 
 // Globals for wifi service
-uint8_t message_type = WIFI_DO_NOTHING;
+uint8_t message_type = WIFI_IMG_UPLOAD_MODE;
+//uint8_t message_type = WIFI_RECIEVE_MODE;
 int callControlState = 0;
 
 // Image storage and flag Global Variables

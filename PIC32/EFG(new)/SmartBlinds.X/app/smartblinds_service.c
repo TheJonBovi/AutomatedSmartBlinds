@@ -58,11 +58,17 @@ limitations under the License.
 
 /** Wi-Fi AP Settings. */
 
+#ifdef DREW_HOUSE
 #define WLAN_SSID              "OOP_2.4"             // target AP
-//#define WLAN_SSID               "guesthouse guests"
-#define WLAN_AUTH              M2M_WIFI_SEC_WPA_PSK   // AP Security 
 #define WLAN_PSK               "goatcheese"            // security password
-//#define WLAN_PSK                  "guesthouse1"
+#endif
+
+#ifdef DREW_PHONE
+#define WLAN_SSID              "DrewPhone"             // target AP
+#define WLAN_PSK               "password"            // security password
+#endif
+
+#define WLAN_AUTH              M2M_WIFI_SEC_WPA_PSK   // AP Security 
 
 #define WIFI_BUFFER_SIZE       1400                  // Receive buffer size.
 #define SERVER_PORT            (80)                  // Using broadcast address for simplicity
@@ -74,10 +80,23 @@ limitations under the License.
 #define log_entry4                  "&sbHorxLog="
 #define log_entry5                  "&sbVertLog="
 #define log_entry6                  " HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
-//#define log_entry6                "\r\n\r\n"
+
 #define getxml_buffer               "GET /SmartBlindsWebService.asmx/GetXML HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
+
 #define log_entry_buffer            "GET /SmartBlindsWebService.asmx/LogEntry?func=0&val=6969\r\n\r\n"
+
 #define recieve_buffer              "GET /SmartBlindsWebService.asmx/GetBlindsSettings? HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
+
+//#define upload_entry1               "GET /SmartBlindsWebService.asmx/UploadFile?f="
+//#define upload_entry2               "&f="
+//#define upload_entry3               "&fileName=img.jpg HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
+
+#define upload_entry1               "POST /SmartBlindsWebService.asmx HTTP/1.1\r\nContent-Type: text/xml; charset=utf-8\r\nSOAPAction: \"http://smartblinds.eastus.cloudapp.azure.com/UploadFile\"\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nContent-Length: 316\r\nExpect: 100-continue\r\nAccept-Encoding: gzip, deflate\r\n"
+//#define upload_entry1               "POST /SmartBlindsWebService.asmx HTTP/1.1\r\nContent-Type: text/xml; charset=utf-8\r\nSOAPAction: \"http://smartblinds.eastus.cloudapp.azure.com/UploadFile\"\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nContent-Length: 316\r\n"
+
+#define upload_entry2               "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\"><s:Body xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><UploadFile xmlns=\"http://smartblinds.eastus.cloudapp.azure.com/\"><f>dGVzdA==</f><fileName>test.txt</fileName></UploadFile></s:Body></s:Envelope>"
+
+#define upload_entry_test           "GET /SmartBlindsWebService.asmx/UploadFile?f=dGVzdA==&f=&fileName=test.txt HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
 
 #define IPV4_BYTE(val, index)  ((val >> (index * 8)) & 0xFF)  // IP address parsing.
 #define HEX2ASCII(x)           (((x) >= 10) ? (((x) - 10) + 'A') : ((x) + '0'))
@@ -118,6 +137,9 @@ extern uint8_t message_type;
 extern int callControlState;
 int callControlDelay = CALL_IDLE_STATE;
 
+int img_done_test = 0;
+
+int8_t send_test;
 
 // application states
 typedef enum
@@ -249,9 +271,10 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
         {
             if (s_TcpConnection) 
             {
-                // Load up s_RecievedBuffer with HTTP Command
+                // Clear up recievedbuffer
                 memset(s_ReceivedBuffer, 0, sizeof(s_ReceivedBuffer));
                 
+                // Load up s_RecievedBuffer with HTTP Command
                 switch (message_type)
                 {
                     case WIFI_LOG_ENTRY_MODE:
@@ -265,6 +288,7 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
                         break;
                     case WIFI_IMG_UPLOAD_MODE:
                         // Initial Image sending packet
+                        sprintf((char *)s_ReceivedBuffer, "%s", upload_entry1);
                         
                         break;
                 }
@@ -272,9 +296,10 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
                 t_socketConnect *pstrConnect = (t_socketConnect *)pvMsg;
                 if (pstrConnect && pstrConnect->error >= SOCK_ERR_NO_ERROR) 
                 {
-                    send(tcp_client_socket, s_ReceivedBuffer, strlen((char *)s_ReceivedBuffer), 0);
+                    send_test = send(tcp_client_socket, s_ReceivedBuffer, strlen((char *)s_ReceivedBuffer), 0);
                     memset(s_ReceivedBuffer, 0, WIFI_BUFFER_SIZE);
                     recv(tcp_client_socket, &s_ReceivedBuffer[0], WIFI_BUFFER_SIZE, 0);
+                    
                 } 
                 else 
                 {
@@ -293,86 +318,123 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
                 char *pcEndPtr;
 
                 t_socketRecv *pstrRecv = (t_socketRecv *)pvMsg;
-                if (pstrRecv && pstrRecv->bufSize > 0) 
+                if (message_type == WIFI_RECIEVE_MODE)
                 {
-
-                    /* Get Horizontal */
-
-                    pcIndxPtr = strstr((char *)pstrRecv->p_rxBuf, "h=");
-                    if (NULL != pcIndxPtr) 
+                    if (pstrRecv && pstrRecv->bufSize > 0) 
                     {
-                        pcIndxPtr = pcIndxPtr + strlen("h=") + 1;
-                        pcEndPtr = strstr(pcIndxPtr, "\" />");
-                        if (NULL != pcEndPtr) *pcEndPtr = 0;
-                        strcpy(conv_rcv_OC_target, pcIndxPtr );
+
+                        /* Get Horizontal */
+                        pcIndxPtr = strstr((char *)pstrRecv->p_rxBuf, "h=");
+                        if (NULL != pcIndxPtr) 
+                        {
+                            pcIndxPtr = pcIndxPtr + strlen("h=") + 1;
+                            pcEndPtr = strstr(pcIndxPtr, "\" />");
+                            if (NULL != pcEndPtr) *pcEndPtr = 0;
+                            strcpy(conv_rcv_OC_target, pcIndxPtr );
+                        } else 
+                        {
+                            break;
+                        }
+
+                        /* Get Vertical. */
+                        pcIndxPtr = strstr(pcEndPtr + 1, "v=");
+                        if (NULL != pcIndxPtr) 
+                        {
+                            pcIndxPtr = pcIndxPtr + strlen("v=") + 1;
+                            pcEndPtr = strstr(pcIndxPtr, "\" />");
+                            if (NULL != pcEndPtr) *pcEndPtr = 0;
+                            strcpy(conv_rcv_UD_target, pcIndxPtr );
+                        } else 
+                        {
+                            break;
+                        }
+
+                        /* Get Proximity*/
+                        pcIndxPtr = strstr(pcEndPtr + 1, "p=");
+                        if (NULL != pcIndxPtr) 
+                        {
+                            printf("Weather Condition: ");
+                            pcIndxPtr = pcIndxPtr + strlen("p=") + 1;
+                            pcEndPtr = strstr(pcIndxPtr, "\" />");
+                            if (NULL != pcEndPtr) *pcEndPtr = 0;
+                            //strcpy(TARGET_FOR_PROX_NOT_IMPLEMENTED, pcIndxPtr );
+
+                        /* Get Temperature*/
+                        pcIndxPtr = strstr(pcEndPtr + 1, "t=");
+                        if (NULL != pcIndxPtr) 
+                        {
+                            pcIndxPtr = pcIndxPtr + strlen("t=") + 1;
+                            pcEndPtr = strstr(pcIndxPtr, "\" />");
+                            if (NULL != pcEndPtr) *pcEndPtr = 0;
+                        }
+                            strcpy(conv_rcv_temp_target, pcIndxPtr );
+                            message_type = WIFI_DO_NOTHING;
+
+                            // pull out the values from parsed strings
+                            newMotorTargetUD = atoi(conv_rcv_UD_target);
+                            newMotorTargetOC = atoi(conv_rcv_OC_target);
+                            new_temp_high = (double) atoi(conv_rcv_temp_target);
+
+                            /* Response processed, now close connection. */
+                            close(tcp_client_socket);
+                            tcp_client_socket = -1;
+                            break;
+                        }
+
                     } else 
                     {
-                        break;
-                    }
-
-                    /* Get Vertical. */
-                    pcIndxPtr = strstr(pcEndPtr + 1, "v=");
-                    if (NULL != pcIndxPtr) 
-                    {
-                        pcIndxPtr = pcIndxPtr + strlen("v=") + 1;
-                        pcEndPtr = strstr(pcIndxPtr, "\" />");
-                        if (NULL != pcEndPtr) *pcEndPtr = 0;
-                        strcpy(conv_rcv_UD_target, pcIndxPtr );
-                    } else 
-                    {
-                        break;
-                    }
-
-                    /* Get Proximity*/
-                    pcIndxPtr = strstr(pcEndPtr + 1, "p=");
-                    if (NULL != pcIndxPtr) 
-                    {
-                        printf("Weather Condition: ");
-                        pcIndxPtr = pcIndxPtr + strlen("p=") + 1;
-                        pcEndPtr = strstr(pcIndxPtr, "\" />");
-                        if (NULL != pcEndPtr) *pcEndPtr = 0;
-                        //strcpy(TARGET_FOR_PROX_NOT_IMPLEMENTED, pcIndxPtr );
-
-                    /* Get Temperature*/
-                    pcIndxPtr = strstr(pcEndPtr + 1, "t=");
-                    if (NULL != pcIndxPtr) 
-                    {
-                        pcIndxPtr = pcIndxPtr + strlen("t=") + 1;
-                        pcEndPtr = strstr(pcIndxPtr, "\" />");
-                        if (NULL != pcEndPtr) *pcEndPtr = 0;
-                    }
-                        strcpy(conv_rcv_temp_target, pcIndxPtr );
                         message_type = WIFI_DO_NOTHING;
-                        
-                        // pull out the values from parsed strings
-                        newMotorTargetUD = atoi(conv_rcv_UD_target);
-                        newMotorTargetOC = atoi(conv_rcv_OC_target);
-                        new_temp_high = (double) atoi(conv_rcv_temp_target);
-                        
-                        /* Response processed, now close connection. */
                         close(tcp_client_socket);
                         tcp_client_socket = -1;
-                        break;
                     }
-
-                } else 
+                }
+                else if (message_type == WIFI_IMG_UPLOAD_MODE)
                 {
-                    message_type = WIFI_DO_NOTHING;
-                    close(tcp_client_socket);
-                    tcp_client_socket = -1;
+                    
                 }
 		}
 		break;
         
         case M2M_SOCKET_SEND_EVENT:
         {
-            if (message_type == WIFI_LOG_ENTRY_MODE | message_type == WIFI_HELLOXML_MODE)
+            if (message_type == WIFI_LOG_ENTRY_MODE || message_type == WIFI_HELLOXML_MODE)
             {
                 message_type = WIFI_DO_NOTHING;
                 // Log updated, close socket after sending 
                 close(tcp_client_socket);
                 tcp_client_socket = -1;
             }
+            else if (message_type == WIFI_IMG_UPLOAD_MODE)
+            {
+                // Clear up s_ReceivedBuffer
+                //memset(s_ReceivedBuffer, 0, sizeof(s_ReceivedBuffer));
+                // Load up second packet
+                
+                
+                t_socketConnect *pstrConnect = (t_socketConnect *)pvMsg;
+//                if ( img_done_test == 0 && pstrConnect && pstrConnect->error >= SOCK_ERR_NO_ERROR) 
+//                {
+//                    img_done_test = 1;
+//                    sprintf((char *)s_ReceivedBuffer, "%s", upload_entry2);
+//                    send_test = send(tcp_client_socket, s_ReceivedBuffer, strlen((char *)s_ReceivedBuffer), 0);
+//                    memset(s_ReceivedBuffer, 0, WIFI_BUFFER_SIZE);
+//                    recv(tcp_client_socket, &s_ReceivedBuffer[0], WIFI_BUFFER_SIZE, 0);
+//                } 
+//                else if (img_done_test == 1)
+//                {
+//                    img_done_test == 2;
+////                    close(tcp_client_socket);
+////                    tcp_client_socket = -1;
+//                }
+//                else 
+//                {
+//                    printf("connect error!\r\n");
+//                    s_TcpConnection = false;
+//                    close(tcp_client_socket);
+//                    tcp_client_socket = -1;
+//                }     
+            }
+            break;
         }
         default:
             break;
