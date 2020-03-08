@@ -147,6 +147,7 @@ void proxy_motor_control(void)
                 proxyCount = 0;
                 proxyAlarmState = 3;
             }
+            break;
             // Once alarm is over, return blinds to previous values
         case 3:
             motorUD = true; 
@@ -175,10 +176,14 @@ void proxy_motor_control(void)
 //gets triggered, then the following commands will execute.
 void temperature_control(void)
 {
-    int n = 20;
-    
     //set the average temperature from the temperature array
-    current_temp_avg = temp_array[20] / n;
+    current_temp_avg = 0;
+    int i;
+    for (i = 0; i < TEMP_SAMPLES; ++i)
+    {
+        current_temp_avg += temp_array[i];
+    }
+    current_temp_avg = current_temp_avg / TEMP_SAMPLES;
     
     switch (temperatureAlarmState)
     {

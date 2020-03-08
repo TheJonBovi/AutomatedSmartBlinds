@@ -102,13 +102,13 @@ int counterUD = 1024;
 int counterOC = 0;
 
 // Temperature Sensor Control Global Variables
-double temp_high = 120; 
+double temp_high = 100; 
 double temp_low;
 int temperatureAlarmState = 0;
 double current_temp;
 int temp_array_position = 0;
-double temp_avg = 70;
-double temp_array[20] = {70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70};
+double temp_avg = INIT_TEMP_AVG;
+double temp_array[TEMP_SAMPLES] = {INIT_TEMP_AVG, INIT_TEMP_AVG, INIT_TEMP_AVG, INIT_TEMP_AVG, INIT_TEMP_AVG, INIT_TEMP_AVG, INIT_TEMP_AVG, INIT_TEMP_AVG, INIT_TEMP_AVG, INIT_TEMP_AVG, INIT_TEMP_AVG, INIT_TEMP_AVG, INIT_TEMP_AVG, INIT_TEMP_AVG, INIT_TEMP_AVG, INIT_TEMP_AVG, INIT_TEMP_AVG, INIT_TEMP_AVG, INIT_TEMP_AVG, INIT_TEMP_AVG};
 double current_temp_avg;
 
 // Gas Sensor Global Variables
@@ -122,8 +122,10 @@ int rcv_OC_target = 0;
 double rcv_temp_target = 0;
 
 // Globals for wifi service
-uint8_t message_type = WIFI_IMG_UPLOAD_MODE;
+//uint8_t message_type = WIFI_IMG_UPLOAD_MODE;
 //uint8_t message_type = WIFI_RECIEVE_MODE;
+uint8_t message_type = WIFI_DO_NOTHING;
+
 int callControlState = 0;
 
 // Image storage and flag Global Variables
@@ -139,6 +141,7 @@ void SYSTEM_Initialize(void)
     OSCILLATOR_Initialize();
     PBCLK3_Initialize();
     PBCLK2_Initialize();
+    PRISS_Initialize();
     
     INTERRUPT_Initialize();
     EXT_INT_Initialize();
@@ -148,6 +151,9 @@ void SYSTEM_Initialize(void)
     
     //DIP_Initialize();
     ADC_Initialize();
+    
+    //TMR4_16bit_Initialize();
+    
     buzzer_Initialize();
     switch_Initialize();
     LED_Initialize();
@@ -293,6 +299,18 @@ void watchdog_Initialize(void)
     
     //enable the watchdog
     WDTCONbits.ON = 1;
+}
+
+void PRISS_Initialize(void)
+{
+    PRISSbits.PRI1SS = 1;
+    PRISSbits.PRI2SS = 2;
+    PRISSbits.PRI3SS = 3;
+    PRISSbits.PRI4SS = 4;
+    PRISSbits.PRI5SS = 5;
+    PRISSbits.PRI6SS = 6;
+    PRISSbits.PRI7SS = 7;
+    
 }
 
 /**

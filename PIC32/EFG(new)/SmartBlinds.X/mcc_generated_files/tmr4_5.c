@@ -36,13 +36,22 @@ extern int OCStepperState;
 // Proximity Sensor Global Variables
 extern int proxyAlarmState;
 
-//Timer 4 is for the buzzer
+// Temperature Sensor Global Variables
+extern int temperatureAlarmState;
+extern double current_temp;
+extern double temp_high;
+extern double temp_low;
+extern int temp_array_position;
+extern double temp_avg;
+extern double temp_array[20];
+extern double current_temp_avg;
+//int temp_debounce = 0;
+
+//Timer 4 is for the Temperature sensor readings
 void TMR4_16bit_Initialize(void)
 {
-    //Need to have timer 4 be 16 bit config
-    //if the system calls function, buzzer activates until call ends
-    //need to have the buzzer set to 4KHz. TMR4 set to 1/4KHz.
-    //.25KHz pbclock 84mhz, 11.9ns. 21008
+    // This Timer will control temperature readings
+    
     //ISR019<17:1> IFS0<19> IEC0<19> IPC4<28:26> IPC4<25:24>
     
     //4KHz is 250,000ns
@@ -56,26 +65,22 @@ void TMR4_16bit_Initialize(void)
     //Clear the timer 4 register
     TMR4 = 0x0;
     
-    //load the period 4 register for the specific amount of 21008 = 250000ns / 11.9ns
-    PR4 = 10500;
-
-    // Disable TMR4 interrupts and set up TMR4 interrupts.
-    // Set Shadow register set 2 for TMR4 interrupts (Priority 2)
-    PRISSSET = (2 << _PRISS_PRI2SS_POSITION) & _PRISS_PRI2SS_MASK;
+    //load the PR register with PBCLK of 42mhz
+    //PR4 = 65535;
+    PR4 = 16383;
+    
     // Clear T4 priority sub priority
     IPC4CLR = _IPC4_T4IP_MASK | _IPC4_T4IS_MASK;
     // Set T4 to priority 2, sub-priority 0
-    IPC4SET = (2 << _IPC4_T4IP_POSITION) & _IPC4_T4IP_MASK;
+    IPC4SET = (1 << _IPC4_T4IP_POSITION) & _IPC4_T4IP_MASK;
     // Clear T4IF
     IFS0CLR = _IFS0_T4IF_MASK;
     // Enable T4 interrupts
     IEC0SET = _IEC0_T4IE_MASK;
    
     //RF8 config
-    PORTFCLR = _PORTF_RF8_MASK;
-    TRISFCLR = _TRISF_TRISF8_MASK;
     //start the timer in 16 bit mode
-    //T4CONSET = _T4CON_ON_MASK;
+    T4CONSET = _T4CON_ON_MASK;
     asm volatile( "ei" ); // Re-Enable Interrupts
     
 }
@@ -97,14 +102,11 @@ void TMR5_16bit_Motor_Initialize(void)
     
     //load the period 5 register to set motor rotation
     PR5 = MOTOR_PR_SETTING;
-
-    // Disable TMR5 interrupts and set up TMR5 interrupts.
-    // Set Shadow register set 2 for TMR5 interrupts (Priority 2)
-    PRISSSET = (2 << _PRISS_PRI2SS_POSITION) & _PRISS_PRI2SS_MASK;
+    
     // Clear T5 priority sub priority
     IPC6CLR = _IPC6_T5IP_MASK | _IPC6_T5IS_MASK;
     // Set T5 to priority 2, sub-priority 0
-    IPC6SET = (2 << _IPC6_T5IP_POSITION) & _IPC6_T5IP_MASK;
+    IPC6SET = (1 << _IPC6_T5IP_POSITION) & _IPC6_T5IP_MASK;
     // Clear T5IF
     IFS0CLR = _IFS0_T5IF_MASK;
     // Enable T5 interrupts
@@ -136,7 +138,7 @@ void TMR5_16bit_Motor_Initialize(void)
 }
 
 //This ISR will be used for the stepper motors UD/OC
-void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) TMR5_MOTOR_ISR(void)
+void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL1SRS) TMR5_MOTOR_ISR(void)
 {
     int motorDirectionUD;
     int motorDirectionOC;
@@ -395,11 +397,61 @@ void __ISR_AT_VECTOR(_TIMER_5_VECTOR, IPL2SRS) TMR5_MOTOR_ISR(void)
 }
 
 //This is the ISR for the buzzer to activate
-void __ISR_AT_VECTOR(_TIMER_4_VECTOR, IPL2SRS) TMR4_ISR(void)
+void __ISR_AT_VECTOR(_TIMER_4_VECTOR, IPL1SRS) TMR4_ISR(void)
 {
-    //toggle RF8
-    PORTFINV = _PORTF_RF8_MASK;
     
+//    /*  Trigger a conversion */
+//    ADCCON3bits.GSWTRG = 1;
+//    double temp_low = (temp_high - 5); //the high temp minus 5 degrees
+//    
+//    while (ADCDSTAT1bits.ARDY1 == 0);
+//    /* fetch the result for TEMP */
+//    double temp_low = (temp_high - 5); //the high temp minus 5 degrees
+//    current_temp = ADCDATA1 * 3300.0 / 4096.0 - 58.0;
+//    //if the current temperature within 5 degrees of the
+//    //average temperature, then log into temperature array
+//    if (temp_avg - 10 < current_temp && current_temp < temp_avg + 10)
+//    {
+//        temp_array[temp_array_position] = current_temp;
+//        temp_array_position++;
+//    }
+//    //else do nothing
+//    
+//    //reset the array position when it reaches the end of the array
+//    if (temp_array_position >= TEMP_SAMPLES)
+//    {
+//        temp_array_position = 0;
+//    }
+//
+//    
+//    //if the temperature average is greater or equal to the
+//    //high temperature trigger, then trigger the alarm
+//    if (current_temp_avg >= temp_high)
+//    {
+//        if (temp_debounce < maxTMR3ISRdebounce)
+//        {
+//            ++temp_debounce;
+//        }
+//        else
+//        {
+//            temperatureAlarmState = 1;
+//            temp_debounce = 0;
+//        }
+//
+//    }
+//    //else if the average temperature is lower than the too hot settings, then turn off the temperature alarm
+//    else if (current_temp_avg <= temp_low)
+//    {
+//        if (temp_debounce < maxTMR3ISRdebounce)
+//        {
+//            ++temp_debounce;
+//        }
+//        else
+//        {
+//            temperatureAlarmState = 0;
+//            temp_debounce = 0;
+//        }
+//    }
     //clear the T4IF
     IFS0CLR = _IFS0_T4IF_MASK; 
 }

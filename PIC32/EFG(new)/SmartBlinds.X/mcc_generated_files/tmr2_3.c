@@ -57,7 +57,11 @@ typedef struct _TMR_OBJ_STRUCT
 
 static TMR_OBJ tmr1_obj;
 
-int proxy_debounce = 0;
+int proxy_debounce1 = 0;
+int proxy_debounce2 = 0;
+int proxy_debounce3 = 0;
+int proxy_debounce4 = 0;
+
 int temp_debounce = 0;
 
 double current_gas;
@@ -66,8 +70,6 @@ void TMR2_Initialize(void)
 {
     asm volatile( "di" ); // Disable Interrupts
     
-    // Set Shadow register set 2 for TMR3 interrupts (Priority 5)
-    PRISSSET = (2 << _PRISS_PRI5SS_POSITION) & _PRISS_PRI5SS_MASK;
     // Clear T2 priority an sub priority
     IPC2CLR = _IPC2_T2IP_MASK | _IPC2_T2IS_MASK;
     // Set T2 to priority 5, sub-priority 0
@@ -91,8 +93,6 @@ void TMR3_Initialize(void)
 {
     asm volatile( "di" ); // Disable Interrupts
     
-    // Set Shadow register set 2 for TMR3 interrupts (Priority 5)
-    PRISSSET = (2 << _PRISS_PRI5SS_POSITION) & _PRISS_PRI5SS_MASK;
     // Clear T3 priority an sub priority
     IPC3CLR = _IPC3_T3IP_MASK | _IPC3_T3IS_MASK;
     // Set T2 to priority 5, sub-priority 0
@@ -132,16 +132,15 @@ void TMR2_32bit_Initialize(void)
     // Set PR2 and PR3 according to timing. 
     // 0.5 seconds = 21,000,000 counts at 42Mhz 
     // 21,000,000 = 0x0140.6F40 so PR3 = 0x0140 and PR2 = 0x6F40
-    PR2 = 0x6F40;
-    PR3 = 0x0140;
+    //PR2 = 0x6F40;
+    //PR3 = 0x0140;
+    PR2 = 65535;
+    PR3 = 0;
     
-    // Disable TMR2 interrupts and set up TMR3 interrupts.
-    // Set Shadow register set 1 for TMR3 interrupts (Priority 1)
-    PRISSSET = (1 << _PRISS_PRI1SS_POSITION) & _PRISS_PRI1SS_MASK;
     // Clear T3 priority sub priority
     IPC3CLR = _IPC3_T3IP_MASK | _IPC3_T3IS_MASK;
     // Set T3 to priority 1, sub-priority 0
-    IPC3SET = (1 << _IPC3_T3IP_POSITION) & _IPC3_T3IP_MASK;
+    IPC3SET = (2 << _IPC3_T3IP_POSITION) & _IPC3_T3IP_MASK;
     // Clear T3IF
     IFS0CLR = _IFS0_T3IF_MASK;
     // Enable T3 interrupts
@@ -175,14 +174,14 @@ void __ISR_AT_VECTOR(_TIMER_2_VECTOR, IPL5SRS) TMR2_ISR(void)
     Refer to the ISR.h interface header for function usage details.
 */
 //This is for the ADC configs
-void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
+void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL2SRS) TMR3_ISR(void)
 { 
     
     // ADC loop and test output on LED's for proximity sensor
     int current_read[3];
-    double temp_low = (temp_high - 5); //the high temp minus 5 degrees
+
    
-//    /* Trigger a conversion */
+    /* Trigger a conversion */
     ADCCON3bits.GSWTRG = 1;
     
     /* Wait the conversions to complete */
@@ -211,72 +210,64 @@ void __ISR_AT_VECTOR(_TIMER_3_VECTOR, IPL1SRS) TMR3_ISR(void)
     
     
     // Set the LED levels according to IR proximity reading
-    if (current_read[0] <= ADC_LOW_WNG && proxyAlarmState == 0)
+    if (current_read[0] <= ADC_LOW_WNG)
     {
-        if (proxy_debounce < maxTMR3ISRdebounce) ++proxy_debounce;
-        else
-        {
-            proxy_debounce = 0;
             PORTK = 0b0;
-        }
+    }
+    else if (ADC_LOW_WNG < current_read[0] && current_read[0] <= ADC_MID_WNG) 
+    {
+
+            PORTK = 0b1;
 
     }
-    else if (ADC_LOW_WNG < current_read[0] && current_read[0] <= ADC_MID_WNG && proxyAlarmState == 0) 
+    else if (ADC_MID_WNG < current_read[0] && current_read[0] <= ADC_HIGH_WNG) 
     {
-        if (proxy_debounce < maxTMR3ISRdebounce) ++proxy_debounce;
-        else
-        {
-            proxy_debounce = 0;
-            PORTK = 0b1;
-        }
-    }
-    else if (ADC_MID_WNG < current_read[0] && current_read[0] <= ADC_HIGH_WNG && proxyAlarmState == 0) 
-    {
-        if (proxy_debounce < maxTMR3ISRdebounce) ++proxy_debounce;
-                else
-        {
-            proxy_debounce = 0;
+
             PORTK = 0b11;
-        }
+
     }
-    else 
+    else if (current_read[0] > ADC_HIGH_WNG)
     {
-        if (proxy_debounce < maxTMR3ISRdebounce) ++proxy_debounce;
+        proxy_debounce1 = 0;
+        proxy_debounce2 = 0;
+        proxy_debounce3 = 0;
+        PORTK = 0b111;     
+        if (proxy_debounce4 < maxTMR3ISRdebounce) ++proxy_debounce4;
         else if (proxyAlarmState == 0)
         {
             proxyAlarmState = 1;
-            PORTK = 0b111;
+
 #ifdef CAMERA_ON        
             JPEG_ready = true;
             Camera_capture_image();
 #endif
             
-            proxy_debounce = 0;
-        }
-        else 
+            proxy_debounce4 = 0;
+        } 
+        // If a proxy alarm has been triggered, delay unwind until it no alarm
+        else if (proxyAlarmState < 0)
         {
-            proxy_debounce = 0;
+            proxyCount = 0;
         }
-        
     }   
     
     ///////////////////////////////////////////////////////////////////////////////////////////
     //This section is for the temperature
     //if the temperature is too hot, then set the alarm
 
-    current_temp = current_read[1] * 3300 / 4096 - 58;
+    current_temp = current_read[1] * 3300.0 / 4096.0 - 58.0;
     //if the current temperature within 5 degrees of the
     //average temperature, then log into temperature array
-    if (temp_avg - 5 < current_temp < temp_avg + 5)
+    if (temp_avg - 10 < current_temp && current_temp < temp_avg + 10)
     {
-        temp_array[temp_array_position];
+        temp_array[temp_array_position] = current_temp;
         temp_array_position++;
     }
     //else do nothing
     else{};
     
     //reset the array position when it reaches the end of the array
-    if (temp_array_position > 20)
+    if (temp_array_position >= TEMP_SAMPLES)
     {
         temp_array_position = 0;
     }

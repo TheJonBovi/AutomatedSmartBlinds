@@ -64,6 +64,9 @@
 //550-590 dec is the average for any given time. Set to 800 dec for high.
 #define GAS_HIGH        -1 //These are not the real values. Need to calculate them.
 
+#define TEMP_SAMPLES     20
+#define INIT_TEMP_AVG    62
+
 // This value is how we set the motor speed. For reverence
 // 300 = 1 rot / 5 seconds, changed to 900 to slow down the motor
 #define MOTOR_PR_SETTING 900
@@ -106,14 +109,11 @@
 #define THREE_QUARTER_BLINDS        0b0001001 //3 quarter down
 #define HALF_BLINDS                 0b0001010 //half raise/lower
 
-#define TEMP_REQUEST                0b0001011 //request for the temperature readings
-#define GAS_REQUEST                 0b0001100 //request for the gas sensor readings
-
 //this is meant for a timer in main to have the proxy remain on
 //and thus have the connected function remain on until the counter
 //has reached the max timer.
-#define maxProxy            15 
-#define maxTMR3ISRdebounce  8
+#define maxProxy            10 // this number x 0.5 seconds for Proxy alarm 
+#define maxTMR3ISRdebounce  1000 // this x 1.5ms to determine how long to hold before checking samples for ADC
 
 #define JPEG_MAX_SIZE               100000          
 

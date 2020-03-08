@@ -79,7 +79,8 @@ limitations under the License.
 #define log_entry3                  "&gasLog="
 #define log_entry4                  "&sbHorxLog="
 #define log_entry5                  "&sbVertLog="
-#define log_entry6                  " HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
+#define log_entry6                  "&sbTempAlarm="
+#define log_entry7                  " HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
 
 #define getxml_buffer               "GET /SmartBlindsWebService.asmx/GetXML HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
 
@@ -123,9 +124,10 @@ extern int gasAlarmState;
 // Temperature Sensor Global Variables
 extern int temperatureAlarmState;
 extern double rcv_temp_target;
-extern double current_temp;
+extern double current_temp_avg;
 extern double temp_high;
 double new_temp_high;
+
 
 // Buffers to receive web UI 
 char conv_rcv_UD_target[20] = {0};
@@ -278,7 +280,7 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
                 switch (message_type)
                 {
                     case WIFI_LOG_ENTRY_MODE:
-                        sprintf((char *)s_ReceivedBuffer, "%s%f%s%u%s%u%s%u%s%i%s", log_entry1, current_temp, log_entry2, proxyAlarmState, log_entry3, gasAlarmState, log_entry4, motorTargetUD, log_entry5, motorTargetOC, log_entry6);
+                        sprintf((char *)s_ReceivedBuffer, "%s%f%s%i%s%i%s%i%s%i%s%i%s", log_entry1, current_temp_avg, log_entry2, proxyAlarmState, log_entry3, gasAlarmState, log_entry4, motorTargetUD, log_entry5, motorTargetOC, log_entry6, temperatureAlarmState, log_entry7);
                         break;
                     case WIFI_HELLOXML_MODE:
                         sprintf((char *)s_ReceivedBuffer, "%s", getxml_buffer);
@@ -353,7 +355,6 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
                         pcIndxPtr = strstr(pcEndPtr + 1, "p=");
                         if (NULL != pcIndxPtr) 
                         {
-                            printf("Weather Condition: ");
                             pcIndxPtr = pcIndxPtr + strlen("p=") + 1;
                             pcEndPtr = strstr(pcIndxPtr, "\" />");
                             if (NULL != pcEndPtr) *pcEndPtr = 0;
@@ -515,18 +516,23 @@ void call_control(void)
             else callControlState = CALL_RCV_PROCESS_STATE;
             break;
         case CALL_RCV_PROCESS_STATE:
-            if (newMotorTargetUD != motorTargetUD)
+            // TODO: need to address recieving commands in alert mode
+            if (proxyAlarmState == 0)
             {
-                motorTargetUD = newMotorTargetUD;
-                motorUD = true;       
-                MOTOR_ON();
+                if (newMotorTargetUD != motorTargetUD)
+                {
+                    motorTargetUD = newMotorTargetUD;
+                    motorUD = true;       
+                    MOTOR_ON();
+                }
+                if (newMotorTargetOC != motorTargetOC)
+                {
+                    motorTargetOC = newMotorTargetOC;
+                    motorOC = true;       
+                    MOTOR_ON();
+                }
             }
-            if (newMotorTargetOC != motorTargetOC)
-            {
-                motorTargetOC = newMotorTargetOC;
-                motorOC = true;       
-                MOTOR_ON();
-            }
+            
             
             temp_high = new_temp_high;
             callControlState = CALL_IDLE_STATE;

@@ -96,8 +96,8 @@ static void mainLoop500ms(void)
         proxy_motor_control();
         temperature_control();
         gas_control();
-        //call_control();
-        proxy_LED_alarm();
+        call_control();
+        //proxy_LED_alarm();
     }
 
 }

@@ -108,6 +108,8 @@ void switch_Initialize(void);
 
 void watchdog_Initialize(void);
 
+void PRISS_Initialize(void);
+
 #endif  /* MCC_H */
 /**
  End of File

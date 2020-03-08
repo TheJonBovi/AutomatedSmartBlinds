@@ -64,11 +64,7 @@ void INTERRUPT_Initialize (void)
     //    TI: T1 - Timer1
     //    Priority: 3, sub priority 0
     IPC1bits.T1IP = 3;
-    // Set SRS 3 for Priority 3 interrupts
-    PRISSSET = (3 << _PRISS_PRI3SS_POSITION) & _PRISS_PRI3SS_MASK;
-    // Set SRS 4 for Priority 4 interrupts
-    PRISSSET = (4 << _PRISS_PRI4SS_POSITION) & _PRISS_PRI4SS_MASK;
-    
+
 #elif defined(USING_CLICK_BOARD)
     //    INT2I: INT2 - External Interrupt 2
     //    Priority: 1
