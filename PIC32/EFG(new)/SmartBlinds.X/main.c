@@ -51,6 +51,8 @@ int main(void)
 
     // This function initailizes modules, located mainly in the mcc file
     BspInit();
+    
+
 
 #ifdef CAMERA_ON
     // Read register 0x40, which should return the static CHIP version 0x40

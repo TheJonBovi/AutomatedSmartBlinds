@@ -146,6 +146,10 @@ void SYSTEM_Initialize(void)
     INTERRUPT_Initialize();
     EXT_INT_Initialize();
     TMR1_Initialize();
+    
+    // wait for gas sensor to settle
+    delay_ms(5000);
+    
     TMR2_32bit_Initialize();
     TMR5_16bit_Motor_Initialize();
     

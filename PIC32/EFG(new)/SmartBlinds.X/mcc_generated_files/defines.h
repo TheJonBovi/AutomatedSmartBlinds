@@ -19,9 +19,10 @@
 #define _DEFINES_H
 
 // These will be the ADC values used to determine distance / proximity zones.
-#define ADC_LOW_WNG 2200
-#define ADC_MID_WNG 2500
-#define ADC_HIGH_WNG 3125
+#define ADC_LOW_WNG 2300
+#define ADC_MID_WNG 2800
+//#define ADC_MID_WNG 2500
+#define ADC_HIGH_WNG 3300
 
 #define LED_RED _TRISF_RF0_MASK
 #define LED_BLU _TRISF_RF1_MASK
@@ -112,8 +113,8 @@
 //this is meant for a timer in main to have the proxy remain on
 //and thus have the connected function remain on until the counter
 //has reached the max timer.
-#define maxProxy            10 // this number x 0.5 seconds for Proxy alarm 
-#define maxTMR3ISRdebounce  1000 // this x 1.5ms to determine how long to hold before checking samples for ADC
+#define maxProxy            20 // this number x 0.5 seconds for Proxy alarm 
+#define maxTMR3ISRdebounce  5000 // this x 1.5ms to determine how long to hold before checking samples for ADC
 
 #define JPEG_MAX_SIZE               100000          
 
