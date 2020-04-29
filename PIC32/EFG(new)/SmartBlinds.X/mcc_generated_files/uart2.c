@@ -54,21 +54,67 @@
 
 void UART2_Initialize(void)
 {
+    // PIC32MZ pins are:
+    // U2RX - RE3
+    // U2TX - RG9
+    // U2CTS - RD10
+    // U2RTS - RD3
+    
+    // Configure pins to digital and respective in/outputs
+    // U2RX - RE3
+    U2RXR = 0b0110;
+    
+    // U2TX - RG9
+    RPG9R = 0b0010;
+    ANSELGbits.ANSG9 = 0;
+    
+    // U2CTS - RD10
+    U2CTSR = 0b0011;
+    
+    // U2RTS - RD3
+    RPD3R = 0b0010;
+    
     // Set the UART2 module to the options selected in the user interface.
 
-    // STSEL 1; IREN disabled; PDSEL 8N; UARTEN enabled; RTSMD disabled; USIDL disabled; WAKE disabled; ABAUD disabled; LPBACK disabled; BRGH enabled; RXINV disabled; UEN TX_RX; 
-    U2MODE = 0x8008;
-
-    // OERR NO_ERROR_cleared; URXISEL RX_ONE_CHAR; UTXBRK COMPLETED; UTXEN disabled; ADDEN disabled; UTXISEL0 TX_ONE_CHAR; UTXINV disabled; 
-    U2STA = 0x0000;
-
-    // BaudRate = 115200; Frequency = 16000000 Hz; BRG 34; 
-    U2BRG = 0x0022;
-
+    //OLD! STSEL 1; IREN disabled; PDSEL 8N; UARTEN enabled; RTSMD disabled; USIDL disabled; WAKE disabled; ABAUD disabled; LPBACK disabled; BRGH enabled; RXINV disabled; UEN TX_RX; 
+    //OLD! U2MODE = 0x8008;
+    U2MODEbits.IREN = 0;
+    // 8 bit, no parity
+    U2MODEbits.PDSEL = 00;
+    
+    U2MODEbits.RTSMD = 0;
+    U2MODEbits.SIDL = 0;
+    U2MODEbits.WAKE = 0;
+    U2MODEbits.ABAUD = 0;
+    U2MODEbits.LPBACK = 0;
+    U2MODEbits.BRGH = 1;
+    U2MODEbits.RXINV = 0;
+    U2MODEbits.UEN = 0;
+    
+    // Turn on UART
+    U2MODEbits.ON = 1;
+    
+    //OLD! OERR NO_ERROR_cleared; URXISEL RX_ONE_CHAR; UTXBRK COMPLETED; UTXEN disabled; ADDEN disabled; UTXISEL0 TX_ONE_CHAR; UTXINV disabled; 
+    //OLD! U2STA = 0x0000;
+    U2STAbits.OERR = 0;
+    U2STAbits.URXISEL = 0;
+    U2STAbits.UTXBRK = 0;
+    U2STAbits.UTXEN = 0;
+    U2STAbits.ADDEN = 0;
+    U2STAbits.UTXISEL0 = 0;
+    U2STAbits.UTXINV = 0;
+    
+    //OLD! BaudRate = 115200; Frequency = 16000000 Hz; BRG 34; 
+    //OLD! U2BRG = 0x0022;
+    // BaudRate = 115200; Frequency = 42MHz so
+    // (42,000,000 / (4 * 115200)) - 1 = 90.1458333 = 90
+    U2BRG = 90;
+    
+    
     U2STAbits.UTXEN = 1;
 }
 
-
+// Only sending, so discard all read values
 uint8_t UART2_Read(void)
 {
     while(!(U2STAbits.URXDA == 1))
@@ -101,6 +147,7 @@ UART2_STATUS UART2_StatusGet (void)
     return U2STA;
 }
 
+// This function routes printf to this UART module
 int __attribute__((__section__(".libc.write"))) write(int handle, void *buffer, unsigned int len) {
     int i;
     while(U2STAbits.TRMT == 0);  
