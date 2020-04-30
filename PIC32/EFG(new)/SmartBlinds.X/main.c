@@ -52,6 +52,7 @@ int main(void)
     // This function initailizes modules, located mainly in the mcc file
     BspInit();
     
+    printf("Starting camera driver initialization...\r\n");
 
 
 #ifdef CAMERA_ON
@@ -70,6 +71,7 @@ int main(void)
 #endif
     
     // Required for wifi functionality
+    printf("Starting wifi driver initialization...\r\n");
     m2m_wifi_init();
 
     // Main while loop
