@@ -4093,9 +4093,18 @@ Source: AVX .. aphvc.pdf</description>
 </net>
 <net name="CAMERA_SCK" class="0">
 <segment>
-<pinref part="U1" gate="G$1" pin="AN14/C1IND/RPG6/SCK2/RG6"/>
-<wire x1="48.26" y1="73.66" x2="76.2" y2="73.66" width="0.1524" layer="91"/>
-<label x="76.2" y="73.66" size="1.778" layer="95" xref="yes"/>
+<pinref part="U1" gate="G$1" pin="RPD10/SCK4/RD10"/>
+<wire x1="-48.26" y1="-17.78" x2="-73.66" y2="-17.78" width="0.1524" layer="91"/>
+<label x="-73.66" y="-17.78" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="CAMERA_SDO" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="EMDC/RPD11/RD11"/>
+<wire x1="-48.26" y1="-20.32" x2="-66.04" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="-66.04" y1="-20.32" x2="-66.04" y2="-22.86" width="0.1524" layer="91"/>
+<wire x1="-66.04" y1="-22.86" x2="-73.66" y2="-22.86" width="0.1524" layer="91"/>
+<label x="-73.66" y="-22.86" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="CAMERA_SDI" class="0">
@@ -4105,22 +4114,36 @@ Source: AVX .. aphvc.pdf</description>
 <label x="-73.66" y="-2.54" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="CAMERA_SDO" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="EBID14/RPD2/PMD14/RD2"/>
-<wire x1="-48.26" y1="0" x2="-63.5" y2="0" width="0.1524" layer="91"/>
-<wire x1="-63.5" y1="0" x2="-63.5" y2="2.54" width="0.1524" layer="91"/>
-<wire x1="-63.5" y1="2.54" x2="-73.66" y2="2.54" width="0.1524" layer="91"/>
-<label x="-73.66" y="2.54" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
 <net name="CAMERA_CS" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="RPD0/RTCC/INT0/RD0"/>
-<wire x1="-48.26" y1="5.08" x2="-60.96" y2="5.08" width="0.1524" layer="91"/>
-<wire x1="-60.96" y1="5.08" x2="-60.96" y2="7.62" width="0.1524" layer="91"/>
-<wire x1="-60.96" y1="7.62" x2="-73.66" y2="7.62" width="0.1524" layer="91"/>
-<label x="-73.66" y="7.62" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="-48.26" y1="5.08" x2="-73.66" y2="5.08" width="0.1524" layer="91"/>
+<label x="-73.66" y="5.08" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="RED_LED_OUT" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="EBIA16/RK0"/>
+<wire x1="48.26" y1="-40.64" x2="76.2" y2="-40.64" width="0.1524" layer="91"/>
+<label x="76.2" y="-40.64" size="1.778" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="BLUE_LED_OUT" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="EBIA1/PMA1/RK1"/>
+<wire x1="48.26" y1="-43.18" x2="68.58" y2="-43.18" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="-43.18" x2="68.58" y2="-45.72" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="-45.72" x2="76.2" y2="-45.72" width="0.1524" layer="91"/>
+<label x="76.2" y="-45.72" size="1.778" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="GREEN_LED_OUT" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="EBIA3/PMA3/RK2"/>
+<wire x1="48.26" y1="-45.72" x2="63.5" y2="-45.72" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="-45.72" x2="63.5" y2="-50.8" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="-50.8" x2="76.2" y2="-50.8" width="0.1524" layer="91"/>
+<label x="76.2" y="-50.8" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 </nets>

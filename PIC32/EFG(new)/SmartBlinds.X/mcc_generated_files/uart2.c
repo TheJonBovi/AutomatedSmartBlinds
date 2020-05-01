@@ -57,8 +57,8 @@ void UART2_Initialize(void)
     // PIC32MZ pins are:
     // U2RX - RE3
     // U2TX - RG9
-    // U2CTS - RD10
-    // U2RTS - RD3
+    // U2CTS - RF4
+    // U2RTS - RF5
     
     // Configure pins to digital and respective in/outputs
     // U2RX - RE3
@@ -68,11 +68,11 @@ void UART2_Initialize(void)
     RPG9R = 0b0010;
     ANSELGbits.ANSG9 = 0;
     
-    // U2CTS - RD10
-    U2CTSR = 0b0011;
+    // U2CTS - RF4
+    U2CTSR = 0b0010;
     
-    // U2RTS - RD3
-    RPD3R = 0b0010;
+    // U2RTS - RF5
+    RPF5R = 0b0010;
     
     // Set the UART2 module to the options selected in the user interface.
 
