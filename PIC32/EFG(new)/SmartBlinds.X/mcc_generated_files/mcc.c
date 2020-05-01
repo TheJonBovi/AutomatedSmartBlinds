@@ -91,7 +91,7 @@
 
 
 // Motor Control Global Variables
-int motorTargetUD = 1024;      //This needs to be set to 1024 (or full up to where the blinds are at the base) during start up. Both hardware and software.
+int motorTargetUD = 1024; //This needs to be set to 1024 (or full up to where the blinds are at the base) during start up. Both hardware and software.
 int motorTargetOC = 0;    //This needs to be set to 0 (or full open as in you're able to see through them) during start up. Both hardware and software.
 int UDStepperState = 0;
 int OCStepperState = 0;
