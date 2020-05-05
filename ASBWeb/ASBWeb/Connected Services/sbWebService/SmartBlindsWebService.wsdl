@@ -1,0 +1,1247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://smartblinds.eastus.cloudapp.azure.com/" xmlns:s1="http://smartblinds.eastus.cloudapp.azure.com/AbstractTypes" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://smartblinds.eastus.cloudapp.azure.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://smartblinds.eastus.cloudapp.azure.com/">
+      <s:element name="TestHelloWorldd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestHelloWorlddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestHelloWorlddResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrentUser">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCurrentUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrentUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="f" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCurrentUser">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetCurrentUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetCurrentUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnCurrentUserSettings">
+        <s:complexType />
+      </s:element>
+      <s:element name="ReturnCurrentUserSettingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnCurrentUserSettingsResult" type="tns:sbUsers" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="sbUsers">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SysID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProfileSysID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Active" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBlindSettingsOBJ">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBlindSettingsOBJResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBlindSettingsOBJResult" type="tns:BlindSettings" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BlindSettings">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SysID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SbHorizontal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SbVertical" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SbProx" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SbTemp" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBlindSettings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SysID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBlindSettingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBlindSettingsResult" type="tns:BlindSettings" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetBlindSettings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SysID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetBlindSettingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetBlindSettingsResult" type="tns:BlindSettings" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBlindsSettings">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBlindsSettingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBlindsSettingsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetBlindsSettings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="h" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="v" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="t" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="f" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetBlindsSettingsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetXML">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetXMLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetXMLdetail">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetXMLdetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetXMLdetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogEntry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="func" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="val" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogEntryResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="LogAllEntry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="func" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tempVal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="proxVal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gasLog" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sbHorxLog" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sbVertLog" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sbTempAlarm" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogAllEntryResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetCurrentTemp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="newTemp" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCurrentTempResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="sbUsers" nillable="true" type="tns:sbUsers" />
+      <s:element name="BlindSettings" nillable="true" type="tns:BlindSettings" />
+    </s:schema>
+    <s:schema targetNamespace="http://smartblinds.eastus.cloudapp.azure.com/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TestHelloWorlddSoapIn">
+    <wsdl:part name="parameters" element="tns:TestHelloWorldd" />
+  </wsdl:message>
+  <wsdl:message name="TestHelloWorlddSoapOut">
+    <wsdl:part name="parameters" element="tns:TestHelloWorlddResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrentUser" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrentUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadFileSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadFile" />
+  </wsdl:message>
+  <wsdl:message name="UploadFileSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetCurrentUserSoapIn">
+    <wsdl:part name="parameters" element="tns:SetCurrentUser" />
+  </wsdl:message>
+  <wsdl:message name="SetCurrentUserSoapOut">
+    <wsdl:part name="parameters" element="tns:SetCurrentUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturnCurrentUserSettingsSoapIn">
+    <wsdl:part name="parameters" element="tns:ReturnCurrentUserSettings" />
+  </wsdl:message>
+  <wsdl:message name="ReturnCurrentUserSettingsSoapOut">
+    <wsdl:part name="parameters" element="tns:ReturnCurrentUserSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBlindSettingsOBJSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBlindSettingsOBJ" />
+  </wsdl:message>
+  <wsdl:message name="GetBlindSettingsOBJSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBlindSettingsOBJResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBlindSettingsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBlindSettings" />
+  </wsdl:message>
+  <wsdl:message name="GetBlindSettingsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBlindSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetBlindSettingsSoapIn">
+    <wsdl:part name="parameters" element="tns:SetBlindSettings" />
+  </wsdl:message>
+  <wsdl:message name="SetBlindSettingsSoapOut">
+    <wsdl:part name="parameters" element="tns:SetBlindSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBlindsSettingsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBlindsSettings" />
+  </wsdl:message>
+  <wsdl:message name="GetBlindsSettingsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBlindsSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetBlindsSettingsSoapIn">
+    <wsdl:part name="parameters" element="tns:SetBlindsSettings" />
+  </wsdl:message>
+  <wsdl:message name="SetBlindsSettingsSoapOut">
+    <wsdl:part name="parameters" element="tns:SetBlindsSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetXML" />
+  </wsdl:message>
+  <wsdl:message name="GetXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetXMLdetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetXMLdetail" />
+  </wsdl:message>
+  <wsdl:message name="GetXMLdetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetXMLdetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogEntrySoapIn">
+    <wsdl:part name="parameters" element="tns:LogEntry" />
+  </wsdl:message>
+  <wsdl:message name="LogEntrySoapOut">
+    <wsdl:part name="parameters" element="tns:LogEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogAllEntrySoapIn">
+    <wsdl:part name="parameters" element="tns:LogAllEntry" />
+  </wsdl:message>
+  <wsdl:message name="LogAllEntrySoapOut">
+    <wsdl:part name="parameters" element="tns:LogAllEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetCurrentTempSoapIn">
+    <wsdl:part name="parameters" element="tns:SetCurrentTemp" />
+  </wsdl:message>
+  <wsdl:message name="SetCurrentTempSoapOut">
+    <wsdl:part name="parameters" element="tns:SetCurrentTempResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestHelloWorlddHttpGetIn">
+    <wsdl:part name="name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TestHelloWorlddHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentUserHttpGetIn" />
+  <wsdl:message name="GetCurrentUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UploadFileHttpGetIn">
+    <wsdl:part name="f" type="s1:StringArray" />
+    <wsdl:part name="fileName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UploadFileHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SetCurrentUserHttpGetIn" />
+  <wsdl:message name="SetCurrentUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ReturnCurrentUserSettingsHttpGetIn" />
+  <wsdl:message name="ReturnCurrentUserSettingsHttpGetOut">
+    <wsdl:part name="Body" element="tns:sbUsers" />
+  </wsdl:message>
+  <wsdl:message name="GetBlindSettingsOBJHttpGetIn" />
+  <wsdl:message name="GetBlindSettingsOBJHttpGetOut">
+    <wsdl:part name="Body" element="tns:BlindSettings" />
+  </wsdl:message>
+  <wsdl:message name="GetBlindSettingsHttpGetIn">
+    <wsdl:part name="SysID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBlindSettingsHttpGetOut">
+    <wsdl:part name="Body" element="tns:BlindSettings" />
+  </wsdl:message>
+  <wsdl:message name="SetBlindSettingsHttpGetIn">
+    <wsdl:part name="SysID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetBlindSettingsHttpGetOut">
+    <wsdl:part name="Body" element="tns:BlindSettings" />
+  </wsdl:message>
+  <wsdl:message name="GetBlindsSettingsHttpGetIn" />
+  <wsdl:message name="GetBlindsSettingsHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="SetBlindsSettingsHttpGetIn">
+    <wsdl:part name="h" type="s:string" />
+    <wsdl:part name="v" type="s:string" />
+    <wsdl:part name="t" type="s:string" />
+    <wsdl:part name="p" type="s:string" />
+    <wsdl:part name="f" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetBlindsSettingsHttpGetOut" />
+  <wsdl:message name="GetXMLHttpGetIn" />
+  <wsdl:message name="GetXMLHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetXMLdetailHttpGetIn" />
+  <wsdl:message name="GetXMLdetailHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="LogEntryHttpGetIn">
+    <wsdl:part name="func" type="s:string" />
+    <wsdl:part name="val" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogEntryHttpGetOut" />
+  <wsdl:message name="LogAllEntryHttpGetIn">
+    <wsdl:part name="func" type="s:string" />
+    <wsdl:part name="tempVal" type="s:string" />
+    <wsdl:part name="proxVal" type="s:string" />
+    <wsdl:part name="gasLog" type="s:string" />
+    <wsdl:part name="sbHorxLog" type="s:string" />
+    <wsdl:part name="sbVertLog" type="s:string" />
+    <wsdl:part name="sbTempAlarm" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogAllEntryHttpGetOut" />
+  <wsdl:message name="SetCurrentTempHttpGetIn">
+    <wsdl:part name="newTemp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetCurrentTempHttpGetOut" />
+  <wsdl:message name="TestHelloWorlddHttpPostIn">
+    <wsdl:part name="name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TestHelloWorlddHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentUserHttpPostIn" />
+  <wsdl:message name="GetCurrentUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UploadFileHttpPostIn">
+    <wsdl:part name="f" type="s1:StringArray" />
+    <wsdl:part name="fileName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UploadFileHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SetCurrentUserHttpPostIn" />
+  <wsdl:message name="SetCurrentUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ReturnCurrentUserSettingsHttpPostIn" />
+  <wsdl:message name="ReturnCurrentUserSettingsHttpPostOut">
+    <wsdl:part name="Body" element="tns:sbUsers" />
+  </wsdl:message>
+  <wsdl:message name="GetBlindSettingsOBJHttpPostIn" />
+  <wsdl:message name="GetBlindSettingsOBJHttpPostOut">
+    <wsdl:part name="Body" element="tns:BlindSettings" />
+  </wsdl:message>
+  <wsdl:message name="GetBlindSettingsHttpPostIn">
+    <wsdl:part name="SysID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBlindSettingsHttpPostOut">
+    <wsdl:part name="Body" element="tns:BlindSettings" />
+  </wsdl:message>
+  <wsdl:message name="SetBlindSettingsHttpPostIn">
+    <wsdl:part name="SysID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetBlindSettingsHttpPostOut">
+    <wsdl:part name="Body" element="tns:BlindSettings" />
+  </wsdl:message>
+  <wsdl:message name="GetBlindsSettingsHttpPostIn" />
+  <wsdl:message name="GetBlindsSettingsHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="SetBlindsSettingsHttpPostIn">
+    <wsdl:part name="h" type="s:string" />
+    <wsdl:part name="v" type="s:string" />
+    <wsdl:part name="t" type="s:string" />
+    <wsdl:part name="p" type="s:string" />
+    <wsdl:part name="f" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetBlindsSettingsHttpPostOut" />
+  <wsdl:message name="GetXMLHttpPostIn" />
+  <wsdl:message name="GetXMLHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetXMLdetailHttpPostIn" />
+  <wsdl:message name="GetXMLdetailHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="LogEntryHttpPostIn">
+    <wsdl:part name="func" type="s:string" />
+    <wsdl:part name="val" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogEntryHttpPostOut" />
+  <wsdl:message name="LogAllEntryHttpPostIn">
+    <wsdl:part name="func" type="s:string" />
+    <wsdl:part name="tempVal" type="s:string" />
+    <wsdl:part name="proxVal" type="s:string" />
+    <wsdl:part name="gasLog" type="s:string" />
+    <wsdl:part name="sbHorxLog" type="s:string" />
+    <wsdl:part name="sbVertLog" type="s:string" />
+    <wsdl:part name="sbTempAlarm" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogAllEntryHttpPostOut" />
+  <wsdl:message name="SetCurrentTempHttpPostIn">
+    <wsdl:part name="newTemp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetCurrentTempHttpPostOut" />
+  <wsdl:portType name="SmartBlindsWebServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">HellloWorldd</wsdl:documentation>
+      <wsdl:input name="TestHelloWorldd" message="tns:TestHelloWorlddSoapIn" />
+      <wsdl:output name="TestHelloWorldd" message="tns:TestHelloWorlddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentUser">
+      <wsdl:input message="tns:GetCurrentUserSoapIn" />
+      <wsdl:output message="tns:GetCurrentUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <wsdl:input message="tns:UploadFileSoapIn" />
+      <wsdl:output message="tns:UploadFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentUser">
+      <wsdl:input message="tns:SetCurrentUserSoapIn" />
+      <wsdl:output message="tns:SetCurrentUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCurrentUserSettings">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns active users settings</wsdl:documentation>
+      <wsdl:input message="tns:ReturnCurrentUserSettingsSoapIn" />
+      <wsdl:output message="tns:ReturnCurrentUserSettingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindSettingsOBJ">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Function is for GUI calls for object type blinds</wsdl:documentation>
+      <wsdl:input message="tns:GetBlindSettingsOBJSoapIn" />
+      <wsdl:output message="tns:GetBlindSettingsOBJSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindSettings">
+      <wsdl:input message="tns:GetBlindSettingsSoapIn" />
+      <wsdl:output message="tns:GetBlindSettingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBlindSettings">
+      <wsdl:input message="tns:SetBlindSettingsSoapIn" />
+      <wsdl:output message="tns:SetBlindSettingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindsSettings">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">The function gets the current Horizontal and Vertical settings for the blinds and sends it to the MCU</wsdl:documentation>
+      <wsdl:input message="tns:GetBlindsSettingsSoapIn" />
+      <wsdl:output message="tns:GetBlindsSettingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBlindsSettings">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">The function sets the current Horizontal-function 1 and Vertical-function 2 settings for the blinds</wsdl:documentation>
+      <wsdl:input message="tns:SetBlindsSettingsSoapIn" />
+      <wsdl:output message="tns:SetBlindsSettingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetXML">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This example returns string 'hello xml'</wsdl:documentation>
+      <wsdl:input message="tns:GetXMLSoapIn" />
+      <wsdl:output message="tns:GetXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetXMLdetail">
+      <wsdl:input message="tns:GetXMLdetailSoapIn" />
+      <wsdl:output message="tns:GetXMLdetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogEntry">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Used to log temp</wsdl:documentation>
+      <wsdl:input message="tns:LogEntrySoapIn" />
+      <wsdl:output message="tns:LogEntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogAllEntry">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Used to log temp, prox and gas using function 1</wsdl:documentation>
+      <wsdl:input message="tns:LogAllEntrySoapIn" />
+      <wsdl:output message="tns:LogAllEntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentTemp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Used to set temp for alarm to go off or automate action</wsdl:documentation>
+      <wsdl:input message="tns:SetCurrentTempSoapIn" />
+      <wsdl:output message="tns:SetCurrentTempSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SmartBlindsWebServiceHttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">HellloWorldd</wsdl:documentation>
+      <wsdl:input name="TestHelloWorldd" message="tns:TestHelloWorlddHttpGetIn" />
+      <wsdl:output name="TestHelloWorldd" message="tns:TestHelloWorlddHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentUser">
+      <wsdl:input message="tns:GetCurrentUserHttpGetIn" />
+      <wsdl:output message="tns:GetCurrentUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <wsdl:input message="tns:UploadFileHttpGetIn" />
+      <wsdl:output message="tns:UploadFileHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentUser">
+      <wsdl:input message="tns:SetCurrentUserHttpGetIn" />
+      <wsdl:output message="tns:SetCurrentUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCurrentUserSettings">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns active users settings</wsdl:documentation>
+      <wsdl:input message="tns:ReturnCurrentUserSettingsHttpGetIn" />
+      <wsdl:output message="tns:ReturnCurrentUserSettingsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindSettingsOBJ">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Function is for GUI calls for object type blinds</wsdl:documentation>
+      <wsdl:input message="tns:GetBlindSettingsOBJHttpGetIn" />
+      <wsdl:output message="tns:GetBlindSettingsOBJHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindSettings">
+      <wsdl:input message="tns:GetBlindSettingsHttpGetIn" />
+      <wsdl:output message="tns:GetBlindSettingsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBlindSettings">
+      <wsdl:input message="tns:SetBlindSettingsHttpGetIn" />
+      <wsdl:output message="tns:SetBlindSettingsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindsSettings">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">The function gets the current Horizontal and Vertical settings for the blinds and sends it to the MCU</wsdl:documentation>
+      <wsdl:input message="tns:GetBlindsSettingsHttpGetIn" />
+      <wsdl:output message="tns:GetBlindsSettingsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBlindsSettings">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">The function sets the current Horizontal-function 1 and Vertical-function 2 settings for the blinds</wsdl:documentation>
+      <wsdl:input message="tns:SetBlindsSettingsHttpGetIn" />
+      <wsdl:output message="tns:SetBlindsSettingsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetXML">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This example returns string 'hello xml'</wsdl:documentation>
+      <wsdl:input message="tns:GetXMLHttpGetIn" />
+      <wsdl:output message="tns:GetXMLHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetXMLdetail">
+      <wsdl:input message="tns:GetXMLdetailHttpGetIn" />
+      <wsdl:output message="tns:GetXMLdetailHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogEntry">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Used to log temp</wsdl:documentation>
+      <wsdl:input message="tns:LogEntryHttpGetIn" />
+      <wsdl:output message="tns:LogEntryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogAllEntry">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Used to log temp, prox and gas using function 1</wsdl:documentation>
+      <wsdl:input message="tns:LogAllEntryHttpGetIn" />
+      <wsdl:output message="tns:LogAllEntryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentTemp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Used to set temp for alarm to go off or automate action</wsdl:documentation>
+      <wsdl:input message="tns:SetCurrentTempHttpGetIn" />
+      <wsdl:output message="tns:SetCurrentTempHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SmartBlindsWebServiceHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">HellloWorldd</wsdl:documentation>
+      <wsdl:input name="TestHelloWorldd" message="tns:TestHelloWorlddHttpPostIn" />
+      <wsdl:output name="TestHelloWorldd" message="tns:TestHelloWorlddHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentUser">
+      <wsdl:input message="tns:GetCurrentUserHttpPostIn" />
+      <wsdl:output message="tns:GetCurrentUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <wsdl:input message="tns:UploadFileHttpPostIn" />
+      <wsdl:output message="tns:UploadFileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentUser">
+      <wsdl:input message="tns:SetCurrentUserHttpPostIn" />
+      <wsdl:output message="tns:SetCurrentUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCurrentUserSettings">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns active users settings</wsdl:documentation>
+      <wsdl:input message="tns:ReturnCurrentUserSettingsHttpPostIn" />
+      <wsdl:output message="tns:ReturnCurrentUserSettingsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindSettingsOBJ">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Function is for GUI calls for object type blinds</wsdl:documentation>
+      <wsdl:input message="tns:GetBlindSettingsOBJHttpPostIn" />
+      <wsdl:output message="tns:GetBlindSettingsOBJHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindSettings">
+      <wsdl:input message="tns:GetBlindSettingsHttpPostIn" />
+      <wsdl:output message="tns:GetBlindSettingsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBlindSettings">
+      <wsdl:input message="tns:SetBlindSettingsHttpPostIn" />
+      <wsdl:output message="tns:SetBlindSettingsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindsSettings">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">The function gets the current Horizontal and Vertical settings for the blinds and sends it to the MCU</wsdl:documentation>
+      <wsdl:input message="tns:GetBlindsSettingsHttpPostIn" />
+      <wsdl:output message="tns:GetBlindsSettingsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBlindsSettings">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">The function sets the current Horizontal-function 1 and Vertical-function 2 settings for the blinds</wsdl:documentation>
+      <wsdl:input message="tns:SetBlindsSettingsHttpPostIn" />
+      <wsdl:output message="tns:SetBlindsSettingsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetXML">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This example returns string 'hello xml'</wsdl:documentation>
+      <wsdl:input message="tns:GetXMLHttpPostIn" />
+      <wsdl:output message="tns:GetXMLHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetXMLdetail">
+      <wsdl:input message="tns:GetXMLdetailHttpPostIn" />
+      <wsdl:output message="tns:GetXMLdetailHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogEntry">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Used to log temp</wsdl:documentation>
+      <wsdl:input message="tns:LogEntryHttpPostIn" />
+      <wsdl:output message="tns:LogEntryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogAllEntry">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Used to log temp, prox and gas using function 1</wsdl:documentation>
+      <wsdl:input message="tns:LogAllEntryHttpPostIn" />
+      <wsdl:output message="tns:LogAllEntryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentTemp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Used to set temp for alarm to go off or automate action</wsdl:documentation>
+      <wsdl:input message="tns:SetCurrentTempHttpPostIn" />
+      <wsdl:output message="tns:SetCurrentTempHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SmartBlindsWebServiceSoap" type="tns:SmartBlindsWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/TestHelloWorldd" style="document" />
+      <wsdl:input name="TestHelloWorldd">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="TestHelloWorldd">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentUser">
+      <soap:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/GetCurrentUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <soap:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/UploadFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentUser">
+      <soap:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/SetCurrentUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCurrentUserSettings">
+      <soap:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/ReturnCurrentUserSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindSettingsOBJ">
+      <soap:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/GetBlindSettingsOBJ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindSettings">
+      <soap:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/GetBlindSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBlindSettings">
+      <soap:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/SetBlindSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindsSettings">
+      <soap:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/GetBlindsSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBlindsSettings">
+      <soap:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/SetBlindsSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetXML">
+      <soap:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/GetXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetXMLdetail">
+      <soap:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/GetXMLdetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogEntry">
+      <soap:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/LogEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogAllEntry">
+      <soap:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/LogAllEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentTemp">
+      <soap:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/SetCurrentTemp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SmartBlindsWebServiceSoap12" type="tns:SmartBlindsWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/TestHelloWorldd" style="document" />
+      <wsdl:input name="TestHelloWorldd">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="TestHelloWorldd">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentUser">
+      <soap12:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/GetCurrentUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <soap12:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/UploadFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentUser">
+      <soap12:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/SetCurrentUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCurrentUserSettings">
+      <soap12:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/ReturnCurrentUserSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindSettingsOBJ">
+      <soap12:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/GetBlindSettingsOBJ" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindSettings">
+      <soap12:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/GetBlindSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBlindSettings">
+      <soap12:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/SetBlindSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindsSettings">
+      <soap12:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/GetBlindsSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBlindsSettings">
+      <soap12:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/SetBlindsSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetXML">
+      <soap12:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/GetXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetXMLdetail">
+      <soap12:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/GetXMLdetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogEntry">
+      <soap12:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/LogEntry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogAllEntry">
+      <soap12:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/LogAllEntry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentTemp">
+      <soap12:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/SetCurrentTemp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SmartBlindsWebServiceHttpGet" type="tns:SmartBlindsWebServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/TestHelloWorldd" />
+      <wsdl:input name="TestHelloWorldd">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="TestHelloWorldd">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentUser">
+      <http:operation location="/GetCurrentUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <http:operation location="/UploadFile" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentUser">
+      <http:operation location="/SetCurrentUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCurrentUserSettings">
+      <http:operation location="/ReturnCurrentUserSettings" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindSettingsOBJ">
+      <http:operation location="/GetBlindSettingsOBJ" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindSettings">
+      <http:operation location="/GetBlindSettings" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBlindSettings">
+      <http:operation location="/SetBlindSettings" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindsSettings">
+      <http:operation location="/GetBlindsSettings" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBlindsSettings">
+      <http:operation location="/SetBlindsSettings" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetXML">
+      <http:operation location="/GetXML" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetXMLdetail">
+      <http:operation location="/GetXMLdetail" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogEntry">
+      <http:operation location="/LogEntry" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="LogAllEntry">
+      <http:operation location="/LogAllEntry" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentTemp">
+      <http:operation location="/SetCurrentTemp" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SmartBlindsWebServiceHttpPost" type="tns:SmartBlindsWebServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/TestHelloWorldd" />
+      <wsdl:input name="TestHelloWorldd">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="TestHelloWorldd">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentUser">
+      <http:operation location="/GetCurrentUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <http:operation location="/UploadFile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentUser">
+      <http:operation location="/SetCurrentUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnCurrentUserSettings">
+      <http:operation location="/ReturnCurrentUserSettings" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindSettingsOBJ">
+      <http:operation location="/GetBlindSettingsOBJ" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindSettings">
+      <http:operation location="/GetBlindSettings" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBlindSettings">
+      <http:operation location="/SetBlindSettings" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBlindsSettings">
+      <http:operation location="/GetBlindsSettings" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBlindsSettings">
+      <http:operation location="/SetBlindsSettings" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetXML">
+      <http:operation location="/GetXML" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetXMLdetail">
+      <http:operation location="/GetXMLdetail" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogEntry">
+      <http:operation location="/LogEntry" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="LogAllEntry">
+      <http:operation location="/LogAllEntry" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentTemp">
+      <http:operation location="/SetCurrentTemp" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SmartBlindsWebService">
+    <wsdl:port name="SmartBlindsWebServiceSoap" binding="tns:SmartBlindsWebServiceSoap">
+      <soap:address location="http://smartblinds.eastus.cloudapp.azure.com/SmartBlindsWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SmartBlindsWebServiceSoap12" binding="tns:SmartBlindsWebServiceSoap12">
+      <soap12:address location="http://smartblinds.eastus.cloudapp.azure.com/SmartBlindsWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SmartBlindsWebServiceHttpGet" binding="tns:SmartBlindsWebServiceHttpGet">
+      <http:address location="http://smartblinds.eastus.cloudapp.azure.com/SmartBlindsWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SmartBlindsWebServiceHttpPost" binding="tns:SmartBlindsWebServiceHttpPost">
+      <http:address location="http://smartblinds.eastus.cloudapp.azure.com/SmartBlindsWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
