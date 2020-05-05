@@ -125,6 +125,8 @@
     <Content Include="assets\img\comment\comment_3.png" />
     <Content Include="assets\img\david\david_1.png" />
     <Content Include="assets\img\david\david_2.png" />
+    <Content Include="assets\img\demoControls\green_safe.png" />
+    <Content Include="assets\img\demoControls\Un-Safe.png" />
     <Content Include="assets\img\elements\a.jpg" />
     <Content Include="assets\img\elements\a2.jpg" />
     <Content Include="assets\img\elements\d.jpg" />
