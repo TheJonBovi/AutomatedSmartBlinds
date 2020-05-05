@@ -70,7 +70,8 @@
 
 // This value is how we set the motor speed. For reverence
 // 300 = 1 rot / 5 seconds, changed to 900 to slow down the motor
-#define MOTOR_PR_SETTING 900
+//620 new setting where it works
+#define MOTOR_PR_SETTING 620
 
 //the positions for the UD motor. They can also be used for the opposite direction.
 //new measurements for the OC: 0 is full open, 256 is full close, -256 is full reverse close

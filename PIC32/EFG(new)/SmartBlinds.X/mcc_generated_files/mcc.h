@@ -62,6 +62,7 @@
 #include "SPI1.h"
 #include "I2C1.h"
 #include "ov2640_regs.h"
+#include "uart2.h"
 
 
 #define _XTAL_FREQ  84000000UL

@@ -91,7 +91,7 @@
 
 
 // Motor Control Global Variables
-int motorTargetUD = 1024;      //This needs to be set to 1024 (or full up to where the blinds are at the base) during start up. Both hardware and software.
+int motorTargetUD = 1024; //This needs to be set to 1024 (or full up to where the blinds are at the base) during start up. Both hardware and software.
 int motorTargetOC = 0;    //This needs to be set to 0 (or full open as in you're able to see through them) during start up. Both hardware and software.
 int UDStepperState = 0;
 int OCStepperState = 0;
@@ -147,8 +147,10 @@ void SYSTEM_Initialize(void)
     EXT_INT_Initialize();
     TMR1_Initialize();
     
+    UART2_Initialize();
+    
     // wait for gas sensor to settle
-    delay_ms(5000);
+    delay_ms(10000);
     
     TMR2_32bit_Initialize();
     TMR5_16bit_Motor_Initialize();
