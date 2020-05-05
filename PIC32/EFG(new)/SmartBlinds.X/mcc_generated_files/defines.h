@@ -70,13 +70,13 @@
 
 // This value is how we set the motor speed. For reverence
 // 300 = 1 rot / 5 seconds, changed to 900 to slow down the motor
-//620 new setting where it works
-#define MOTOR_PR_SETTING 620
+//400 new setting where it works
+#define MOTOR_PR_SETTING 400
 
 //the positions for the UD motor. They can also be used for the opposite direction.
 //new measurements for the OC: 0 is full open, 256 is full close, -256 is full reverse close
 //128 is half open, -128 is half reverse open, 64 is quarter open, -64 is quarter reverse open
-#define UD_FULL_UP      1024 //fully up. modify to 1024 (was 0)
+#define UD_FULL_UP      1024 //fully up. modify to 1024 (was 0) NEW: set to -1024 to bring up blinds
 #define UD_1_QUARTER    768 //quarter way down
 #define UD_HALF         512 //halfway down
 #define UD_3_QUARTER    256 //3 quarter way down
@@ -141,6 +141,7 @@
 //#define CAMERA_ON
 //#define DREW_PHONE
 #define DREW_HOUSE
+//#define CHAD_HOUSE
 
 #endif /* _DEFINES_H */
 
