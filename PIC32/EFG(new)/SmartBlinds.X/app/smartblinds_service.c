@@ -68,6 +68,11 @@ limitations under the License.
 #define WLAN_PSK               "password"            // security password
 #endif
 
+#ifdef CHAD_HOUSE
+#define WLAN_SSID              "NewJapanEXP"        //target AP
+#define WLAN_PSK               "USSAlcatraz"        //security password
+#endif
+
 #define WLAN_AUTH              M2M_WIFI_SEC_WPA_PSK   // AP Security 
 
 #define WIFI_BUFFER_SIZE       1400                  // Receive buffer size.
@@ -112,8 +117,8 @@ extern int motorTargetUD;
 extern int motorTargetOC;
 extern int motorUD;
 extern int motorOC;
-int newMotorTargetUD;
-int newMotorTargetOC;
+int newMotorTargetUD = 1024;
+int newMotorTargetOC = 0;
 
 // Proximity Sensor Global Variables
 extern int proxyAlarmState;
