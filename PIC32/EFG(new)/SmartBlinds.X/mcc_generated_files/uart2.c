@@ -108,7 +108,7 @@ void UART2_Initialize(void)
     //OLD! U2BRG = 0x0022;
     // BaudRate = 115200; Frequency = 42MHz so
     // (42,000,000 / (4 * 115200)) - 1 = 90.1458333 = 90
-    U2BRG = 90;
+    U2BRG = 181;
     
     
     U2STAbits.UTXEN = 1;
