@@ -16,7 +16,7 @@
             <p>
                 <asp:Button CssClass="btn btn-default" ID="btnChangeUser" runat="server" Text="Change Current User &raquo;" OnClick="btnChangeUser_Click" />&nbsp;&nbsp;
                 <asp:DropDownList runat="server" ID="ddlUsersList" DataSourceID="sqldsUserList" DataTextField="fname" DataValueField="fname" ></asp:DropDownList>
-                <asp:SqlDataSource ID="sqldsUserList" runat="server" ConnectionString="<%$ ConnectionStrings:smartblindsdbConnectionString %>" SelectCommand="SELECT [fname], [lname] FROM [sbUsers]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="sqldsUserList" runat="server" ConnectionString="<%$ ConnectionStrings:csWebDB %>" SelectCommand="SELECT [fname], [lname] FROM [sbUsers]"></asp:SqlDataSource>
                 <%--<a class="btn btn-default" href="CurentStatus.aspx">Get Current Status, Adjust Blinds&nbsp;&nbsp; &raquo;</a>--%>
             </p>
         </div>
@@ -37,7 +37,7 @@
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Log Files</h2>
+            <h2>Activity Log</h2>
             <p>
                 Edit and View Log files and settings</p>
             <p>

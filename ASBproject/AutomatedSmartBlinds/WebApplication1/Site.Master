@@ -5,6 +5,7 @@
 <html lang="en">
 <head runat="server">
     <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="25">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - Automated Smart Blinds Oregon Institute of Technology Junior Project</title>
 

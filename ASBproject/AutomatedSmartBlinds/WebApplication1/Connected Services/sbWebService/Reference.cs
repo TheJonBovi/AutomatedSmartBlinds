@@ -9,158 +9,127 @@
 //------------------------------------------------------------------------------
 
 namespace SmartBlindsWebApp.sbWebService {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BlindSettings", Namespace="http://tempuri.org/")]
-    [System.SerializableAttribute()]
-    public partial class BlindSettings : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private int SysIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SbHorizontalField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SbVerticalField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NotesField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int SysID {
-            get {
-                return this.SysIDField;
-            }
-            set {
-                if ((this.SysIDField.Equals(value) != true)) {
-                    this.SysIDField = value;
-                    this.RaisePropertyChanged("SysID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string SbHorizontal {
-            get {
-                return this.SbHorizontalField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SbHorizontalField, value) != true)) {
-                    this.SbHorizontalField = value;
-                    this.RaisePropertyChanged("SbHorizontal");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public string SbVertical {
-            get {
-                return this.SbVerticalField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SbVerticalField, value) != true)) {
-                    this.SbVerticalField = value;
-                    this.RaisePropertyChanged("SbVertical");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
-        public string Notes {
-            get {
-                return this.NotesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NotesField, value) != true)) {
-                    this.NotesField = value;
-                    this.RaisePropertyChanged("Notes");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="sbWebService.SmartBlindsWebServiceSoap")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://smartblinds.eastus.cloudapp.azure.com/", ConfigurationName="sbWebService.SmartBlindsWebServiceSoap")]
     public interface SmartBlindsWebServiceSoap {
         
         // CODEGEN: Generating message contract since the wrapper name (TestHelloWorldd) of message TestHelloWorldd does not match the default value (HelloWorld)
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TestHelloWorldd", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/TestHelloWorldd", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         SmartBlindsWebApp.sbWebService.TestHelloWorldd1 HelloWorld(SmartBlindsWebApp.sbWebService.TestHelloWorldd request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TestHelloWorldd", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/TestHelloWorldd", ReplyAction="*")]
         System.Threading.Tasks.Task<SmartBlindsWebApp.sbWebService.TestHelloWorldd1> HelloWorldAsync(SmartBlindsWebApp.sbWebService.TestHelloWorldd request);
         
-        // CODEGEN: Generating message contract since element name GetCurrentUserResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCurrentUser", ReplyAction="*")]
-        SmartBlindsWebApp.sbWebService.GetCurrentUserResponse GetCurrentUser(SmartBlindsWebApp.sbWebService.GetCurrentUserRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/GetCurrentUser", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string GetCurrentUser();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCurrentUser", ReplyAction="*")]
-        System.Threading.Tasks.Task<SmartBlindsWebApp.sbWebService.GetCurrentUserResponse> GetCurrentUserAsync(SmartBlindsWebApp.sbWebService.GetCurrentUserRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/GetCurrentUser", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> GetCurrentUserAsync();
         
-        // CODEGEN: Generating message contract since element name GetBlindSettingsResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBlindSettings", ReplyAction="*")]
-        SmartBlindsWebApp.sbWebService.GetBlindSettingsResponse GetBlindSettings(SmartBlindsWebApp.sbWebService.GetBlindSettingsRequest request);
+        // CODEGEN: Parameter 'f' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/UploadFile", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        SmartBlindsWebApp.sbWebService.UploadFileResponse UploadFile(SmartBlindsWebApp.sbWebService.UploadFileRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBlindSettings", ReplyAction="*")]
-        System.Threading.Tasks.Task<SmartBlindsWebApp.sbWebService.GetBlindSettingsResponse> GetBlindSettingsAsync(SmartBlindsWebApp.sbWebService.GetBlindSettingsRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/UploadFile", ReplyAction="*")]
+        System.Threading.Tasks.Task<SmartBlindsWebApp.sbWebService.UploadFileResponse> UploadFileAsync(SmartBlindsWebApp.sbWebService.UploadFileRequest request);
         
-        // CODEGEN: Generating message contract since element name SetBlindSettingsResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SetBlindSettings", ReplyAction="*")]
-        SmartBlindsWebApp.sbWebService.SetBlindSettingsResponse SetBlindSettings(SmartBlindsWebApp.sbWebService.SetBlindSettingsRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/SetCurrentUser", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string SetCurrentUser();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SetBlindSettings", ReplyAction="*")]
-        System.Threading.Tasks.Task<SmartBlindsWebApp.sbWebService.SetBlindSettingsResponse> SetBlindSettingsAsync(SmartBlindsWebApp.sbWebService.SetBlindSettingsRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/SetCurrentUser", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> SetCurrentUserAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/ReturnCurrentUserSettings", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        SmartBlindsWebApp.sbWebService.sbUsers ReturnCurrentUserSettings();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/ReturnCurrentUserSettings", ReplyAction="*")]
+        System.Threading.Tasks.Task<SmartBlindsWebApp.sbWebService.sbUsers> ReturnCurrentUserSettingsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/GetBlindSettingsOBJ", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        SmartBlindsWebApp.sbWebService.BlindSettings GetBlindSettingsOBJ();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/GetBlindSettingsOBJ", ReplyAction="*")]
+        System.Threading.Tasks.Task<SmartBlindsWebApp.sbWebService.BlindSettings> GetBlindSettingsOBJAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/GetBlindSettings", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        SmartBlindsWebApp.sbWebService.BlindSettings GetBlindSettings(int SysID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/GetBlindSettings", ReplyAction="*")]
+        System.Threading.Tasks.Task<SmartBlindsWebApp.sbWebService.BlindSettings> GetBlindSettingsAsync(int SysID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/SetBlindSettings", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        SmartBlindsWebApp.sbWebService.BlindSettings SetBlindSettings(int SysID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/SetBlindSettings", ReplyAction="*")]
+        System.Threading.Tasks.Task<SmartBlindsWebApp.sbWebService.BlindSettings> SetBlindSettingsAsync(int SysID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/GetBlindsSettings", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Xml.XmlElement GetBlindsSettings();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/GetBlindsSettings", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Xml.XmlElement> GetBlindsSettingsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/SetBlindsSettings", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void SetBlindsSettings(string h, string v, string t, string p, int f);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/SetBlindsSettings", ReplyAction="*")]
+        System.Threading.Tasks.Task SetBlindsSettingsAsync(string h, string v, string t, string p, int f);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/GetXML", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string GetXML();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/GetXML", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> GetXMLAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/GetXMLdetail", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Xml.XmlElement GetXMLdetail();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/GetXMLdetail", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Xml.XmlElement> GetXMLdetailAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/LogEntry", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void LogEntry(int func, string val);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/LogEntry", ReplyAction="*")]
+        System.Threading.Tasks.Task LogEntryAsync(int func, string val);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/LogAllEntry", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void LogAllEntry(int func, string tempVal, string proxVal, string gasLog, string sbHorxLog, string sbVertLog, string sbTempAlarm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/LogAllEntry", ReplyAction="*")]
+        System.Threading.Tasks.Task LogAllEntryAsync(int func, string tempVal, string proxVal, string gasLog, string sbHorxLog, string sbVertLog, string sbTempAlarm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/SetCurrentTemp", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void SetCurrentTemp(string newTemp);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/SetCurrentTemp", ReplyAction="*")]
+        System.Threading.Tasks.Task SetCurrentTempAsync(string newTemp);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="TestHelloWorldd", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TestHelloWorldd", WrapperNamespace="http://smartblinds.eastus.cloudapp.azure.com/", IsWrapped=true)]
     public partial class TestHelloWorldd {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://smartblinds.eastus.cloudapp.azure.com/", Order=0)]
         public string name;
         
         public TestHelloWorldd() {
@@ -174,10 +143,10 @@ namespace SmartBlindsWebApp.sbWebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="TestHelloWorlddResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TestHelloWorlddResponse", WrapperNamespace="http://smartblinds.eastus.cloudapp.azure.com/", IsWrapped=true)]
     public partial class TestHelloWorldd1 {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://smartblinds.eastus.cloudapp.azure.com/", Order=0)]
         public string TestHelloWorlddResult;
         
         public TestHelloWorldd1() {
@@ -191,197 +160,271 @@ namespace SmartBlindsWebApp.sbWebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetCurrentUserRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UploadFile", WrapperNamespace="http://smartblinds.eastus.cloudapp.azure.com/", IsWrapped=true)]
+    public partial class UploadFileRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetCurrentUser", Namespace="http://tempuri.org/", Order=0)]
-        public SmartBlindsWebApp.sbWebService.GetCurrentUserRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://smartblinds.eastus.cloudapp.azure.com/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
+        public byte[] f;
         
-        public GetCurrentUserRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://smartblinds.eastus.cloudapp.azure.com/", Order=1)]
+        public string fileName;
+        
+        public UploadFileRequest() {
         }
         
-        public GetCurrentUserRequest(SmartBlindsWebApp.sbWebService.GetCurrentUserRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class GetCurrentUserRequestBody {
-        
-        public GetCurrentUserRequestBody() {
+        public UploadFileRequest(byte[] f, string fileName) {
+            this.f = f;
+            this.fileName = fileName;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetCurrentUserResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UploadFileResponse", WrapperNamespace="http://smartblinds.eastus.cloudapp.azure.com/", IsWrapped=true)]
+    public partial class UploadFileResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetCurrentUserResponse", Namespace="http://tempuri.org/", Order=0)]
-        public SmartBlindsWebApp.sbWebService.GetCurrentUserResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://smartblinds.eastus.cloudapp.azure.com/", Order=0)]
+        public string UploadFileResult;
         
-        public GetCurrentUserResponse() {
+        public UploadFileResponse() {
         }
         
-        public GetCurrentUserResponse(SmartBlindsWebApp.sbWebService.GetCurrentUserResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class GetCurrentUserResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string GetCurrentUserResult;
-        
-        public GetCurrentUserResponseBody() {
-        }
-        
-        public GetCurrentUserResponseBody(string GetCurrentUserResult) {
-            this.GetCurrentUserResult = GetCurrentUserResult;
+        public UploadFileResponse(string UploadFileResult) {
+            this.UploadFileResult = UploadFileResult;
         }
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetBlindSettingsRequest {
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://smartblinds.eastus.cloudapp.azure.com/")]
+    public partial class sbUsers : object, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetBlindSettings", Namespace="http://tempuri.org/", Order=0)]
-        public SmartBlindsWebApp.sbWebService.GetBlindSettingsRequestBody Body;
+        private int sysIDField;
         
-        public GetBlindSettingsRequest() {
+        private int profileSysIDField;
+        
+        private string fnameField;
+        
+        private string lnameField;
+        
+        private string phoneField;
+        
+        private string emailField;
+        
+        private int activeField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public int SysID {
+            get {
+                return this.sysIDField;
+            }
+            set {
+                this.sysIDField = value;
+                this.RaisePropertyChanged("SysID");
+            }
         }
         
-        public GetBlindSettingsRequest(SmartBlindsWebApp.sbWebService.GetBlindSettingsRequestBody Body) {
-            this.Body = Body;
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int ProfileSysID {
+            get {
+                return this.profileSysIDField;
+            }
+            set {
+                this.profileSysIDField = value;
+                this.RaisePropertyChanged("ProfileSysID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Fname {
+            get {
+                return this.fnameField;
+            }
+            set {
+                this.fnameField = value;
+                this.RaisePropertyChanged("Fname");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Lname {
+            get {
+                return this.lnameField;
+            }
+            set {
+                this.lnameField = value;
+                this.RaisePropertyChanged("Lname");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string Phone {
+            get {
+                return this.phoneField;
+            }
+            set {
+                this.phoneField = value;
+                this.RaisePropertyChanged("Phone");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string Email {
+            get {
+                return this.emailField;
+            }
+            set {
+                this.emailField = value;
+                this.RaisePropertyChanged("Email");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public int Active {
+            get {
+                return this.activeField;
+            }
+            set {
+                this.activeField = value;
+                this.RaisePropertyChanged("Active");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
         }
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class GetBlindSettingsRequestBody {
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://smartblinds.eastus.cloudapp.azure.com/")]
+    public partial class BlindSettings : object, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int SysID;
+        private int sysIDField;
         
-        public GetBlindSettingsRequestBody() {
+        private string nameField;
+        
+        private string sbHorizontalField;
+        
+        private string sbVerticalField;
+        
+        private string notesField;
+        
+        private string sbProxField;
+        
+        private string sbTempField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public int SysID {
+            get {
+                return this.sysIDField;
+            }
+            set {
+                this.sysIDField = value;
+                this.RaisePropertyChanged("SysID");
+            }
         }
         
-        public GetBlindSettingsRequestBody(int SysID) {
-            this.SysID = SysID;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetBlindSettingsResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetBlindSettingsResponse", Namespace="http://tempuri.org/", Order=0)]
-        public SmartBlindsWebApp.sbWebService.GetBlindSettingsResponseBody Body;
-        
-        public GetBlindSettingsResponse() {
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("Name");
+            }
         }
         
-        public GetBlindSettingsResponse(SmartBlindsWebApp.sbWebService.GetBlindSettingsResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class GetBlindSettingsResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public SmartBlindsWebApp.sbWebService.BlindSettings GetBlindSettingsResult;
-        
-        public GetBlindSettingsResponseBody() {
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string SbHorizontal {
+            get {
+                return this.sbHorizontalField;
+            }
+            set {
+                this.sbHorizontalField = value;
+                this.RaisePropertyChanged("SbHorizontal");
+            }
         }
         
-        public GetBlindSettingsResponseBody(SmartBlindsWebApp.sbWebService.BlindSettings GetBlindSettingsResult) {
-            this.GetBlindSettingsResult = GetBlindSettingsResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class SetBlindSettingsRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="SetBlindSettings", Namespace="http://tempuri.org/", Order=0)]
-        public SmartBlindsWebApp.sbWebService.SetBlindSettingsRequestBody Body;
-        
-        public SetBlindSettingsRequest() {
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string SbVertical {
+            get {
+                return this.sbVerticalField;
+            }
+            set {
+                this.sbVerticalField = value;
+                this.RaisePropertyChanged("SbVertical");
+            }
         }
         
-        public SetBlindSettingsRequest(SmartBlindsWebApp.sbWebService.SetBlindSettingsRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class SetBlindSettingsRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int SysID;
-        
-        public SetBlindSettingsRequestBody() {
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string Notes {
+            get {
+                return this.notesField;
+            }
+            set {
+                this.notesField = value;
+                this.RaisePropertyChanged("Notes");
+            }
         }
         
-        public SetBlindSettingsRequestBody(int SysID) {
-            this.SysID = SysID;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class SetBlindSettingsResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="SetBlindSettingsResponse", Namespace="http://tempuri.org/", Order=0)]
-        public SmartBlindsWebApp.sbWebService.SetBlindSettingsResponseBody Body;
-        
-        public SetBlindSettingsResponse() {
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string SbProx {
+            get {
+                return this.sbProxField;
+            }
+            set {
+                this.sbProxField = value;
+                this.RaisePropertyChanged("SbProx");
+            }
         }
         
-        public SetBlindSettingsResponse(SmartBlindsWebApp.sbWebService.SetBlindSettingsResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class SetBlindSettingsResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public SmartBlindsWebApp.sbWebService.BlindSettings SetBlindSettingsResult;
-        
-        public SetBlindSettingsResponseBody() {
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public string SbTemp {
+            get {
+                return this.sbTempField;
+            }
+            set {
+                this.sbTempField = value;
+                this.RaisePropertyChanged("SbTemp");
+            }
         }
         
-        public SetBlindSettingsResponseBody(SmartBlindsWebApp.sbWebService.BlindSettings SetBlindSettingsResult) {
-            this.SetBlindSettingsResult = SetBlindSettingsResult;
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
         }
     }
     
@@ -435,77 +478,133 @@ namespace SmartBlindsWebApp.sbWebService {
             return ((SmartBlindsWebApp.sbWebService.SmartBlindsWebServiceSoap)(this)).HelloWorldAsync(inValue);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SmartBlindsWebApp.sbWebService.GetCurrentUserResponse SmartBlindsWebApp.sbWebService.SmartBlindsWebServiceSoap.GetCurrentUser(SmartBlindsWebApp.sbWebService.GetCurrentUserRequest request) {
-            return base.Channel.GetCurrentUser(request);
-        }
-        
         public string GetCurrentUser() {
-            SmartBlindsWebApp.sbWebService.GetCurrentUserRequest inValue = new SmartBlindsWebApp.sbWebService.GetCurrentUserRequest();
-            inValue.Body = new SmartBlindsWebApp.sbWebService.GetCurrentUserRequestBody();
-            SmartBlindsWebApp.sbWebService.GetCurrentUserResponse retVal = ((SmartBlindsWebApp.sbWebService.SmartBlindsWebServiceSoap)(this)).GetCurrentUser(inValue);
-            return retVal.Body.GetCurrentUserResult;
+            return base.Channel.GetCurrentUser();
+        }
+        
+        public System.Threading.Tasks.Task<string> GetCurrentUserAsync() {
+            return base.Channel.GetCurrentUserAsync();
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SmartBlindsWebApp.sbWebService.GetCurrentUserResponse> SmartBlindsWebApp.sbWebService.SmartBlindsWebServiceSoap.GetCurrentUserAsync(SmartBlindsWebApp.sbWebService.GetCurrentUserRequest request) {
-            return base.Channel.GetCurrentUserAsync(request);
+        SmartBlindsWebApp.sbWebService.UploadFileResponse SmartBlindsWebApp.sbWebService.SmartBlindsWebServiceSoap.UploadFile(SmartBlindsWebApp.sbWebService.UploadFileRequest request) {
+            return base.Channel.UploadFile(request);
         }
         
-        public System.Threading.Tasks.Task<SmartBlindsWebApp.sbWebService.GetCurrentUserResponse> GetCurrentUserAsync() {
-            SmartBlindsWebApp.sbWebService.GetCurrentUserRequest inValue = new SmartBlindsWebApp.sbWebService.GetCurrentUserRequest();
-            inValue.Body = new SmartBlindsWebApp.sbWebService.GetCurrentUserRequestBody();
-            return ((SmartBlindsWebApp.sbWebService.SmartBlindsWebServiceSoap)(this)).GetCurrentUserAsync(inValue);
+        public string UploadFile(byte[] f, string fileName) {
+            SmartBlindsWebApp.sbWebService.UploadFileRequest inValue = new SmartBlindsWebApp.sbWebService.UploadFileRequest();
+            inValue.f = f;
+            inValue.fileName = fileName;
+            SmartBlindsWebApp.sbWebService.UploadFileResponse retVal = ((SmartBlindsWebApp.sbWebService.SmartBlindsWebServiceSoap)(this)).UploadFile(inValue);
+            return retVal.UploadFileResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SmartBlindsWebApp.sbWebService.GetBlindSettingsResponse SmartBlindsWebApp.sbWebService.SmartBlindsWebServiceSoap.GetBlindSettings(SmartBlindsWebApp.sbWebService.GetBlindSettingsRequest request) {
-            return base.Channel.GetBlindSettings(request);
+        System.Threading.Tasks.Task<SmartBlindsWebApp.sbWebService.UploadFileResponse> SmartBlindsWebApp.sbWebService.SmartBlindsWebServiceSoap.UploadFileAsync(SmartBlindsWebApp.sbWebService.UploadFileRequest request) {
+            return base.Channel.UploadFileAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<SmartBlindsWebApp.sbWebService.UploadFileResponse> UploadFileAsync(byte[] f, string fileName) {
+            SmartBlindsWebApp.sbWebService.UploadFileRequest inValue = new SmartBlindsWebApp.sbWebService.UploadFileRequest();
+            inValue.f = f;
+            inValue.fileName = fileName;
+            return ((SmartBlindsWebApp.sbWebService.SmartBlindsWebServiceSoap)(this)).UploadFileAsync(inValue);
+        }
+        
+        public string SetCurrentUser() {
+            return base.Channel.SetCurrentUser();
+        }
+        
+        public System.Threading.Tasks.Task<string> SetCurrentUserAsync() {
+            return base.Channel.SetCurrentUserAsync();
+        }
+        
+        public SmartBlindsWebApp.sbWebService.sbUsers ReturnCurrentUserSettings() {
+            return base.Channel.ReturnCurrentUserSettings();
+        }
+        
+        public System.Threading.Tasks.Task<SmartBlindsWebApp.sbWebService.sbUsers> ReturnCurrentUserSettingsAsync() {
+            return base.Channel.ReturnCurrentUserSettingsAsync();
+        }
+        
+        public SmartBlindsWebApp.sbWebService.BlindSettings GetBlindSettingsOBJ() {
+            return base.Channel.GetBlindSettingsOBJ();
+        }
+        
+        public System.Threading.Tasks.Task<SmartBlindsWebApp.sbWebService.BlindSettings> GetBlindSettingsOBJAsync() {
+            return base.Channel.GetBlindSettingsOBJAsync();
         }
         
         public SmartBlindsWebApp.sbWebService.BlindSettings GetBlindSettings(int SysID) {
-            SmartBlindsWebApp.sbWebService.GetBlindSettingsRequest inValue = new SmartBlindsWebApp.sbWebService.GetBlindSettingsRequest();
-            inValue.Body = new SmartBlindsWebApp.sbWebService.GetBlindSettingsRequestBody();
-            inValue.Body.SysID = SysID;
-            SmartBlindsWebApp.sbWebService.GetBlindSettingsResponse retVal = ((SmartBlindsWebApp.sbWebService.SmartBlindsWebServiceSoap)(this)).GetBlindSettings(inValue);
-            return retVal.Body.GetBlindSettingsResult;
+            return base.Channel.GetBlindSettings(SysID);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SmartBlindsWebApp.sbWebService.GetBlindSettingsResponse> SmartBlindsWebApp.sbWebService.SmartBlindsWebServiceSoap.GetBlindSettingsAsync(SmartBlindsWebApp.sbWebService.GetBlindSettingsRequest request) {
-            return base.Channel.GetBlindSettingsAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<SmartBlindsWebApp.sbWebService.GetBlindSettingsResponse> GetBlindSettingsAsync(int SysID) {
-            SmartBlindsWebApp.sbWebService.GetBlindSettingsRequest inValue = new SmartBlindsWebApp.sbWebService.GetBlindSettingsRequest();
-            inValue.Body = new SmartBlindsWebApp.sbWebService.GetBlindSettingsRequestBody();
-            inValue.Body.SysID = SysID;
-            return ((SmartBlindsWebApp.sbWebService.SmartBlindsWebServiceSoap)(this)).GetBlindSettingsAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SmartBlindsWebApp.sbWebService.SetBlindSettingsResponse SmartBlindsWebApp.sbWebService.SmartBlindsWebServiceSoap.SetBlindSettings(SmartBlindsWebApp.sbWebService.SetBlindSettingsRequest request) {
-            return base.Channel.SetBlindSettings(request);
+        public System.Threading.Tasks.Task<SmartBlindsWebApp.sbWebService.BlindSettings> GetBlindSettingsAsync(int SysID) {
+            return base.Channel.GetBlindSettingsAsync(SysID);
         }
         
         public SmartBlindsWebApp.sbWebService.BlindSettings SetBlindSettings(int SysID) {
-            SmartBlindsWebApp.sbWebService.SetBlindSettingsRequest inValue = new SmartBlindsWebApp.sbWebService.SetBlindSettingsRequest();
-            inValue.Body = new SmartBlindsWebApp.sbWebService.SetBlindSettingsRequestBody();
-            inValue.Body.SysID = SysID;
-            SmartBlindsWebApp.sbWebService.SetBlindSettingsResponse retVal = ((SmartBlindsWebApp.sbWebService.SmartBlindsWebServiceSoap)(this)).SetBlindSettings(inValue);
-            return retVal.Body.SetBlindSettingsResult;
+            return base.Channel.SetBlindSettings(SysID);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<SmartBlindsWebApp.sbWebService.SetBlindSettingsResponse> SmartBlindsWebApp.sbWebService.SmartBlindsWebServiceSoap.SetBlindSettingsAsync(SmartBlindsWebApp.sbWebService.SetBlindSettingsRequest request) {
-            return base.Channel.SetBlindSettingsAsync(request);
+        public System.Threading.Tasks.Task<SmartBlindsWebApp.sbWebService.BlindSettings> SetBlindSettingsAsync(int SysID) {
+            return base.Channel.SetBlindSettingsAsync(SysID);
         }
         
-        public System.Threading.Tasks.Task<SmartBlindsWebApp.sbWebService.SetBlindSettingsResponse> SetBlindSettingsAsync(int SysID) {
-            SmartBlindsWebApp.sbWebService.SetBlindSettingsRequest inValue = new SmartBlindsWebApp.sbWebService.SetBlindSettingsRequest();
-            inValue.Body = new SmartBlindsWebApp.sbWebService.SetBlindSettingsRequestBody();
-            inValue.Body.SysID = SysID;
-            return ((SmartBlindsWebApp.sbWebService.SmartBlindsWebServiceSoap)(this)).SetBlindSettingsAsync(inValue);
+        public System.Xml.XmlElement GetBlindsSettings() {
+            return base.Channel.GetBlindsSettings();
+        }
+        
+        public System.Threading.Tasks.Task<System.Xml.XmlElement> GetBlindsSettingsAsync() {
+            return base.Channel.GetBlindsSettingsAsync();
+        }
+        
+        public void SetBlindsSettings(string h, string v, string t, string p, int f) {
+            base.Channel.SetBlindsSettings(h, v, t, p, f);
+        }
+        
+        public System.Threading.Tasks.Task SetBlindsSettingsAsync(string h, string v, string t, string p, int f) {
+            return base.Channel.SetBlindsSettingsAsync(h, v, t, p, f);
+        }
+        
+        public string GetXML() {
+            return base.Channel.GetXML();
+        }
+        
+        public System.Threading.Tasks.Task<string> GetXMLAsync() {
+            return base.Channel.GetXMLAsync();
+        }
+        
+        public System.Xml.XmlElement GetXMLdetail() {
+            return base.Channel.GetXMLdetail();
+        }
+        
+        public System.Threading.Tasks.Task<System.Xml.XmlElement> GetXMLdetailAsync() {
+            return base.Channel.GetXMLdetailAsync();
+        }
+        
+        public void LogEntry(int func, string val) {
+            base.Channel.LogEntry(func, val);
+        }
+        
+        public System.Threading.Tasks.Task LogEntryAsync(int func, string val) {
+            return base.Channel.LogEntryAsync(func, val);
+        }
+        
+        public void LogAllEntry(int func, string tempVal, string proxVal, string gasLog, string sbHorxLog, string sbVertLog, string sbTempAlarm) {
+            base.Channel.LogAllEntry(func, tempVal, proxVal, gasLog, sbHorxLog, sbVertLog, sbTempAlarm);
+        }
+        
+        public System.Threading.Tasks.Task LogAllEntryAsync(int func, string tempVal, string proxVal, string gasLog, string sbHorxLog, string sbVertLog, string sbTempAlarm) {
+            return base.Channel.LogAllEntryAsync(func, tempVal, proxVal, gasLog, sbHorxLog, sbVertLog, sbTempAlarm);
+        }
+        
+        public void SetCurrentTemp(string newTemp) {
+            base.Channel.SetCurrentTemp(newTemp);
+        }
+        
+        public System.Threading.Tasks.Task SetCurrentTempAsync(string newTemp) {
+            return base.Channel.SetCurrentTempAsync(newTemp);
         }
     }
 }

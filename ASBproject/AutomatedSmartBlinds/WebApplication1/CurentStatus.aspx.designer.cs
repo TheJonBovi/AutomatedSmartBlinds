@@ -7,11 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SmartBlindsWebApp {
-    
-    
-    public partial class CurentStatus {
-        
+namespace SmartBlindsWebApp
+{
+
+
+    public partial class CurentStatus
+    {
+
+        /// <summary>
+        /// tblSensors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table tblSensors;
+
         /// <summary>
         /// txtGasSensorStatus control.
         /// </summary>
@@ -20,7 +31,7 @@ namespace SmartBlindsWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label txtGasSensorStatus;
-        
+
         /// <summary>
         /// lblCurrentTemp control.
         /// </summary>
@@ -29,7 +40,43 @@ namespace SmartBlindsWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCurrentTemp;
-        
+
+        /// <summary>
+        /// btnLogTemp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLogTemp;
+
+        /// <summary>
+        /// txtTemplog control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTemplog;
+
+        /// <summary>
+        /// btnSetTemp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSetTemp;
+
+        /// <summary>
+        /// txtTempSet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTempSet;
+
         /// <summary>
         /// lblCurrentProxStatus control.
         /// </summary>
@@ -38,7 +85,43 @@ namespace SmartBlindsWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCurrentProxStatus;
-        
+
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// TextBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+
+        /// <summary>
+        /// DropDownList1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+
         /// <summary>
         /// lblBlindsVertical control.
         /// </summary>
@@ -47,7 +130,7 @@ namespace SmartBlindsWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblBlindsVertical;
-        
+
         /// <summary>
         /// btnAdjustBlindVertical control.
         /// </summary>
@@ -56,7 +139,7 @@ namespace SmartBlindsWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAdjustBlindVertical;
-        
+
         /// <summary>
         /// txtNewBlindVertical control.
         /// </summary>
@@ -65,7 +148,16 @@ namespace SmartBlindsWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNewBlindVertical;
-        
+
+        /// <summary>
+        /// ddlBlindsPreConV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlBlindsPreConV;
+
         /// <summary>
         /// lblBlindHorizontal control.
         /// </summary>
@@ -74,7 +166,7 @@ namespace SmartBlindsWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblBlindHorizontal;
-        
+
         /// <summary>
         /// btnAdjistBlindHorizontal control.
         /// </summary>
@@ -83,7 +175,7 @@ namespace SmartBlindsWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAdjistBlindHorizontal;
-        
+
         /// <summary>
         /// txtNewBlindHorizontal control.
         /// </summary>
@@ -92,5 +184,14 @@ namespace SmartBlindsWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNewBlindHorizontal;
+
+        /// <summary>
+        /// ddlBlindsPreConH control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlBlindsPreConH;
     }
 }

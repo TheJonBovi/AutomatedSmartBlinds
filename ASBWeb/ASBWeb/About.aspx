@@ -151,7 +151,7 @@
                 <section class="support-company-area fix pt-10 section-padding30">
                     <div class="support-wrapper align-items-end">
                         <div class="left-content">
-                            <!-- section tittle -->
+                           <%-- <!-- section tittle -->
                             <div class="section-tittle section-tittle2 mb-55">
                                 <div class="front-text">
                                     <h2 class="">Who we are</h2>
@@ -241,7 +241,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Testimonial End -->
+                <!-- Testimonial End -->--%>
                 <!-- Team Start -->
                 <div class="team-area section-padding30">
                     <div class="container">

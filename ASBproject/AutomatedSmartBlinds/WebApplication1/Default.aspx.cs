@@ -21,7 +21,7 @@ namespace SmartBlindsWebApp
             //SmartBlindsWebServiceReference.SmartBlindsWebServiceSoapClient smartBlindsWebServiceSoapClient = new SmartBlindsWebServiceReference.SmartBlindsWebServiceSoapClient();
             //WIN100TEST.WIN1500TESTSoapClient wIN1500TESTSoapClient = new WIN100TEST.WIN1500TESTSoapClient();
 
-            sbWebService.SmartBlindsWebServiceSoapClient soapClient = new sbWebService.SmartBlindsWebServiceSoapClient();
+            sbWebService.SmartBlindsWebServiceSoapClient soapClient = new sbWebService.SmartBlindsWebServiceSoapClient("SmartBlindsWebServiceSoap");
             lblCurrentUser.Text = soapClient.GetCurrentUser();
 
             // lblCurrentUser.Text = wIN1500TESTSoapClient.HelloWorld();
@@ -34,5 +34,7 @@ namespace SmartBlindsWebApp
         {
 
         }
+
+
     }
 }

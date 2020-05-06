@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SmartBlindsWebService
 {
-    [DataContract(Namespace = "http://localhost")]
+    [DataContract(Namespace = "http://smartblinds.eastus.cloudapp.azure.com/")]
     public class BlindSettings
     {
         private int _sysID;
@@ -15,6 +15,8 @@ namespace SmartBlindsWebService
         private string _sbHorizontal;
         private string _sbVertical;
         private string _notes;
+        private string _sbProx;
+        private string _sbTemp;
 
         [DataMember]
         public int SysID
@@ -50,9 +52,21 @@ namespace SmartBlindsWebService
             get { return _notes; }
             set { _notes = value; }
         }
+
+        public string SbProx
+        {
+            get { return _sbProx; }
+            set { _sbProx = value; }
+        }
+
+        public string SbTemp
+        {
+            get { return _sbTemp; }
+            set { _sbTemp = value; }
+        }
     }
 
-    [DataContract(Namespace = "http://localhost")]
+    [DataContract(Namespace = "http://smartblinds.eastus.cloudapp.azure.com/")]
     public class LedSettings
     {
         private int _sysID;
@@ -97,7 +111,7 @@ namespace SmartBlindsWebService
         }
     }
 
-    [DataContract(Namespace = "http://localhost")]
+    [DataContract(Namespace = "http://smartblinds.eastus.cloudapp.azure.com/")]
     public class GasSensor
     {
         private int _sysID;
@@ -142,7 +156,7 @@ namespace SmartBlindsWebService
         }
     }
 
-    [DataContract(Namespace = "http://localhost")]
+    [DataContract(Namespace = "http://smartblinds.eastus.cloudapp.azure.com/")]
     public class sbUsers
     {
         private int _sysID;
@@ -196,10 +210,16 @@ namespace SmartBlindsWebService
             get { return _email; }
             set { _email = value; }
         }
+        [DataMember]
+        public int Active
+        {
+            get { return _active; }
+            set { _active = value; }
+        }
     }
 
 
-    [DataContract(Namespace = "http://localhost")]
+    [DataContract(Namespace = "http://smartblinds.eastus.cloudapp.azure.com/")]
     public class TempSensor
     {
         private int _sysID;
@@ -245,7 +265,7 @@ namespace SmartBlindsWebService
     }
 
 
-    [DataContract(Namespace = "http://localhost")]
+    [DataContract(Namespace = "http://smartblinds.eastus.cloudapp.azure.com/")]
     public class ProxySensor
     {
         private int _sysID;
@@ -290,7 +310,7 @@ namespace SmartBlindsWebService
         }
     }
 
-    [DataContract(Namespace = "http://localhost")]
+    [DataContract(Namespace = "http://smartblinds.eastus.cloudapp.azure.com/")]
     public class CameraSettings
     {
         private int _sysID;

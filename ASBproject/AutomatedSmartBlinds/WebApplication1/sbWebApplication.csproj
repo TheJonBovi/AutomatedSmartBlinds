@@ -130,50 +130,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="Connected Services\HelloWorld\SmartBlindsWebApp.HelloWorld.HelloWorldResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\HelloWorld\SmartBlindsWebApp.HelloWorld.GetCurrentUserResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Connected Services\HelloWorld\WebService1.wsdl" />
-    <None Include="Connected Services\HelloWorld\WebService1.disco" />
-    <None Include="Connected Services\HelloWorld\configuration91.svcinfo" />
-    <None Include="Connected Services\HelloWorld\configuration.svcinfo" />
-    <None Include="Connected Services\HelloWorld\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="Connected Services\sbWebService\SmartBlindsWebApp.sbWebService.BlindSettings.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\sbWebService\SmartBlindsWebApp.sbWebService.GetBlindSettingsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\sbWebService\SmartBlindsWebApp.sbWebService.GetCurrentUserResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\sbWebService\SmartBlindsWebApp.sbWebService.SetBlindSettingsResponse.datasource">
+    <Content Include="Connected Services\sbWebService\SmartBlindsWebApp.sbWebService.sbUsers.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\sbWebService\SmartBlindsWebApp.sbWebService.TestHelloWorldd1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\sbWebService\SmartBlindsWebApp.sbWebService.UploadFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\sbWebService\SmartBlindsWebService.wsdl" />
     <None Include="Connected Services\sbWebService\SmartBlindsWebService.disco" />
     <None Include="Connected Services\sbWebService\configuration91.svcinfo" />
     <None Include="Connected Services\sbWebService\configuration.svcinfo" />
     <None Include="Connected Services\sbWebService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <Content Include="Connected Services\WIN100TEST\SmartBlindsWebApp.WIN100TEST.HelloWorldResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Connected Services\sbWebService\SmartBlindsWebService.wsdl" />
-    <None Include="Connected Services\WIN100TEST\WIN1500TEST.disco" />
-    <None Include="Connected Services\WIN100TEST\configuration91.svcinfo" />
-    <None Include="Connected Services\WIN100TEST\configuration.svcinfo" />
-    <None Include="Connected Services\WIN100TEST\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -185,20 +158,22 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Connected Services\WIN100TEST\WIN1500TEST.wsdl" />
+    <Content Include="Properties\DataSources\System.Xml.XmlElement.datasource" />
+    <Content Include="Properties\DataSources\System.Xml.Linq.XElement.datasource" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\windowsweb - Web Deploy.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Global.asax" />
     <Content Include="Logs.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -247,17 +222,7 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Connected Services\HelloWorld\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Connected Services\sbWebService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\WIN100TEST\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -345,9 +310,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\HelloWorld\" />
     <WCFMetadataStorage Include="Connected Services\sbWebService\" />
-    <WCFMetadataStorage Include="Connected Services\WIN100TEST\" />
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />

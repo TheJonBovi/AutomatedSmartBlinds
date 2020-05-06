@@ -11,8 +11,11 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <h1>Mobile Master Page</h1>
-        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+        <h1>Mobile Home Page</h1>
+        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" >
+            <p>
+                <a href="Default.aspx">Home</a> ~ <a href="CurentStatus.aspx">Current Status</a> ~ <a href="Settings.aspx">Settings</a> ~ <a href="Logs.aspx">Activity Logs</a></p>
+        </asp:ContentPlaceHolder>
         <section class="content-wrapper main-content clear-fix">
             <asp:ContentPlaceHolder runat="server" ID="MainContent" />
         </section>
