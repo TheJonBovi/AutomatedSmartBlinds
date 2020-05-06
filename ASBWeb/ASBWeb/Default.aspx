@@ -338,6 +338,7 @@
                                                 <p>
                                                     Select Preconfigured setting &nbsp;&nbsp;&nbsp;
                                                             <asp:DropDownList ID="ddlBlindsPreConV" runat="server">
+                                                                <asp:ListItem Value="1024">Full Up</asp:ListItem>
                                                                 <asp:ListItem Value="768">1/4th Down</asp:ListItem>
                                                                 <asp:ListItem Value="512">1/2 Down</asp:ListItem>
                                                                 <asp:ListItem Value="256">3/4th Down</asp:ListItem>
