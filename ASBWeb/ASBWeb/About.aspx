@@ -54,7 +54,7 @@
                                         <div class="header-info-right">
                                             <ul class="header-social">
                                                 <li style="color:white">Michael Roberts</li>
-                                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                                <li><a href="www.linkedin.com/in/michael-r-b4037114" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
                                                 <li></li>
                                                 <li></li>
                                                 <li><img src="assets/img/banner/small_orange_dot.png"</li>
