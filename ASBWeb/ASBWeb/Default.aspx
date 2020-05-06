@@ -212,10 +212,13 @@
                             <div class="col-xl-4 col-lg-4 col-md-6">
                                 <div class="single-service-cap mb-30">
                                     <div class="service-img">
-                                        <%--  <img src="assets/img/service/servicess2.png" alt="">--%>
+                                        
                                         <h2>LED Output</h2>
                                         <p>
-                                            Current Distance: <asp:Label ID="lblCurrentTemp" runat="server" Style="font-size: x-large; color: #66FF33"></asp:Label>
+                                            This demonstration allows end users or specific sensor conditions to configure visual feedback.
+                                        </p>
+                                        <p>
+                                            Current Pattern: <asp:Label ID="lblCurrentTemp" runat="server" Style="font-size: x-large; color: #FF5F13"></asp:Label>
                                         </p>
                                         <p>
                                             <asp:Button CssClass="btn btn-default" ID="btnLogTemp" Text="Log Sensor test &raquo;" runat="server" OnClick="btnLogTemp_Click" />
@@ -239,7 +242,7 @@
                                         <%--  <img src="assets/img/service/servicess2.png" alt="">--%>
                                         <h2>LED Output</h2>
                                         <p>
-                                            Current Distance: <asp:Label ID="Label2" runat="server" Style="font-size: x-large; color: #66FF33"></asp:Label>
+                                            Current Distance: <asp:Label ID="Label2" runat="server" Style="font-size: x-large; color: #FF5F13"></asp:Label>
                                         </p>
                                         <p>
                                             <asp:Button CssClass="btn btn-default" ID="Button4" Text="Log Sensor test &raquo;" runat="server" OnClick="btnLogTemp_Click" />
@@ -264,7 +267,7 @@
                                         <h2>Temperature Sensor</h2>
                                         <p>
                                             Current Temperature:
-                                            <asp:Label ID="Label1" runat="server" Style="font-size: x-large; color: #66FF33"></asp:Label>
+                                            <asp:Label ID="Label1" runat="server" Style="font-size: x-large; color: #FF5F13"></asp:Label>
                                         </p>
                                         <p>
                                             <asp:Button CssClass="btn btn-default" ID="Button1" Text="Log Sensor test &raquo;" runat="server" OnClick="btnLogTemp_Click" />
@@ -285,10 +288,10 @@
                             <div class="col-xl-4 col-lg-4 col-md-6">
                                 <div class="single-service-cap mb-30">
                                     <div class="service-img">
-                                        <h2>Blinds Horizantel</h2>
+                                        <h2>Blinds Horizontel</h2>
                                         <p>
                                             Current Horizontal Location: 
-                                                            <asp:Label ID="lblBlindHorizontal" runat="server" Style="font-size: x-large; color: #66FF33"></asp:Label>
+                                                            <asp:Label ID="lblBlindHorizontal" runat="server" Style="font-size: x-large; color: #FF5F13"></asp:Label>
                                         </p>
                                         <p>
                                             <asp:Button CssClass="btn btn-default" ID="btnAdjistBlindHorizontal" Text="Adjust Blinds Vertical &raquo;" runat="server" OnClick="btnAdjistBlindHorizontal_Click" />
@@ -324,27 +327,25 @@
                                                 <h2>Blinds Vertical</h2>
                                                 <p>
                                                     Current Vertical Location:
-                                                            <asp:Label ID="Label3" runat="server" Style="font-size: x-large; color: #66FF33"></asp:Label>
+                                                            <asp:Label ID="lblBlindsVertical" runat="server" Style="font-size: x-large; color: #FF5F13"></asp:Label>
                                                 </p>
                                                 <p>
                                                     <asp:Button CssClass="btn btn-default" ID="Button3" Text="Adjust Blinds Vertical &raquo;" runat="server" OnClick="btnAdjustBlindVertical_Click" />
                                                     &nbsp;&nbsp;&nbsp; Enter numeric value from 0(closed) to 100(open)&nbsp;&nbsp;&nbsp;
-                                                            <asp:TextBox runat="server" ID="lblBlindsVertical" Enabled="false"></asp:TextBox>
+                                                            <asp:TextBox runat="server" ID="txtBlindsVertical" Enabled="false"></asp:TextBox>
                                                     &nbsp;&nbsp;&nbsp; 
                                                 </p>
                                                 <p>
                                                     Select Preconfigured setting &nbsp;&nbsp;&nbsp;
                                                             <asp:DropDownList ID="ddlBlindsPreConV" runat="server">
-                                                                <asp:ListItem Value="1024">Full Up</asp:ListItem>
                                                                 <asp:ListItem Value="768">1/4th Down</asp:ListItem>
                                                                 <asp:ListItem Value="512">1/2 Down</asp:ListItem>
                                                                 <asp:ListItem Value="256">3/4th Down</asp:ListItem>
                                                                 <asp:ListItem Value="0">Full Down</asp:ListItem>
                                                             </asp:DropDownList>
                                                 </p>
-                                            </div>
+                                         <div class="service-cap">  
                                             <br/>
-                                        <div class="service-cap">
                                         <h4><a href="services_details.html">Motor & implementation</a></h4>
                                         <a href="services_details.html" class="more-btn">Read More <i class="ti-plus"></i></a>
                                     </div>

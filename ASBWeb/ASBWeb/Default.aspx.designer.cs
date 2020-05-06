@@ -213,13 +213,13 @@ namespace ASBWeb
         protected global::System.Web.UI.WebControls.DropDownList ddlBlindsPreConH;
 
         /// <summary>
-        /// Label3 control.
+        /// lblBlindsVertical control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label lblBlindsVertical;
 
         /// <summary>
         /// Button3 control.
@@ -231,13 +231,13 @@ namespace ASBWeb
         protected global::System.Web.UI.WebControls.Button Button3;
 
         /// <summary>
-        /// lblBlindsVertical control.
+        /// txtBlindsVertical control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lblBlindsVertical;
+        protected global::System.Web.UI.WebControls.TextBox txtBlindsVertical;
 
         /// <summary>
         /// ddlBlindsPreConV control.
