@@ -3,6 +3,7 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
 <head runat="server">
+    <meta http-equiv="refresh" content="30">
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title><%: Page.Title %> - Automated Smart Blinds</title>
@@ -178,8 +179,8 @@
                                     <asp:BoundField DataField="pizoLog" HeaderText="pizoLog" SortExpression="pizoLog" />
                                     <asp:BoundField DataField="gasLog" HeaderText="Gas Alert Status" SortExpression="gasLog" />
                                     <asp:BoundField DataField="cameraLog" HeaderText="cameraLog" SortExpression="cameraLog" />
-                                    <asp:BoundField DataField="sbHorzLog" HeaderText="Current Horz Position" SortExpression="sbHorzLog" />
-                                    <asp:BoundField DataField="sbVertLog" HeaderText="Current Vert Position" SortExpression="sbVertLog" />
+                                    <asp:BoundField DataField="sbHorzLog" HeaderText="Current Vert Position" SortExpression="sbHorzLog" /> <%--current vert name change from horz log. need to change log in the future.--%>
+                                    <asp:BoundField DataField="sbVertLog" HeaderText="Current Horz Position" SortExpression="sbVertLog" /> <%--current horz name change from vert log. need to change log in the future.--%>
                                 </Columns>
                             </asp:GridView>
                        

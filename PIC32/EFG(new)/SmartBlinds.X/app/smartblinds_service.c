@@ -69,8 +69,8 @@ limitations under the License.
 #endif
 
 #ifdef CHAD_HOUSE
-#define WLAN_SSID              "NewJapanEXP"        //target AP
-#define WLAN_PSK               "USSAlcatraz"        //security password
+#define WLAN_SSID              "JapanEXP"        //target AP
+#define WLAN_PSK               "USSAlcatraz1465!!"        //security password
 #endif
 
 #define WLAN_AUTH              M2M_WIFI_SEC_WPA_PSK   // AP Security 
