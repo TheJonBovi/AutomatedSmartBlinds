@@ -190,19 +190,14 @@
                             <div class="col-xl-4 col-lg-4 col-md-6">
                                 <div class="single-service-cap mb-30">
                                     <div class="service-img">
-                                        <%-- <img src="assets/img/service/servicess1.png" alt="">--%>
-                                        <h2>Gas Sensor</h2>
-                                        <p>
-                                            Get the current Smart Blinds status and make adjustments
-                                        </p>
-                                        <p>
-                                            <%-- This is an example od a serice call to the MCU for Data--%>
-                This is an example od a serice call to the MCU for Data
+                                       <h2>Gas Sensor</h2>
+                                       <p>
+                                           This is an example of a web serice call to the MCU for Gas Data. The colors Red and Green represent the alarm is sounding and the audio notification is active or that the house is safe to be in respectively.
                                         </p>
                                         <br />
                                         <p>
-                                            <asp:Label ID="txtGasSensorStatus" runat="server" Text="Gas Sensor Status"></asp:Label>
-                                        </p>
+                                            <asp:Label ID="txtGasSensorStatus" runat="server" Text="Gas Sensor Status" ></asp:Label>
+                                            : <asp:Image runat="server" ID="GasStatusImg" /></p>
 
                                     </div>
                                     <div class="service-cap">
@@ -218,10 +213,9 @@
                                 <div class="single-service-cap mb-30">
                                     <div class="service-img">
                                         <%--  <img src="assets/img/service/servicess2.png" alt="">--%>
-                                        <h2>Temperature Sensor</h2>
+                                        <h2>LED Output</h2>
                                         <p>
-                                            Current Temperature:
-                                            <asp:Label ID="lblCurrentTemp" runat="server" Style="font-size: x-large; color: #66FF33"></asp:Label>
+                                            Current Distance: <asp:Label ID="lblCurrentTemp" runat="server" Style="font-size: x-large; color: #66FF33"></asp:Label>
                                         </p>
                                         <p>
                                             <asp:Button CssClass="btn btn-default" ID="btnLogTemp" Text="Log Sensor test &raquo;" runat="server" OnClick="btnLogTemp_Click" />
@@ -239,7 +233,55 @@
                                     </div>
                                 </div>
                             </div>
-                            
+                             <div class="col-xl-4 col-lg-4 col-md-6">
+                                <div class="single-service-cap mb-30">
+                                    <div class="service-img">
+                                        <%--  <img src="assets/img/service/servicess2.png" alt="">--%>
+                                        <h2>LED Output</h2>
+                                        <p>
+                                            Current Distance: <asp:Label ID="Label2" runat="server" Style="font-size: x-large; color: #66FF33"></asp:Label>
+                                        </p>
+                                        <p>
+                                            <asp:Button CssClass="btn btn-default" ID="Button4" Text="Log Sensor test &raquo;" runat="server" OnClick="btnLogTemp_Click" />
+                                            &nbsp;<asp:TextBox runat="server" ID="TextBox3"></asp:TextBox>
+                                            <asp:Button CssClass="btn btn-default" ID="Button5" Text="Set Sensor test &raquo;" runat="server" OnClick="btnSetTemp_Click" />
+                                            &nbsp;<asp:TextBox runat="server" ID="TextBox4"></asp:TextBox>
+                                        </p>
+                                    </div>
+                                    <div class="service-cap">
+                                        <h4><a href="services_details.html">Sensor & implementation</a></h4>
+                                        <a href="services_details.html" class="more-btn">Read More <i class="ti-plus"></i></a>
+                                    </div>
+                                    <div class="service-icon">
+                                        <img src="assets/img/icon/services_icon1.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                               <div class="col-xl-4 col-lg-4 col-md-6">
+                                <div class="single-service-cap mb-30">
+                                    <div class="service-img">
+                                        <%--  <img src="assets/img/service/servicess2.png" alt="">--%>
+                                        <h2>Temperature Sensor</h2>
+                                        <p>
+                                            Current Temperature:
+                                            <asp:Label ID="Label1" runat="server" Style="font-size: x-large; color: #66FF33"></asp:Label>
+                                        </p>
+                                        <p>
+                                            <asp:Button CssClass="btn btn-default" ID="Button1" Text="Log Sensor test &raquo;" runat="server" OnClick="btnLogTemp_Click" />
+                                            &nbsp;<asp:TextBox runat="server" ID="TextBox1"></asp:TextBox>
+                                            <asp:Button CssClass="btn btn-default" ID="Button2" Text="Set Sensor test &raquo;" runat="server" OnClick="btnSetTemp_Click" />
+                                            &nbsp;<asp:TextBox runat="server" ID="TextBox2"></asp:TextBox>
+                                        </p>
+                                    </div>
+                                    <div class="service-cap">
+                                        <h4><a href="services_details.html">Sensor & implementation</a></h4>
+                                        <a href="services_details.html" class="more-btn">Read More <i class="ti-plus"></i></a>
+                                    </div>
+                                    <div class="service-icon">
+                                        <img src="assets/img/icon/services_icon1.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-xl-4 col-lg-4 col-md-6">
                                 <div class="single-service-cap mb-30">
                                     <div class="service-img">
