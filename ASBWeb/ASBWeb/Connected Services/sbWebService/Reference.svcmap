@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="94c4de78-59eb-4337-ac14-7ee3ee87ad27" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e2499bb6-99a9-46d5-bff3-9f4041815ce1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://smartblinds.eastus.cloudapp.azure.com/SmartBlindsWebService.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="SmartBlindsWebService.disco" MetadataType="Disco" ID="9b93ca97-3918-4cb3-85b8-ccbd137cbc12" SourceId="1" SourceUrl="http://smartblinds.eastus.cloudapp.azure.com/SmartBlindsWebService.asmx?disco" />
-    <MetadataFile FileName="SmartBlindsWebService.wsdl" MetadataType="Wsdl" ID="b140b7ed-9220-4069-b798-9b0233c904ed" SourceId="1" SourceUrl="http://smartblinds.eastus.cloudapp.azure.com/SmartBlindsWebService.asmx?wsdl" />
+    <MetadataFile FileName="SmartBlindsWebService.disco" MetadataType="Disco" ID="5a404a31-e9c5-4df6-b4b4-0a2e71f077be" SourceId="1" SourceUrl="http://smartblinds.eastus.cloudapp.azure.com/SmartBlindsWebService.asmx?disco" />
+    <MetadataFile FileName="SmartBlindsWebService.wsdl" MetadataType="Wsdl" ID="5b7e863a-e428-43bf-8aea-4105d2a748f5" SourceId="1" SourceUrl="http://smartblinds.eastus.cloudapp.azure.com/SmartBlindsWebService.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -4,13 +4,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en">
 <head runat="server">
+    
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Automated Smart Blinds</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="manifest" href="site.webmanifest" />
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/Automated_Smart_Blinds_Logo_Main_blinds.ico" />
 
 
     <!-- CSS here -->
@@ -38,7 +39,7 @@
                         <div class="preloader-circle"></div>
                         <div class="preloader-img pere-text">
                            <%--  <img src="assets/img/logo/loder-logo.png" alt="" />--%>
-                            <img src="assets/img/logo/Orange_logo_transparent_bkgrd - 500x500.png" alt="" />
+                            <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Header_blinds.png" alt="" />
                         </div>
                     </div>
                 </div>

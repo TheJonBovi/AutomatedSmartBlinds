@@ -214,6 +214,16 @@
       <s:element name="SetCurrentTempResponse">
         <s:complexType />
       </s:element>
+      <s:element name="GetGasStatus">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetGasStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGasStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="string" nillable="true" type="s:string" />
       <s:element name="sbUsers" nillable="true" type="tns:sbUsers" />
       <s:element name="BlindSettings" nillable="true" type="tns:BlindSettings" />
@@ -321,6 +331,12 @@
   <wsdl:message name="SetCurrentTempSoapOut">
     <wsdl:part name="parameters" element="tns:SetCurrentTempResponse" />
   </wsdl:message>
+  <wsdl:message name="GetGasStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGasStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetGasStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGasStatusResponse" />
+  </wsdl:message>
   <wsdl:message name="TestHelloWorlddHttpGetIn">
     <wsdl:part name="name" type="s:string" />
   </wsdl:message>
@@ -401,6 +417,10 @@
     <wsdl:part name="newTemp" type="s:string" />
   </wsdl:message>
   <wsdl:message name="SetCurrentTempHttpGetOut" />
+  <wsdl:message name="GetGasStatusHttpGetIn" />
+  <wsdl:message name="GetGasStatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:message name="TestHelloWorlddHttpPostIn">
     <wsdl:part name="name" type="s:string" />
   </wsdl:message>
@@ -481,6 +501,10 @@
     <wsdl:part name="newTemp" type="s:string" />
   </wsdl:message>
   <wsdl:message name="SetCurrentTempHttpPostOut" />
+  <wsdl:message name="GetGasStatusHttpPostIn" />
+  <wsdl:message name="GetGasStatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:portType name="SmartBlindsWebServiceSoap">
     <wsdl:operation name="HelloWorld">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">HellloWorldd</wsdl:documentation>
@@ -550,6 +574,10 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Used to set temp for alarm to go off or automate action</wsdl:documentation>
       <wsdl:input message="tns:SetCurrentTempSoapIn" />
       <wsdl:output message="tns:SetCurrentTempSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGasStatus">
+      <wsdl:input message="tns:GetGasStatusSoapIn" />
+      <wsdl:output message="tns:GetGasStatusSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="SmartBlindsWebServiceHttpGet">
@@ -622,6 +650,10 @@
       <wsdl:input message="tns:SetCurrentTempHttpGetIn" />
       <wsdl:output message="tns:SetCurrentTempHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetGasStatus">
+      <wsdl:input message="tns:GetGasStatusHttpGetIn" />
+      <wsdl:output message="tns:GetGasStatusHttpGetOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="SmartBlindsWebServiceHttpPost">
     <wsdl:operation name="HelloWorld">
@@ -692,6 +724,10 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Used to set temp for alarm to go off or automate action</wsdl:documentation>
       <wsdl:input message="tns:SetCurrentTempHttpPostIn" />
       <wsdl:output message="tns:SetCurrentTempHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGasStatus">
+      <wsdl:input message="tns:GetGasStatusHttpPostIn" />
+      <wsdl:output message="tns:GetGasStatusHttpPostOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="SmartBlindsWebServiceSoap" type="tns:SmartBlindsWebServiceSoap">
@@ -824,6 +860,15 @@
     </wsdl:operation>
     <wsdl:operation name="SetCurrentTemp">
       <soap:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/SetCurrentTemp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGasStatus">
+      <soap:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/GetGasStatus" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -969,6 +1014,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetGasStatus">
+      <soap12:operation soapAction="http://smartblinds.eastus.cloudapp.azure.com/GetGasStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="SmartBlindsWebServiceHttpGet" type="tns:SmartBlindsWebServiceHttpGet">
     <http:binding verb="GET" />
@@ -1099,6 +1153,15 @@
       </wsdl:input>
       <wsdl:output />
     </wsdl:operation>
+    <wsdl:operation name="GetGasStatus">
+      <http:operation location="/GetGasStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="SmartBlindsWebServiceHttpPost" type="tns:SmartBlindsWebServiceHttpPost">
     <http:binding verb="POST" />
@@ -1228,6 +1291,15 @@
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
       <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetGasStatus">
+      <http:operation location="/GetGasStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="SmartBlindsWebService">

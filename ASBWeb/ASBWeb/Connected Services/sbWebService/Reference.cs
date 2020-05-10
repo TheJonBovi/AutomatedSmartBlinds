@@ -8,9 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Threading.Tasks;
-using System.Xml;
-
 namespace ASBWeb.sbWebService {
     
     
@@ -124,6 +121,13 @@ namespace ASBWeb.sbWebService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/SetCurrentTemp", ReplyAction="*")]
         System.Threading.Tasks.Task SetCurrentTempAsync(string newTemp);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/GetGasStatus", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string GetGasStatus();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://smartblinds.eastus.cloudapp.azure.com/GetGasStatus", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> GetGasStatusAsync();
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -609,143 +613,13 @@ namespace ASBWeb.sbWebService {
         public System.Threading.Tasks.Task SetCurrentTempAsync(string newTemp) {
             return base.Channel.SetCurrentTempAsync(newTemp);
         }
-
-
-
-
-
-        string SmartBlindsWebServiceSoap.GetCurrentUser()
-        {
-            throw new System.NotImplementedException();
+        
+        public string GetGasStatus() {
+            return base.Channel.GetGasStatus();
         }
-
-        Task<string> SmartBlindsWebServiceSoap.GetCurrentUserAsync()
-        {
-            throw new System.NotImplementedException();
-        }
-
-
-
-
-
-        string SmartBlindsWebServiceSoap.SetCurrentUser()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task<string> SmartBlindsWebServiceSoap.SetCurrentUserAsync()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        sbUsers SmartBlindsWebServiceSoap.ReturnCurrentUserSettings()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task<sbUsers> SmartBlindsWebServiceSoap.ReturnCurrentUserSettingsAsync()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        BlindSettings SmartBlindsWebServiceSoap.GetBlindSettingsOBJ()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task<BlindSettings> SmartBlindsWebServiceSoap.GetBlindSettingsOBJAsync()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        BlindSettings SmartBlindsWebServiceSoap.GetBlindSettings(int SysID)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task<BlindSettings> SmartBlindsWebServiceSoap.GetBlindSettingsAsync(int SysID)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        BlindSettings SmartBlindsWebServiceSoap.SetBlindSettings(int SysID)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task<BlindSettings> SmartBlindsWebServiceSoap.SetBlindSettingsAsync(int SysID)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        XmlElement SmartBlindsWebServiceSoap.GetBlindsSettings()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task<XmlElement> SmartBlindsWebServiceSoap.GetBlindsSettingsAsync()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        void SmartBlindsWebServiceSoap.SetBlindsSettings(string h, string v, string t, string p, int f)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task SmartBlindsWebServiceSoap.SetBlindsSettingsAsync(string h, string v, string t, string p, int f)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        string SmartBlindsWebServiceSoap.GetXML()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task<string> SmartBlindsWebServiceSoap.GetXMLAsync()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        XmlElement SmartBlindsWebServiceSoap.GetXMLdetail()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task<XmlElement> SmartBlindsWebServiceSoap.GetXMLdetailAsync()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        void SmartBlindsWebServiceSoap.LogEntry(int func, string val)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task SmartBlindsWebServiceSoap.LogEntryAsync(int func, string val)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        void SmartBlindsWebServiceSoap.LogAllEntry(int func, string tempVal, string proxVal, string gasLog, string sbHorxLog, string sbVertLog, string sbTempAlarm)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task SmartBlindsWebServiceSoap.LogAllEntryAsync(int func, string tempVal, string proxVal, string gasLog, string sbHorxLog, string sbVertLog, string sbTempAlarm)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        void SmartBlindsWebServiceSoap.SetCurrentTemp(string newTemp)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task SmartBlindsWebServiceSoap.SetCurrentTempAsync(string newTemp)
-        {
-            throw new System.NotImplementedException();
+        
+        public System.Threading.Tasks.Task<string> GetGasStatusAsync() {
+            return base.Channel.GetGasStatusAsync();
         }
     }
 }

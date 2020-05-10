@@ -80,11 +80,17 @@ namespace ASBWeb
             }
 
             //check Gas every 1 minute if good code returned 
-            GasStatusImg.ImageUrl = "assets/img/demoControls/green_safe.png";
 
-            //if bad returned 
+            string g = client.GetGasStatus().ToString();
+            if (g=="1")
+            {
+ //if bad returned 
             GasStatusImg.ImageUrl = "assets/img/demoControls/Un-Safe.png";
-
+            }
+            else
+            {
+            GasStatusImg.ImageUrl = "assets/img/demoControls/green_safe.png";
+            }
             //size image
             GasStatusImg.Height = 30;
             GasStatusImg.Width = 30;
@@ -180,13 +186,7 @@ namespace ASBWeb
             string temp = txtTempSet.Text.ToString();
             sbWebService.SmartBlindsWebServiceSoapClient client = new sbWebService.SmartBlindsWebServiceSoapClient("SmartBlindsWebServiceSoap");
 
-
-
         }
 
-        protected void check_Gas_Status()
-        {
-
-        }
     }
 }

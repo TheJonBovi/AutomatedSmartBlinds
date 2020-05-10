@@ -7,7 +7,7 @@
     <title><%: Page.Title %> - Automated Smart Blinds</title>
  <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="img/Automated_Smart_Blinds_Logo_Main_blinds.png">
 
    <!-- CSS here -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -34,7 +34,7 @@
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
                     <%--<img src="assets/img/logo/loder-logo.png" alt="" />--%>
-                    <img src="assets/img/logo/Orange_logo_transparent_bkgrd - 500x500.png" alt="" />
+                    <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Header_blinds.png" alt="" />
                 </div>
             </div>
         </div>
