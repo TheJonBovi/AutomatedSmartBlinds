@@ -6,7 +6,7 @@
     <meta http-equiv="refresh" content="30">
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title><%: Page.Title %> - Automated Smart Blinds</title>
+    <title>Logs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
@@ -35,7 +35,7 @@
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
                     <%--<img src="assets/img/logo/loder-logo.png" alt="">--%>
-                    <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Header_blinds.png" alt="" />
+                     <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Main_blinds.png" alt="" />
                 </div>
             </div>
         </div>
@@ -91,11 +91,13 @@
                                     <div class="col-xl-2 col-lg-2 col-md-1">
                                         <div class="logo">
                                             <!-- logo-1 -->
-                                            <a href="index.html" class="big-logo">
-                                                <img src="assets/img/logo/AS_logo.png" alt=""></a>
+                                            <!-- logo-1 -->
+                                            <a href="Default.aspx" class="big-logo">
+                                                <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Header_Test_White.png" alt=""></a>
                                             <!-- logo-2 -->
-                                            <a href="index.html" class="small-logo">
-                                                <img src="assets/img/logo/loder-logo.png" alt=""></a>
+                                            <a href="Default.aspx" class="small-logo">
+                                                <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Header_blinds2.png" 
+                                               </a>
                                         </div>
                                     </div>
                                     <div class="col-xl-8 col-lg-8 col-md-8">
@@ -138,7 +140,7 @@
                                         <h2>Logs</h2>
                                         <nav aria-label="breadcrumb ">
                                             <ol class="breadcrumb">
-                                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                                <li class="breadcrumb-item"><a href="Default.aspx">Home</a></li>
                                                 <li class="breadcrumb-item"><a href="#">Logs</a></li>
                                             </ol>
                                         </nav>

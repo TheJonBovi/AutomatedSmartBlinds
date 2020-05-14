@@ -4,25 +4,25 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="zxx">
 <head runat="server">
-    <title><%: Page.Title %> - Automated Smart Blinds</title>
+    <title>Contact</title>
  <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="img/Automated_Smart_Blinds_Logo_Main_blinds.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/Automated_Smart_Blinds_Logo_Main_blinds.ico">
 
    <!-- CSS here -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="assets/css/gijgo.css">
-        <link rel="stylesheet" href="assets/css/slicknav.css">
-        <link rel="stylesheet" href="assets/css/animate.min.css">
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="assets/css/themify-icons.css">
-        <link rel="stylesheet" href="assets/css/themify-icons.css">
-        <link rel="stylesheet" href="assets/css/slick.css">
-        <link rel="stylesheet" href="assets/css/nice-select.css">
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/responsive.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="assets/css/owl.carousel.min.css"/>
+        <link rel="stylesheet" href="assets/css/gijgo.css"/>
+        <link rel="stylesheet" href="assets/css/slicknav.css"/>
+        <link rel="stylesheet" href="assets/css/animate.min.css"/>
+        <link rel="stylesheet" href="assets/css/magnific-popup.css"/>
+        <link rel="stylesheet" href="assets/css/fontawesome-all.min.css"/>
+        <link rel="stylesheet" href="assets/css/themify-icons.css"/>
+        <link rel="stylesheet" href="assets/css/themify-icons.css"/>
+        <link rel="stylesheet" href="assets/css/slick.css"/>
+        <link rel="stylesheet" href="assets/css/nice-select.css"/>
+        <link rel="stylesheet" href="assets/css/style.css"/>
+        <link rel="stylesheet" href="assets/css/responsive.css"/>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -34,7 +34,7 @@
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
                     <%--<img src="assets/img/logo/loder-logo.png" alt="" />--%>
-                    <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Header_blinds.png" alt="" />
+                     <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Main_blinds.png" alt="" />
                 </div>
             </div>
         </div>
@@ -57,7 +57,7 @@
                                                 <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                                                 <li></li>
                                                 <li></li>
-                                                <li><img src="assets/img/banner/small_orange_dot.png"</li>
+                                                <li><img src="assets/img/banner/small_orange_dot.png" /></li>
                                                 <li></li>
                                                 <li></li>
                                                 <li style="color:white">Chad</li>
@@ -68,7 +68,7 @@
                                                 <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
                                                 <li></li>
                                                 <li></li>
-                                                <li><img src="assets/img/banner/small_orange_dot.png"</li>
+                                                <li><img src="assets/img/banner/small_orange_dot.png" /></li>
                                                 <li></li>
                                                 <li></li>
                                                 <li style="color:white">Drew</li>
@@ -90,11 +90,13 @@
                                     <div class="col-xl-2 col-lg-2 col-md-1">
                                         <div class="logo">
                                             <!-- logo-1 -->
+                                           <!-- logo-1 -->
                                             <a href="index.html" class="big-logo">
-                                                <img src="assets/img/logo/AS_logo.png" alt=""></a>
+                                                <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Header_Test_White.png" alt=""></a>
                                             <!-- logo-2 -->
                                             <a href="index.html" class="small-logo">
-                                                <img src="assets/img/logo/loder-logo.png" alt=""></a>
+                                                <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Header_blinds2.png" 
+                                               </a>
                                         </div>
                                     </div>
                                     <div class="col-xl-8 col-lg-8 col-md-8">

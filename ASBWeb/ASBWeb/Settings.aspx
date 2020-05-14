@@ -2,15 +2,15 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="zxx">
+<html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en">
 <head runat="server">
-     <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Construction HTML-5 Template</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="manifest" href="site.webmanifest">
-		<link rel="shortcut icon" type="image/x-icon" href="assets/img/Automated_Smart_Blinds_Logo_Main_blinds.ico">
+     <meta charset="utf-8"/>
+        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+        <title>Settings</title>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="manifest" href="site.webmanifest"/>
+		<link rel="shortcut icon" type="image/x-icon" href="assets/img/Automated_Smart_Blinds_Logo_Main_blinds.ico"/>
 
 		<!-- CSS here -->
             <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -35,8 +35,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Header_blinds.png" alt="" />
-                    <%--<img src="assets/img/logo/loder-logo.png" alt=""/>--%>
+                     <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Main_blinds.png" alt="" />
                 </div>
             </div>
         </div>
@@ -56,29 +55,26 @@
                                         <div class="header-info-right">
                                             <ul class="header-social">
                                                 <li style="color:white">Michael Roberts</li>
-                                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                                  <li><a href="http://www.linkedin.com/in/michael-r-b4037114" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
                                                 <li></li>
                                                 <li></li>
-                                                <li><img src="assets/img/banner/small_orange_dot.png"</li>
+                                                <li><img src="assets/img/banner/small_orange_dot.png" /></li>
                                                 <li></li>
                                                 <li></li>
                                                 <li style="color:white">Chad</li>
                                                 <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+
+                                                
                                                 <li></li>
                                                 <li></li>
-                                                <li><img src="assets/img/banner/small_orange_dot.png"</li>
+                                                <li><img src="assets/img/banner/small_orange_dot.png" /></li>
                                                 <li></li>
                                                 <li></li>
                                                 <li style="color:white">Drew</li>
                                                 <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+
                                             </ul>
                                         </div>
                                     </div>
@@ -92,11 +88,13 @@
                                     <div class="col-xl-2 col-lg-2 col-md-1">
                                         <div class="logo">
                                             <!-- logo-1 -->
-                                            <a href="index.html" class="big-logo">
-                                                <img src="assets/img/logo/AS_logo.png" alt=""></a>
+                                           <!-- logo-1 -->
+                                            <a href="Default.aspx" class="big-logo">
+                                                <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Header_Test_White.png" alt=""/></a>
                                             <!-- logo-2 -->
-                                            <a href="index.html" class="small-logo">
-                                                <img src="assets/img/logo/loder-logo.png" alt=""></a>
+                                            <a href="Default.aspx" class="small-logo">
+                                                <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Header_blinds2.png" />
+                                               </a>
                                         </div>
                                     </div>
                                     <div class="col-xl-8 col-lg-8 col-md-8">
@@ -134,11 +132,11 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap pt-100">
-                                <h2>Our projects</h2>
+                                <h2>Settings</h2>
                                 <nav aria-label="breadcrumb ">
                                     <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="#">Project</a></li> 
+                                    <li class="breadcrumb-item"><a href="Default.aspx">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Settings</a></li> 
                                     </ol>
                                 </nav>
                             </div>
@@ -157,9 +155,9 @@
                             <!-- Section Tittle -->
                             <div class="section-tittle section-tittle3">
                                 <div class="front-text">
-                                    <h2 class="">Our Projects</h2>
+                                    <h2 class="">Device & User Settings</h2>
                                 </div>
-                                <span class="back-text">Gellary</span>
+                                <span class="back-text">Configurations</span>
                             </div>
                         </div>
                         <div class="col-lg-6">

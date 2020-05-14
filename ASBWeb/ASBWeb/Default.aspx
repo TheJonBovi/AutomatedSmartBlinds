@@ -7,11 +7,11 @@
     
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Automated Smart Blinds</title>
+    <title>Automated Smart Blinds - Home</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="manifest" href="site.webmanifest" />
-    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/Automated_Smart_Blinds_Logo_Main_blinds.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/Automated_Smart_Blinds_Logo_Main_blinds.ico"/>
 
 
     <!-- CSS here -->
@@ -39,7 +39,7 @@
                         <div class="preloader-circle"></div>
                         <div class="preloader-img pere-text">
                            <%--  <img src="assets/img/logo/loder-logo.png" alt="" />--%>
-                            <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Header_blinds.png" alt="" />
+                            <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Main_blinds.png" alt="" />
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                                         <div class="header-info-right">
                                             <ul class="header-social">
                                                 <li style="color:white">Michael Roberts</li>
-                                                    <li><a href="www.linkedin.com/in/michael-r-b4037114" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                                                    <li><a href="http://www.linkedin.com/in/michael-r-b4037114" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
                                                 <li></li>
                                                 <li></li>
                                                 <li><img src="assets/img/banner/small_orange_dot.png"</li>
@@ -68,9 +68,7 @@
                                                 <li style="color:white">Chad</li>
                                                 <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                             
                                                 <li></li>
                                                 <li></li>
                                                 <li><img src="assets/img/banner/small_orange_dot.png"</li>
@@ -79,9 +77,7 @@
                                                 <li style="color:white">Drew</li>
                                                 <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                             
                                             </ul>
                                         </div>
                                     </div>
@@ -95,11 +91,12 @@
                                     <div class="col-xl-2 col-lg-2 col-md-1">
                                         <div class="logo">
                                             <!-- logo-1 -->
-                                            <a href="index.html" class="big-logo">
-                                                <img src="assets/img/logo/AS_logo.png" alt=""></a>
+                                            <a href="Default.aspx" class="big-logo">
+                                                <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Header_Test_White.png" alt=""></a>
                                             <!-- logo-2 -->
-                                            <a href="index.html" class="small-logo">
-                                                <img src="assets/img/logo/loder-logo.png" alt=""></a>
+                                            <a href="Default.aspx" class="small-logo">
+                                                <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Header_blinds2.png" 
+                                               </a>
                                         </div>
                                     </div>
                                     <div class="col-xl-8 col-lg-8 col-md-8">
@@ -134,10 +131,10 @@
                 <!-- slider Area Start-->
                 <div class="slider-area ">
                     <div class="slider-active">
-                        <div class="single-slider  hero-overly slider-height d-flex align-items-center" data-background="assets/img/hero/project3.jpg">
+                        <div class="single-slider  hero-overly slider-height d-flex align-items-center" data-background="assets/img/hero/project3.jpg" style="left: 0px; top: 0px">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-lg-11">
+                                    <div class="col-lg-12">
                                         <div class="hero__caption">
                                             <h1 data-animation="fadeInDownBig" data-delay=".5s">automated</h1>
                                             <div class="stock-text" data-animation="fadeInDownBig" data-delay=".8s">
@@ -418,23 +415,8 @@
                                                         <%--  <div class="project-img">
                                                             <div class="col-md-9 mt-sm-20">--%>
                                                         <p>
-                                                            Recently, the US Federal government banned online casinos from operating in America by making
-							it illegal to
-							transfer money to them through any US bank or payment system. As a result of this law, most
-							of the popular
-							online casino networks such as Party Gaming and PlayTech left the United States. Overnight,
-							online casino
-							players found themselves being chased by the Federal government. But, after a fortnight, the
-							online casino
-							industry came up with a solution and new online casinos started taking root. These began to
-							operate under a
-							different business umbrella, and by doing that, rendered the transfer of money to and from
-							them legal. A major
-							part of this was enlisting electronic banking systems that would accept this new
-							clarification and start doing
-							business with me. Listed in this article are the electronic banking systems that accept
-							players from the United
-							States that wish to play in online casinos.
+                                                            The embedded systems engineering technology program requires 2 capstones. The first is a team project which is demonstrated here. The project requires the team to use at least one microcontroller, some form of wireless communication and two input and two output devices. The devices used can be found under the documentation section.
+                                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/09f2p1XykCY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                                         </p>
                                                     </div>
                                                 <%--</div>--%>
