@@ -100,7 +100,7 @@ limitations under the License.
 #define upload_entry1               "POST /SmartBlindsWebService.asmx HTTP/1.1\r\nContent-Type: text/xml; charset=utf-8\r\nSOAPAction: \"http://smartblinds.eastus.cloudapp.azure.com/UploadFile\"\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nContent-Length: 316\r\nExpect: 100-continue\r\nAccept-Encoding: gzip, deflate\r\n"
 //#define upload_entry1               "POST /SmartBlindsWebService.asmx HTTP/1.1\r\nContent-Type: text/xml; charset=utf-8\r\nSOAPAction: \"http://smartblinds.eastus.cloudapp.azure.com/UploadFile\"\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nContent-Length: 316\r\n"
 
-#define upload_entry2               "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\"><s:Body xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><UploadFile xmlns=\"http://smartblinds.eastus.cloudapp.azure.com/\"><f>dGVzdA==</f><fileName>test.txt</fileName></UploadFile></s:Body></s:Envelope>"
+#define upload_entry2               "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\"><s:Body xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><UploadFile xmlns=\"http://smartblinds.eastus.cloudapp.azure.com/\"><f>dGVzdA=</f><fileName>test.txt</fileName></UploadFile></s:Body></s:Envelope>"
 
 #define upload_entry_test           "GET /SmartBlindsWebService.asmx/UploadFile?f=dGVzdA==&f=&fileName=test.txt HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
 
@@ -188,6 +188,15 @@ void ApplicationTask(void)
         
     // begin wifi connection
     case APP_STATE_START:
+        printf("\r\n=========\r\n");            
+        printf("Automated Smartblinds\r\n");
+        printf("ssid: %s\r\n", WLAN_SSID);
+        printf("host: %s\r\n", smartblinds_server_name);
+        printf("port: %u\r\n", SERVER_PORT);
+        printf("=========\r\n");
+        
+        printf("-- Smartblinds Service --\r\n");
+        printf("Starting...\r\n");
         registerWifiCallback(wifi_cb);
         registerSocketCallback(socket_cb, resolve_cb);
         
@@ -227,6 +236,7 @@ void ApplicationTask(void)
                     if ((tcp_client_socket = socket(AF_INET, SOCK_STREAM, 0)) < 0) 
                     {
                         //failed to create TCP client socket error!
+                        printf("ERROR: Failed to create TCP client socket! \r\n");
                         SetAppState(APP_STATE_DONE);
                         break;
                     }
@@ -237,6 +247,7 @@ void ApplicationTask(void)
                     if (connect(tcp_client_socket, (struct sockaddr *)&addr_in, sizeof(struct sockaddr_in)) != SOCK_ERR_NO_ERROR) 
                     {
                         //failed to connect socket error!
+                        printf("ERROR: Failed to connect to socket \r\n");
                         SetAppState(APP_STATE_DONE);
                         break;
                     }

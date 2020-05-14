@@ -140,8 +140,8 @@
 // toggles various functionality in project
 //#define CAMERA_ON
 //#define DREW_PHONE
-//#define DREW_HOUSE
-#define CHAD_HOUSE
+#define DREW_HOUSE
+//#define CHAD_HOUSE
 
 #endif /* _DEFINES_H */
 
