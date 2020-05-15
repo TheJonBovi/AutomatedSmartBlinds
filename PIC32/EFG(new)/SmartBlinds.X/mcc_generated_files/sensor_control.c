@@ -122,6 +122,7 @@ void proxy_motor_control(void)
     {
         // if proxy triggered, shutter blinds
         case 1:
+            printf("Proximity Alert Triggered!\r\n");
             motorUD = true; 
             motorOC = true;
             
@@ -150,6 +151,7 @@ void proxy_motor_control(void)
             break;
             // Once alarm is over, return blinds to previous values
         case 3:
+            printf("Returning to normal operation.\r\n");
             motorUD = true; 
             motorOC = true;
             
@@ -189,6 +191,7 @@ void temperature_control(void)
     {
         // if temperature goes above the trigger limit, shutter blinds
         case 1:
+            printf("Temperature too hot, shuttering blinds.\r\n");
             motorUD = true; 
             motorOC = true;
             // Save off current position
@@ -199,6 +202,7 @@ void temperature_control(void)
         // when temperature lowers again to an acceptable range 
         // (in adc ISR), return to original values
         case 2:
+            printf("Temperature at an acceptable level, returning to normal operation.\r\n");
             motorUD = true; 
             motorOC = true;
 
@@ -221,6 +225,7 @@ void gas_control(void)
             buzzer_clear();
             break;
         case 1:
+            printf("Dangerous gas detected, sounding alarm.\r\n");
             buzzer_toggle();
             break;
 

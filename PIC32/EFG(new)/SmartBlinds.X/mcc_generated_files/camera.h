@@ -75,7 +75,10 @@ void Camera_clear_bit(uint8_t addr, uint8_t bit);
 uint8_t Camera_read_fifo_burst(void);
 
 // Function to capture an image
-void Camera_capture_image();
+void Camera_capture_image(void);
+
+// Function that converts image into a byte stream
+void Camera_convert_image(void);
 
 #endif /* _CAMERA_H */
 

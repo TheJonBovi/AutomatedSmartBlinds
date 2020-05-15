@@ -94,13 +94,14 @@ limitations under the License.
 #define recieve_buffer              "GET /SmartBlindsWebService.asmx/GetBlindsSettings? HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
 
 //#define upload_entry1               "GET /SmartBlindsWebService.asmx/UploadFile?f="
+#define upload_entry1               "GET /SmartBlindsWebService.asmx/UploadFile?f=0&f=0&fileName=drewtest.txt HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
 //#define upload_entry2               "&f="
 //#define upload_entry3               "&fileName=img.jpg HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
 
-#define upload_entry1               "POST /SmartBlindsWebService.asmx HTTP/1.1\r\nContent-Type: text/xml; charset=utf-8\r\nSOAPAction: \"http://smartblinds.eastus.cloudapp.azure.com/UploadFile\"\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nContent-Length: 316\r\nExpect: 100-continue\r\nAccept-Encoding: gzip, deflate\r\n"
+//#define upload_entry1               "POST /SmartBlindsWebService.asmx HTTP/1.1\r\nContent-Type: text/xml; charset=utf-8\r\nSOAPAction: \"http://smartblinds.eastus.cloudapp.azure.com/UploadFile\"\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nContent-Length: 316\r\nExpect: 100-continue\r\nAccept-Encoding: gzip, deflate\r\n"
 //#define upload_entry1               "POST /SmartBlindsWebService.asmx HTTP/1.1\r\nContent-Type: text/xml; charset=utf-8\r\nSOAPAction: \"http://smartblinds.eastus.cloudapp.azure.com/UploadFile\"\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nContent-Length: 316\r\n"
 
-#define upload_entry2               "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\"><s:Body xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><UploadFile xmlns=\"http://smartblinds.eastus.cloudapp.azure.com/\"><f>dGVzdA=</f><fileName>test.txt</fileName></UploadFile></s:Body></s:Envelope>"
+//#define upload_entry2               "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\"><s:Body xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><UploadFile xmlns=\"http://smartblinds.eastus.cloudapp.azure.com/\"></f><fileName>test.txt</fileName></UploadFile></s:Body></s:Envelope>"
 
 #define upload_entry_test           "GET /SmartBlindsWebService.asmx/UploadFile?f=dGVzdA==&f=&fileName=test.txt HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
 
@@ -172,7 +173,7 @@ static void wifi_cb(uint8_t msgType, void *pvMsg);
 static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg);
 static void resolve_cb(char *pu8DomainName, uint32_t serverIP);
 
-uint8_t testvar =1;
+uint8_t testvar = 1;
 char testcvar[100];
 
 void ApplicationTask(void)
@@ -423,12 +424,13 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
             }
             else if (message_type == WIFI_IMG_UPLOAD_MODE)
             {
+
                 // Clear up s_ReceivedBuffer
                 //memset(s_ReceivedBuffer, 0, sizeof(s_ReceivedBuffer));
                 // Load up second packet
                 
                 
-                t_socketConnect *pstrConnect = (t_socketConnect *)pvMsg;
+//                t_socketConnect *pstrConnect = (t_socketConnect *)pvMsg;
 //                if ( img_done_test == 0 && pstrConnect && pstrConnect->error >= SOCK_ERR_NO_ERROR) 
 //                {
 //                    img_done_test = 1;

@@ -19,6 +19,7 @@
 #include <stdbool.h>
 #include <math.h>
 #include <sys/attribs.h>
+#include <stdio.h>
 #include <string.h>
 #include "tmr1.h"
 #include "camera.h"
@@ -33,6 +34,7 @@ extern char JPEG_BUFFER[];
 // Set up Camera to JPEG, size, etc.
 void Camera_Configure(void)
 {
+    printf("Configuring Camera...\r\n");
     // Reset CPLD
     SPI1_write_byte(0x07, 0x80);
     
@@ -70,6 +72,8 @@ void Camera_Configure(void)
     
     // Clear the FIFO Flag
     Camera_clear_fifo_flag();
+    
+    printf("Camera initialized!\r\n");
 }
 
 void Camera_clear_fifo_flag(void)
@@ -128,12 +132,14 @@ uint8_t Camera_read_fifo_burst()
     
     if (length >= MAX_FIFO_SIZE) //512 kb
     {
-        //TODO: ERROR max fifo size too large
+        //ERROR max fifo size too large
+        printf("ERROR: Max camera FIFO size too large!\r\n");
         return 0;
     }
     if (length == 0 ) //0 kb
     {
-        // TODO: ERROR fifo length zero
+        // ERROR fifo length zero
+        printf("ERROR: Camera FIFO Length 0.\r\n");
         return 0;
     }
     
@@ -143,7 +149,7 @@ uint8_t Camera_read_fifo_burst()
     asm volatile( "NOP" ); // no-op delay
     
 
-    //--myCAM.set_fifo_burst(); //Set fifo burst mode
+    //myCAM.set_fifo_burst(); //Set fifo burst mode
     SPI1_transfer(BURST_FIFO_READ);
     
     //temp =  SPI.transfer(0x00); Write a dummy to finish this command
@@ -195,11 +201,12 @@ uint8_t Camera_read_fifo_burst()
 
 void Camera_capture_image(void)
 {
+    printf("Beginning image capture...\r\n");
     Camera_flush_fifo();
     Camera_clear_fifo_flag();
     Camera_start_capture();
     
-    // TODO: waiting for image currently in busy wait - may want to wait in the 500ms loop
+    // waiting for image currently in busy wait - may want to wait in the 500ms loop
     while (!Camera_get_bit(ARDUCHIP_TRIG, CAP_DONE_MASK))
     {
         delay_ms(100);
@@ -208,6 +215,25 @@ void Camera_capture_image(void)
     Camera_read_fifo_burst();
     
     Camera_clear_fifo_flag();
+    
+    printf("Image captured!\r\n");
+    
+}
+
+void Camera_convert_image(void)
+{
+//    FILE *fileptr;
+//    char *buffer;
+//    long filelen;
+//
+//    fileptr = fopen("myfile.txt", "rb");  // Open the file in binary mode
+//    fseek(fileptr, 0, SEEK_END);          // Jump to the end of the file
+//    filelen = ftell(fileptr);             // Get the current byte offset in the file
+//    rewind(fileptr);                      // Jump back to the beginning of the file
+//
+//    buffer = (char *)malloc(filelen * sizeof(char)); // Enough memory for the file
+//    fread(buffer, filelen, 1, fileptr); // Read in the entire file
+//    fclose(fileptr); // Close the file
     
 }
 /* *****************************************************************************
