@@ -122,15 +122,16 @@ int rcv_OC_target = 0;
 double rcv_temp_target = 0;
 
 // Globals for wifi service
-uint8_t message_type = WIFI_IMG_UPLOAD_MODE;
+//uint8_t message_type = WIFI_IMG_UPLOAD_MODE;
 //uint8_t message_type = WIFI_RECIEVE_MODE;
-//uint8_t message_type = WIFI_DO_NOTHING;
+uint8_t message_type = WIFI_DO_NOTHING;
 
 int callControlState = 0;
 
 // Image storage and flag Global Variables
 char JPEG_BUFFER[JPEG_MAX_SIZE] = {0};
 bool JPEG_ready = false;
+uint32_t JPEG_BUFFER_SIZE;
 
 static void PinMapInit(void);   // added to MCC-generated code
 
@@ -148,6 +149,8 @@ void SYSTEM_Initialize(void)
     TMR1_Initialize();
     
     UART2_Initialize();
+    
+    printf("========SYSTEM STARTUP=========\r\n");
     
     // wait for gas sensor to settle
     delay_ms(10000);

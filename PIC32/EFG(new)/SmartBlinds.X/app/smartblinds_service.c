@@ -93,9 +93,9 @@ limitations under the License.
 
 #define recieve_buffer              "GET /SmartBlindsWebService.asmx/GetBlindsSettings? HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
 
-//#define upload_entry1               "GET /SmartBlindsWebService.asmx/UploadFile?f="
-#define upload_entry1               "GET /SmartBlindsWebService.asmx/UploadFile?f=0&f=0&fileName=drewtest.txt HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
-//#define upload_entry2               "&f="
+#define upload_entry1               "GET /SmartBlindsWebService.asmx/UploadFile?f="
+//#define upload_entry1               "GET /SmartBlindsWebService.asmx/UploadFile?f=dGVzdAI=&f=dGVzdAI=&fileName=drewtest.txt HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
+#define upload_entry1p2               "&f=0&fileName=img.jpg HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
 //#define upload_entry3               "&fileName=img.jpg HTTP/1.1\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nAccept: */*\r\n\r\n"
 
 //#define upload_entry1               "POST /SmartBlindsWebService.asmx HTTP/1.1\r\nContent-Type: text/xml; charset=utf-8\r\nSOAPAction: \"http://smartblinds.eastus.cloudapp.azure.com/UploadFile\"\r\nHost: smartblinds.eastus.cloudapp.azure.com\r\nContent-Length: 316\r\nExpect: 100-continue\r\nAccept-Encoding: gzip, deflate\r\n"
@@ -134,7 +134,6 @@ extern double current_temp_avg;
 extern double temp_high;
 double new_temp_high;
 
-
 // Buffers to receive web UI 
 char conv_rcv_UD_target[20] = {0};
 char conv_rcv_OC_target[20] = {0};
@@ -146,6 +145,8 @@ extern int callControlState;
 int callControlDelay = CALL_IDLE_STATE;
 
 int img_done_test = 0;
+extern char JPEG_BUFFER[10000];
+extern uint32_t JPEG_BUFFER_SIZE;
 
 int8_t send_test;
 
@@ -285,6 +286,7 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
     /* Check for socket event on TCP socket. */
     if (sock == tcp_client_socket) 
     {
+        uint32_t msg_len;
         switch (message) {
         case M2M_SOCKET_CONNECT_EVENT:
         {
@@ -307,15 +309,32 @@ static void socket_cb(SOCKET sock, uint8_t message, void *pvMsg)
                         break;
                     case WIFI_IMG_UPLOAD_MODE:
                         // Initial Image sending packet
+                        //sprintf((char *)s_ReceivedBuffer, "%s", upload_entry1);
                         sprintf((char *)s_ReceivedBuffer, "%s", upload_entry1);
+                        uint8_t leng = strlen(s_ReceivedBuffer);
+                        uint8_t * eosptr = &s_ReceivedBuffer;
+                        eosptr += leng;
                         
+                        // copy actual image to packet
+                        memcpy((char*)eosptr, JPEG_BUFFER, JPEG_BUFFER_SIZE);
+                        
+                        eosptr += JPEG_BUFFER_SIZE;
+                        
+                        memcpy(eosptr, upload_entry1p2, strlen(upload_entry1p2)+1);
+                        
+                        msg_len = JPEG_BUFFER_SIZE + strlen(upload_entry1) + strlen(upload_entry1p2);
                         break;
                 }
                
                 t_socketConnect *pstrConnect = (t_socketConnect *)pvMsg;
                 if (pstrConnect && pstrConnect->error >= SOCK_ERR_NO_ERROR) 
                 {
-                    send_test = send(tcp_client_socket, s_ReceivedBuffer, strlen((char *)s_ReceivedBuffer), 0);
+                    if(message_type == WIFI_IMG_UPLOAD_MODE)
+                        send_test = send(tcp_client_socket, s_ReceivedBuffer, msg_len, 0);
+                        
+                    else 
+                        send_test = send(tcp_client_socket, s_ReceivedBuffer, strlen((char *)s_ReceivedBuffer), 0);
+                    
                     memset(s_ReceivedBuffer, 0, WIFI_BUFFER_SIZE);
                     recv(tcp_client_socket, &s_ReceivedBuffer[0], WIFI_BUFFER_SIZE, 0);
                     

@@ -139,7 +139,7 @@ void toggle_RD1(void)
 uint8_t SPI1_transfer(uint8_t data)
 {
     SPI1BUF = data;
-    asm volatile("nop");
+    asm volatile("NOP");
     while (SPI1STATbits.SPIRBF == 0);
     return SPI1BUF;
 }

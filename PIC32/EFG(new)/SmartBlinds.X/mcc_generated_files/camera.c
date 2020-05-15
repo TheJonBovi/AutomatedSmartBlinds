@@ -27,9 +27,11 @@
 extern const struct sensor_reg OV2640_JPEG_INIT[];
 extern const struct sensor_reg OV2640_YUV422[];
 extern const struct sensor_reg OV2640_1024x768_JPEG[];
+extern const struct sensor_reg OV2640_160x120_JPEG[];
 extern const struct sensor_reg OV2640_JPEG[];
 
 extern char JPEG_BUFFER[];
+extern uint32_t JPEG_BUFFER_SIZE;
 
 // Set up Camera to JPEG, size, etc.
 void Camera_Configure(void)
@@ -66,7 +68,7 @@ void Camera_Configure(void)
     I2C1_Sensor_Write(0x15, 0x00);
     
     // Initialize JPEG Size
-    I2C1_Sensor_Bulk_Write(OV2640_1024x768_JPEG);
+    I2C1_Sensor_Bulk_Write(OV2640_160x120_JPEG);
     
     delay_ms(1000);
     
@@ -128,6 +130,10 @@ uint8_t Camera_read_fifo_burst()
     uint8_t temp = 0, temp_last = 0;
     uint32_t length = 0;
     length = Camera_read_fifo_length();
+ 
+    //save off global copy of length for concat purposes
+    JPEG_BUFFER_SIZE = length;
+    
     bool is_header = false;
     
     if (length >= MAX_FIFO_SIZE) //512 kb
@@ -148,7 +154,6 @@ uint8_t Camera_read_fifo_burst()
     asm volatile( "NOP" ); // no-op delay
     asm volatile( "NOP" ); // no-op delay
     
-
     //myCAM.set_fifo_burst(); //Set fifo burst mode
     SPI1_transfer(BURST_FIFO_READ);
     
@@ -156,7 +161,8 @@ uint8_t Camera_read_fifo_burst()
     temp = SPI1_transfer(0);
     
     length --;
-    uint32_t buffer_index = 0;
+    uint32_t buffer_index = 1;
+    JPEG_BUFFER[0] = 0xff;
     while ( length-- )
     {
         temp_last = temp;
@@ -164,27 +170,30 @@ uint8_t Camera_read_fifo_burst()
         //temp =  SPI.transfer(0x00); // read data in
         temp = SPI1_transfer(0);
         
-        if (is_header == true)
-        {
+       // if (is_header == true)
+       // {
             // SAVE DATA
             //Serial.write(temp);
             JPEG_BUFFER[buffer_index] = temp;
             ++buffer_index;
-        }
-        else if ((temp == 0xD8) & (temp_last == 0xFF))
-        {
-            is_header = true;
-            //Serial.println(F("ACK CMD IMG END"));
+       // }
+       // else //if ((temp == 0xD8) & (temp_last == 0xFF))
+       // {
+      //      is_header = true;
             
             // SAVE DATA
-            JPEG_BUFFER[buffer_index] = temp_last;
-            JPEG_BUFFER[++buffer_index] = temp;
+           // JPEG_BUFFER[buffer_index] = temp_last;
+           // JPEG_BUFFER[buffer_index++] = temp;
             //Serial.write(temp_last);
             //Serial.write(temp);
-        }
+        //}
         if ( (temp == 0xD9) && (temp_last == 0xFF) ) //If find the end ,break while,
-               break;
-        
+        {
+            JPEG_BUFFER_SIZE -= length;
+            break;
+        }
+            
+            
         // 1260 counts at 84Mhz
         // TODO: Make a delay function for this
         //delayMicroseconds(15);
