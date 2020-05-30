@@ -188,6 +188,10 @@ void ApplicationTask(void)
         
     // begin wifi connection
     case APP_STATE_START:
+        
+        printf("\r\n");
+        printf("Smartblinds WIFI Demo\r\n");
+           printf("Starting ...\r\n");
         registerWifiCallback(wifi_cb);
         registerSocketCallback(socket_cb, resolve_cb);
         
@@ -227,6 +231,7 @@ void ApplicationTask(void)
                     if ((tcp_client_socket = socket(AF_INET, SOCK_STREAM, 0)) < 0) 
                     {
                         //failed to create TCP client socket error!
+                          printf("main: failed to create TCP client socket error!\r\n");
                         SetAppState(APP_STATE_DONE);
                         break;
                     }
@@ -236,6 +241,7 @@ void ApplicationTask(void)
                     addr_in.sin_addr.s_addr = s_HostIp;
                     if (connect(tcp_client_socket, (struct sockaddr *)&addr_in, sizeof(struct sockaddr_in)) != SOCK_ERR_NO_ERROR) 
                     {
+                         printf("main: failed to connect socket error!\r\n");
                         //failed to connect socket error!
                         SetAppState(APP_STATE_DONE);
                         break;

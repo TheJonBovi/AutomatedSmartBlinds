@@ -52,29 +52,28 @@
                                         <div class="header-info-left">
                                            
                                         </div>
-                                        <div class="header-info-right">
+                                                                               <div class="header-info-right">
                                             <ul class="header-social">
                                                 <li style="color:white">Michael Roberts</li>
-                                                  <li><a href="http://www.linkedin.com/in/michael-r-b4037114" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                                                    <li><a href="http://www.linkedin.com/in/michael-r-b4037114" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
                                                 <li></li>
                                                 <li></li>
-                                                <li><img src="assets/img/banner/small_orange_dot.png" /></li>
+                                                <li><img src="assets/img/banner/small_orange_dot.png"</li>
                                                 <li></li>
                                                 <li></li>
                                                 <li style="color:white">Chad</li>
                                                 <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-
-                                                
+                                             
                                                 <li></li>
                                                 <li></li>
-                                                <li><img src="assets/img/banner/small_orange_dot.png" /></li>
+                                                <li><img src="assets/img/banner/small_orange_dot.png"</li>
                                                 <li></li>
                                                 <li></li>
                                                 <li style="color:white">Drew</li>
-                                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-
+                                                <li><a href="mailto:andrew.deraita@oit.edu"><i class="fab fa-telegram"></i></a></li>
+                                                
+                                             
                                             </ul>
                                         </div>
                                     </div>

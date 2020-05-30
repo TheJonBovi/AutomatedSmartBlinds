@@ -4,14 +4,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en">
 <head runat="server">
-    
+
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Automated Smart Blinds - Home</title>
-    <meta name="description" content="" />
+    <meta name="description" content="Home page and Demo Controls" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="manifest" href="site.webmanifest" />
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/Automated_Smart_Blinds_Logo_Main_blinds.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/Automated_Smart_Blinds_Logo_Main_blinds.ico" />
 
 
     <!-- CSS here -->
@@ -28,7 +28,7 @@
 
 
 
-    </head>
+</head>
 <body>
     <form id="form1" runat="server">
         <div>
@@ -38,8 +38,7 @@
                     <div class="preloader-inner position-relative">
                         <div class="preloader-circle"></div>
                         <div class="preloader-img pere-text">
-                           <%--  <img src="assets/img/logo/loder-logo.png" alt="" />--%>
-                            <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Main_blinds.png" alt="" />
+                            <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Main_blinds_small.png" alt="" />
                         </div>
                     </div>
                 </div>
@@ -54,30 +53,27 @@
                                 <div class="col-xl-12">
                                     <div class="row d-flex justify-content-between align-items-center">
                                         <div class="header-info-left">
-                                           
                                         </div>
                                         <div class="header-info-right">
                                             <ul class="header-social">
-                                                <li style="color:white">Michael Roberts</li>
-                                                    <li><a href="http://www.linkedin.com/in/michael-r-b4037114" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                                                <li style="color: white">Michael Roberts</li>
+                                                <li><a href="http://www.linkedin.com/in/michael-r-b4037114" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
                                                 <li></li>
                                                 <li></li>
-                                                <li><img src="assets/img/banner/small_orange_dot.png"</li>
+                                                <li>
+                                                    <img src="assets/img/banner/small_orange_dot.png" /></li>
                                                 <li></li>
                                                 <li></li>
-                                                <li style="color:white">Chad</li>
-                                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                             
+                                                <li style="color: white">Chad Revel</li>
+                                                <li><a href="https://www.linkedin.com/in/chad-revel-5b892319a/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
                                                 <li></li>
                                                 <li></li>
-                                                <li><img src="assets/img/banner/small_orange_dot.png"</li>
+                                                <li>
+                                                    <img src="assets/img/banner/small_orange_dot.png" /></li>
                                                 <li></li>
                                                 <li></li>
-                                                <li style="color:white">Drew</li>
-                                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                             
+                                                <li style="color: white">Drew Derita</li>
+                                                <li><a href="mailto:andrew.deraita@oit.edu"><i class="fab fa-telegram"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -92,11 +88,11 @@
                                         <div class="logo">
                                             <!-- logo-1 -->
                                             <a href="Default.aspx" class="big-logo">
-                                                <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Header_Test_White.png" alt=""></a>
+                                                <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Header_Test_White.png" alt="" /></a>
                                             <!-- logo-2 -->
                                             <a href="Default.aspx" class="small-logo">
-                                                <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Header_blinds2.png" 
-                                               </a>
+                                                <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Header_blinds2_small.png" />
+                                            </a>
                                         </div>
                                     </div>
                                     <div class="col-xl-8 col-lg-8 col-md-8">
@@ -105,11 +101,11 @@
                                             <nav>
                                                 <ul id="navigation">
                                                     <li><a href="Default.aspx">Home</a></li>
-                                                    <li><a href="Settings.aspx">Settings</a></li>
+                                                    <%--<li><a href="Settings.aspx">Settings</a></li>--%>
                                                     <li><a href="Logs.aspx">Logs</a></li>
                                                     <li><a href="about.aspx">About</a></li>
                                                     <li><a href="contact.aspx">Contact</a></li>
-                                                   
+
                                                 </ul>
                                             </nav>
                                         </div>
@@ -131,7 +127,7 @@
                 <!-- slider Area Start-->
                 <div class="slider-area ">
                     <div class="slider-active">
-                        <div class="single-slider  hero-overly slider-height d-flex align-items-center" data-background="assets/img/hero/project3.jpg" style="left: 0px; top: 0px">
+                        <div class="single-slider  hero-overly slider-height d-flex align-items-center" data-background="assets/img/hero/project3.jpg">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -141,7 +137,7 @@
                                                 <h2>Smart Blinds</h2>
                                                 <h2>Smart Blinds</h2>
                                             </div>
-                                             <div class="hero-text2 mt-110" data-animation="fadeInUp" data-delay=".9s">
+                                            <div class="hero-text2 mt-110" data-animation="fadeInUp" data-delay=".9s">
                                                 <span><a href="https://www.oit.edu/academics/degrees/embedded-systems-engineering-technology" target="_blank">An Oregon Institute of Technology Team Project</a></span>
                                             </div>
                                         </div>
@@ -171,8 +167,140 @@
                 </div>
                 <!-- slider Area End-->
                 <!-- Services Area Start -->
+
                 <div class="services-area1 section-padding30">
                     <div class="container">
+
+
+                        <!-- Project Information -->
+
+                        <div class="row">
+                            <div class="services-area1 section-padding30">
+
+                                <section class="project-area  section-padding5">
+
+                                    <div class="project-heading mb-55">
+                                        <div class="row align-items-end">
+                                            <div class="col-lg-6">
+                                                <!-- Section Tittle -->
+                                                <div class="section-tittle section-tittle3">
+                                                    <div class="front-text">
+                                                        <h2 class="">Project Information</h2>
+                                                    </div>
+                                                    <span class="back-text">Project Information</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="properties__button">
+                                                    <!--Nav Button  -->
+                                                    <nav>
+                                                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="false">About the Project </a>
+                                                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Documentation</a>
+
+                                                        </div>
+                                                    </nav>
+                                                    <!--End Nav Button  -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <!-- Nav Card -->
+                                            <div class="tab-content active" id="nav-tabContent">
+                                                <!-- card ONE -->
+                                                <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                                    <div class="project-caption">
+                                                        <div class="row">
+                                                            <div class="col-lg-4 col-md-6">
+                                                                <div class="single-project mb-30">
+                                                                    <div class="project-img">
+                                                                        <img src="assets/img/gallery/project2.jpg" alt=""/>
+                                                                    </div>
+                                                                    <div class="project-cap">
+                                                                        <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-7 col-md-7">
+                                                                <%-- <div class="single-project mb-30">--%>
+                                                                <%--  <div class="project-img">
+                                                                                        <div class="col-md-9 mt-sm-20">--%>
+                                                                <p>
+                                                                    The embedded systems engineering technology program requires 2 capstones. The first is a 
+                                                                                        3 term team project which is demonstrated here. The project requires the team to use at least one microcontroller, some form of wireless communication and two input and two output devices. As well full project planing and project management documentation is required. The video below was created during the last term while we were preparing our prototype for a yearly symposium held by the Oregon Institute of Technology to showcase inventions engineers arcoss several diciplines have created. The devices, implementation and proposals used can be found under the documentation section.
+                                                                </p>
+                                                                <p>
+                                                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/-VFFWnLzRLU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
+                                                                </p>
+                                                                <p></p>
+                                                                <p>Below is a short slideshow video about the making of the Fully Automated Smart Blinds.&nbsp;</p>
+                                                                <p>
+                                                                    <iframe></iframe>
+                                                                </p>
+
+                                                            </div>
+                                                            <%--</div>--%>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Card TWO -->
+                                                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                                    <div class="project-caption">
+                                                        <div class="row">
+                                                            <div class="col-lg-4 col-md-6">
+                                                                <div class="single-project mb-30">
+                                                                    <div class="project-img">
+                                                                        <img src="assets/img/gallery/project5.png" alt=""/>
+                                                                    </div>
+                                                                    <div class="project-cap">
+                                                                        <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                                                        <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                                                        <h4><a href="project_details.html">Factory</a></h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-6">
+                                                                <div class="single-project mb-30">
+                                                                    <div class="project-img">
+                                                                        <img src="assets/img/gallery/project6.png" alt=""/>
+                                                                    </div>
+                                                                    <div class="project-cap">
+                                                                        <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                                                        <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                                                        <h4><a href="project_details.html">Factory</a></h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-6">
+                                                                <div class="single-project mb-30">
+                                                                    <div class="project-img">
+                                                                        <img src="assets/img/gallery/project1.png" alt=""/>
+                                                                    </div>
+                                                                    <div class="project-cap">
+                                                                        <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                                                        <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                                                        <h4><a href="project_details.html">Factory</a></h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Nav Card -->
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+
+                        <!-- Project Information End -->
+
+
                         <!-- Demo Controls -->
                         <div class="row">
                             <div class="col-lg-12">
@@ -185,7 +313,8 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xl-4 col-lg-4 col-md-6">
+                            <iframe src="DemoControls.aspx" height="500" width="400" style="border: hidden"></iframe>
+                            <%--                          <div class="col-xl-4 col-lg-4 col-md-6">
                                 <div class="single-service-cap mb-30">
                                     <div class="service-img">
                                        <h2>Gas Sensor</h2>
@@ -203,11 +332,13 @@
                                         <a href="services_details.html" class="more-btn">Read More <i class="ti-plus"></i></a>
                                     </div>
                                     <div class="service-icon">
-                                        <img src="assets/img/icon/services_icon1.png" alt="">
+                                        <img src="assets/img/icon/services_icon1.png" alt=""/>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-6">
+                            </div>--%>
+
+                            <%-- LED CONTROL--%>
+                            <%--  <div class="col-xl-4 col-lg-4 col-md-6">
                                 <div class="single-service-cap mb-30">
                                     <div class="service-img">
                                         
@@ -226,18 +357,20 @@
                                         </p>
                                     </div>
                                     <div class="service-cap">
-                                        <h4><a href="services_details.html">Sensor & implementation</a></h4>
-                                        <a href="services_details.html" class="more-btn">Read More <i class="ti-plus"></i></a>
+                                        <h4><a href="module_details.aspx">Sensor & implementation</a></h4>
+                                        <a href="module_details.aspx" class="more-btn">Read More <i class="ti-plus"></i></a>
                                     </div>
                                     <div class="service-icon">
-                                        <img src="assets/img/icon/services_icon1.png" alt="">
+                                        <img src="assets/img/icon/services_icon1.png" alt=""/>
                                     </div>
                                 </div>
-                            </div>
-                             <div class="col-xl-4 col-lg-4 col-md-6">
+                            </div>--%>
+
+
+                            <%-- <div class="col-xl-4 col-lg-4 col-md-6">
                                 <div class="single-service-cap mb-30">
                                     <div class="service-img">
-                                        <%--  <img src="assets/img/service/servicess2.png" alt="">--%>
+                                       
                                         <h2>LED Output</h2>
                                         <p>
                                             Current Distance: <asp:Label ID="Label2" runat="server" Style="font-size: x-large; color: #FF5F13"></asp:Label>
@@ -257,11 +390,13 @@
                                         <img src="assets/img/icon/services_icon1.png" alt="">
                                     </div>
                                 </div>
-                            </div>
-                               <div class="col-xl-4 col-lg-4 col-md-6">
+                            </div>--%>
+
+
+                            <div class="col-xl-4 col-lg-4 col-md-6">
                                 <div class="single-service-cap mb-30">
                                     <div class="service-img">
-                                        <%--  <img src="assets/img/service/servicess2.png" alt="">--%>
+
                                         <h2>Temperature Sensor</h2>
                                         <p>
                                             Current Temperature:
@@ -275,11 +410,11 @@
                                         </p>
                                     </div>
                                     <div class="service-cap">
-                                        <h4><a href="services_details.html">Sensor & implementation</a></h4>
-                                        <a href="services_details.html" class="more-btn">Read More <i class="ti-plus"></i></a>
+                                        <h4><a href="module_details.aspx">Sensor & implementation</a></h4>
+                                        <a href="module_details.aspx" class="more-btn">Read More <i class="ti-plus"></i></a>
                                     </div>
                                     <div class="service-icon">
-                                        <img src="assets/img/icon/services_icon1.png" alt="">
+                                        <img src="assets/img/icon/services_icon1.png" alt="" />
                                     </div>
                                 </div>
                             </div>
@@ -310,31 +445,31 @@
                                         </p>
                                         <div class="service-cap">
                                             <br />
-                                        <h4><a href="services_details.html">Motor & implementation</a></h4>
-                                        <a href="services_details.html" class="more-btn">Read More <i class="ti-plus"></i></a>
-                                    </div>
+                                            <h4><a href="module_details.aspx">Motor & implementation</a></h4>
+                                            <a href="module_details.aspx" class="more-btn">Read More <i class="ti-plus"></i></a>
+                                        </div>
                                         <div class="service-icon">
-                                            <img src="assets/img/icon/services_icon1.png" alt="">
+                                            <img src="assets/img/icon/services_icon1.png" alt=""/>
                                         </div>
                                     </div>
-                                    </div>
                                 </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-6">
-                                        <div class="single-service-cap mb-30">
-                                            <div class="service-img">
-                                                <h2>Blinds Vertical</h2>
-                                                <p>
-                                                    Current Vertical Location:
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-6">
+                                <div class="single-service-cap mb-30">
+                                    <div class="service-img">
+                                        <h2>Blinds Vertical</h2>
+                                        <p>
+                                            Current Vertical Location:
                                                             <asp:Label ID="lblBlindsVertical" runat="server" Style="font-size: x-large; color: #FF5F13"></asp:Label>
-                                                </p>
-                                                <p>
-                                                    <asp:Button CssClass="btn btn-default" ID="Button3" Text="Adjust Blinds Vertical &raquo;" runat="server" OnClick="btnAdjustBlindVertical_Click" />
-                                                    &nbsp;&nbsp;&nbsp; Enter numeric value from 0(closed) to 100(open)&nbsp;&nbsp;&nbsp;
+                                        </p>
+                                        <p>
+                                            <asp:Button CssClass="btn btn-default" ID="Button3" Text="Adjust Blinds Vertical &raquo;" runat="server" OnClick="btnAdjustBlindVertical_Click" />
+                                            &nbsp;&nbsp;&nbsp; Enter numeric value from 0(closed) to 100(open)&nbsp;&nbsp;&nbsp;
                                                             <asp:TextBox runat="server" ID="txtBlindsVertical" Enabled="false"></asp:TextBox>
-                                                    &nbsp;&nbsp;&nbsp; 
-                                                </p>
-                                                <p>
-                                                    Select Preconfigured setting &nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp; 
+                                        </p>
+                                        <p>
+                                            Select Preconfigured setting &nbsp;&nbsp;&nbsp;
                                                             <asp:DropDownList ID="ddlBlindsPreConV" runat="server">
                                                                 <asp:ListItem Value="1024">Full Up</asp:ListItem>
                                                                 <asp:ListItem Value="768">1/4th Down</asp:ListItem>
@@ -342,181 +477,30 @@
                                                                 <asp:ListItem Value="256">3/4th Down</asp:ListItem>
                                                                 <asp:ListItem Value="0">Full Down</asp:ListItem>
                                                             </asp:DropDownList>
-                                                </p>
-                                         <div class="service-cap">  
-                                            <br/>
-                                        <h4><a href="services_details.html">Motor & implementation</a></h4>
-                                        <a href="services_details.html" class="more-btn">Read More <i class="ti-plus"></i></a>
-                                    </div>
+                                        </p>
+                                        <div class="service-cap">
+                                            <br />
+                                            <h4><a href="module_details.aspx">Motor & implementation</a></h4>
+                                            <a href="module_details.aspx" class="more-btn">Read More <i class="ti-plus"></i></a>
+                                        </div>
                                         <div class="service-icon">
-                                            <img src="assets/img/icon/services_icon1.png" alt="">
-                                            </div>
+                                            <img src="assets/img/icon/services_icon1.png" alt="" />
                                         </div>
                                     </div>
-                                
-                           </div>
-                   
-                
-                <!-- Services Area End -->
-                
-                <div class="row">
-                    <div class="services-area1 section-padding30">
-
-                                <section class="project-area  section-padding5">
-                    
-                        <div class="project-heading mb-55">
-                            <div class="row align-items-end">
-                                <div class="col-lg-6">
-                                    <!-- Section Tittle -->
-                                    <div class="section-tittle section-tittle3">
-                                        <div class="front-text">
-                                            <h2 class="">Project Information</h2>
-                                        </div>
-                                        <span class="back-text">Project Information</span>
-                                    </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="properties__button">
-                                        <!--Nav Button  -->
-                                        <nav>
-                                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="false">About the Project </a>
-                                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Documentation</a>
 
-                                            </div>
-                                        </nav>
-                                        <!--End Nav Button  -->
-                                    </div>
-                                </div>
                             </div>
+
                         </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <!-- Nav Card -->
-                                <div class="tab-content active" id="nav-tabContent">
-                                    <!-- card ONE -->
-                                    <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                                        <div class="project-caption">
-                                            <div class="row">
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="single-project mb-30">
-                                                        <div class="project-img">
-                                                            <img src="assets/img/gallery/project2.jpg" alt="">
-                                                        </div>
-                                                        <div class="project-cap">
-                                                            <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                        <!-- Demo Controls Area End -->
 
 
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-7 col-md-7">
-                                                   <%-- <div class="single-project mb-30">--%>
-                                                        <%--  <div class="project-img">
-                                                            <div class="col-md-9 mt-sm-20">--%>
-                                                        <p>
-                                                            The embedded systems engineering technology program requires 2 capstones. The first is a team project which is demonstrated here. The project requires the team to use at least one microcontroller, some form of wireless communication and two input and two output devices. The devices used can be found under the documentation section.
-                                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/09f2p1XykCY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                        </p>
-                                                    </div>
-                                                <%--</div>--%>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Card TWO -->
-                                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                                        <div class="project-caption">
-                                            <div class="row">
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="single-project mb-30">
-                                                        <div class="project-img">
-                                                            <img src="assets/img/gallery/project5.png" alt="">
-                                                        </div>
-                                                        <div class="project-cap">
-                                                            <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
-                                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
-                                                            <h4><a href="project_details.html">Factory</a></h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="single-project mb-30">
-                                                        <div class="project-img">
-                                                            <img src="assets/img/gallery/project6.png" alt="">
-                                                        </div>
-                                                        <div class="project-cap">
-                                                            <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
-                                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
-                                                            <h4><a href="project_details.html">Factory</a></h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="single-project mb-30">
-                                                        <div class="project-img">
-                                                            <img src="assets/img/gallery/project1.png" alt="">
-                                                        </div>
-                                                        <div class="project-cap">
-                                                            <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
-                                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
-                                                            <h4><a href="project_details.html">Factory</a></h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="single-project mb-30">
-                                                        <div class="project-img">
-                                                            <img src="assets/img/gallery/project2.png" alt="">
-                                                        </div>
-                                                        <div class="project-cap">
-                                                            <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
-                                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
-                                                            <h4><a href="project_details.html">Factory</a></h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="single-project mb-30">
-                                                        <div class="project-img">
-                                                            <img src="assets/img/gallery/project3.png" alt="">
-                                                        </div>
-                                                        <div class="project-cap">
-                                                            <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
-                                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
-                                                            <h4><a href="project_details.html">Factory</a></h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="single-project mb-30">
-                                                        <div class="project-img">
-                                                            <img src="assets/img/gallery/project4.png" alt="">
-                                                        </div>
-                                                        <div class="project-cap">
-                                                            <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
-                                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
-                                                            <h4><a href="project_details.html">Factory</a></h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                   
-                                
-                                </div>
-                                <!-- End Nav Card -->
-                            </div>
-                        </div>
- </section>
+
                     </div>
-                        </div>
-               </div>
                 </div>
             </main>
             <footer>
                 <!-- Footer Start-->
-
                 <div class="footer-main">
                     <div class="footer-area footer-padding">
                         <div class="container">
@@ -525,12 +509,12 @@
                                     <div class="single-footer-caption mb-30">
                                         <!-- logo -->
                                         <div class="footer-logo">
-                                            <a href="index.html">
-                                                <img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                                            <a href="Default.aspx">
+                                                <img src="assets/img/logo/Automated_Smart_Blinds_Logo_Header_Test_White.png" alt="" /></a>
                                         </div>
                                         <div class="footer-tittle">
                                             <div class="footer-pera">
-                                                <p class="info1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore.</p>
+                                                <p class="info1">Smartblinds Prototyped for Oregon Institute of Technology Junior Project</p>
                                             </div>
                                         </div>
                                     </div>
@@ -541,25 +525,48 @@
                                             <h4>Quick Links</h4>
                                             <ul>
                                                 <li><a href="#">About</a></li>
-                                                <li><a href="#">Services</a></li>
-                                                <li><a href="#">Projects</a></li>
-                                                <li><a href="#">Contact Us</a></li>
+                                                <li><a href="Logs.aspx">Logs</a></li>
+                                                <li><a href="Contact.aspx">Contact</a></li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-4 col-sm-7">
                                     <div class="single-footer-caption mb-50">
-                                        <div class="footer-tittle">
-                                            <h4>Contact</h4>
-                                            <div class="footer-pera">
-                                                <p class="info1">198 West 21th Street, Suite 721 New York,NY 10010</p>
-                                            </div>
-                                            <ul>
-                                                <li><a href="#">Phone: +95 (0) 123 456 789</a></li>
-                                                <li><a href="#">Cell: +95 (0) 123 456 789</a></li>
-                                            </ul>
-                                        </div>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <div class="footer-tittle">
+                                                        <h4>Contact Oregon Tech Portland-Metro Campus</h4>
+                                                        <div class="footer-pera">
+                                                            <p class="info1">
+                                                                27500 SW Parkway Ave.
+Wilsonville, OR 97070
+                                                            </p>
+                                                        </div>
+                                                        <ul>
+                                                            <li><a href="#">Phone: 503.821.1250</a></li>
+
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                                <td>
+
+                                                    <div class="footer-tittle">
+                                                        <h4>Contact Oregon Tech Portland-Metro Campus</h4>
+                                                        <div class="footer-pera">
+                                                            <p class="info1">
+                                                                27500 SW Parkway Ave.
+Wilsonville, OR 97070
+                                                            </p>
+                                                        </div>
+                                                        <ul>
+                                                            <li><a href="#">Phone: 503.821.1250</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-6 col-sm-8">
@@ -567,11 +574,12 @@
                                         <!-- Form -->
                                         <div class="footer-form">
                                             <div id="mc_embed_signup">
-                                                <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative mail_part" novalidate="true">
-                                                    <input type="email" name="EMAIL" id="newsletter-form-email" placeholder=" Email Address " class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = ' Email Address '" />
+                                                <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative mail_part" novalidate="true" />
+                                                    <input type="email" name="EMAIL" id="newsletter-form-email" placeholder=" Email Address " class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = ' Email Address '"/>
                                                     <div class="form-icon">
                                                         <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm">
                                                             SIGN UP
+                                               
                                                         </button>
                                                     </div>
                                                     <div class="mt-10 info"></div>
@@ -580,7 +588,7 @@
                                         </div>
                                         <!-- Map -->
                                         <div class="map-footer">
-                                            <img src="assets/img/gallery/map-footer.png" alt="">
+                                            <img src="assets/img/gallery/map-footer.png" alt=""/>
                                         </div>
                                     </div>
                                 </div>
@@ -644,13 +652,6 @@
             <!-- Jquery Plugins, main Jquery -->
             <script src="./assets/js/plugins.js"></script>
             <script src="./assets/js/main.js"></script>
-
-
-
-
-
-
-
 
         </div>
     </form>

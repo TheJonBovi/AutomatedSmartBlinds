@@ -2175,7 +2175,7 @@ hr {
 
 @media (max-width: 575px) {
     .footer-padding {
-        padding-top: 50px;
+        padding-top: .bpx;
         padding-bottom: 0px
     }
 }
@@ -3564,7 +3564,7 @@ hr {
 
 .single-team .team-caption span {
     color: #ff5f13;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 500;
     font-family: "Teko",sans-serif;
     display: block;

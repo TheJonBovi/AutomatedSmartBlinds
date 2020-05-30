@@ -81,22 +81,22 @@ namespace ASBWeb
 
             //check Gas every 1 minute if good code returned 
 
-            string g = client.GetGasStatus().ToString();
-            if (g=="1")
-            {
- //if bad returned 
-            GasStatusImg.ImageUrl = "assets/img/demoControls/Un-Safe.png";
-            }
-            else
-            {
-            GasStatusImg.ImageUrl = "assets/img/demoControls/green_safe.png";
-            }
-            //size image
-            GasStatusImg.Height = 30;
-            GasStatusImg.Width = 30;
+            //string g = client.GetGasStatus().ToString();
+            //if (g == "1")
+            //{
+            //    //if bad returned 
+            //    GasStatusImg.ImageUrl = "assets/img/demoControls/Un-Safe.png";
+            //}
+            //else
+            //{
+            //    GasStatusImg.ImageUrl = "assets/img/demoControls/green_safe.png";
+            //}
+            ////size image
+            //GasStatusImg.Height = 30;
+            //GasStatusImg.Width = 30;
 
             //lblBlindHorizontal.Text = client.GetBlindSettingsOBJ().SbHorizontal.ToString();
-            
+
             //vertical
             //lblBlindsVertical.Text = client.GetBlindSettingsOBJ().SbVertical.ToString();
         }
@@ -125,9 +125,9 @@ namespace ASBWeb
 
         protected void btnLogTemp_Click(object sender, EventArgs e)
         {
-            string temp = txtTemplog.Text.ToString();
+            //string temp = txtTemplog.Text.ToString();
             sbWebService.SmartBlindsWebServiceSoapClient client = new sbWebService.SmartBlindsWebServiceSoapClient("SmartBlindsWebServiceSoap");
-            client.LogEntry(0, temp);
+           // client.LogEntry(0, temp);
         }
 
         private void UploadFile(string filename)
@@ -183,7 +183,7 @@ namespace ASBWeb
 
         protected void btnSetTemp_Click(object sender, EventArgs e)
         {
-            string temp = txtTempSet.Text.ToString();
+           // string temp = txtTempSet.Text.ToString();
             sbWebService.SmartBlindsWebServiceSoapClient client = new sbWebService.SmartBlindsWebServiceSoapClient("SmartBlindsWebServiceSoap");
 
         }

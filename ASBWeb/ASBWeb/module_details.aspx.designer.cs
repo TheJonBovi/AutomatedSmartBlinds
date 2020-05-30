@@ -11,7 +11,7 @@ namespace ASBWeb
 {
 
 
-    public partial class About
+    public partial class services_details
     {
     }
 }

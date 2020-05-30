@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace ASBWeb
 {
-    public partial class OITContact : System.Web.UI.Page
+    public partial class services_details : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

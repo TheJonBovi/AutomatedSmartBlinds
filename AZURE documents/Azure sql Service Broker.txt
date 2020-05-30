@@ -1,0 +1,9 @@
+Creating a role assignment under the scope of "/subscriptions/e31825ae-cbde-4e3b-972d-c02e52163e01"
+  Retrying role assignment creation: 1/36
+{
+  "appId": "8ed92bc6-cb0b-4977-a4f4-76f05ca40624",
+  "displayName": "azure-cli-2020-05-16-20-15-48",
+  "name": "http://azure-cli-2020-05-16-20-15-48",
+  "password": "ae66dce9-fc56-4499-aefa-6ac0c0170256",
+  "tenant": "f4db50f2-35d1-4e06-94e2-167755273558"
+}

@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Resources;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -6,11 +7,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ASBWeb")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Automated Smart Blinds Website")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("JELD-WEN Inc")]
+[assembly: AssemblyCompany("Oregon Institute of Technology")]
 [assembly: AssemblyProduct("ASBWeb")]
-[assembly: AssemblyCopyright("Copyright © JELD-WEN Inc 2020")]
+[assembly: AssemblyCopyright("Copyright © Michael Roberts 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,3 +34,4 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: NeutralResourcesLanguage("en")]

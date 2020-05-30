@@ -1,36 +1,32 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="ASBWeb.About" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="module_details.aspx.cs" Inherits="ASBWeb.services_details" %>
 
 <!DOCTYPE html>
+    <html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+   <head runat="server">
+        <meta charset="utf-8"/>
+        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+        <title>Demo Device Details</title>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="manifest" href="site.webmanifest"/>
+		<link rel="shortcut icon" type="image/x-icon" href="assets/img/Automated_Smart_Blinds_Logo_Main_blinds.ico"/>
 
-<html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en">
-<head runat="server">
-    <title>Logs</title>
-    <meta name="description" content=""/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta http-equiv="refresh" content="5" />
-    <link rel="manifest" href="site.webmanifest"/>
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/Automated_Smart_Blinds_Logo_Main_blinds.ico"/>
-
-    <!-- CSS here -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css"/>
-    <link rel="stylesheet" href="assets/css/gijgo.css"/>
-    <link rel="stylesheet" href="assets/css/slicknav.css"/>
-    <link rel="stylesheet" href="assets/css/animate.min.css"/>
-    <link rel="stylesheet" href="assets/css/magnific-popup.css"/>
-    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css"/>
-    <link rel="stylesheet" href="assets/css/themify-icons.css"/>
-    <link rel="stylesheet" href="assets/css/slick.css"/>
-    <link rel="stylesheet" href="assets/css/nice-select.css"/>
-    <link rel="stylesheet" href="assets/css/style.css"/>
-    <link rel="stylesheet" href="assets/css/responsive.css"/>
-
-    <script id="mcjs">!function (c, h, i, m, p) { m = c.createElement(h), p = c.getElementsByTagName(h)[0], m.async = 1, m.src = i, p.parentNode.insertBefore(m, p) }(document, "script", "https://chimpstatic.com/mcjs-connected/js/users/e7848d8af1f934dfb98506a01/f18103c02c988761edec6b1e0.js");</script>
-</head>
+		<!-- CSS here -->
+            <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+            <link rel="stylesheet" href="assets/css/owl.carousel.min.css"/>
+            <link rel="stylesheet" href="assets/css/gijgo.css"/>
+            <link rel="stylesheet" href="assets/css/slicknav.css"/>
+            <link rel="stylesheet" href="assets/css/animate.min.css"/>
+            <link rel="stylesheet" href="assets/css/magnific-popup.css"/>
+            <link rel="stylesheet" href="assets/css/fontawesome-all.min.css"/>
+            <link rel="stylesheet" href="assets/css/themify-icons.css"/>
+            <link rel="stylesheet" href="assets/css/slick.css"/>
+            <link rel="stylesheet" href="assets/css/nice-select.css"/>
+            <link rel="stylesheet" href="assets/css/style.css"/>
+            <link rel="stylesheet" href="assets/css/responsive.css"/>
+   </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-            <!-- Preloader Start -->
+    <!-- Preloader Start -->
             <div id="preloader-active">
                 <div class="preloader d-flex align-items-center justify-content-center">
                     <div class="preloader-inner position-relative">
@@ -42,7 +38,7 @@
                 </div>
             </div>
             <!-- Preloader Start -->
-            <header>
+   <header>
                 <!-- Header Start -->
                 <div class="header-area header-transparent">
                     <div class="main-header ">
@@ -116,76 +112,85 @@
                 </div>
                 <!-- Header End -->
             </header>
-            <main>
-                <!-- slider Area Start-->
-                <div class="slider-area ">
-                    <%--<div class="single-slider hero-overly slider-height2 d-flex align-items-center" data-background="assets/img/hero/about.jpg">--%>
-                    <div class="single-slider hero-overly slider-height2 d-flex align-items-center" data-background="assets/img/gallery/front-down.jpg">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-xl-12">
-                                    <div class="hero-cap pt-100">
-                                        <h2>Blinds Logs</h2>
-                                        <nav aria-label="breadcrumb ">
-                                            <ol class="breadcrumb">
-                                                <li class="breadcrumb-item"><a href="Default.aspx">Home</a></li>
-                                                <li class="breadcrumb-item"><a href="#">Logs</a></li>
-                                            </ol>
-                                        </nav>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- slider Area End-->
-                <!-- slider Area End-->
-                <!-- Services Area Start -->
-               <div class="services-area1 section-padding30">
-               <div class="container">
-                <!-- section tittle -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-tittle mb-55">
-                            <div class="front-text">
-                                <h2 class="">Blinds Logs</h2>
-                            </div>
-                            <span class="back-text">Blinds Logs</span>
-                        </div>
-                    </div>
-                </div>
- </div>
-                         
-					
-                            
-                         
-					
-                            <asp:GridView runat="server" ID="gvLogs" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="sysID" DataSourceID="sDSAutoSmartBlinds" AllowPaging="True" PageSize="50" CssClass="progress-table" ForeColor="Black" >
-                                <AlternatingRowStyle BackColor="#ffe9de" />
-                                <Columns>
-                                    <asp:BoundField DataField="sysID" HeaderText="sysID" InsertVisible="False" ReadOnly="True" SortExpression="sysID" />
-                                    <asp:BoundField DataField="userSysID" HeaderText="userSysID" SortExpression="userSysID" />
-                                    <asp:BoundField DataField="logTime" HeaderText="logTime" SortExpression="logTime" />
-                                    <asp:BoundField DataField="tempLog" HeaderText="Current Temp" SortExpression="tempLog" />
-                                    <asp:BoundField DataField="tempAlarm" HeaderText="Temp Alert Status" SortExpression="tempAlarm" />
-                                    <asp:BoundField DataField="proxLog" HeaderText="Prox Alert Status" SortExpression="proxLog" />
-                                    <asp:BoundField DataField="ledLog" HeaderText="ledLog" SortExpression="ledLog" />
-                                    <asp:BoundField DataField="pizoLog" HeaderText="pizoLog" SortExpression="pizoLog" />
-                                    <asp:BoundField DataField="gasLog" HeaderText="Gas Alert Status" SortExpression="gasLog" />
-                                    <asp:BoundField DataField="cameraLog" HeaderText="cameraLog" SortExpression="cameraLog" />
-                                    <asp:BoundField DataField="sbHorzLog" HeaderText="Current Vert Position" SortExpression="sbHorzLog" /> <%--current vert name change from horz log. need to change log in the future.--%>
-                                    <asp:BoundField DataField="sbVertLog" HeaderText="Current Horz Position" SortExpression="sbVertLog" /> <%--current horz name change from vert log. need to change log in the future.--%>
-                                </Columns>
-                            </asp:GridView>
-                       </div>
-                       
+     <main>
 
-       <asp:SqlDataSource ID="sDSAutoSmartBlinds" runat="server" ConnectionString="<%$ ConnectionStrings:csWebDB %>" SelectCommand="SELECT * FROM [sbLogs] ORDER BY [logTime] DESC"></asp:SqlDataSource>
-        <!-- Services Area End -->
-            
-            
+          <div class="slider-area ">
+            <div class="single-slider hero-overly slider-height2 d-flex align-items-center" data-background="assets/img/hero/about.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 col-xl-8">
+                            <div class="hero-cap hero-cap2 pt-120">
+                                <h2>Devices - Implementation</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- slider Area End-->
+        <!-- Services Details Start -->
+        <div class="services-details-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="single-services section-padding2">
+                            <div class="details-img mb-40">
+                                <img src="assets/img/gallery/services_details.png" alt="">
+                            </div>
+                            <div class="details-caption">
+                                <h3><a href="https://www.microchip.com/wwwproducts/en/pic32mz2048efg144">Microchip PIC32MZ2048EFG144</a></h3>
+                                
+                                <p>The heart of our system is the PIC32MZ2048EFG144 microcontroller on an Olimex HMZ144 evaluation board. This component was selected due to its robust feature set including the necessary ADC, UART, I2C, SPI and digital I/O pins for our sensors and communication modules.</p>
+                              
+                                <h3>MQ-135 Gas Sensor</h3>
+                                <p class="mb-50">
+                                    <span>Smoke and volatile chemical detection is done with a MQ-135 air quality control sensor. Similar to the Proximity sensor, this module provides a spike in analog voltage when harmful gases are detected. The PIC32MZ uses an ADC module to read this value and determine when to trigger the alarm state.</span></p>
+
+                                <h3>TMP35 Temperature Sensor</h3>
+                                <p>Temperature is sensed with a TMP35 low voltage temperature sensor. This analog reading is used to determine when the SmartBlinds should automatically shutter to keep the building cool. The PIC32MZ uses an ADC sensor to read this value and compare it to the expected temperature cutoff provided by the user.</p>
+                                
+                                <h3>Mxuteuk HF-4216 Pizo Buzzer</h3>
+                                <p>The alarm state of the SmartBlinds indicates dangerous gas levels by employing a Mxuteuk HF-4216 electronic buzzer. This alarm provides a continuous 85dB signal, which is loud enough to be heard through interior doors. </p>
+                                                                <h3>Web Services</h3>
+                                <p></p>
+
+                                <h3>Web site (GUI)</h3> 
+                                <p></p>
+
+                                <h3>Power Supply</h3>
+                                <p>Powering the SmartBlinds is a RS-15 switching 5V power supply. This will connect to 120VAC and provides up to 3A of current, more than enough for all modules.
+</p>
+
+                                <h3>Camera</h3>
+                                <p>Imaging on the SmartBlinds is done using an OV2640 imaging sensor. This module has an onboard Lattice LCMX02 for capturing image data from the OV2640 via an SCCP interface. The PIC32MZ gets image data from the sensor via an SPI interface, while providing commands to the sensor via I2C.</p>
+
+
+                                <h3>Proximity Sensor</h3>
+                                <p>Proximity detection is provided by a Sharp GP2Y0A710K0F IR proximity sensor. This device provides an analog voltage output relative to the distance of objects in front of it. The PIC32MZ uses an ADC module to read this value and convert it to a digital reading.</p>
+
+
+                                <h3>WiFi Module</h3>
+                                <p>The Smartblinds use a WINC1500 WiFi module to handle wireless communications. Once connected to the internet or local network, the module uses http request and SAOP envelopes to send and receive information to a number of Web Services. . </p>
+
+                                <h3>Web Server</h3>
+                                <p></p>
+                                <h3>Database </h3>
+                                <p></p>
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Services Details End -->
+
     </main>
-   <footer>
+         <footer>
                 <!-- Footer Start-->
                 <div class="footer-main">
                     <div class="footer-area footer-padding">
@@ -210,7 +215,7 @@
                                         <div class="footer-tittle">
                                             <h4>Quick Links</h4>
                                             <ul>
-                                                <li><a href="#">About</a></li>
+                                                <li><a href="About.aspx">About</a></li>
                                                 <li><a href="Logs.aspx">Logs</a></li>
                                                 <li><a href="Contact.aspx">Contact</a></li>
                                                 
@@ -318,8 +323,6 @@ Wilsonville, OR 97070
     <!-- Jquery Plugins, main Jquery -->
     <script src="./assets/js/plugins.js"></script>
     <script src="./assets/js/main.js"></script>
-    </div>
-        </form>
-
+   
 </body>
 </html>

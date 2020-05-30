@@ -11,7 +11,7 @@ namespace ASBWeb
 {
 
 
-    public partial class About
+    public partial class DemoControls
     {
 
         /// <summary>
@@ -22,5 +22,23 @@ namespace ASBWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
+        /// txtGasSensorStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtGasSensorStatus;
+
+        /// <summary>
+        /// GasStatusImg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image GasStatusImg;
     }
 }

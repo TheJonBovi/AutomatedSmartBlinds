@@ -72,7 +72,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="about.html" />
     <Content Include="assets\css\animate.min.css" />
     <Content Include="assets\css\bootstrap.min.css" />
     <Content Include="assets\css\fontawesome-all.min.css" />
@@ -182,10 +181,12 @@
     <Content Include="assets\img\icon\form_icon.png" />
     <Content Include="assets\img\icon\services_icon1.png" />
     <Content Include="assets\img\logo\Automated_Smart_Blinds_Logo_Header_blinds2.png" />
+    <Content Include="assets\img\logo\Automated_Smart_Blinds_Logo_Header_blinds2_small.png" />
     <Content Include="assets\img\logo\Automated_Smart_Blinds_Logo_Header_Test_Black.png" />
     <Content Include="assets\img\logo\Automated_Smart_Blinds_Logo_Header_Test_White.png" />
     <Content Include="assets\img\logo\Automated_Smart_Blinds_Logo_Main_blinds.ico" />
     <Content Include="assets\img\logo\Automated_Smart_Blinds_Logo_Main_blinds.png" />
+    <Content Include="assets\img\logo\Automated_Smart_Blinds_Logo_Main_blinds_small.png" />
     <Content Include="assets\img\logo\Blinds_Main.png" />
     <Content Include="assets\img\logo\form-iocn.jpg" />
     <Content Include="assets\img\logo\loder-logo.png" />
@@ -236,6 +237,10 @@
     <Content Include="assets\img\team\1.png" />
     <Content Include="assets\img\team\2.png" />
     <Content Include="assets\img\team\3.png" />
+    <Content Include="assets\img\team\chad.jpg" />
+    <Content Include="assets\img\team\Drew.jpg" />
+    <Content Include="assets\img\team\Drew_3.jpg" />
+    <Content Include="assets\img\team\Michael.png" />
     <Content Include="assets\img\team\team1.png" />
     <Content Include="assets\img\team\team2.png" />
     <Content Include="assets\img\team\team3.png" />
@@ -265,7 +270,6 @@
     <Content Include="assets\js\vendor\jquery-1.12.4.min.js" />
     <Content Include="assets\js\vendor\modernizr-3.5.0.min.js" />
     <Content Include="assets\js\wow.min.js" />
-    <Content Include="blog.html" />
     <Content Include="Connected Services\sbWebService\ASBWeb.sbWebService.BlindSettings.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -278,6 +282,7 @@
     <Content Include="Connected Services\sbWebService\ASBWeb.sbWebService.UploadFileResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="ASBWebKey.snk" />
     <None Include="Connected Services\sbWebService\SmartBlindsWebService.disco" />
     <None Include="Connected Services\sbWebService\configuration91.svcinfo" />
     <None Include="Connected Services\sbWebService\configuration.svcinfo" />
@@ -285,8 +290,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Contact.aspx" />
-    <Content Include="contact.html" />
     <Content Include="contact_process.php" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -295,67 +298,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Default.aspx" />
-    <Content Include="Docs\css\font-awesome.min.css" />
-    <Content Include="Docs\css\main.css" />
-    <Content Include="Docs\css\normalize.min.css" />
-    <Content Include="Docs\fonts\fontawesome-webfont.svg" />
-    <Content Include="Docs\img\logo.png" />
-    <Content Include="Docs\index.html" />
-    <Content Include="Docs\js\custom.js" />
-    <Content Include="Docs\js\jquery-1.11.0.min.js" />
-    <Content Include="Docs\js\jquery.nav.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shAutoloader.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushAppleScript.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushAS3.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushBash.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushColdFusion.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushCpp.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushCSharp.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushCss.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushDelphi.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushDiff.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushErlang.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushGroovy.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushJava.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushJavaFX.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushJScript.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushPerl.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushPhp.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushPlain.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushPowerShell.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushPython.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushRuby.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushSass.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushScala.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushSql.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushVb.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shBrushXml.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shCore.js" />
-    <Content Include="Docs\syntax-highlighter\scripts\shLegacy.js" />
-    <Content Include="Docs\syntax-highlighter\styles\shCore.css" />
-    <Content Include="Docs\syntax-highlighter\styles\shCoreDefault.css" />
-    <Content Include="Docs\syntax-highlighter\styles\shCoreDjango.css" />
-    <Content Include="Docs\syntax-highlighter\styles\shCoreEclipse.css" />
-    <Content Include="Docs\syntax-highlighter\styles\shCoreEmacs.css" />
-    <Content Include="Docs\syntax-highlighter\styles\shCoreFadeToGrey.css" />
-    <Content Include="Docs\syntax-highlighter\styles\shCoreMDUltra.css" />
-    <Content Include="Docs\syntax-highlighter\styles\shCoreMidnight.css" />
-    <Content Include="Docs\syntax-highlighter\styles\shCoreRDark.css" />
-    <Content Include="Docs\syntax-highlighter\styles\shThemeDefault.css" />
-    <Content Include="Docs\syntax-highlighter\styles\shThemeDjango.css" />
-    <Content Include="Docs\syntax-highlighter\styles\shThemeEclipse.css" />
-    <Content Include="Docs\syntax-highlighter\styles\shThemeEmacs.css" />
-    <Content Include="Docs\syntax-highlighter\styles\shThemeFadeToGrey.css" />
-    <Content Include="Docs\syntax-highlighter\styles\shThemeMDUltra.css" />
-    <Content Include="Docs\syntax-highlighter\styles\shThemeMidnight.css" />
-    <Content Include="Docs\syntax-highlighter\styles\shThemeRDark.css" />
-    <Content Include="elements.html" />
-    <Content Include="index.html" />
+    <Content Include="DemoControls.aspx" />
     <Content Include="Logs.aspx" />
-    <Content Include="main.html" />
-    <Content Include="project.html" />
-    <Content Include="project_details.html" />
-    <Content Include="readme.txt" />
+    <Content Include="Contact.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -458,10 +403,8 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="services.html" />
-    <Content Include="services_details.html" />
+    <Content Include="module_details.aspx" />
     <Content Include="Settings.aspx" />
-    <Content Include="single-blog.html" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -495,19 +438,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DemoControls.aspx.cs">
+      <DependentUpon>DemoControls.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DemoControls.aspx.designer.cs">
+      <DependentUpon>DemoControls.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logs.aspx.cs">
       <DependentUpon>Logs.aspx</DependentUpon>
@@ -516,7 +459,21 @@
     <Compile Include="Logs.aspx.designer.cs">
       <DependentUpon>Logs.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="module_details.aspx.cs">
+      <DependentUpon>module_details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="module_details.aspx.designer.cs">
+      <DependentUpon>module_details.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Settings.aspx.cs">
       <DependentUpon>Settings.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -533,11 +490,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Docs\fonts\fontawesome-webfont.eot" />
-    <Content Include="Docs\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Docs\fonts\fontawesome-webfont.woff" />
-    <Content Include="Docs\fonts\FontAwesome.otf" />
-    <Content Include="Docs\img\Thumbs.db" />
     <Content Include="assets\fonts\fa-brands-400.eot" />
     <Content Include="assets\fonts\fa-brands-400.ttf" />
     <Content Include="assets\fonts\fa-brands-400.woff" />
@@ -608,6 +560,15 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>assets\img\Automated_Smart_Blinds_Logo_Main_blinds.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>ASBWebKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />

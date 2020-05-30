@@ -134,6 +134,7 @@
 #define CALL_LOG_WAIT_STATE         4
 #define CALL_RCV_WAIT_STATE         5
 #define CALL_RCV_PROCESS_STATE      6
+#define CALL_REPORT_GAS_STATE       7
 
 #define callControlDelayMAX         4
 
