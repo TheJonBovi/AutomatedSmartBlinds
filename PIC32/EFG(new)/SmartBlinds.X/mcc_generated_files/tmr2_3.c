@@ -46,6 +46,9 @@ extern double current_temp_avg;
 // Gas Sensor Global Variables
 extern int gasAlarmState;
 
+// Camera Global Variables
+extern bool JPEG_ready;
+
 typedef struct _TMR_OBJ_STRUCT
 {
     /* Timer Elapsed */

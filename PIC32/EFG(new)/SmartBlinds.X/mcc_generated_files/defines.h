@@ -117,7 +117,7 @@
 #define maxProxy            20 // this number x 0.5 seconds for Proxy alarm 
 #define maxTMR3ISRdebounce  5000 // this x 1.5ms to determine how long to hold before checking samples for ADC
 
-#define JPEG_MAX_SIZE               100000          
+#define JPEG_MAX_SIZE               10000          
 
 // Defines for wifi message_type to determine which string to send
 #define WIFI_DO_NOTHING             0
@@ -141,8 +141,8 @@
 // toggles various functionality in project
 //#define CAMERA_ON
 //#define DREW_PHONE
-//#define DREW_HOUSE
-#define CHAD_HOUSE
+#define DREW_HOUSE
+//#define CHAD_HOUSE
 
 #endif /* _DEFINES_H */
 

@@ -42,6 +42,9 @@ limitations under the License.
 static void mainLoop500ms(void);
 void watchdog_Initialize(void);
 
+extern char JPEG_BUFFER[10000];
+extern int JPEG_BUFFER_SIZE;
+
 //==============================================================================
 // Main application entry point.
 //==============================================================================

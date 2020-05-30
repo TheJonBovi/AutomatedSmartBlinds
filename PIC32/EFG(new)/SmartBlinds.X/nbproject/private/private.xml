@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+
             <file>file:/C:/Users/MikeRob/Documents/GitHub/AutomatedSmartBlinds/PIC32/EFG(new)/SmartBlinds.X/mcc_generated_files/mcc.c</file>
             <file>file:/C:/Users/MikeRob/Documents/GitHub/AutomatedSmartBlinds/PIC32/EFG(new)/SmartBlinds.X/main.c</file>
             <file>file:/C:/Users/MikeRob/Documents/GitHub/AutomatedSmartBlinds/PIC32/EFG(new)/SmartBlinds.X/app/winc1500_weather_client.c</file>
@@ -11,6 +12,17 @@
             <file>file:/C:/Users/MikeRob/Documents/GitHub/AutomatedSmartBlinds/PIC32/EFG(new)/SmartBlinds.X/bsp/bsp.c</file>
             <file>file:/C:/Users/MikeRob/Documents/GitHub/AutomatedSmartBlinds/PIC32/EFG(new)/SmartBlinds.X/app/demo_config.h</file>
             <file>file:/C:/Users/MikeRob/Documents/GitHub/AutomatedSmartBlinds/PIC32/EFG(new)/SmartBlinds.X/app/demo_support/winc1500_support_stub.c</file>
+
+            <file>file:/C:/Users/Drew%20Deraita/Documents/GitHub/AutomatedSmartBlinds/PIC32/EFG(new)/SmartBlinds.X/mcc_generated_files/tmr1.c</file>
+            <file>file:/C:/Users/Drew%20Deraita/Documents/GitHub/AutomatedSmartBlinds/PIC32/EFG(new)/SmartBlinds.X/framework/driver/winc1500/src/wf_socket.c</file>
+            <file>file:/C:/Users/Drew%20Deraita/Documents/GitHub/AutomatedSmartBlinds/PIC32/EFG(new)/SmartBlinds.X/mcc_generated_files/mcc.c</file>
+            <file>file:/C:/Users/Drew%20Deraita/Documents/GitHub/AutomatedSmartBlinds/PIC32/EFG(new)/SmartBlinds.X/stubs/wf_mcu_driver_stub.c</file>
+            <file>file:/C:/Users/Drew%20Deraita/Documents/GitHub/AutomatedSmartBlinds/PIC32/EFG(new)/SmartBlinds.X/mcc_generated_files/defines.h</file>
+            <file>file:/C:/Users/Drew%20Deraita/Documents/GitHub/AutomatedSmartBlinds/PIC32/EFG(new)/SmartBlinds.X/mcc_generated_files/ov2640_regs.c</file>
+            <file>file:/C:/Users/Drew%20Deraita/Documents/GitHub/AutomatedSmartBlinds/PIC32/EFG(new)/SmartBlinds.X/main.c</file>
+            <file>file:/C:/Users/Drew%20Deraita/Documents/GitHub/AutomatedSmartBlinds/PIC32/EFG(new)/SmartBlinds.X/app/smartblinds_service.c</file>
+            <file>file:/C:/Users/Drew%20Deraita/Documents/GitHub/AutomatedSmartBlinds/PIC32/EFG(new)/SmartBlinds.X/mcc_generated_files/camera.c</file>
+
         </group>
     </open-files>
 </project-private>

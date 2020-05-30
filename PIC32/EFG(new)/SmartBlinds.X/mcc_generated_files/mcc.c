@@ -131,6 +131,7 @@ int callControlState = 0;
 // Image storage and flag Global Variables
 char JPEG_BUFFER[JPEG_MAX_SIZE] = {0};
 bool JPEG_ready = false;
+uint32_t JPEG_BUFFER_SIZE;
 
 static void PinMapInit(void);   // added to MCC-generated code
 
@@ -148,6 +149,8 @@ void SYSTEM_Initialize(void)
     TMR1_Initialize();
     
     UART2_Initialize();
+    
+    printf("========SYSTEM STARTUP=========\r\n");
     
     // wait for gas sensor to settle
     delay_ms(10000);
